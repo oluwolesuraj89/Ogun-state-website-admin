@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b220ee37.css",
+    "main.js": "/static/js/main.913307c2.js",
+    "static/js/453.f6f611f0.chunk.js": "/static/js/453.f6f611f0.chunk.js",
+    "static/media/image bg.png": "/static/media/image bg.33b7137d1a77fd01cf79.png",
+    "static/media/grouped.svg": "/static/media/grouped.4b6c17323ae75551261e.svg",
+    "static/media/background3.png": "/static/media/background3.3f093afe0d9cc6db37d9.png",
+    "static/media/RegistrationLogo.svg": "/static/media/RegistrationLogo.795b129a2a2aea6634975cc58d1d30f4.svg",
+    "static/media/logo white.png": "/static/media/logo white.fe24d5b9bd1711fe19f1.png",
+    "static/media/grouped2.svg": "/static/media/grouped2.290947cc698eb6942e39.svg",
+    "static/media/logo black.png": "/static/media/logo black.261bf7724743eeccf989.png",
+    "static/media/loan bg.svg": "/static/media/loan bg.8e224b0a4211f21f0ebbc67b60fc4e19.svg",
+    "static/media/grant bg.svg": "/static/media/grant bg.205b9d081a2a17f21f7a574f7bb72c69.svg",
+    "static/media/admin fee.svg": "/static/media/admin fee.fafac1dd18efe7268d78d793f1d5df38.svg",
+    "static/media/grant proceed.svg": "/static/media/grant proceed.0e5c4c6d88594051770a11529f039847.svg",
+    "static/media/loan continue.svg": "/static/media/loan continue.221ee5aa9b69132f90a391a5e9068e43.svg",
+    "static/media/monitor fee.svg": "/static/media/monitor fee.fb0e98b7c4c88d23cc828938062b3f60.svg",
+    "static/media/completed.svg": "/static/media/completed.ddda85eb29452b19b70926a3c3231290.svg",
+    "index.html": "/index.html",
+    "static/media/invoice.svg": "/static/media/invoice.cf16b1e8f96cf87688e54d1fa8bc031e.svg",
+    "static/media/logout.svg": "/static/media/logout.5a27b8e2194ae73285ddf936175e3f58.svg",
+    "static/media/message-text.svg": "/static/media/message-text.a82a86eaaf303d6a715b6749b5ca802c.svg",
+    "static/media/folder-2.svg": "/static/media/folder-2.f63f037762f21a031b27f1dd2542f398.svg",
+    "static/media/arrow-left.svg": "/static/media/arrow-left.7dfc91e7737f699b9e4d619167a48071.svg",
+    "main.b220ee37.css.map": "/static/css/main.b220ee37.css.map",
+    "main.913307c2.js.map": "/static/js/main.913307c2.js.map",
+    "453.f6f611f0.chunk.js.map": "/static/js/453.f6f611f0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b220ee37.css",
+    "static/js/main.913307c2.js"
+  ]
+}
