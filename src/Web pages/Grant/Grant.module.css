@@ -1,0 +1,311 @@
+*,
+::after,
+::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* colors */
+:root{
+    --Deep-green: #164B2E;
+    --Light-green: #2D995F; 
+    --Gray:#f2f3f3;
+    --White: #ffffff;
+    --Black: #343A40;
+}
+.regBody{
+    width: 100%;
+    /* height: 100vh; */
+    background-color: var(--Gray);
+}
+.logoCont{
+    width: 100%;
+    max-width: 228px;
+    height: 77px;
+    overflow: hidden;
+    margin-bottom: 48px;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.arrowLoan{
+  display: flex;
+  gap: 17px;
+  padding: 24px 32px;
+  
+}
+
+.loanBackground{
+  /* margin-top: -40px; */
+}
+
+.eligibilityCriteria{
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bulletList p{
+font-family: 'Inter' !important;
+font-weight: 400;
+font-size: 14px !important;
+color: #343A40 !important;
+margin: 0;
+  padding: 0;
+
+}
+
+.loanBg{
+  width: 90%;
+  height: 280px;
+margin-left: 45px;
+}
+
+.eligibilityText{
+  margin-top: 47px;
+  margin-left: 45px;
+}
+
+.userdetails {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #343A40 !important;
+}
+
+.lineBottom {
+  width: 187px;
+  border: 3px solid #2D995F; 
+  margin-top: -5px;
+}
+
+.applyLoanText{
+  font-weight: 500;
+  color: #343A40;
+  font-size: 20px;
+}
+
+.arrow{
+  width: 24px;
+  height: 24px;
+}
+
+.regContainer{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    /* gap: 30px; */
+}
+.sideNav{
+    background-color: var(--Deep-green);
+    padding: 37px 0 0 21px;
+    height: 1800px;
+    max-width: 339px;
+}
+.regMenu{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.regMenu a{
+    text-decoration: none;
+}
+/* .regMenu a:active{
+    background: linear-gradientrgba((#2D997F) 100%, (#2D997F) 31%);
+} */
+.regMenu p{
+    color: var(--White);
+    font-size: 18px;
+    font-weight: 400;
+    margin:0;
+    /* padding: 12px 20px; */
+}
+.regMenu .active{
+    background: linear-gradient9(#2D997F) (#2D997F)0;
+    /* color: yellow !important; */
+    /* background-color: white; */
+    /* padding: 30px; */
+}
+.formSection{
+    padding: 35px 30px;
+}
+.formSecCont h3{
+    /* padding: 35px 30px; */
+    /* background-color: gray; */
+}
+.formSection p{
+    font-size: 14px;
+}
+.formSection h1{
+    color: var(--Light-green);
+    font-size: 28px;
+    font-weight: 700;
+}
+.formSecCont{
+    padding: 24px 32px;
+    background-color: var(--White);
+    border-radius: 12px;
+   
+}
+.formSecCont h3{
+    color: #343A40;
+    font-size: 20px;
+    font-weight: 700;
+}
+.mainform{
+    width: 100%;
+    background-color: var(--White);
+    border-radius: 12px;
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  
+  .stId{
+  
+    font-size: 14px;
+    padding-bottom: 12px;
+    color: #6C757D;
+    
+    }
+
+    .signin{
+        margin-bottom: 20px !important;
+    }
+  
+  .rszeInput {
+    display: flex;
+    gap: 70px;
+    margin-left: 20px;
+    /* justify-content: space-between; */
+  }
+  
+  .formInput{
+    margin-top: 30px;
+    background-color: #fff !important;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .snInput {
+    border: 1px solid #ADB5BD;
+    border-radius: 4px;
+    height: 55px;
+      width: 400px;
+    margin-bottom: 5px;
+    /* padding-left: 10px; */
+    outline: none;
+    background-color: #f7f8fa !important;
+    padding: 10px;
+  }
+  .snInput2 {
+    border: 1px solid #ADB5BD;
+    border-radius: 4px;
+    height: 148px;
+      width: 400px;
+    margin-bottom: 5px;
+    /* padding-left: 10px; */
+    outline: none;
+    background-color: #f7f8fa !important;
+    padding: 10px;
+  }
+  .snInput23 {
+    border: 1px solid #ADB5BD;
+    border-radius: 4px;
+    height: 148px;
+      width: 400px;
+    margin-bottom: 5px;
+    /* padding-left: 10px; */
+    outline: none;
+    background-color: #f7f8fa !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .formInput1 {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fileContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer !important;
+  }
+  
+  .fileInputLabel {
+    position: relative;
+    display: inline-block;
+    cursor: pointer !important;
+  }
+  
+  .fileInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer !important;
+    
+  }
+  
+  .fileIcon {
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+    margin-right: 8px; /* Adjust as needed */
+    cursor: pointer !important;
+  }
+  
+  .placeholder {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+  padding-bottom: 12px;
+  color: #6C757D;
+  }
+  
+  
+  .nextKin{
+    margin-top: 50px;
+    color: #2D995F;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 20px;
+  }
+  
+  .applyLoan{
+    width: 300px;
+    height: 55px;
+    background-color: #2D995F;
+    color: white;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 66px;
+    margin-left: 45px;
+    margin-top: 57px;
+  }
+  
+  .continueReg{
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+  text-align: center;
+  
+  
+  }
+  
+  
+  

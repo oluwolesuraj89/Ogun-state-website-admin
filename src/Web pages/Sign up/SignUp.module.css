@@ -1,0 +1,101 @@
+body {
+    font-family: 'Inter', sans-serif;
+  }
+
+.signin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 30px;
+  }
+
+  .marketersImg{
+    width: 100%;
+    height: 100vh;
+    display: block;
+  }
+  .marketersImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .signin #sign-hero{
+    align-self: left;
+    text-align: left;
+    
+  }
+  .signin a{
+    text-decoration: none;
+    color: green;
+  }
+
+  .signContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+  }
+
+  .headerText{
+    font-size: 28px;
+    font-weight: bold;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+  }
+
+  .subText{
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    color: #000;
+  }
+
+  .buttonSignup{
+    height: 55px;
+    width: 400px;
+    border-radius: 4px;
+    background-color: #2D995F;
+    cursor: pointer;
+  }
+
+  .buttonSignup2{
+    height: 55px;
+    width: 400px;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #2D995F;
+    margin-top: 52px;
+    cursor: pointer;
+  }
+
+  .buttonContainer{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+   margin-top: 50px;
+  }
+
+  .button1{
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    padding: 15px 10px 15px 10px;
+  }
+
+  .button2{
+    font-size: 15px;
+    font-weight: 700;
+    color: #2D995F;
+    text-align: center;
+    padding: 15px 10px 15px 10px;
+    
+  }

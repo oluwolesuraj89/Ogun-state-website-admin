@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Define custom styles for the tabs */
+.complete-tabs .nav-link {
+  color: #fff; /* Inactive tab text color */
+  background-color: #ADB5BD; /* Inactive tab background color */
+  border-color: #dee2e6; /* Inactive tab border color */
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+.complete-tabs .nav-link:hover {
+  color: #000;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+.complete-tabs .nav-link.active {
+  color: #2d995f !important; /* Active tab text color */
+  background-color: #fff !important; /* Active tab background color */
+  border-bottom: 2px solid #2d995f !important; /* Active tab border color */
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
