@@ -78,16 +78,13 @@
     background: linear-gradient9(#2D997F) (#2D997F)0;
 }
 .formSection{
-    margin-left: 20rem;
+    /* margin-left: 10rem; */
     width: 100%;
+    padding-left: 19rem;
 }
 .formSectionHeader{
   width: 100%;
   padding-top: 40px;
-}
-.formSecCont h3{
-    /* padding: 35px 30px; */
-    /* background-color: gray; */
 }
 .formSection p{
     font-size: 14px;
@@ -101,7 +98,7 @@
     padding: 24px 32px;
     background-color: var(--White);
     border-radius: 12px;
-    /* margin-bottom:2rem ; */
+    
     width: 100%;
 }
 .shadow{

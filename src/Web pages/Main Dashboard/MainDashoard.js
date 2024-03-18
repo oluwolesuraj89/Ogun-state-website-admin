@@ -27,21 +27,21 @@ export default function MainDashoard() {
                     </div>
                     <div className={classes.regMenu}>
                     <Link
-                        to=''
+                        to={'/dashboard_completed'}
                         onClick={() => handleLinkClick('Complete Registration')}
                         className={activeLink === 'Complete Registration' ? classes.active : ''}
                     >
                         <p><img src={messageIcon} alt='icon'/>Dashboard</p>
                     </Link>
                     <Link
-                        to=''
+                        to={'/dashboard'}
                         onClick={() => handleLinkClick('Loans')}
                         className={activeLink === 'Loans' ? classes.active : ''}
                     >
                         <p><img src={messageIcon} alt='icon'/> Loans</p>
                     </Link>
                     <Link
-                        to=''
+                        to={'/grant'}
                         onClick={() => handleLinkClick('Grants')}
                         className={activeLink === 'Grants' ? classes.active : ''}
                     >
@@ -55,7 +55,7 @@ export default function MainDashoard() {
                         <p> <img src={Invoice} alt='icon'/> Invoices</p>
                     </Link>
                     <Link
-                        to= ''
+                        to= {'/sign_in'}
                         onClick={() => handleLinkClick('Logout')}
                         className={activeLink === 'Logout' ? classes.active : ''}
                     >
@@ -67,9 +67,9 @@ export default function MainDashoard() {
                     <div className={classes.formSectionHeader}>
                         <h1>Welcome Oriade</h1>
                         <p>Apply for grants or loans from the Ogun state govt</p>
-                        <div className={`${classes.formSecCont} ${classes.shadow}`}>
+                        {/* <div className={`${classes.formSecCont} ${classes.shadow}`}>
                             <h3>Complete Registration</h3>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

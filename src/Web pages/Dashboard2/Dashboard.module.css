@@ -89,6 +89,9 @@ body {
     font-size: 28px;
     font-weight: 700;
 }
+.loandgrantcards a{
+    text-decoration: none;
+}
 .formSecCont{
     padding: 24px 32px;
     background-color: var(--White);
@@ -100,14 +103,17 @@ body {
     font-size: 20px;
     font-weight: 700;
 }
-.finishedbody{
+.finishedbodyCont{
     width: 100%;
+    padding-left: 20rem;
+}
+.finishedbody{
     background-color: var(--White);
     border-radius: 12px;
     margin-top: 26px;
     display: flex;
     flex-direction: column;
-    
+    /* padding-left: 20rem; */   
 }
 
 body {
@@ -297,8 +303,8 @@ body {
 }
 
 .loancard {
-    width: 270px;
-    height: 270px;
+    width: 300px;
+    height: 300px;
     background-color: rgba(227, 191, 0, 0.2);
     padding: 30px;
     margin-top: 40px;
@@ -307,8 +313,8 @@ body {
 }
 
 .loancardblue {
-    width: 270px;
-    height: 270px;
+    width: 300px;
+    height: 300px;
     background-color: rgba(0, 125, 215, 0.2);
     padding: 30px;
     margin-top: 40px;
@@ -316,8 +322,8 @@ body {
 }
 
 .loancardgreen {
-    width: 270px;
-    height: 270px;
+    width: 300px;
+    height: 300px;
     background-color: rgba(69, 122, 20, 0.21);
     padding: 30px;
     margin-top: 40px;
@@ -328,6 +334,7 @@ body {
     padding: 25px;
     display: flex;
     gap: 40px;
+    width: 100%;
     /* justify-content: space-between; */
 }
 

@@ -97,6 +97,13 @@ export default function Dashboard() {
         //         <MainDashoard/>
         //         <div>
                     // <div className={classes.formSection}>
+                    <div>
+                        <MainDashoard/>
+
+                        <div className={classes.finishedbodyCont}>
+                        <div className={`${classes.formSecCont} ${classes.shadow}`}>
+                            <h3>Loan</h3>
+                        </div>
                         <div className={classes.mainform} >
                             <div className={classes.signin}>
                                 <Tabs
@@ -382,6 +389,7 @@ export default function Dashboard() {
                                 </Tabs>
 
                             </div>
+                        </div>
                         </div>
                         // {/* <DashboardFinal/> */}
                     // </div>

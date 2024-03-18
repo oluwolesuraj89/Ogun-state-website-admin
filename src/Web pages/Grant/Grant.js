@@ -7,6 +7,7 @@ import Folder from '../../Images/folder-2.svg';
 import axios from 'axios';
 import ArrowLogo from '../../Images/arrow-left.svg';
 import GrantImage from '../../Images/grant bg.svg';
+import MainDashoard from '../Main Dashboard/MainDashoard';
 
 export default function Grant() {
 
@@ -14,8 +15,8 @@ export default function Grant() {
 
     return (
         <div className={classes.regBody}>
-            <div className={classes.regContainer}>
-                <div className={classes.sideNav}>
+            {/* <div className={classes.regContainer}> */}
+                {/* <div className={classes.sideNav}>
                     <div className={classes.logoCont}>
                         <img src={RegLogo} alt='Logo' />
                     </div>
@@ -26,13 +27,18 @@ export default function Grant() {
                         <Link to={'/#'}><p>Invoices</p></Link>
                         <Link to={'/#'}><p>Logout</p></Link>
                     </div>
-                </div>
-                <div className={classes.formSection}>
+                </div> */}
+                {/* <div className={classes.formSection}>
                     <h1>Welcome Oriade</h1>
                     <p>Apply for grants or loans from the Ogun state govt</p>
                     <div className={classes.formSecCont}>
                         <h3>Dashboard</h3>
-                    </div>
+                    </div> */}
+                    <MainDashoard/>
+                    <div className={classes.finishedbodyCont}>
+                        <div className={`${classes.formSecCont} ${classes.shadow}`}>
+                            <h3>Grant</h3>
+                        </div>
                     <div className={classes.mainform}>
                         <div className={classes.signin}>
                             <div className={classes.arrowLoan}>
@@ -74,9 +80,9 @@ export default function Grant() {
                                         </div>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
 
-            </div>
-        </div>
+             </div>
+         </div>
     )
 }
