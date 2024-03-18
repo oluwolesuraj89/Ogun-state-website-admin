@@ -1,3 +1,7 @@
+body {
+    background-color: rgba(172, 231, 199, 0.05);
+
+}
 *,
 ::after,
 ::before{
@@ -12,6 +16,7 @@
     --Light-green: #2D995F; 
     --Gray:#f2f3f3;
     --White: #ffffff;
+    --Black: #343A40;
     --Black: #343A40;
     --Background:rgba(172, 231, 199, 0.05);
 }
@@ -38,36 +43,78 @@
     /* grid-template-columns: 25% 75%; */
     /* gap: 30px; */
 }
-.finishedbodyCont{
-  width: 100%;
-  padding-left: 20rem;
-  padding-right: 5rem;
-
+.sideNav{
+    background-color: var(--Deep-green);
+    padding: 37px 0 0 21px;
+    height: 1800px;
+    max-width: 339px;
 }
-.formSecCont{
-  padding: 24px 32px;
-  background-color: var(--White);
-  border-radius: 12px;
-  margin-bottom: 20px;
- 
+.regMenu{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.regMenu a{
+    text-decoration: none;
+}
+/* .regMenu a:active{
+    background: linear-gradientrgba((#2D997F) 100%, (#2D997F) 31%);
+} */
+.regMenu p{
+    color: var(--White);
+    font-size: 18px;
+    font-weight: 400;
+    margin:0;
+    /* padding: 12px 20px; */
+}
+.regMenu .active{
+    background: linear-gradient9(#2D997F) (#2D997F)0;
+    /* color: yellow !important; */
+    /* background-color: white; */
+    /* padding: 30px; */
+}
+.formSection{
+    padding: 35px 30px;
+    width: 100%;
 }
 .formSecCont h3{
-  color: #343A40;
-  font-size: 20px;
-  font-weight: 700;
+    /* padding: 35px 30px; */
+    /* background-color: gray; */
 }
-
-.formSection{
-  width: 100%;
-  
+.formSection p{
+    font-size: 14px;
 }
-.mainform{
-    width: 100%;
+.formSection h1{
+    color: var(--Light-green);
+    font-size: 28px;
+    font-weight: 700;
+}
+.loandgrantcards a{
+    text-decoration: none;
+}
+.formSecCont{
+    padding: 24px 32px;
     background-color: var(--White);
     border-radius: 12px;
-    /* margin-top: 14rem; */
+   
+}
+.formSecCont h3{
+    color: #343A40;
+    font-size: 20px;
+    font-weight: 700;
+}
+.finishedbodyCont{
+    width: 100%;
+    padding-left: 20rem;
+    padding-right: 5rem;
+}
+.finishedbody{
+    background-color: var(--White);
+    border-radius: 12px;
+    margin-top: 26px;
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
+    /* padding-left: 20rem; */   
 }
 
 body {
@@ -86,15 +133,12 @@ body {
     .signin{
         margin-top: 39px;
         margin-left: 19px;
-        width: 100%;
     }
   
   .rszeInput {
     display: flex;
     gap: 70px;
     margin-left: 20px;
-    padding-right: 3.6rem;
-    /* width: 100%; */
     /* justify-content: space-between; */
   }
   
@@ -108,7 +152,7 @@ body {
   .snInput {
     border: 1px solid #ADB5BD;
     border-radius: 4px;
-    /* height: 55px; */
+    height: 55px;
       width: 400px;
     margin-bottom: 5px;
     /* padding-left: 10px; */
@@ -119,7 +163,7 @@ body {
   .snInput2 {
     border: 1px solid #ADB5BD;
     border-radius: 4px;
-    height: 100px;
+    height: 148px;
       width: 400px;
     margin-bottom: 5px;
     /* padding-left: 10px; */
@@ -218,3 +262,414 @@ body {
   
   
   
+
+.welcome {
+    font-family: 'inter';
+    color: #2D995F;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.welcomeintro {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6C757D;
+    margin-top: -9px;
+}
+
+.dashtext {
+    margin-top: 26px;
+    margin-bottom: 26px;
+    width: 1218px;
+    height: 97px;
+    background-color: white;
+    box-shadow: rgba(0.059, 0.059, 0.059, 0.059) 0px 10px 50px;
+    border-radius: 12px;
+}
+
+.dashtext p {
+    font-size: 24px;
+    font-family: 'inter';
+    color: #343a40;
+    font-weight: 700;
+    padding: 34px;
+}
+
+.loandetails {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: rgba(0.059, 0.059, 0.059, 0.059) 0px 10px 50px;
+    width: 1218px;
+    height: 1408px;
+}
+
+.loancard {
+    width: 310px;
+    height: 300px;
+    background-color: rgba(227, 191, 0, 0.2);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 8px;
+    margin-left: 5px;
+}
+
+.loancardblue {
+    width: 310px;
+    height: 300px;
+    background-color: rgba(0, 125, 215, 0.2);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+.loancardgreen {
+    width: 310px;
+    height: 300px;
+    background-color: rgba(69, 122, 20, 0.21);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+.loandgrantcards {
+    padding: 25px;
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+
+.icons {
+    width: 36px;
+    height: 36px;
+    /* margin-bottom: 10px; */
+    margin-top: 20px;
+}
+
+.loancard p {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.loancardblue p {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.loancardgreen p {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.pdisc {
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    margin-top: 6px;
+    color: #343A40 !important;
+}
+
+.applyText {
+    font-weight: 700 !important;
+    font-size: 27px !important;
+    margin-top: 6px;
+    color: #343A40 !important;
+}
+
+
+.userdetails {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 34px 34px 0 34px;
+    color: #343A40 !important;
+}
+
+.lineBottom {
+    width: 186px;
+    height: 4px;
+    margin-left: 34px;
+    border: 3px solid #2D995F;
+    margin-top: 4px;
+}
+
+.userdetailsbnk {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 34px 34px 0 0;
+    color: #343A40 !important;
+}
+
+.lineBottombnk {
+    width: 186px;
+    height: 4px;
+    margin-right: 34px;
+    margin-right: 187px;
+    border: 3px solid #2D995F;
+    margin-top: 4px;
+}
+
+.thedetails {
+    background-color: #F2F5F3;
+    width: 93%;
+    /* height: 377px; */
+    border-radius: 8px;
+    margin-left: 34px;
+    margin-top: 28px;
+    margin-bottom: 20px;
+}
+.thedetailsbiz {
+    background-color: #F2F5F3;
+    width: 50%;
+    /* height: 377px; */
+    border-radius: 8px;
+    margin-left: 34px;
+    margin-top: 28px;
+    margin-bottom: 20px;
+}
+.thedetailsbiz2 {
+    background-color: #F2F5F3;
+    width: 30%;
+    /* height: 377px; */
+    border-radius: 8px;
+    margin-left: 34px;
+    margin-top: 28px;
+    margin-bottom: 20px;
+}
+
+.firstcard {
+    background-color: white;
+    max-width: 262px;
+    height: 325px;
+    border-radius: 4px;
+    border: 1px solid #CED4DA;
+    
+}
+
+.firstcard hr {
+    /* border: 1px solid #CED4DA; */
+    margin-top: 8px;
+}
+.detailscards {
+    margin: 5px;
+    padding: 26px;
+    margin-top: 26px;
+    gap: 15px;
+}
+
+.labelinfo {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-top: 10px;
+
+}
+
+.infouser {
+    font-weight: 500;
+    font-size: 14.5px;
+    padding-left: 14px;
+    border-bottom: 1px solid #CED4DA;
+    color: #343A40 !important;
+}
+
+.labelinfo2 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-top: -10px;
+    
+}
+
+.labelinfo3 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-bottom: 3px;
+    /* padding-top: -10px; */
+}
+.labelinfo4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-top: -10px;
+}
+
+.infouser4 {
+    font-weight: 500;
+    font-size: 14.5px;
+    padding-left: 14px;
+    color: #343A40 !important;
+    /* border-bottom: 1px solid #CED4DA; */
+}
+.infouser3 {
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 14px;
+  
+    /* border-bottom: 1px solid #CED4DA; */
+}
+.infouser2 {
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #2D995F;
+    border-bottom: 1px solid #CED4DA;
+}
+
+.labelinfo {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-top: -10px;
+}
+
+.detailscards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.busnisessdetails {
+    display: flex;
+    /* width: 100%; */
+}
+
+.headfordetails {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wholebizdetails {
+    overflow: hidden;
+    width: 100%;
+}
+
+.thedetailsbiz  .detailscardsbiz{
+    /* width: 100%; */
+}
+.thedetailsbiz2  .detailscardsbiz2{
+    /* width: 100%; */
+}
+
+.detailscardsbiz2 {
+    margin: 5px;
+    padding: 26px;
+    /* margin-top: 26px; */
+    gap: 15px;
+}
+.detailscardsbiz {
+    margin: 5px;
+    padding: 26px;
+    /* margin-top: 26px; */
+    gap: 15px;
+}
+
+.labelinfobiz {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-top: 10px;
+
+}
+
+.infouserbiz {
+    font-weight: 500;
+    font-size: 14.5px;
+    padding-left: 14px;
+    border-bottom: 1px solid #CED4DA;
+    color: #343A40 !important;
+}
+
+.labelinfo2biz {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-top: -10px;
+    
+}
+
+.labelinfo3biz {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-bottom: 3px;
+    /* padding-top: -10px; */
+}
+.labelinfo4biz {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-top: -10px;
+}
+
+.infouser4biz {
+    font-weight: 500;
+    font-size: 14.5px;
+    padding-left: 14px;
+    color: #343A40 !important;
+    /* border-bottom: 1px solid #CED4DA; */
+}
+.infouser3biz {
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 14px;
+  
+    /* border-bottom: 1px solid #CED4DA; */
+}
+.infouser2biz {
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #2D995F;
+    border-bottom: 1px solid #CED4DA;
+}
+
+.labelinfobiz {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    padding-top: -10px;
+}
+
+.detailscardsbiz {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.detailscardsbiz2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.firstcardbiz {
+    background-color: white;
+    width: 262px;
+    height: 325px;
+    border-radius: 4px;
+    border: 1px solid #CED4DA;
+    
+}
+
+.firstcardbiz hr {
+    /* border: 1px solid #CED4DA; */
+    margin-top: 8px;
+}

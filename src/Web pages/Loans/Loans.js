@@ -1,38 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import classes from './Loans.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
-import { Link } from 'react-router-dom'
 import { Tab, Tabs, Form } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
 import axios from 'axios';
 import ArrowLogo from '../../Images/arrow-left.svg';
 import LoanImage from '../../Images/loan bg.svg';
+import MainDashoard from '../Main Dashboard/MainDashoard';
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Loans() {
+    const navigate = useNavigate();
 
+    const handleLoanApplication = () => {
+        navigate('/loan_application');
+    };
 
 
     return (
-        <div className={classes.regBody}>
-            <div className={classes.regContainer}>
-                <div className={classes.sideNav}>
-                    <div className={classes.logoCont}>
-                        <img src={RegLogo} alt='Logo' />
-                    </div>
-                    <div className={classes.regMenu}>
-                        <Link to={'/#'}><p className={classes.active}>Complete Registration</p></Link>
-                        <Link to={'/#'}><p>Loans</p></Link>
-                        <Link to={'/#'}><p>Grants</p></Link>
-                        <Link to={'/#'}><p>Invoices</p></Link>
-                        <Link to={'/#'}><p>Logout</p></Link>
-                    </div>
-                </div>
-                <div className={classes.formSection}>
-                    <h1>Welcome Oriade</h1>
-                    <p>Apply for grants or loans from the Ogun state govt</p>
-                    <div className={classes.formSecCont}>
-                        <h3>Dashboard</h3>
-                    </div>
+        <div>
+        <MainDashoard />
+
+        <div className={classes.finishedbodyCont}>
+            <div className={`${classes.formSecCont} ${classes.shadow}`}>
+                <h3>Loan</h3>
+            </div>
                     <div className={classes.mainform}>
                         <div className={classes.signin}>
                             <div className={classes.arrowLoan}>
@@ -71,7 +63,7 @@ export default function Loans() {
                                     </div>
                                 </div>
                             </div>
-                            <div className={classes.applyLoan}>
+                            <div className={classes.applyLoan} onClick={handleLoanApplication}>
                                             <p className={classes.continueReg}>Apply for Loan</p>
                                         </div>
                         </div>
@@ -79,6 +71,5 @@ export default function Loans() {
                 </div>
 
             </div>
-        </div>
     )
 }

@@ -8,17 +8,14 @@ import SignIn from './Web pages/Sign in/SignIn';
 import LandingPage from './Web pages/LandingPage/LandingPage';
 import Register from './Web pages/Register/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CompleteRegistration from './Web pages/Complete Registration/CompleteRegistration';
-import Dashboard from './Web pages/Dashboard/Dashboard';
-import Dashboard2 from './Web pages/Dashboard2/Dashboard';
-import DashboardFinal from './Web pages/Dashboard2/Dashboard';
 import Loans from './Web pages/Loans/Loans';
-import LoansContinue from './Web pages/Loans Continue/LoansContinue';
 import LoansApplication from './Web pages/Loans Generation/LoansApplication';
 import Grant from './Web pages/Grant/Grant';
-import GrantContinue from './Web pages/Grant continue/GrantContinue';
-import CompleteRegDashboard from './Web pages/CompleteRegDashBoard/CompleteRegDashboard'
-import MainDashoard from './Web pages/Main Dashboard/MainDashoard';
+import Dashboard from './Web pages/Dashboard/Dashboard';
+import ApplyLoan from './Web pages/Loan/ApplyLoan';
+import LoanHomePage from './Web pages/Loan HomePage/LoanHomePage';
+import ApplyGrant from './Web pages/Grant Application/ApplyGrant';
+import SubmitGrantApplication from './Web pages/Grant continue/GrantContinue';
 
 function App() {
   const [userIsInactive, setUserIsInactive] = useState(false);
@@ -80,17 +77,14 @@ function App() {
         <Route path='/sign_up'element={<SignUp/>}/>
         <Route path='/sign_in'element={<SignIn/>}/>
         <Route path='/register'element={<Register/>}/>
-        <Route path='/complete_registration'element={<CompleteRegistration/>}/>
         <Route path='/dashboard'element={<Dashboard/>}/>
-        <Route path='/dashboard_completed'element={<DashboardFinal/>}/>
         <Route path='/loans'element={<Loans/>}/>
+        <Route path='/loan_application'element={<ApplyLoan/>}/>
+        <Route path='/apply_for_loan'element={<LoanHomePage/>}/>
+        <Route path='/submit_loan_application'element={<LoansApplication/>}/>
         <Route path='/grant'element={<Grant/>}/>
-        <Route path='/loans_continue'element={<LoansContinue/>}/>
-        <Route path='/grant_continue'element={<GrantContinue/>}/>
-        <Route path='/loans_application'element={<LoansApplication/>}/>
-        <Route path='/loans_application'element={<LoansApplication/>}/>
-        <Route path='/complete_reg_dashboard'element={<CompleteRegDashboard/>}/>
-        <Route path='/main_dashboard'element={<MainDashoard/>}/>
+        <Route path='/grant_application'element={<ApplyGrant/>}/>
+        <Route path='/submit_grant_application'element={<SubmitGrantApplication/>}/>
         </Routes>
         </>
   );

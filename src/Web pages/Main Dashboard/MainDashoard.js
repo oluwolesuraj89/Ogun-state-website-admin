@@ -27,16 +27,16 @@ export default function MainDashoard() {
                     </div>
                     <div className={classes.regMenu}>
                     <Link
-                        to={'/dashboard_completed'}
-                        onClick={() => handleLinkClick('Complete Registration')}
-                        className={activeLink === 'Complete Registration' ? classes.active : ''}
+                        to={'/dashboard'}
+                        onClick={() => handleLinkClick('Dashboard')}
+                        className={activeLink === 'Dashboard' ? classes.active : ''}
                     >
                         <p><img src={messageIcon} alt='icon'/>Dashboard</p>
                     </Link>
                     <Link
-                        to={'/dashboard'}
-                        onClick={() => handleLinkClick('Loans')}
-                        className={activeLink === 'Loans' ? classes.active : ''}
+                        to={'/loans'}
+                        onClick={() => handleLinkClick('Loan')}
+                        className={activeLink === 'Loan' ? classes.active : ''}
                     >
                         <p><img src={messageIcon} alt='icon'/> Loans</p>
                     </Link>

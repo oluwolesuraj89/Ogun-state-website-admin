@@ -9,8 +9,8 @@ import SuccessImg from '../../Images/completed.svg';
 import messageIcon from '../../Images/Dashbord-menu-icons/message-text.svg';
 import Invoice from '../../Images/Dashbord-menu-icons/invoice.svg';
 import LogOutIcon from '../../Images/Dashbord-menu-icons/logout.svg';
-import DashboardFinal from '../Dashboard2/Dashboard';
-import Dashboard from '../Dashboard/Dashboard';
+import DashboardFinal from '../Dashboard/Dashboard';
+import Dashboard from '../Loan/ApplyLoan';
 
 
 export default function CompleteRegDashBoard() {

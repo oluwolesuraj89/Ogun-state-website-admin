@@ -39,6 +39,26 @@
   
 }
 
+.finishedbodyCont{
+  width: 100%;
+  padding-left: 20rem;
+  padding-right: 5rem;
+
+}
+
+.formSecCont{
+  padding: 24px 32px;
+  background-color: var(--White);
+  border-radius: 12px;
+  margin-bottom: 20px;
+ 
+}
+.formSecCont h3{
+  color: #343A40;
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .loanBackground{
   /* margin-top: -40px; */
 }
