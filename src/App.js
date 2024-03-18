@@ -79,8 +79,8 @@ function App() {
         <Route path='/sign_in'element={<SignIn/>}/>
         <Route path='/register'element={<Register/>}/>
         <Route path='/complete_registration'element={<CompleteRegistration/>}/>
-        <Route path='/dashboard'element={<Dashboard/>}/>
-        <Route path='/dashboard_completed'element={<DashboardFinal/>}/>
+        <Route path='/dashboard_completed'element={<Dashboard/>}/>
+        <Route path='/dashboard'element={<DashboardFinal/>}/>
         <Route path='/loans'element={<Loans/>}/>
         <Route path='/grant'element={<Grant/>}/>
         <Route path='/loans_continue'element={<LoansContinue/>}/>

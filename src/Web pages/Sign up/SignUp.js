@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, NavLink } from 'react-router-dom';
-import OnbImg from '../../Images/image bg.png';
+import OnbImg from '../../Images/image bg.svg';
 import classes from './SignUp.module.css';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';

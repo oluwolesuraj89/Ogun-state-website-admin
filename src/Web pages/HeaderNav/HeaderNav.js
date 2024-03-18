@@ -55,7 +55,7 @@ const HeaderNav = () => {
                     </li>
                   <li className={classes.navItem}>
                     <NavLink to={'/sign_in'}><button className={classes.whiteBtn}>Log In</button></NavLink>
-                    <NavLink to={'/sign_up'}><button className={classes.greenBtn}>Create an Account</button></NavLink>
+                    <NavLink to={'/register'}><button className={classes.greenBtn}>Create an Account</button></NavLink>
                   </li>
                 </ul>
               {/* </div> */}

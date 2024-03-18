@@ -45,17 +45,21 @@ function LandingPage() {
               <h1 className={classes.sellerHeader}>Register <br />to access Ogun State <br />
                 SME Empowerment Fund
               </h1>
-              <p className={classes.sellerText}>In order to ameliorate the challenges currently facing
-                entrepreneurs across the country, in particular the high cost
-                of business operations, the Ogun State Government under
-                the leadership of Prince (Dr.) Dapo Abiodun CON has
-                approved N2 Billion financial empowerment scheme for
-                small and medium businesses operating in the State.
+              <p className={classes.sellerText}>Eligibility criteria for Ogun State SME Loan <br />
+Business must:<br />
+• be located in Ogun State;<br />
+• be in operation for a minimum of 3years;<br />
+• Employ a minimum of 3 people;<br />
+• be owned by someone between the ages of 21- 60 years;<br />
+• be in retail, service and manufacturing sector<br />
               </p>
-              <p className={classes.sellerText}>This financial intervention for SMEs will be through Grants and
-                Loans for operational expenses and working capital
-                requirments to ease the burden, sustain the business and
-                ultimately boost profitability.
+              <p className={classes.sellerText}>Eligibility criteria for Ogun State SME Grant<br />
+Business must:<br />
+• be located in Ogun State;<br />
+• be in operation for a minimum of 1year;<br />
+• Employ a minimum of 1-3 people;<br />
+• be owned by someone between the ages of 18-60 years;<br />
+• Not have benefitted from OG-Cares operational grant.<br />
               </p>
               <button className={classes.greenBtn}>Register now</button>
             </div>
