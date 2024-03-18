@@ -321,8 +321,8 @@ body {
 }
 
 .loancard {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     background-color: rgba(227, 191, 0, 0.2);
     padding: 30px;
     margin-top: 40px;
@@ -331,8 +331,8 @@ body {
 }
 
 .loancardblue {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     background-color: rgba(0, 125, 215, 0.2);
     padding: 30px;
     margin-top: 40px;
@@ -340,8 +340,8 @@ body {
 }
 
 .loancardgreen {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     background-color: rgba(69, 122, 20, 0.21);
     padding: 30px;
     margin-top: 40px;
