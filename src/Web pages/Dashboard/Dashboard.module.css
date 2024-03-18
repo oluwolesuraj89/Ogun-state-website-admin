@@ -325,7 +325,7 @@ body {
     height: 300px;
     background-color: rgba(227, 191, 0, 0.2);
     padding: 30px;
-    margin-top: 40px;
+    margin-top: 10px;
     border-radius: 8px;
     margin-left: 5px;
 }
@@ -335,7 +335,7 @@ body {
     height: 300px;
     background-color: rgba(0, 125, 215, 0.2);
     padding: 30px;
-    margin-top: 40px;
+    margin-top: 10px;
     border-radius: 8px;
 }
 
@@ -344,7 +344,7 @@ body {
     height: 300px;
     background-color: rgba(69, 122, 20, 0.21);
     padding: 30px;
-    margin-top: 40px;
+    margin-top: 10px;
     border-radius: 8px;
 }
 
