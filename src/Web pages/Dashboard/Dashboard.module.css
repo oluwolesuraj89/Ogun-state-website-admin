@@ -349,9 +349,9 @@ body {
 }
 
 .loandgrantcards {
-    padding: 15px;
+    /* padding: 15px; */
     display: flex;
-    gap: 40px;
+    gap: 30px;
     width: 100%;
     /* justify-content: space-between; */
 }
