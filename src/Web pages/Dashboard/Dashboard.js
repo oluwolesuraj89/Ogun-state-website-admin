@@ -22,7 +22,8 @@ const Dashboard = () => {
                         <div className={`${classes.formSecCont} ${classes.shadow}`}>
                             <h3>Dashboard</h3>
                         </div>
-                        <div className={classes.finishedbody}>
+                        <div className={classes.mainform}>
+                        <div className={classes.signin}>
                             
                             <div className={classes.loandgrantcards}>
                                 <Link to={'/loans'}>
@@ -185,6 +186,7 @@ const Dashboard = () => {
                                     </div> */}
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 {/* </div> */}

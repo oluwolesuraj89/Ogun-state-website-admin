@@ -54,6 +54,23 @@ body {
     flex-direction: column;
     gap: 24px;
 }
+
+.mainform{
+    width: 100%;
+    background-color: var(--White);
+    border-radius: 12px;
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.signin{
+    margin-bottom: 20px !important;
+}
+
+
 .regMenu a{
     text-decoration: none;
 }
