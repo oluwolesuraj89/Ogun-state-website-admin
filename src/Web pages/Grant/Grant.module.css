@@ -17,7 +17,7 @@
 .regBody{
     width: 100%;
     /* height: 100vh; */
-    background-color: var(--Gray);
+    background-color: var(----Light-green);
 }
 .logoCont{
     width: 100%;
@@ -79,14 +79,14 @@ margin: 0;
 }
 
 .loanBg{
-  width: 90%;
+  width: 100%;
   height: 280px;
-margin-left: 45px;
+margin-left: -40px;
 }
 
 .eligibilityText{
   margin-top: 47px;
-  margin-left: 45px;
+  margin-left: 80px;
 }
 
 .userdetails {
@@ -313,7 +313,7 @@ body {
     border-radius: 4px;
     padding: 15px;
     margin-bottom: 66px;
-    margin-left: 45px;
+    margin-left: 80px;
     margin-top: 57px;
   }
   

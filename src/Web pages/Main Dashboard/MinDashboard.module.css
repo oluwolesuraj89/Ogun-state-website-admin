@@ -58,9 +58,9 @@
     text-decoration: none;
     padding: 12px 34px 12px 20px;
 }
-.regMenu .active{
-  background: linear-gradient(to right, #4b9483, #2d998050);
-  border-radius: 4px;
+.regMenu .active {
+    background: linear-gradient(to right, #4b9483, #2d998050);
+    border-radius: 4px;
 }
 .regMenu img{
   width: 24px;
@@ -74,13 +74,11 @@
     margin:0;
     /* padding: 12px 20px; */
 }
-.regMenu .active{
-    background: linear-gradient9(#2D997F) (#2D997F)0;
-}
+
 .formSection{
     /* margin-left: 10rem; */
     width: 100%;
-    padding-left: 19rem;
+    padding-left: 20rem;
 }
 .formSectionHeader{
   width: 100%;
