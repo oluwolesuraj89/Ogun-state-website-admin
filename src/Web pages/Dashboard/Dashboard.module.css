@@ -124,7 +124,7 @@ body {
 .finishedbodyCont{
     width: 100%;
     padding-left: 20rem;
-    padding-right: 5rem;
+    padding-right: 2rem;
 }
 .finishedbody{
     background-color: var(--White);
@@ -350,9 +350,9 @@ body {
 }
 
 .loandgrantcards {
-    padding: 20px;
+    padding: 30px;
     display: flex;
-  
+    gap: 40px;
     width: 100%;
     /* justify-content: space-between; */
 }
