@@ -58,7 +58,9 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
+
 .faqsContainer{
     width: 100%;
     display: flex;
@@ -69,14 +71,13 @@ button{
 .contentContainer{
     width: 100%;
     padding: 0 80px;
-    
     /* max-width: 1000px;    */
 }
 .section1{
     background-image: url('../../Images/grouped.svg');
     width: 100%;
     /* max-width: 1728px; */
-    background-position-x: -100px;
+    background-position-x: -20px;
     /* height: 756px; */
     background-size: cover;
     background-repeat: no-repeat;
@@ -162,6 +163,10 @@ align-items: center;
     font-size: 18px;
 }
 
+.sellerHeader{
+    margin-top: 50px;
+}
+
 .happeningText{
     margin-top: 16px;
 }
@@ -169,6 +174,7 @@ align-items: center;
     margin-top: 66px;
     width: 100%;
     max-width: 900px;
+    margin-bottom: 60px;
 }
 
 

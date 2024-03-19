@@ -4,7 +4,7 @@ import HeaderNav from "../HeaderNav/HeaderNav";
 import { Accordion } from "react-bootstrap";
 import Sellers from '../../Images/background3.png';
 import Footer from "../Footer/Footer";
-import { useNavigate, NavLink} from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 
 function LandingPage() {
@@ -46,20 +46,20 @@ function LandingPage() {
                 SME Empowerment Fund
               </h1>
               <p className={classes.sellerText}>Eligibility criteria for Ogun State SME Loan <br />
-Business must:<br />
-• be located in Ogun State;<br />
-• be in operation for a minimum of 3years;<br />
-• Employ a minimum of 3 people;<br />
-• be owned by someone between the ages of 21- 60 years;<br />
-• be in retail, service and manufacturing sector<br />
+                Business must:<br />
+                • be located in Ogun State;<br />
+                • be in operation for a minimum of 3years;<br />
+                • Employ a minimum of 3 people;<br />
+                • be owned by someone between the ages of 21- 60 years;<br />
+                • be in retail, service and manufacturing sector<br />
               </p>
               <p className={classes.sellerText}>Eligibility criteria for Ogun State SME Grant<br />
-Business must:<br />
-• be located in Ogun State;<br />
-• be in operation for a minimum of 1year;<br />
-• Employ a minimum of 1-3 people;<br />
-• be owned by someone between the ages of 18-60 years;<br />
-• Not have benefitted from OG-Cares operational grant.<br />
+                Business must:<br />
+                • be located in Ogun State;<br />
+                • be in operation for a minimum of 1year;<br />
+                • Employ a minimum of 1-3 people;<br />
+                • be owned by someone between the ages of 18-60 years;<br />
+                • Not have benefitted from OG-Cares operational grant.<br />
               </p>
               <button className={classes.greenBtn}>Register now</button>
             </div>
