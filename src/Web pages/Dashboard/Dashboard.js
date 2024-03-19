@@ -13,6 +13,16 @@ import { Link } from 'react-router-dom'
 import MainDashoard from '../Main Dashboard/MainDashoard';
 
 const Dashboard = () => {
+const navigate = useNavigate();
+
+const handleLoan = () => {
+    navigate('/loans');
+}
+
+const handleGrant = () => {
+    navigate('/grant');
+}
+
 
     return (
         <div>
@@ -24,7 +34,7 @@ const Dashboard = () => {
                         </div>
                         <div className={classes.mainform}>
                         <div className={classes.loandgrantcards}>
-                            <div className={classes.loancard}>
+                            <div className={classes.loancard} onClick={handleLoan}>
                                 <img src={loanicon} alt="The marketers" className={classes.icons} />
                                 <p className={classes.applyText}>Apply</p>
                                 <p className={classes.applyText}>For Loan</p>
@@ -32,7 +42,7 @@ const Dashboard = () => {
                                     Interest</p>
                             </div>
 
-                            <div className={classes.loancardblue}>
+                            <div className={classes.loancardblue} onClick={handleGrant}>
                                 <img src={loaniconblue} alt="The marketers" className={classes.icons} />
                                 <p className={classes.applyText}>Apply</p>
                                 <p className={classes.applyText}>For Grant</p>
