@@ -68,14 +68,14 @@ button{
 }
 .contentContainer{
     width: 100%;
-    padding: 0 100px;
+    padding: 0 80px;
     
     /* max-width: 1000px;    */
 }
 .section1{
     background-image: url('../../Images/grouped.svg');
     width: 100%;
-    max-width: 1728px;
+    /* max-width: 1728px; */
     background-position-x: -100px;
     /* height: 756px; */
     background-size: cover;
