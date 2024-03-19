@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.f75012b2.css",
-    "main.js": "/static/js/main.c5d7c676.js",
+    "main.css": "/static/css/main.1fb46011.css",
+    "main.js": "/static/js/main.a01ccdda.js",
     "static/js/453.f6f611f0.chunk.js": "/static/js/453.f6f611f0.chunk.js",
     "static/media/image bg.png": "/static/media/image bg.33b7137d1a77fd01cf79.png",
     "static/media/grouped.svg": "/static/media/grouped.4b6c17323ae75551261e.svg",
     "static/media/background3.png": "/static/media/background3.3f093afe0d9cc6db37d9.png",
     "static/media/image bg.svg": "/static/media/image bg.6948a60ab4cb310279f29509f25d7749.svg",
     "static/media/RegistrationLogo.svg": "/static/media/RegistrationLogo.795b129a2a2aea6634975cc58d1d30f4.svg",
+    "static/media/logo ogun 1.svg": "/static/media/logo ogun 1.687c31196bc3678d77c673dfec754f22.svg",
     "static/media/logo white.png": "/static/media/logo white.fe24d5b9bd1711fe19f1.png",
     "static/media/grouped2.svg": "/static/media/grouped2.290947cc698eb6942e39.svg",
     "static/media/logo black.png": "/static/media/logo black.261bf7724743eeccf989.png",
@@ -17,19 +18,22 @@
     "static/media/grant proceed.svg": "/static/media/grant proceed.0e5c4c6d88594051770a11529f039847.svg",
     "static/media/loan continue.svg": "/static/media/loan continue.221ee5aa9b69132f90a391a5e9068e43.svg",
     "static/media/monitor fee.svg": "/static/media/monitor fee.fb0e98b7c4c88d23cc828938062b3f60.svg",
+    "static/media/QR-Code.svg": "/static/media/QR-Code.4a80641deb02fc8cc13910ed52166f4c.svg",
     "static/media/completed.svg": "/static/media/completed.ddda85eb29452b19b70926a3c3231290.svg",
+    "static/media/mail.svg": "/static/media/mail.3ac6a6d12a697823e3224c4236a0b0b0.svg",
     "index.html": "/index.html",
     "static/media/invoice.svg": "/static/media/invoice.cf16b1e8f96cf87688e54d1fa8bc031e.svg",
     "static/media/logout.svg": "/static/media/logout.5a27b8e2194ae73285ddf936175e3f58.svg",
     "static/media/message-text.svg": "/static/media/message-text.a82a86eaaf303d6a715b6749b5ca802c.svg",
     "static/media/folder-2.svg": "/static/media/folder-2.f63f037762f21a031b27f1dd2542f398.svg",
     "static/media/arrow-left.svg": "/static/media/arrow-left.7dfc91e7737f699b9e4d619167a48071.svg",
-    "main.f75012b2.css.map": "/static/css/main.f75012b2.css.map",
-    "main.c5d7c676.js.map": "/static/js/main.c5d7c676.js.map",
+    "static/media/Invoic-Ellipse.svg": "/static/media/Invoic-Ellipse.0b0f642c41e409da3d5b1a09a9cb7d52.svg",
+    "main.1fb46011.css.map": "/static/css/main.1fb46011.css.map",
+    "main.a01ccdda.js.map": "/static/js/main.a01ccdda.js.map",
     "453.f6f611f0.chunk.js.map": "/static/js/453.f6f611f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f75012b2.css",
-    "static/js/main.c5d7c676.js"
+    "static/css/main.1fb46011.css",
+    "static/js/main.a01ccdda.js"
   ]
 }
