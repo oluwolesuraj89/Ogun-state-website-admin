@@ -106,7 +106,7 @@ const RegisterEmail = () => {
 
             <div className={classes.signContainer}>
                 <p className={classes.headerText}>Register</p>
-                <p className={classes.subText}>Complete this form to get started</p>
+                <p className={classes.subText}>Fill in your details to register</p>
                 {/* <form> */}
                 {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
                     <div className={classes.rszeInput}>

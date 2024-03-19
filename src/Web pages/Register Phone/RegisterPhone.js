@@ -107,40 +107,36 @@ const RegisterPhone = () => {
             <div className={classes.signContainer}>
                 <p className={classes.headerText}>Register</p>
                 <p className={classes.subText}>Fill in your details to register</p>
-                    {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
-                    <div style={{ marginTop: 10 }}>
-                    <span className={classes.stId}>First Name</span>
-                            <div className={classes.inputContainer}>
+                {/* <form> */}
+                {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
+                    <div className={classes.rszeInput}>
+                        <div className={classes.formInput}>
+                            <span className={classes.stId}>First Name</span>
                             <input type="text" className={classes.snInput} placeholder="" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                            </div>
-                    </div>
-
-                    <div style={{ marginTop: 10 }}>
-                    <span className={classes.stId}>Last Name</span>
-                            <div className={classes.inputContainer}>
+                        </div>
+                        <div className={classes.formInput}>
+                            <span className={classes.stId}>Last Name</span>
                             <input type="text" className={classes.snInput} placeholder="" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                            </div>
+                        </div>
                     </div>
 
-                    <div style={{ marginTop: 10 }}>
-                    <span className={classes.stId}>Phone Number</span>
-                            <div className={classes.inputContainer}>
-                            <input type="text" className={classes.snInput} placeholder="" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                            </div>
-                    </div>
-
-                    <div style={{ marginTop: 10 }}>
-                    <span className={classes.stId}>Email Address</span>
-                            <div className={classes.inputContainer}>
+                    <div className={classes.rszeInput}>
+                        <div className={classes.formInput}>
+                            <span className={classes.stId}>Email Address</span>
                             <input type="email" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
-                            </div>
+                        </div>
+                        <div className={classes.formInput}>
+                            <span className={classes.stId}>Phone Number</span>
+                            <input type="text" className={classes.snInput} placeholder="" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                        </div>
                     </div>
 
-                    <div style={{ marginTop: 10 }}>
-                        <span className={classes.stId}> Password </span>
-                        <div className={classes.passwordInputContainer}>
+                    <div className={classes.rszeInput}>
+                        <div className={classes.formInput} >
+                            <span className={classes.stId}>Password</span>
+                            <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
-                                <input type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
+                                <input type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)}  />
                             </div>
                             <button
                                 type="button"
@@ -148,19 +144,18 @@ const RegisterPhone = () => {
                                 onClick={togglePasswordVisibility}
                             >
                                 {showPassword ? (
-                                    <img src={crossedEyeIcon} alt="Hide Password" style={{ height: "10px", width: "10px" }} />
+                                    <img src={crossedEyeIcon} alt="Hide Password" style={{ height: "20px", width: "20px" }} />
                                 ) : (
                                     '👁️'
                                 )}
                             </button>
                         </div>
-                    </div>
-
-                    <div style={{ marginTop: 10 }}>
-                        <span className={classes.stId}>Confirm Password</span>
-                        <div className={classes.passwordInputContainer}>
+                        </div>
+                        <div className={classes.formInput}>
+                            <span className={classes.stId}>Confirm Password</span>
+                            <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
-                            <input type={showConfirmPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} onKeyPress={handleKeyPress} />
+                                <input type={showConfirmPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} onKeyPress={handleKeyPress} />
                             </div>
                             <button
                                 type="button"
@@ -172,9 +167,12 @@ const RegisterPhone = () => {
                                 ) : (
                                     '👁️'
                                 )}
-                            </button>                        </div>
+                            </button>
+                        </div>
+                        </div>
                     </div>
-
+                 
+                   
                     <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleRegistration} disabled={isButtonDisabled}>
                     {load ? (
                         <>
@@ -185,7 +183,10 @@ const RegisterPhone = () => {
                         "Create Account"
                     )}
                     </button>
+
+                {/* </form> */}
             </div>
+
         </div>
 
 
