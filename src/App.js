@@ -6,7 +6,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import SignUp from './Web pages/Sign up/SignUp';
 import SignIn from './Web pages/Sign in/SignIn';
 import LandingPage from './Web pages/LandingPage/LandingPage';
-import Register from './Web pages/Register/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Loans from './Web pages/Loans/Loans';
 import LoansApplication from './Web pages/Loans Generation/LoansApplication';
@@ -16,6 +15,8 @@ import ApplyLoan from './Web pages/Loan/ApplyLoan';
 import LoanHomePage from './Web pages/Loan HomePage/LoanHomePage';
 import ApplyGrant from './Web pages/Grant Application/ApplyGrant';
 import SubmitGrantApplication from './Web pages/Grant continue/GrantContinue';
+import RegisterPhone from './Web pages/Register Phone/RegisterPhone';
+import RegisterEmail from './Web pages/Register Email/RegisterEmail';
 
 function App() {
   const [userIsInactive, setUserIsInactive] = useState(false);
@@ -27,44 +28,44 @@ function App() {
     window.scrollTo(0, 0);
   }, [location]);
 
- let inactivityTimer;
+//  let inactivityTimer;
   
- const resetInactivityTimer = () => {
-   if (inactivityTimer) {
-     clearTimeout(inactivityTimer);
-   }
+//  const resetInactivityTimer = () => {
+//    if (inactivityTimer) {
+//      clearTimeout(inactivityTimer);
+//    }
  
-   inactivityTimer = setTimeout(async () => {
+//    inactivityTimer = setTimeout(async () => {
    
-     setUserIsInactive(true);
-     await AsyncStorage.clear();
-     navigate('/sign_in');
+//      setUserIsInactive(true);
+//      await AsyncStorage.clear();
+//      navigate('/sign_in');
      
-   }, inactivityThreshold);
- };
+//    }, inactivityThreshold);
+//  };
  
- const handleUserActivity = () => {
-   resetInactivityTimer();
- };
+//  const handleUserActivity = () => {
+//    resetInactivityTimer();
+//  };
  
- useEffect(() => {
-   resetInactivityTimer();
+//  useEffect(() => {
+//    resetInactivityTimer();
  
-   const activityEvents = ['mousemove', 'keydown', 'mousedown', 'touchstart'];
-   activityEvents.forEach((event) => {
-     document.addEventListener(event, handleUserActivity);
-   });
+//    const activityEvents = ['mousemove', 'keydown', 'mousedown', 'touchstart'];
+//    activityEvents.forEach((event) => {
+//      document.addEventListener(event, handleUserActivity);
+//    });
  
-   return () => {
-     activityEvents.forEach((event) => {
-       document.removeEventListener(event, handleUserActivity);
-     });
+//    return () => {
+//      activityEvents.forEach((event) => {
+//        document.removeEventListener(event, handleUserActivity);
+//      });
  
-     if (inactivityTimer) {
-       clearTimeout(inactivityTimer);
-     }
-   };
- }, []);
+//      if (inactivityTimer) {
+//        clearTimeout(inactivityTimer);
+//      }
+//    };
+//  }, []);
 
 
 
@@ -76,7 +77,8 @@ function App() {
         <Route path='/landing_page'element={<LandingPage/>}/>
         <Route path='/sign_up'element={<SignUp/>}/>
         <Route path='/sign_in'element={<SignIn/>}/>
-        <Route path='/register'element={<Register/>}/>
+        <Route path='/register_phone'element={<RegisterPhone/>}/>
+        <Route path='/register_email'element={<RegisterEmail/>}/>
         <Route path='/dashboard'element={<Dashboard/>}/>
         <Route path='/loans'element={<Loans/>}/>
         <Route path='/loan_application'element={<ApplyLoan/>}/>

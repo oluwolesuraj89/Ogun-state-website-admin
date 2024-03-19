@@ -128,15 +128,6 @@ const SignIn = () => {
                         "Log In"
                     )}
                     </button>
-
-                {/* <div className={classes.buttonContainer}>
-                        <div className={classes.buttonSignup}>
-                            <p className={classes.button1}>Register as an Individual</p>
-                        </div>
-                        <div className={classes.buttonSignup2}>
-                            <p className={classes.button2}>Register as a Business</p>
-                        </div>
-                    </div> */}
             </div>
 
         </div>

@@ -67,7 +67,7 @@ button{
 .contentContainer{
     width: 100%;
     padding: 0 100px;
-    
+    margin-bottom: 30px;
     /* max-width: 1000px;    */
 }
 .section1{
@@ -167,6 +167,12 @@ align-items: center;
     margin-top: 66px;
     width: 100%;
     max-width: 900px;
+    margin-bottom: 30px;
+}
+
+.accordionText{
+    font-size: 15px !important;
+    font-weight: 400 !important;
 }
 
 
@@ -194,7 +200,7 @@ background: rgba(233, 236, 239, 0.33);
 .faqsHeader{
     font-weight: 700;
     font-size: 48;
-    margin-top: 100px;
+    margin-top: 40px;
     color: #000000;
 }
 

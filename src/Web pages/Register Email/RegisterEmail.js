@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import OnbImg from '../../Images/image bg.svg';
-import classes from './Register.module.css';
+import classes from './RegisterEmail.module.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -10,7 +10,7 @@ import crossedEyeIcon from '../../Images/eye-slash.png'
 
 
 
-const Register = () => {
+const RegisterEmail = () => {
     const navigate = useNavigate();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -193,4 +193,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default RegisterEmail;
