@@ -69,12 +69,12 @@ const SignUp = () => {
     };
 
 
-    const navigateToSignup = () => {
-        navigate('/register_phone');
-    };
-
     const navigateToEmail = () => {
         navigate('/register_email');
+    };
+
+    const navigateToPhone = () => {
+        navigate('/register_phone');
     };
 
     const navigateToForgot = () => {
@@ -95,14 +95,13 @@ const SignUp = () => {
 
             <div className={classes.signContainer}>
                 <p className={classes.headerText}>Create an Account</p>
-                <p className={classes.subText}>Register with either your Phone Number or Email Address to access
-                    the Ogun state SME Empowerment Fund</p>
+                <p className={classes.subText}>Register to access the Ogun state SME Empowerment Fund</p>
                     <div className={classes.buttonContainer}>
-                        <div className={classes.buttonSignup} onClick={navigateToSignup}>
-                            <p className={classes.button1}>Create an Account with Phone Number</p>
+                        <div className={classes.buttonSignup} onClick={navigateToEmail}>
+                            <p className={classes.button1}>Continue with Email</p>
                         </div>
-                        <div className={classes.buttonSignup2} onClick={navigateToEmail}>
-                            <p className={classes.button2}>Create an Account with Email Address</p>
+                        <div className={classes.buttonSignup2} onClick={navigateToPhone}>
+                            <p className={classes.button2}>Continue with Phone number</p>
                         </div>
                     </div>
             </div>

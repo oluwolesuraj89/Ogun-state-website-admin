@@ -17,6 +17,13 @@ import ApplyGrant from './Web pages/Grant Application/ApplyGrant';
 import SubmitGrantApplication from './Web pages/Grant continue/GrantContinue';
 import RegisterPhone from './Web pages/Register Phone/RegisterPhone';
 import RegisterEmail from './Web pages/Register Email/RegisterEmail';
+import VerifyPhone from './Web pages/Verify Phone/VerifyPhone';
+import VerifyEmail from './Web pages/Verify Email/VerifyEmail';
+import ForgotPassword from './Web pages/Forgot Password/ForgotPassword';
+import ForgotPasswordRedirect from './Web pages/Forgot Password Redirect/ForgotPasswordRedirect';
+import ForgotPasswordReset from './Web pages/Forgot Password Reset/ForgotPasswordReset';
+import LoansOnboarding from './Web pages/Loans Onboarding/LoansOnboarding';
+import GrantOnboarding from './Web pages/Grant Onboarding/GrantOnboarding';
 
 function App() {
   const [userIsInactive, setUserIsInactive] = useState(false);
@@ -81,12 +88,19 @@ function App() {
         <Route path='/register_email'element={<RegisterEmail/>}/>
         <Route path='/dashboard'element={<Dashboard/>}/>
         <Route path='/loans'element={<Loans/>}/>
+        <Route path='/loan_onboarding'element={<LoansOnboarding/>}/>
+        <Route path='/grant_onboarding'element={<GrantOnboarding/>}/>
         <Route path='/loan_application'element={<ApplyLoan/>}/>
         <Route path='/apply_for_loan'element={<LoanHomePage/>}/>
         <Route path='/submit_loan_application'element={<LoansApplication/>}/>
         <Route path='/grant'element={<Grant/>}/>
         <Route path='/grant_application'element={<ApplyGrant/>}/>
         <Route path='/submit_grant_application'element={<SubmitGrantApplication/>}/>
+        <Route path='/verify_phone'element={<VerifyPhone/>}/>
+        <Route path='/verify_email'element={<VerifyEmail/>}/>
+        <Route path='/forgot_password'element={<ForgotPassword/>}/>
+        <Route path='/forgot_password_redirect'element={<ForgotPasswordRedirect/>}/>
+        <Route path='/forgot_password_reset'element={<ForgotPasswordReset/>}/>
         </Routes>
         </>
   );

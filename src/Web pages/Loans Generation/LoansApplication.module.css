@@ -60,22 +60,26 @@ margin: 0;
 }
 
 .loanBg{
-  width: 90%;
+  width: 85%;
   height: 280px;
-margin-left: 45px;
+margin-left: 70px;
 }
 
 .loanBg1{
-  width: 90%;
+  width: 85%;
   height: 280px;
-margin-left: 45px;
+margin-left: 70px;
   margin-top: 30px;
 /* margin-left: 30px; */
 }
 
+/* .shadow {
+  box-shadow: 0 0 5px rgb(238, 236, 236);
+} */
+
 .eligibilityText{
   margin-top: 47px;
-  margin-left: 45px;
+  margin-left: 70px;
 }
 
 .userdetails {
@@ -93,7 +97,7 @@ margin-left: 45px;
 .applyLoanText{
   font-weight: 500;
   color: #343A40;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .arrow{
@@ -322,7 +326,7 @@ body {
     border-radius: 4px;
     padding: 15px;
     margin-bottom: 66px;
-    margin-left: 45px;
+    margin-left: 70px;
     margin-top: 57px;
   }
   

@@ -324,7 +324,7 @@ export default function ApplyLoan() {
                                                     {/* Your file icon element goes here */}
                                                     <img src={Folder} alt="File Icon" className={classes.fileIcon} />
                                                     {/* Input element hidden, but clickable */}
-                                                    <input type="file" id="fileInput" className={classes.fileInput} value={selectedFile} onChange={handleFileChange} />
+                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange} />
                                                 </label>
                                                 <span className={classes.placeholder}>
                                                     {selectedFile ? selectedFile.name : 'No file is chosen'}
@@ -341,7 +341,7 @@ export default function ApplyLoan() {
                                                     {/* Your file icon element goes here */}
                                                     <img src={Folder} alt="File Icon" className={classes.fileIcon} />
                                                     {/* Input element hidden, but clickable */}
-                                                    <input type="file" id="fileInput" className={classes.fileInput} value={selectedFile1} onChange={handleFileChange1} />
+                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange1} />
                                                 </label>
                                                 <span className={classes.placeholder}>
                                                     {selectedFile ? selectedFile.name : 'No file is chosen'}
@@ -355,7 +355,7 @@ export default function ApplyLoan() {
                                                     {/* Your file icon element goes here */}
                                                     <img src={Folder} alt="File Icon" className={classes.fileIcon} />
                                                     {/* Input element hidden, but clickable */}
-                                                    <input type="file" id="fileInput" className={classes.fileInput} value={selectedFile2} onChange={handleFileChange2} />
+                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange2} />
                                                 </label>
                                                 <span className={classes.placeholder}>
                                                     {selectedFile ? selectedFile.name : 'No file is chosen'}
@@ -372,7 +372,7 @@ export default function ApplyLoan() {
                                                     {/* Your file icon element goes here */}
                                                     <img src={Folder} alt="File Icon" className={classes.fileIcon} />
                                                     {/* Input element hidden, but clickable */}
-                                                    <input type="file" id="fileInput" className={classes.fileInput} value={selectedFile3} onChange={handleFileChange3} />
+                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange3} />
                                                 </label>
                                                 <span className={classes.placeholder}>
                                                     {selectedFile ? selectedFile.name : 'No file is chosen'}

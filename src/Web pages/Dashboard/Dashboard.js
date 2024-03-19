@@ -13,15 +13,40 @@ import { Link } from 'react-router-dom'
 import MainDashoard from '../Main Dashboard/MainDashoard';
 
 const Dashboard = () => {
+    const [bearer, setBearer] = useState('');
+    const [user, setUser] = useState('');
 const navigate = useNavigate();
 
 const handleLoan = () => {
-    navigate('/loans');
+    navigate('/loan_onboarding');
 }
 
 const handleGrant = () => {
-    navigate('/grant');
+    navigate('/grant_onboarding');
 }
+
+const readData = async () => {
+    try {
+      const detail = await AsyncStorage.getItem('fullName');
+      const details = await AsyncStorage.getItem('userToken');
+      
+   
+      if (detail !== null) {
+        setUser(detail);
+      }
+
+    
+      if (details !== null) {
+        setBearer(details);
+      }
+    } catch (e) {
+      alert('Failed to fetch the input from storage');
+    }
+  };
+
+  useEffect(() => {
+    readData();
+  }, []);
 
 
     return (

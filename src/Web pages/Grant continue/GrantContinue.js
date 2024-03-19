@@ -31,7 +31,7 @@ export default function SubmitGrantApplication() {
                                 <img src={GrantImage} className={classes.loanBg} alt='loan-image' />
                             </div>
                             <div className={classes.eligibilityText}>
-                                <p className={classes.userdetails}>How to Apply Always</p>
+                                <p className={classes.userdetails}>How to Apply</p>
                                 <div className={classes.lineBottom} />
                                 <div className={classes.eligibilityCriteria}>
                                     <div className={classes.bulletList}>

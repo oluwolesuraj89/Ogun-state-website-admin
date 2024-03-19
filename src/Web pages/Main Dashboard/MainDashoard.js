@@ -4,6 +4,7 @@ import RegLogo from '../../Images/RegistrationLogo.svg'
 import { Link, useLocation } from 'react-router-dom'
 import { Tab, Tabs, Form } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import SuccessImg from '../../Images/completed.svg';
 import messageIcon from '../../Images/Dashbord-menu-icons/message-text.svg';
@@ -13,7 +14,11 @@ import LogOutIcon from '../../Images/Dashbord-menu-icons/logout.svg';
 
 export default function MainDashoard() {
     const location = useLocation();
+    const [bearer, setBearer] = useState('');
+    const [user, setUser] = useState('');
     const [activeLink, setActiveLink] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
 
     useEffect(() => {
@@ -32,6 +37,66 @@ export default function MainDashoard() {
             setActiveLink(null);
         }
     }, [location]);
+
+    const readData = async () => {
+        try {
+          const detail = await AsyncStorage.getItem('fullName');
+          const details = await AsyncStorage.getItem('userToken');
+          
+       
+          if (detail !== null) {
+            const firstName = detail.split(' ')[0];
+            setUser(firstName);
+          }
+    
+        
+          if (details !== null) {
+            setBearer(details);
+          }
+        } catch (e) {
+          alert('Failed to fetch the input from storage');
+        }
+      };
+    
+      useEffect(() => {
+        readData();
+      }, []);
+
+      const handleLogout = async () => {
+        setLoading(true);
+        try {
+          const response = await axios.post(
+            'https://api-sme.promixaccounting.com/api/v1/logout',
+            {},
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearer}`
+              }
+            }
+          );
+      
+          navigate('/login');
+      
+        
+      
+          // console.log(response.data);
+        } catch (error) {
+            let errorMessage = 'An error occurred. Please try again.';
+            if (error.response && error.response.data && error.response.data.message) {
+                if (typeof error.response.data.message === 'string') {
+                    errorMessage = error.response.data.message;
+                } else if (Array.isArray(error.response.data.message)) {
+                    errorMessage = error.response.data.message.join('; ');
+                } else if (typeof error.response.data.message === 'object') {
+                    errorMessage = JSON.stringify(error.response.data.message);
+                }
+            }
+            setErrorMessage(errorMessage);
+        } finally {
+          setLoading(false);
+        }
+      };
     
 
 
@@ -49,13 +114,13 @@ export default function MainDashoard() {
                         <p><img src={messageIcon} alt='icon' />Dashboard</p>
                     </Link>
                     <Link
-                        to={'/loans'}
+                        to={'/loan_onboarding'}
                         className={activeLink === 'Loan' ? classes.active : ''}
                     >
                         <p><img src={messageIcon} alt='icon' /> Loans</p>
                     </Link>
                     <Link
-                        to={'/grant'}
+                        to={'/grant_onboarding'}
                         className={activeLink === 'Grants' ? classes.active : ''}
                     >
                         <p> <img src={messageIcon} alt='icon' /> Grants</p>
@@ -76,7 +141,7 @@ export default function MainDashoard() {
             </div>
             <div className={classes.formSection}>
                 <div className={classes.formSectionHeader}>
-                    <h1>Welcome Oriade</h1>
+                    <h1>Welcome {user}</h1>
                     <p>Apply for grants or loans from the Ogun State Government</p>
                 </div>
             </div>

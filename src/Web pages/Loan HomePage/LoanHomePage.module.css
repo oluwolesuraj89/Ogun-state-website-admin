@@ -87,7 +87,7 @@ margin-left: 45px;
 
 .eligibilityText{
   margin-top: 47px;
-  margin-left: 80px;
+  margin-left: 50px;
 }
 
 .userdetails {
@@ -95,6 +95,10 @@ margin-left: 45px;
   font-weight: 700 !important;
   color: #343A40 !important;
 }
+
+/* .shadow {
+  box-shadow: 0 0 5px rgb(238, 236, 236);
+} */
 
 .lineBottom {
   width: 187px;
@@ -314,7 +318,7 @@ body {
     border-radius: 4px;
     padding: 15px;
     margin-bottom: 66px;
-    margin-left: 80px;
+  margin-left: 50px;
     margin-top: 57px;
   }
   

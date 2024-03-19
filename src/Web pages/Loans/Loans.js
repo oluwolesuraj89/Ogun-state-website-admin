@@ -66,6 +66,8 @@ export default function Loans() {
                             <div className={classes.applyLoan} onClick={handleLoanApplication}>
                                             <p className={classes.continueReg}>Apply for Loan</p>
                                         </div>
+
+                                        
                         </div>
                     </div>
                 </div>

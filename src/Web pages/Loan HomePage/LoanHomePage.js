@@ -25,6 +25,7 @@ const handleLoanApplication = () => {
                 <div className={`${classes.formSecCont} ${classes.shadow}`}>
                     <h3>Loan</h3>
                 </div>
+                <div className={`${classes.mainform} ${classes.shadow}`}>
                 <div className={classes.loanBackground}>
                     <img src={LoanImage} className={classes.loanBg} alt='loan-image' />
                 </div>
@@ -54,6 +55,7 @@ const handleLoanApplication = () => {
                 <div className={classes.applyLoan} onClick={handleLoanApplication}>
                     <p className={classes.continueReg}>Proceed</p>
                 </div>
+            </div>
             </div>
         </div>
     )

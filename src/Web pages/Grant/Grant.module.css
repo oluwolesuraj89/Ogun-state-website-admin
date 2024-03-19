@@ -79,14 +79,14 @@ margin: 0;
 }
 
 .loanBg{
-  width: 95%;
+  width: 85%;
   height: 280px;
-  margin-left: 45px;
+  margin-left: 70px;
 }
 
 .eligibilityText{
   margin-top: 47px;
-  margin-left: 80px;
+  margin-left: 70px;
 }
 
 .userdetails {
@@ -104,7 +104,7 @@ margin: 0;
 .applyLoanText{
   font-weight: 500;
   color: #343A40;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .arrow{
@@ -313,7 +313,7 @@ body {
     border-radius: 4px;
     padding: 15px;
     margin-bottom: 66px;
-    margin-left: 80px;
+    margin-left: 70px;
     margin-top: 57px;
   }
   

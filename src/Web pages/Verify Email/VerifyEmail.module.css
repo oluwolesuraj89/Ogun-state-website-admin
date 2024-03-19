@@ -16,6 +16,44 @@ body {
     height: 100vh;
     display: block;
   }
+
+  .signinButton{
+    border-radius: 4px;
+    height: 55px;
+    width: 400px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    background-color: #2D995F;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    padding: 10px 10px 15px 10px;
+    margin-top: 60px;
+  }
+
+  .stId{
+  
+    font-size: 14px;
+    padding-bottom: 0px;
+    color: #6C757D;
+    
+    }
+
+    .inputContainer {
+      flex: 1; 
+    }
+    
+    .snInput {
+      border: 1px solid #ADB5BD;
+      border-radius: 4px;
+      height: 55px;
+      width: 400px;
+      margin-bottom: 5px;
+      padding-left: 10px;
+      padding: 10px;
+    }
+
   .marketersImg img{
     width: 100%;
     height: 100%;
@@ -48,7 +86,6 @@ body {
     font-weight: 700;
     text-align: center;
     color: #000;
-    margin-bottom: 0.5rem !important;
   }
 
   .subText{
@@ -63,6 +100,7 @@ body {
     width: 400px;
     border-radius: 4px;
     background-color: #2D995F;
+    cursor: pointer;
   }
 
   .buttonSignup2{
@@ -72,6 +110,7 @@ body {
     background-color: #fff;
     border: 1px solid #2D995F;
     margin-top: 52px;
+    cursor: pointer;
   }
 
   .buttonContainer{
@@ -97,82 +136,4 @@ body {
     text-align: center;
     padding: 15px 10px 15px 10px;
     
-  }
-
-  .formInput{
-    margin-top: 30px;
-  }
-
-  .snInput {
-    border: 1px solid #ADB5BD;
-    border-radius: 4px;
-    height: 55px;
-    width: 400px;
-    margin-bottom: 5px;
-    padding-left: 10px;
-    padding: 10px;
-  }
-
-  .forgotPassword{
-    font-size: 14px;
-    color: #2D995F;
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    cursor: pointer;
-  }
-
-  .signinButton{
-    border-radius: 4px;
-    height: 55px;
-    width: 400px;
-    margin-bottom: 5px;
-    padding-left: 10px;
-    background-color: #2D995F;
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
-    text-align: center;
-    padding: 10px 10px 15px 10px;
-    margin-top: 60px;
-  }
-
-  .passwordInputContainer {
-    /* display: flex;  */
-    align-items: center; 
-  }
-
-  .inputContainer {
-    flex: 1; 
-  }
-  
-
-  .stId{
-  
-  font-size: 14px;
-  padding-bottom: 0px;
-  color: #6C757D;
-  
-  }
-
-  .passwordToggleButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    float: right;
-                  left: -20px;
-                  margin-top: -45px;
-                  position: relative;
-                  z-index: 2;
-  
-  }
-
-  @media (max-width: 991px) {
-    .marketersImg {
-      display: none;
-    }
-
-    .signContainer {
-      margin-top: -17rem;
-    }
   }

@@ -37,7 +37,7 @@ const RegisterEmail = () => {
         setLoad(true);
         try {
             const responses = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/register`,
+                `https://api-silas.ogunstate.gov.ng/api/send-otp`,
                 {
                     email: email,
                     password: password,
@@ -45,17 +45,13 @@ const RegisterEmail = () => {
                     last_name: lastName,
                 password_confirmation: confirmPassword,
                 phone: phone,
+                reg_type:"Email",
                 },
             );
     
-            
-            if (location.state && location.state.from) {
-                navigate(location.state.from);
-            } else {
-                // If there's no previous page, navigate to a default route
-                navigate('/sign_in');
-            }
-            console.log(responses.data.message);
+                navigate('/verify_email', { state: { otpCode:  responses.data.data} });
+           
+            console.log(responses.data.data);
             
             setEmail('');
             setPassword('');
@@ -180,7 +176,7 @@ const RegisterEmail = () => {
                             <span style={{ marginLeft: '5px' }}>Registration in process, Please wait...</span>
                         </>
                     ) : (
-                        "Create Account"
+                        "Continue"
                     )}
                     </button>
 

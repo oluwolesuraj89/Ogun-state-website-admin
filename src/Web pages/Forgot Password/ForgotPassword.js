@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import OnbImg from '../../Images/image bg.svg';
-import classes from './SignIn.module.css';
+import classes from './ForgotPassword.module.css';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Spinner } from 'react-bootstrap';
@@ -9,7 +9,7 @@ import crossedEyeIcon from '../../Images/eye-slash.png'
 import Swal from 'sweetalert2';
 
 
-const SignIn = () => {
+const ForgotPassword = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [error, setError] = useState({});
@@ -29,7 +29,7 @@ const SignIn = () => {
     const handleLogin = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.post(
+            const responses = await axios.post(
                 `https://api-silas.ogunstate.gov.ng/api/login`,
                 {
                     email: email,
@@ -38,24 +38,16 @@ const SignIn = () => {
             );
     
             
-            const result = response.data?.data?.user?.name;
-     const phones = response.data?.data?.user?.phone_number;
-     const emails = response.data?.data?.user?.email;
-     const token = response.data?.data?.token;
-
-     
-     AsyncStorage.setItem('email', emails);
-     AsyncStorage.setItem('phone', phones);
-     AsyncStorage.setItem('userToken', token);
-     AsyncStorage.setItem('fullName', result);
-     
-
-     if (location.state && location.state.from) {
-      navigate(location.state.from);
-    } else {
-      // If there's no previous page, navigate to a default route
-      navigate('/dashboard');
-    }
+            if (location.state && location.state.from) {
+                navigate(location.state.from);
+            } else {
+                // If there's no previous page, navigate to a default route
+                navigate('/dashboard');
+            }
+            console.log(responses.data.message);
+            
+            setEmail('');
+            setPassword('');
 
         } catch (error) {
             let errorMessage = 'An error occurred. Please try again.';
@@ -74,22 +66,15 @@ const SignIn = () => {
         }
     };
 
-    const isButtonDisabled = !email || !password;
+    const isButtonDisabled = !email ;
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
+   
 
     const handleForgotPassword = () => {
-        navigate('/forgot_password');
+        navigate('/forgot_password_redirect');
     };
 
-
-    const handleKeyPress = (e) => {
-        if (e.key === 'Enter' && !isButtonDisabled) {
-            handleLogin();
-        }
-    };
+   
 
     return (
         <div className={classes.signin}>
@@ -98,46 +83,25 @@ const SignIn = () => {
             </div>
 
             <div className={classes.signContainer}>
-                <p className={classes.headerText}>Log In</p>
-                <p className={classes.subText}>to access your portal</p>
+                <p className={classes.headerText}>Forgot Password</p>
+                <p className={classes.subText}>Reset your password here</p>
                     <div style={{ marginTop: 20 }}>
                     {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
-                        <span className={classes.stId}> Email Address </span>
+                        <span className={classes.stId}> Enter your email address </span>
                             <div className={classes.inputContainer}>
                                 <input type="text" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                     </div>
 
-                    <div style={{ marginTop: 20 }}>
-                        <span className={classes.stId}> Password </span>
-                        <div className={classes.passwordInputContainer}>
-                            <div className={classes.inputContainer}>
-                                <input type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
-                            </div>
-                            <button
-                                type="button"
-                                className={classes.passwordToggleButton}
-                                onClick={togglePasswordVisibility}
-                            >
-                                {showPassword ? (
-                                    <img src={crossedEyeIcon} alt="Hide Password" style={{ height: "20px", width: "20px" }} />
-                                ) : (
-                                    '👁️'
-                                )}
-                            </button>
-                        </div>
-                    
-                        <p className={classes.forgotPassword} onClick={handleForgotPassword}>forgot password</p>
-                    </div>
 
-                    <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleLogin} disabled={isButtonDisabled}>
+                    <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleForgotPassword} disabled={isButtonDisabled}>
                     {isLoading ? (
                         <>
                             <Spinner size='sm' />
                             <span style={{ marginLeft: '5px' }}>Processing, Please wait...</span>
                         </>
                     ) : (
-                        "Log In"
+                        "Continue"
                     )}
                     </button>
             </div>
@@ -148,4 +112,4 @@ const SignIn = () => {
     );
 }
 
-export default SignIn;
+export default ForgotPassword;
