@@ -24,6 +24,8 @@ import ForgotPasswordRedirect from './Web pages/Forgot Password Redirect/ForgotP
 import ForgotPasswordReset from './Web pages/Forgot Password Reset/ForgotPasswordReset';
 import LoansOnboarding from './Web pages/Loans Onboarding/LoansOnboarding';
 import GrantOnboarding from './Web pages/Grant Onboarding/GrantOnboarding';
+import InvoicesBoard from './Web pages/Admin Monitor Invoice/InvoicesBoard';
+import AdministratorInvoice from './Web pages/Admin Monitor Invoice/AdministratorInvoice';
 
 function App() {
   const [userIsInactive, setUserIsInactive] = useState(false);
@@ -101,6 +103,8 @@ function App() {
         <Route path='/forgot_password'element={<ForgotPassword/>}/>
         <Route path='/forgot_password_redirect'element={<ForgotPasswordRedirect/>}/>
         <Route path='/forgot_password_reset'element={<ForgotPasswordReset/>}/>
+        <Route path='/invoice_onboard'element={<InvoicesBoard/>}/>
+        <Route path='/admin_invoice'element={<AdministratorInvoice/>}/>
         </Routes>
         </>
   );

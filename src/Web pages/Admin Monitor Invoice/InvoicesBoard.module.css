@@ -1,0 +1,61 @@
+/* colors */
+:root{
+    --Deep-green: #164B2E;
+    --Light-green: #2D995F; 
+    --Gray:#f2f3f3;
+    --White: #ffffff;
+    --Black: #343A40;
+    --Background:rgba(172, 231, 199, 0.05);
+}
+.finishedbodyCont{
+    width: 100%;
+    padding-left: 20rem;
+    padding-right: 5rem;
+  
+  }
+  .formSecCont{
+    padding: 24px 32px;
+    background-color: var(--White);
+    border-radius: 12px;
+    margin-bottom: 20px;
+   
+  }
+  .formSecCont h3{
+    color: #343A40;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .invoices{
+    background-color: var(--White);
+    padding: 40px 47px;
+    height: 350px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 44px;
+  }
+  .invoiceCards{
+    background-color: var(--Light-green);
+    color: var(--White);
+    padding: 35px 58px 0 25px;
+    max-width: 263px;
+    border-radius: 8px;
+    /* height: 269px; */
+  }
+  .invoiceCards h4{
+    margin-top: 54px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .invoices button{
+    background-color: var(--White);
+    padding: 12px 40px;
+    border: none;
+    outline: none;
+    color: var(--Light-green);
+    border-radius: 30px;
+    margin: 39px 0 23px 0;
+  }
+  @media print {
+    
+  }

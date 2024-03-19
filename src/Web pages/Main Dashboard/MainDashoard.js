@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classes from '../../Web pages/Main Dashboard/MinDashboard.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Tab, Tabs, Form } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,6 +14,7 @@ import LogOutIcon from '../../Images/Dashbord-menu-icons/logout.svg';
 
 export default function MainDashoard() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [bearer, setBearer] = useState('');
     const [user, setUser] = useState('');
     const [activeLink, setActiveLink] = useState(null);
@@ -29,7 +30,7 @@ export default function MainDashoard() {
             setActiveLink('Loan');
         } else if (pathname.includes('grant')) {
             setActiveLink('Grants');
-        } else if (pathname === '/') {
+        } else if (pathname.includes('invoice')) {
             setActiveLink('Invoices');
         } else if (pathname === '/sign_in') {
             setActiveLink('Logout');
@@ -126,7 +127,7 @@ export default function MainDashoard() {
                         <p> <img src={messageIcon} alt='icon' /> Grants</p>
                     </Link>
                     <Link
-                        to=''
+                        to={'/invoice_onboard'}
                         className={activeLink === 'Invoices' ? classes.active : ''}
                     >
                         <p> <img src={Invoice} alt='icon' /> Invoices</p>
