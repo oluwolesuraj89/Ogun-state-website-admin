@@ -4,7 +4,7 @@ import HeaderNav from "../HeaderNav/HeaderNav";
 import { Accordion } from "react-bootstrap";
 import Sellers from '../../Images/background3.png';
 import Footer from "../Footer/Footer";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink} from "react-router-dom";
 
 
 function LandingPage() {
