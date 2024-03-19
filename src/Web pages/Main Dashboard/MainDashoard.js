@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import classes from '../../Web pages/Main Dashboard/MinDashboard.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Tab, Tabs, Form } from 'react-bootstrap';
+import { Tab, Tabs, Form, Spinner } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
@@ -10,6 +10,7 @@ import SuccessImg from '../../Images/completed.svg';
 import messageIcon from '../../Images/Dashbord-menu-icons/message-text.svg';
 import Invoice from '../../Images/Dashbord-menu-icons/invoice.svg';
 import LogOutIcon from '../../Images/Dashbord-menu-icons/logout.svg';
+import Swal from 'sweetalert2';
 
 
 export default function MainDashoard() {
@@ -63,11 +64,12 @@ export default function MainDashoard() {
         readData();
       }, []);
 
+
       const handleLogout = async () => {
         setLoading(true);
         try {
           const response = await axios.post(
-            'https://api-sme.promixaccounting.com/api/v1/logout',
+            'https://api-silas.ogunstate.gov.ng/api/logout',
             {},
             {
               headers: {
@@ -76,8 +78,13 @@ export default function MainDashoard() {
               }
             }
           );
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: response.data.message,
+          });
       
-          navigate('/login');
+          navigate('/sign_in');
       
         
       
@@ -92,6 +99,11 @@ export default function MainDashoard() {
                 } else if (typeof error.response.data.message === 'object') {
                     errorMessage = JSON.stringify(error.response.data.message);
                 }
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed',
+                    text: errorMessage,
+                  });
             }
             setErrorMessage(errorMessage);
         } finally {
@@ -133,10 +145,20 @@ export default function MainDashoard() {
                         <p> <img src={Invoice} alt='icon' /> Invoices</p>
                     </Link>
                     <Link
-                        to={'/sign_in'}
+                    onClick={handleLogout}
+                        // to={'/sign_in'}
                         className={activeLink === 'Logout' ? classes.active : ''}
                     >
-                        <p><img src={LogOutIcon} alt='icon' /> Logout</p>
+                        <p>
+    <img src={LogOutIcon} alt='icon' />{' '}
+    {loading ? (
+        <>
+            <Spinner size='sm' style={{marginRight: 5}}/> Signing out...
+        </>
+    ) : (
+        'Log out'
+    )}
+</p>
                     </Link>
                 </div>
             </div>
