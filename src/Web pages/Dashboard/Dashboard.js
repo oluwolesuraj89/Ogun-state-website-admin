@@ -32,7 +32,7 @@ const handleGrant = () => {
                         <div className={`${classes.formSecCont} ${classes.shadow}`}>
                             <h3>Dashboard</h3>
                         </div>
-                        <div className={classes.mainform}>
+                        <div className={`${classes.mainform} ${classes.shadow}`}>
                         <div className={classes.loandgrantcards}>
                             <div className={classes.loancard} onClick={handleLoan}>
                                 <img src={loanicon} alt="The marketers" className={classes.icons} />

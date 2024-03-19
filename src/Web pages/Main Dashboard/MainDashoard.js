@@ -77,7 +77,7 @@ export default function MainDashoard() {
             <div className={classes.formSection}>
                 <div className={classes.formSectionHeader}>
                     <h1>Welcome Oriade</h1>
-                    <p>Apply for grants or loans from the Ogun state govt</p>
+                    <p>Apply for grants or loans from the Ogun State Government</p>
                 </div>
             </div>
         </div>
