@@ -84,6 +84,10 @@ const SignIn = () => {
         navigate('/forgot_password');
     };
 
+    const handleNavigateRegister = () => {
+        navigate('/sign_up');
+    };
+
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter' && !isButtonDisabled) {
@@ -127,7 +131,7 @@ const SignIn = () => {
                             </button>
                         </div>
                     
-                        <p className={classes.forgotPassword} onClick={handleForgotPassword}>forgot password</p>
+                        <p className={classes.forgotPassword} onClick={handleForgotPassword}>Forgot password</p>
                     </div>
 
                     <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleLogin} disabled={isButtonDisabled}>
@@ -140,6 +144,10 @@ const SignIn = () => {
                         "Log In"
                     )}
                     </button>
+                    <div className={classes.bottom}>
+                    <p className={classes.signUp} >Don't have an account? </p>
+                    <p className={classes.register} onClick={handleNavigateRegister}>Register here!</p>
+                    </div>
             </div>
 
         </div>

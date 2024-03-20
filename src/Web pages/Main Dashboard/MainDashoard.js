@@ -78,17 +78,9 @@ export default function MainDashoard() {
               }
             }
           );
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: response.data.message,
-          });
-      
           navigate('/sign_in');
       
         
-      
-          // console.log(response.data);
         } catch (error) {
             let errorMessage = 'An error occurred. Please try again.';
             if (error.response && error.response.data && error.response.data.message) {
