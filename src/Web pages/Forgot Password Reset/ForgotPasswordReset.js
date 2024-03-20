@@ -20,6 +20,7 @@ const ForgotPasswordReset = () => {
     const [termsSelected, setTermsSelected] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword1, setShowPassword1] = useState(false);
+    const [token, setToken] = useState(false);
 
     const location = useLocation();
 
@@ -29,16 +30,17 @@ const ForgotPasswordReset = () => {
     
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
-        const token = searchParams.get('token');
-        console.log('Token:', token); 
+        const tokens = searchParams.get('token');
+        setToken(tokens)
+        console.log('Here is your token:', tokens); 
         
-        if (token) {
-            handleForgotPassword(token);
-        }
+        // if (tokens) {
+        //     handleForgotPassword(token);
+        // }
     }, [location.search]);
 
     
-    const handleForgotPassword = async (token) => {
+    const handleForgotPassword = async () => {
         setIsLoading(true);
         try {
             const responses = await axios.post(
@@ -46,7 +48,7 @@ const ForgotPasswordReset = () => {
                 {
                     password: password,
                     password_confirmation: confirmPassword,
-                    token: token 
+                token: token
                 },
             );
     
@@ -93,9 +95,10 @@ const ForgotPasswordReset = () => {
             </div>
 
             <div className={classes.signContainer}>
+                
                 <p className={classes.headerText}>Reset Password</p>
                 <p className={classes.subText}>Reset your password here</p>
-
+                {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
                     <div style={{ marginTop: 20 }}>
                         <span className={classes.stId}> Enter your new Password </span>
                         <div className={classes.passwordInputContainer}>
@@ -140,7 +143,7 @@ const ForgotPasswordReset = () => {
                         
                     </div>
 
-                    <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleForgotPassword} disabled={isLoading}>
+                    <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleForgotPassword} >
                     {isLoading ? (
                         <>
                             <Spinner size='sm' />
