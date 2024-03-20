@@ -26,10 +26,10 @@ const ForgotPasswordReset = () => {
 
 
 
-    const token = new URLSearchParams(window.location.search).get('token');
-    if (token) {
-        handleForgotPassword(token);
-    }
+    // const token = new URLSearchParams(window.location.search).get('token');
+    // if (token) {
+    //     handleForgotPassword(token);
+    // }
 
     const handleForgotPassword = async (token) => {
         setIsLoading(true);
@@ -39,7 +39,7 @@ const ForgotPasswordReset = () => {
                 {
                     password: password,
                     password_confirmation: confirmPassword,
-                    token: token 
+                    // token: token 
                 },
             );
     
