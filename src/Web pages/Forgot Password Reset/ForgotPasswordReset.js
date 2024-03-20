@@ -15,40 +15,38 @@ const ForgotPasswordReset = () => {
     const [error, setError] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [termsSelected, setTermsSelected] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [showPassword1, setShowPassword1] = useState(false);
 
     const location = useLocation();
 
 
 
 
+    const token = new URLSearchParams(window.location.search).get('token');
+    if (token) {
+        handleForgotPassword(token);
+    }
 
-
-    const handleLogin = async () => {
+    const handleForgotPassword = async (token) => {
         setIsLoading(true);
         try {
             const responses = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/login`,
+                `https://api-silas.ogunstate.gov.ng/api/reset-password`,
                 {
-                    email: email,
                     password: password,
+                    password_confirmation: confirmPassword,
+                    token: token 
                 },
             );
     
-            
-            if (location.state && location.state.from) {
-                navigate(location.state.from);
-            } else {
-                // If there's no previous page, navigate to a default route
-                navigate('/dashboard');
-            }
-            console.log(responses.data.message);
-            
+            navigate('/sign_in');
+    
             setEmail('');
-            setPassword('');
-
+    
         } catch (error) {
             let errorMessage = 'An error occurred. Please try again.';
             if (error.response && error.response.data && error.response.data.message) {
@@ -65,17 +63,22 @@ const ForgotPasswordReset = () => {
             setIsLoading(false);
         }
     };
+    
 
-    const isButtonDisabled = !email || !password;
+    const isButtonDisabled = !password || !confirmPassword;
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
+    const togglePasswordVisibility1 = () => {
+        setShowPassword1(!showPassword1);
+    };
+
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter' && !isButtonDisabled) {
-            handleLogin();
+            handleForgotPassword();
         }
     };
 
@@ -115,14 +118,14 @@ const ForgotPasswordReset = () => {
                         <span className={classes.stId}> Re-enter your new Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
-                                <input type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
+                                <input type={showPassword1 ? 'text' : 'password'} className={classes.snInput} placeholder="" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} onKeyPress={handleKeyPress} />
                             </div>
                             <button
                                 type="button"
                                 className={classes.passwordToggleButton}
-                                onClick={togglePasswordVisibility}
+                                onClick={togglePasswordVisibility1}
                             >
-                                {showPassword ? (
+                                {showPassword1 ? (
                                     <img src={crossedEyeIcon} alt="Hide Password" style={{ height: "20px", width: "20px" }} />
                                 ) : (
                                     '👁️'
@@ -133,7 +136,7 @@ const ForgotPasswordReset = () => {
                         
                     </div>
 
-                    <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleLogin} disabled={isButtonDisabled}>
+                    <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleForgotPassword} disabled={isButtonDisabled}>
                     {isLoading ? (
                         <>
                             <Spinner size='sm' />

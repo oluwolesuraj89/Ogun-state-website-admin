@@ -15,39 +15,49 @@ const ForgotPassword = () => {
     const [error, setError] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
     const [password, setPassword] = useState('');
+    const [load, setLoad] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [termsSelected, setTermsSelected] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-
+    const [isValidEmail, setIsValidEmail] = useState(true);
+    const [errorMessage1, setErrorMessage1] = useState('');
     const location = useLocation();
 
 
+    const validateEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleEmailBlur = () => {
+        const isValid = validateEmail(email);
+        setIsValidEmail(isValid);
+        if (!isValid) {
+            setErrorMessage1('Invalid email');
+        } else {
+            setErrorMessage1('');
+        }
+    };
 
 
 
-
-    const handleLogin = async () => {
-        setIsLoading(true);
+    const handleForgotPassword = async () => {
+        setLoad(true);
         try {
             const responses = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/login`,
+                `https://api-silas.ogunstate.gov.ng/api/forgot-password`,
                 {
                     email: email,
-                    password: password,
                 },
             );
     
-            
-            if (location.state && location.state.from) {
-                navigate(location.state.from);
-            } else {
-                // If there's no previous page, navigate to a default route
-                navigate('/dashboard');
-            }
-            console.log(responses.data.message);
-            
+                navigate('/forgot_password_redirect');
+           
             setEmail('');
-            setPassword('');
 
         } catch (error) {
             let errorMessage = 'An error occurred. Please try again.';
@@ -62,17 +72,10 @@ const ForgotPassword = () => {
             }
             setErrorMessage(errorMessage);
         } finally {
-            setIsLoading(false);
+            setLoad(false);
         }
     };
-
-    const isButtonDisabled = !email ;
-
-   
-
-    const handleForgotPassword = () => {
-        navigate('/forgot_password_redirect');
-    };
+    const isButtonDisabled = !email || !isValidEmail ;
 
    
 
@@ -85,17 +88,18 @@ const ForgotPassword = () => {
             <div className={classes.signContainer}>
                 <p className={classes.headerText}>Forgot Password</p>
                 <p className={classes.subText}>Reset your password here</p>
-                    <div style={{ marginTop: 20 }}>
+                <p style={{ color: 'red', textAlign: 'center' }}>{!isValidEmail ? 'Invalid email' : null}</p>
                     {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
+                    <div style={{ marginTop: 20 }}>
                         <span className={classes.stId}> Enter your email address </span>
                             <div className={classes.inputContainer}>
-                                <input type="text" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <input type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
                             </div>
                     </div>
 
 
                     <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleForgotPassword} disabled={isButtonDisabled}>
-                    {isLoading ? (
+                    {load ? (
                         <>
                             <Spinner size='sm' />
                             <span style={{ marginLeft: '5px' }}>Processing, Please wait...</span>
