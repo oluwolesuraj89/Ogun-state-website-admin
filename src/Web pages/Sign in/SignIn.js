@@ -18,13 +18,30 @@ const SignIn = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [termsSelected, setTermsSelected] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-
+    const [isValidEmail, setIsValidEmail] = useState(true);
+    const [errorMessage1, setErrorMessage1] = useState('');
     const location = useLocation();
 
+    const validateEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
 
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
 
+    const handleEmailBlur = () => {
+        const isValid = validateEmail(email);
+        setIsValidEmail(isValid);
+        if (!isValid) {
+            setErrorMessage1('Invalid email');
+        } else {
+            setErrorMessage1('');
+        }
+    };
 
-
+    
 
     const handleLogin = async () => {
         setIsLoading(true);
@@ -74,7 +91,7 @@ const SignIn = () => {
         }
     };
 
-    const isButtonDisabled = !email || !password;
+    const isButtonDisabled = !email || !password || !isValidEmail;
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -105,11 +122,13 @@ const SignIn = () => {
                 <p className={classes.headerText}>Log In</p>
                 <p className={classes.subText}>to access your portal</p>
                     <div style={{ marginTop: 20 }}>
+                    <p style={{ color: 'red', textAlign: 'center' }}>{!isValidEmail ? 'Invalid email' : null}</p>
                     {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
                         <span className={classes.stId}> Email Address </span>
                             <div className={classes.inputContainer}>
-                                <input type="text" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <input type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
                             </div>
+                            
                     </div>
 
                     <div style={{ marginTop: 20 }}>

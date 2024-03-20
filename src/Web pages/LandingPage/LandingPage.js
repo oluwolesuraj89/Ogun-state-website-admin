@@ -4,7 +4,7 @@ import HeaderNav from "../HeaderNav/HeaderNav";
 import { Accordion } from "react-bootstrap";
 import Sellers from '../../Images/background3.png';
 import Footer from "../Footer/Footer";
-import { useNavigate, NavLink} from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 
 function LandingPage() {
@@ -23,12 +23,12 @@ function LandingPage() {
               of its N500 million naira SME empowerment funds. The program will
               empower over 500 small and medium scale businesses in Ogun state.
             </p>
-            <button className={classes.greenBtn}>Get started</button>
+            <button className={classes.greenBtn}>Get an Account</button>
           </div>
         </div>
       </div>
       <div className={classes.container}>
-        <div className={classes.contentContainer}>
+      <div className={`${classes.contentContainer} ${classes.dapoSection}`}>
           <div className={classes.section2}>
             {/* <h1>Hello world </h1> */}
           </div>
@@ -61,7 +61,7 @@ function LandingPage() {
                 • be owned by someone between the ages of 18-60 years;<br />
                 • Not have benefitted from OG-Cares operational grant.<br />
               </p>
-              <button className={classes.greenBtn}>Register now</button>
+              <button className={classes.greenBtn1}>Register now</button>
             </div>
           </div>
 
@@ -77,31 +77,102 @@ function LandingPage() {
             <Accordion.Item eventKey="0">
               <Accordion.Header >What is the Ogun State SME Empowerment Fund?</Accordion.Header>
               <Accordion.Body >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
+                In order to ameliorate the challenges currently facing
+                entrepreneurs across the country, in particular the high cost
+                of business operations, the Ogun State Government under
+                the leadership of Prince(Dr.) Dapo Abiodun CON has
+                approved N2 Billion financial empowerment scheme for
+                small and medium businesses operating in the State.
+                This financial intervention for SMEs will be through Grants and
+                Loans for operational expenses and working capital
+                requirments to ease the burden, sustain the business and
+                ultimately boost profitability.
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item className={classes.accordionSpace} eventKey="1">
-              <Accordion.Header>Who is eligible to apply for the loan?</Accordion.Header>
+              <Accordion.Header>Who Is Eligible to Apply For Grant?</Accordion.Header>
               <Accordion.Body>
-                Both Individuals and businesses located in Ogun state are eligible for the loan
+                ELIGIBILITY CRITERIA
+                Business must:<br />
+                • Be located in Ogun State; <br />
+                • Be in operation for a minimum of 1year;<br />
+                • Employ a minimum of 1-3;<br />
+                • Be owned by someone between the ages
+                of 18-60 years;<br />
+                • Not have benefitted from OG-Cares operational grant
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item className={classes.accordionSpace} eventKey="2">
-              <Accordion.Header>How much can I get when I apply for the loan?</Accordion.Header>
+              <Accordion.Header>What Are The Required Document To Apply For Grant?</Accordion.Header>
               <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
+                DOCUMENTATION
+                Applicant must provide:<br />
+                • State business premises permit/LG trade
+                permit;<br />
+                • Bank statement for 12months;<br />
+                • Bank verification number (BVN);<br />
+                • Bank account<br />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item className={classes.accordionSpace} eventKey="3">
+              <Accordion.Header>How much Can I Get When I Apply For Grant?
+              </Accordion.Header>
+              <Accordion.Body>
+                Flat amount of N100,000.00 per business
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item className={classes.accordionSpace} eventKey="4">
+              <Accordion.Header>Who Is Eligible to Apply For Loan?
+              </Accordion.Header>
+              <Accordion.Body>
+                ELIGIBILITY CRITERIA <br />
+                Business must:<br />
+                • Be located in Ogun State;<br />
+                • Be in operation for a minimum of 3years;<br />
+                • Employ a minimum of 3;<br />
+                • Be owned by someone between the ages
+                of 21- 60 years;<br />
+                • Be in retail, service and manufacturing
+                sector
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item className={classes.accordionSpace} eventKey="5">
+              <Accordion.Header>What Are The Required Document To Apply For Loan?
+              </Accordion.Header>
+              <Accordion.Body>
+                DOCUMENTATION  <br />
+                Applicant must provide:<br />
+                • CAC certificate of business registration;<br />
+                • State business premises permit/LG trade
+                permit<br />
+                • Evidence of annual turnover for 2years;<br />
+                • 2 years Bank statement<br />
+                • Ogun State tax clearance/OGRIS Tax
+                Identification number for the business
+                owner<br />
+                • Bank verification number(BVN)<br />
+                <br />
+                SECURITY <br />
+                • Right to set- off on the company & owner’s
+                other accounts in any financial institutions.<br />
+                • One (1) Third party Guarantor who must
+                have verifiable income – working in a
+                bank/Managers of Corporate
+                Organizations/a senior public servant
+
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item className={classes.accordionSpace} eventKey="6">
+              <Accordion.Header>How much Can I Get When I Apply For Loan?</Accordion.Header>
+              <Accordion.Body>
+                Flat amount of N500,000.00 per business
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item className={classes.accordionSpace} eventKey="7">
+              <Accordion.Header>What is the Interest Rate on The Loan?
+              </Accordion.Header>
+              <Accordion.Body>
+                The loan is interest free - 0%
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

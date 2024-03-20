@@ -45,3 +45,41 @@
     height: 204px;
     overflow: hidden;
 }
+@media(max-width:800px){
+    
+    .footerBody{
+        width: 100%;
+        padding: 65px 23px;
+        height: 100%;
+        /* background-color: var(--black); */
+    }
+    .footerCont{
+        display: flex;
+        flex-direction: column;
+        gap: 52px;
+        align-items: start;
+    
+    }
+    .footerlist{
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* justify-content: start; */
+        /* color: var(--white) !important; */
+    }
+    .footerlist h4{
+        font-size: 18px;
+        font-weight: bold;
+        /* color: var(--white); */
+        padding-bottom: 28px;
+    }
+    .footerlist p{
+        font-size: 12px !important;
+        line-height: 34px;
+    }
+    .footerLogo{
+        width: 296px;
+        height: 138px;
+        overflow: hidden;
+        /* margin-bottom: 52px; */
+    }
+}

@@ -15,13 +15,13 @@
 }
 .body{
     width: 100%;
+    overflow: hidden;
 }
 .img{
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
-
 
 p{
     font-size: 20px;
@@ -43,6 +43,17 @@ button{
     font-weight: 700;
     transition: ease 0.3s;
     border-radius: 4px;
+   
+}
+
+.greenBtn1{
+    padding: 20px 60px;
+    background-color: var(--green);
+    color: white;
+    font-weight: 700;
+    transition: ease 0.3s;
+    border-radius: 4px;
+    margin-top: 30px;
 }
 .greenBtn:hover{
     background-color: #87c5a4;
@@ -80,6 +91,7 @@ button{
     background-repeat: no-repeat;
     margin-top: 2rem;
     padding-bottom: 50px;
+    position: relative;
 }
 .heroContent{
     width: 100%;
@@ -112,7 +124,8 @@ button{
     width: 640px;
     height: 843px;
     overflow: hidden;
-    margin-top: 70px;
+    margin-top: 50px;
+
 }
 
 .section3 {
@@ -208,3 +221,128 @@ background: rgba(233, 236, 239, 0.33);
 margin-top: 30px;
 }
 
+@media(max-width:800px){
+    p{font-size: 12px;}
+
+    h1{font-size: 24px;}
+
+    /* .container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+    /* .faqsContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } */
+    .contentContainer{
+        width: 100%;
+        padding: 0 22px;
+        /* margin-bottom: 30px; */
+        /* max-width: 1000px;    */
+    }
+    .dapoSection{
+        padding:0 0 0 25px;
+
+    }
+    .section1{
+        background-image: url('../../Images/LandingPageMobileBg.svg');
+        width: 100%;
+        max-width: 100%;
+        background-position-x: -25px;
+        height: 691px;
+        background-size: cover;
+        margin-top: 0;
+    }
+    .heroContent{
+        margin-top: 400px;
+        padding: 0 0 0 23px;
+    }
+    .heroContent h1{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .greenBtn{
+        padding: 16px 32px;
+        font-weight: 900;
+    }
+    .greenBtn1{
+        padding: 16px 60px;
+    }
+    
+    .heroContent button{
+        margin: 28px 0 0 0;
+    }
+
+    /* section 2 */
+    .section2{
+        width: 100%;
+        background-image: url('../../Images/DapoLandingMobileBg.svg');
+        height: 234px;
+        background-size: contain;
+    }
+    
+    .section3 .sellerImg{
+        width: 100%;
+        max-width: 381px;
+        height: 490px;
+        margin-top: 70px;
+    }
+    .section3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items:center;
+    }
+    .sellersContent{
+        width: 100%;
+    }
+    .section3 .sellersContent{
+        margin-top: 52px;
+        margin-left: 0;
+    }  
+    .section3 .sellersContent h1{
+        font-weight: bold;
+        font-size: 20;
+        padding-bottom: 20px;
+    }
+    .section3 .sellersContent p:nth-child(3){
+        margin-top: 20px;
+    }
+    .sellerText{
+        font-size: 12px;
+    }
+    .happeningText{
+        margin-top: 16px;
+    }
+    .accordionContainer{
+        margin-top: 44px;
+        max-width: 100%;
+    }
+    
+    .faqsContainer{
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    .faqsHeader{
+        font-weight: bold;
+        font-size: 20;
+        margin-top: 40px;
+    }
+    .accordionSpace{
+        margin-top: 24px;
+    }
+    .accordion-button{
+        font-size: 10px !important;
+    }
+    
+
+
+    
+    
+
+}

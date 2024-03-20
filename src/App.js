@@ -26,6 +26,7 @@ import LoansOnboarding from './Web pages/Loans Onboarding/LoansOnboarding';
 import GrantOnboarding from './Web pages/Grant Onboarding/GrantOnboarding';
 import InvoicesBoard from './Web pages/Admin Monitor Invoice/InvoicesBoard';
 import AdministratorInvoice from './Web pages/Admin Monitor Invoice/AdministratorInvoice';
+import HeaderNav from './Web pages/HeaderNav/HeaderNav';
 
 function App() {
   const [userIsInactive, setUserIsInactive] = useState(false);
@@ -105,6 +106,7 @@ function App() {
         <Route path='/forgot_password_reset'element={<ForgotPasswordReset/>}/>
         <Route path='/invoice_onboard'element={<InvoicesBoard/>}/>
         <Route path='/admin_invoice'element={<AdministratorInvoice/>}/>
+        <Route path='/header_nav'element={<HeaderNav/>}/>
         </Routes>
         </>
   );
