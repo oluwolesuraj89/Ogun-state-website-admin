@@ -170,3 +170,29 @@ color: #6C757D;
   gap: 5rem;
 }
 
+@media (max-width: 991px) {
+  .headerText {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .subText {
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: -5px;
+  }
+
+  .rszeInput {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+.signin {
+    height: auto !important;
+  }
+.signContainer {
+    height: auto !important;
+    margin-top: 65px;
+  }
+}

@@ -198,6 +198,40 @@ body {
     }
 
     .signContainer {
-      margin-top: -17rem;
+      /* margin-top: -17rem; */
     }
-  }
+
+   
+      .headerText {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    
+      .subText {
+        font-size: 12px;
+        font-weight: 400;
+        margin-top: 5px;
+        margin-bottom: 87px;
+      }
+  
+      .signin {
+        gap: 0;
+        margin-top: -28px;
+      }
+  
+      .snInput {
+        height: 43px;
+        width: 350px;
+            }
+           
+            .signinButton {
+              font-size: 16px;
+              font-weight: 400;
+              height: 43px;
+        width: 350px;
+              padding: 10px 10px 10px 10px;
+              margin-top: 35px;
+            }
+    }
+
+  
