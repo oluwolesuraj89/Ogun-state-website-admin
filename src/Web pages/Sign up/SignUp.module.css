@@ -99,3 +99,39 @@ body {
     padding: 15px 10px 15px 10px;
     
   }
+
+  @media (max-width: 991px) {
+   
+    .headerText {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .subText {
+      font-size: 12px;
+      font-weight: 400;
+      margin-bottom: 65px;
+    }
+
+    .buttonSignup {
+height: 43px;
+width: 350px;
+margin-bottom: -20px;
+    }
+   
+    .buttonSignup2 {
+height: 43px;
+width: 350px;
+    }
+   
+    .button1 {
+      font-size: 16px;
+      font-weight: 400;
+      padding: 10px 10px 10px 10px;
+    }
+
+    .signin  {
+      gap: 0px;
+      margin-top: -120px;
+    }
+  }

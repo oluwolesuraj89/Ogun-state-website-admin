@@ -329,7 +329,7 @@ body {
 
 .loancard {
     width: 370px;
-    height: 336px;
+    height: 300px;
     background-color: rgba(227, 191, 0, 0.2);
     padding: 30px;
     margin-top: 10px;
@@ -340,7 +340,7 @@ body {
 
 .loancardblue {
     width: 370px;
-    height: 336px;
+    height: 300px;
     background-color: rgba(0, 125, 215, 0.2);
     padding: 30px;
     margin-top: 10px;
@@ -350,7 +350,7 @@ body {
 
 .loancardgreen {
     width: 370px;
-    height: 336px;
+    height: 300px;
     background-color: rgba(69, 122, 20, 0.21);
     padding: 30px;
     margin-top: 10px;
@@ -369,7 +369,7 @@ body {
     width: 36px;
     height: 36px;
     /* margin-bottom: 10px; */
-    margin-top: 62px;
+    margin-top: 20px;
     margin-left: 20px;
 }
 
@@ -419,7 +419,7 @@ body {
     width: 186px;
     height: 4px;
     margin-left: 34px;
-    border: 3px solid #2D995F;
+    border: 2px solid #2D995F;
     margin-top: 4px;
 }
 
@@ -447,6 +447,7 @@ body {
     margin-left: 34px;
     margin-top: 28px;
     margin-bottom: 20px;
+    
 }
 .thedetailsbiz {
     background-color: #F2F5F3;
@@ -471,9 +472,49 @@ body {
     background-color: white;
     max-width: 262px;
     height: 325px;
+    width: 500px;
     border-radius: 4px;
     border: 1px solid #CED4DA;
+    margin-left: 10px;
+   
     
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    /* background-color: #f2f2f2; */
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+}
+
+.header {
+    font-size: 14px;
+    font-weight: 400;
+   
+}
+
+.body {
+    margin-top: 5px;
+    font-size: 15px ;
+    color: rgba(52, 58, 64, 1);
+    font-weight: 700;
+}
+
+.last {
+    border-bottom: none; /* Remove border for the last cell */
 }
 
 .firstcard hr {
@@ -481,10 +522,10 @@ body {
     margin-top: 8px;
 }
 .detailscards {
-    margin: 5px;
+ 
     padding: 26px;
-    margin-top: 26px;
-    gap: 15px;
+   
+  
 }
 
 .labelinfo {
@@ -550,7 +591,8 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     color: #2D995F;
-    border-bottom: 1px solid #CED4DA;
+    text-align: center;
+    /* border-bottom: 1px solid #CED4DA; */
 }
 
 .labelinfo {
@@ -702,3 +744,90 @@ body {
     /* border: 1px solid #CED4DA; */
     margin-top: 8px;
 }
+
+@media (max-width: 991px) {
+    .sideNavBody {
+      display: none;
+    }
+
+    .finishedbodyCont {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .formSecCont h3{
+        color: #343A40;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .loandgrantcards {
+        display: table-column;
+        padding: 0px;
+    }
+
+    .loancard {
+        width: 348px;
+        height: 336px;
+        padding: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .loancardblue {
+        width: 348px;
+        height: 336px;
+        padding: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 5px;
+    }
+    .loancardgreen {
+        width: 348px;
+        height: 336px;
+        padding: 30px;
+        margin-top: 20px;
+        margin-left: 5px;
+    }
+
+    .detailscards {
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        margin-top: 5px;
+        margin: 0px;
+    }
+
+    .thedetails {
+        margin-left: 5px;
+        width: 97%;
+    }
+
+    .userdetails {
+        margin-left: 5px;
+    }
+
+    .lineBottom {
+        width: 178px;
+        margin-left: 5px;
+    }
+
+    .detailscardsbiz {
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        margin-top: 5px;
+        margin: 0px;
+    }
+
+    .thedetailsbiz {
+        margin-left: 5px;
+        width: 97%;
+    }
+
+    .firstcard  {
+        max-width: 100%;
+    }
+    .firstcardbiz  {
+        width: 100%;
+    }
+  }

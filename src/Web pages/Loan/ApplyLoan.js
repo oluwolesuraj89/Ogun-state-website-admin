@@ -33,14 +33,14 @@ export default function ApplyLoan() {
     const [nokAddress, setNokAddress] = useState('');
     const [nokEmail, setNokEmail] = useState('');
     const [otherName, setOtherName] = useState('');
+    const [businessPermit, setBusinessPermit] = useState('');
+    const [cacNo, setCacNo] = useState('');
+    const [turnover, setTurnover] = useState('');
     const [dateOfBirth, setDateofBirth] = useState(null);
     const [homeAddress, setHomeAddress] = useState('');
     const [permanentAddress, setPermanentAddress] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const [selectedBank, setSelectedBank] = useState(null);
-    const [selectedFile1, setSelectedFile1] = useState(null);
-    const [selectedFile2, setSelectedFile2] = useState(null);
-    const [selectedFile3, setSelectedFile3] = useState(null);
     const [selectedStatus, setSelectedStatus] = useState(null);
     const [selectedState, setSelectedState] = useState(null);
     const [selectedLocalGovt, setSelectedLocalGovt] = useState(null);
@@ -79,23 +79,12 @@ export default function ApplyLoan() {
     }, [activeTab]);
 
     
-    const handleLinkClick = (linkName) => {
-        setActiveLink(linkName);
-    };
+    
 
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files[0]);
     };
-    const handleFileChange1 = (e) => {
-        setSelectedFile1(e.target.files[0]);
-    };
-    const handleFileChange2 = (e) => {
-        setSelectedFile2(e.target.files[0]);
-    };
-
-    const handleFileChange3 = (e) => {
-        setSelectedFile3(e.target.files[0]);
-    };
+    
 
     const handleBankChange = (event) => {
         setSelectedBank(event.target.value);
@@ -117,9 +106,12 @@ export default function ApplyLoan() {
     const handleLgChange = (event) => {
         setSelectedLocalGovt(event.target.value);
     }
-    const handleStateChange = (event) => {
-        setSelectedState(event.target.value);
-    }
+    // const handleStateChange = (event) => {
+    //     setSelectedState(event.target.value);
+    // }
+
+
+    
 
 
     return (
@@ -183,7 +175,7 @@ export default function ApplyLoan() {
                                                 onChange={(e) => setPermanentAddress(e.target.value)}
 
                                             />
-                                            {/* <input type="date" className={classes.snInput} placeholder="" onChange={(e) => setEmail(e.target.value)} /> */}
+                                            
                                         </div>
                                     </div>
                                     <div className={classes.rszeInput}>
@@ -195,22 +187,24 @@ export default function ApplyLoan() {
                                                 <option>Married</option>
                                                 <option>Divorced</option>
                                             </Form.Select>
-                                            {/* <input type="text" className={classes.snInput} placeholder="" onChange={(e) => setEmail(e.target.value)} /> */}
+                                            
                                         </div>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>State of Origin</span>
-                                            <Form.Select className={classes.snInput} value={selectedState} onChange={handleStateChange}>
-                                                <option>Select State of Origin</option>
-                                            </Form.Select>
-                                        </div>
-                                    </div>
-                                    <div className={classes.rszeInput}>
+
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Local Government</span>
                                             <Form.Select className={classes.snInput} value={selectedLocalGovt} onChange={handleLgChange} >
                                                 <option>Select L.G</option>
                                             </Form.Select>
                                         </div>
+                                        {/* <div className={classes.formInput}>
+                                            <span className={classes.stId}>State of Origin</span>
+                                            <Form.Select className={classes.snInput} value={selectedState} onChange={handleStateChange}>
+                                                <option>Select State of Origin</option>
+                                            </Form.Select>
+                                        </div> */}
+                                    </div>
+                                    <div className={classes.rszeInput}>
+                                       
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Enter your N.I.N</span>
                                             <input type="text" className={classes.snInput} placeholder="" value={nin} onChange={(e) => setNin(e.target.value)} />
@@ -318,50 +312,22 @@ export default function ApplyLoan() {
                                             />
                                         </div>
                                         <div className={classes.formInput}>
-                                            <span className={classes.stId}>Business premises permit ID</span>
-                                            <div className={classes.snInput23}>
-                                                <label htmlFor="fileInput" className={classes.fileInputLabel}>
-                                                    {/* Your file icon element goes here */}
-                                                    <img src={Folder} alt="File Icon" className={classes.fileIcon} />
-                                                    {/* Input element hidden, but clickable */}
-                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange} />
-                                                </label>
-                                                <span className={classes.placeholder}>
-                                                    {selectedFile ? selectedFile.name : 'No file is chosen'}
-                                                </span>
-                                            </div>
+                                            <span className={classes.stId}>Business Premise Permit ID</span>
+                                            <input type="text" className={classes.snInput} placeholder="" value={businessPermit} onChange={(e) => setBusinessPermit(e.target.value)} />
                                         </div>
                                     </div>
 
                                     <div className={classes.rszeInput}>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>CAC Certificate</span>
-                                            <div className={classes.snInput23}>
-                                                <label htmlFor="fileInput" className={classes.fileInputLabel}>
-                                                    {/* Your file icon element goes here */}
-                                                    <img src={Folder} alt="File Icon" className={classes.fileIcon} />
-                                                    {/* Input element hidden, but clickable */}
-                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange1} />
-                                                </label>
-                                                <span className={classes.placeholder}>
-                                                    {selectedFile ? selectedFile.name : 'No file is chosen'}
-                                                </span>
-                                            </div>
+                                    <div className={classes.formInput}>
+                                            <span className={classes.stId}>C.A.C Certificate No</span>
+                                            <input type="text" className={classes.snInput} placeholder="" value={cacNo} onChange={(e) => setCacNo(e.target.value)} />
                                         </div>
                                         <div className={classes.formInput}>
-                                            <span className={classes.stId}>Evidence of Annual turnover for 2 years</span>
-                                            <div className={classes.snInput23}>
-                                                <label htmlFor="fileInput" className={classes.fileInputLabel}>
-                                                    {/* Your file icon element goes here */}
-                                                    <img src={Folder} alt="File Icon" className={classes.fileIcon} />
-                                                    {/* Input element hidden, but clickable */}
-                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange2} />
-                                                </label>
-                                                <span className={classes.placeholder}>
-                                                    {selectedFile ? selectedFile.name : 'No file is chosen'}
-                                                </span>
-                                            </div>
+                                       
+                                            <span className={classes.stId}>Annual turnover for 2 years</span>
+                                            <input type="text" className={classes.snInput} placeholder="" value={turnover} onChange={(e) => setTurnover(e.target.value)} />
                                         </div>
+                                       
                                     </div>
 
                                     <div className={classes.rszeInput}>
@@ -372,7 +338,7 @@ export default function ApplyLoan() {
                                                     {/* Your file icon element goes here */}
                                                     <img src={Folder} alt="File Icon" className={classes.fileIcon} />
                                                     {/* Input element hidden, but clickable */}
-                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange3} />
+                                                    <input type="file" id="fileInput" className={classes.fileInput}  onChange={handleFileChange} />
                                                 </label>
                                                 <span className={classes.placeholder}>
                                                     {selectedFile ? selectedFile.name : 'No file is chosen'}

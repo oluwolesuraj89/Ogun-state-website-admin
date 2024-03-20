@@ -20,18 +20,27 @@ const ForgotPasswordReset = () => {
     const [termsSelected, setTermsSelected] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword1, setShowPassword1] = useState(false);
+    const [token, setToken] = useState(false);
 
     const location = useLocation();
 
 
 
 
-    // const token = new URLSearchParams(window.location.search).get('token');
-    // if (token) {
-    //     handleForgotPassword(token);
-    // }
+    
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const tokens = searchParams.get('token');
+        setToken(tokens)
+        console.log('Here is your token:', tokens); 
+        
+        // if (tokens) {
+        //     handleForgotPassword(token);
+        // }
+    }, [location.search]);
 
-    const handleForgotPassword = async (token) => {
+    
+    const handleForgotPassword = async () => {
         setIsLoading(true);
         try {
             const responses = await axios.post(
@@ -39,14 +48,14 @@ const ForgotPasswordReset = () => {
                 {
                     password: password,
                     password_confirmation: confirmPassword,
-                    // token: token 
+                token: token
                 },
             );
     
             navigate('/sign_in');
     
-            setEmail('');
-    
+            setPassword('');
+            setConfirmPassword('');
         } catch (error) {
             let errorMessage = 'An error occurred. Please try again.';
             if (error.response && error.response.data && error.response.data.message) {
@@ -58,6 +67,7 @@ const ForgotPasswordReset = () => {
                     errorMessage = JSON.stringify(error.response.data.message);
                 }
             }
+            console.log(errorMessage);
             setErrorMessage(errorMessage);
         } finally {
             setIsLoading(false);
@@ -76,11 +86,7 @@ const ForgotPasswordReset = () => {
     };
 
 
-    const handleKeyPress = (e) => {
-        if (e.key === 'Enter' && !isButtonDisabled) {
-            handleForgotPassword();
-        }
-    };
+    
 
     return (
         <div className={classes.signin}>
@@ -89,14 +95,15 @@ const ForgotPasswordReset = () => {
             </div>
 
             <div className={classes.signContainer}>
+                
                 <p className={classes.headerText}>Reset Password</p>
                 <p className={classes.subText}>Reset your password here</p>
-
+                {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
                     <div style={{ marginTop: 20 }}>
                         <span className={classes.stId}> Enter your new Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
-                                <input type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
+                                <input type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)}  />
                             </div>
                             <button
                                 type="button"
@@ -118,7 +125,7 @@ const ForgotPasswordReset = () => {
                         <span className={classes.stId}> Re-enter your new Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
-                                <input type={showPassword1 ? 'text' : 'password'} className={classes.snInput} placeholder="" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} onKeyPress={handleKeyPress} />
+                                <input type={showPassword1 ? 'text' : 'password'} className={classes.snInput} placeholder="" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}  />
                             </div>
                             <button
                                 type="button"
@@ -136,7 +143,7 @@ const ForgotPasswordReset = () => {
                         
                     </div>
 
-                    <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleForgotPassword} disabled={isButtonDisabled}>
+                    <button className={classes.signinButton} style={{backgroundColor: isButtonDisabled ? "#acebc9" : "#2D995F", cursor: isButtonDisabled ? "default" : "pointer"}} onClick={handleForgotPassword} >
                     {isLoading ? (
                         <>
                             <Spinner size='sm' />
