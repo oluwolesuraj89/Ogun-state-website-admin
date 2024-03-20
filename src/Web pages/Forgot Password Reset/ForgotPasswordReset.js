@@ -26,11 +26,18 @@ const ForgotPasswordReset = () => {
 
 
 
-    // const token = new URLSearchParams(window.location.search).get('token');
-    // if (token) {
-    //     handleForgotPassword(token);
-    // }
+    
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const token = searchParams.get('token');
+        console.log('Token:', token); 
+        
+        if (token) {
+            handleForgotPassword(token);
+        }
+    }, [location.search]);
 
+    
     const handleForgotPassword = async (token) => {
         setIsLoading(true);
         try {
@@ -39,14 +46,14 @@ const ForgotPasswordReset = () => {
                 {
                     password: password,
                     password_confirmation: confirmPassword,
-                    // token: token 
+                    token: token 
                 },
             );
     
             navigate('/sign_in');
     
-            setEmail('');
-    
+            setPassword('');
+            setConfirmPassword('');
         } catch (error) {
             let errorMessage = 'An error occurred. Please try again.';
             if (error.response && error.response.data && error.response.data.message) {
