@@ -15,6 +15,9 @@ import MainDashoard from '../Main Dashboard/MainDashoard';
 const Dashboard = () => {
     const [bearer, setBearer] = useState('');
     const [user, setUser] = useState('');
+    const [userProfile, setUserProfile] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
 const navigate = useNavigate();
 
 const handleLoan = () => {
@@ -47,6 +50,40 @@ const readData = async () => {
   useEffect(() => {
     readData();
   }, []);
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${bearer}`
+  };
+
+
+  const fetchProfile = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get('https://api-silas.ogunstate.gov.ng/api/profile', { headers });
+      const results = response.data?.data;
+      setUserProfile(results);
+      // console.log(results);
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        
+        navigate('/user_login');
+      } else {
+      const errorStatus = error.response?.data?.message;
+      console.log(errorStatus);
+      setUserProfile([]);
+    }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (bearer) {
+        fetchProfile();
+
+    }
+  }, [bearer]);
 
 
     return (
@@ -92,58 +129,120 @@ const readData = async () => {
                         <div className={classes.thedetails}>
                             <div className={classes.detailscards}>
                                 <div className={classes.firstcard}>
-                                    <p className={classes.labelinfo}>First name</p>
-                                    <p className={classes.infouser}>Emmanuel</p>
+                                <table>
+        <tbody>
+            <tr>
+                <td>
+                    <div className={classes.header}>First Name</div>
+                    <div className={classes.body}>Awonuga</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Last Name</div>
+                    <div className={classes.body}>Doe</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Date of birth</div>
+                    <div className={classes.body}>30</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Email</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
 
-                                    <p className={classes.labelinfo2}>Last name</p>
-                                    <p className={classes.infouser}>Oriade</p>
-
-                                    <p className={classes.labelinfo3}>Other name</p>
-                                    <p className={classes.infouser}>Olaoluwa</p>
-
-                                    <p className={classes.labelinfo3}>Date of birth</p>
-                                    <p className={classes.infouser}>15th January 1990</p>
-
-                                    <p className={classes.labelinfo4}>Marital status</p>
-                                    <p className={classes.infouser4}>Married</p>
-
-                                </div>
-                                <div className={classes.firstcard}>
-                                    <p className={classes.labelinfo}>Home address</p>
-                                    <p className={classes.infouser}>No 54, adura road, Oke-lantoro,
-                                        Abeokuta, Ogun state</p>
-
-                                    <p className={classes.labelinfo2}>Permanent address</p>
-                                    <p className={classes.infouser}>No 54, adura road, Oke-lantoro,
-                                        Abeokuta, Ogun state</p>
-
-                                    <p className={classes.labelinfo3}>State of Origin</p>
-                                    <p className={classes.infouser}>Ogun state</p>
-
-                                    {/* <p className={classes.labelinfo3}>Local govt</p>
-                                <p className={classes.infouser3}>Abeokuta North</p> */}
-
-                                </div>
-                                <div className={classes.firstcard}>
-                                    <p className={classes.infouser2}>Next of Kin details</p>
-
-                                    <p className={classes.labelinfo2}>Full name</p>
-                                    <p className={classes.infouser}>Moremi Oriade</p>
-
-                                    <p className={classes.labelinfo3}>Phone number</p>
-                                    <p className={classes.infouser}>08102345678</p>
-
-                                    <p className={classes.labelinfo3}>Email address</p>
-                                    <p className={classes.infouser}>moremi@gmail.com</p>
-
-                                    <p className={classes.labelinfo4}>Relationship</p>
-                                    <p className={classes.infouser4}>Sibling</p>
+            <tr>
+            <td className={classes.last}>
+                    <div className={classes.header}>Marital Status</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+                                    
 
                                 </div>
                                 <div className={classes.firstcard}>
-                                    <p className={classes.labelinfo}>Address of Next of kin</p>
-                                    <p className={classes.infouser}>No 54, adura road, Oke-lantoro,
-                                        Abeokuta, Ogun state</p>
+                                <table>
+        <tbody>
+            <tr>
+                <td>
+                    <div className={classes.header}>Home address</div>
+                    <div className={classes.body}>Awonuga</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Permanent address</div>
+                    <div className={classes.body}>Doe</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Date of birth</div>
+                    <div className={classes.body}>30</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Registration Type</div>
+                    <div className={classes.body}>30</div>
+                </td>
+            </tr>
+            <tr>
+            <td className={classes.last}>
+                    <div className={classes.header}>Local Government</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
+
+            
+        </tbody>
+    </table>
+
+                                </div>
+                                <div className={classes.firstcard}>
+                                    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <div className={classes.infouser2}>Next of Kin details</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Full Name</div>
+                    <div className={classes.body}>Doe</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Phone Number</div>
+                    <div className={classes.body}>30</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Email Address</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div className={classes.header}>Relationship</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+                                    
                                 </div>
                             </div>
                         </div>
@@ -155,66 +254,116 @@ const readData = async () => {
                                     <p className={classes.userdetails}>Business details</p>
                                     <div className={classes.lineBottom} />
                                 </div>
-
-                                {/* <div className={classes.phr}>
-                                    <p className={classes.userdetailsbnk}>Bank details</p>
-                                    <div className={classes.lineBottombnk} />
-                                </div> */}
                             </div>
-                            <div className={classes.busnisessdetails}>
-                                <div className={classes.thedetailsbiz}>
-                                    <div className={classes.detailscardsbiz}>
-                                        <div className={classes.firstcardbiz}>
-                                            <p className={classes.labelinfobiz}>First name</p>
-                                            <p className={classes.infouserbiz}>Emmanuel</p>
 
-                                            <p className={classes.labelinfo2biz}>Last name</p>
-                                            <p className={classes.infouserbiz}>Oriade</p>
+                            <div className={classes.thedetails}>
+                            <div className={classes.detailscards}>
+                                <div className={classes.firstcard}>
+                                <table>
+        <tbody>
+            <tr>
+                <td>
+                    <div className={classes.header}>Business Name</div>
+                    <div className={classes.body}>Awonuga</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Business Email Address</div>
+                    <div className={classes.body}>Doe</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Business Phone Number</div>
+                    <div className={classes.body}>30</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Date of Commencement</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
 
-                                            <p className={classes.labelinfo3biz}>Other name</p>
-                                            <p className={classes.infouserbiz}>Olaoluwa</p>
+            <tr>
+            <td className={classes.last}>
+                    <div className={classes.header}>Sector of Business</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+                                    
 
-                                            <p className={classes.labelinfo3biz}>Date of birth</p>
-                                            <p className={classes.infouserbiz}>15th January 1990</p>
-
-                                            <p className={classes.labelinfo4biz}>Marital status</p>
-                                            <p className={classes.infouser4biz}>Married</p>
-
-                                        </div>
-
-
-                                        <div className={classes.firstcardbiz}>
-                                            <p className={classes.labelinfobiz}>Address of Next of kin</p>
-                                            <p className={classes.infouserbiz}>No 54, adura road, Oke-lantoro,
-                                                Abeokuta, Ogun state</p>
-                                        </div>
-                                    </div>
                                 </div>
+                                <div className={classes.firstcard}>
+                                <table>
+        <tbody>
+            <tr>
+                <td>
+                    <div className={classes.header}>Business address</div>
+                    <div className={classes.body}>Awonuga</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>No of Employees</div>
+                    <div className={classes.body}>Doe</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Ogun Tax ID Number</div>
+                    <div className={classes.body}>30</div>
+                </td>
+            </tr>
+           
 
+            
+        </tbody>
+    </table>
 
-                                {/* <div className={classes.thedetailsbiz2}>
-                                    <div className={classes.detailscardsbiz2}>
-                                        <div className={classes.firstcardbiz}>
-                                            <p className={classes.labelinfobiz}>First name</p>
-                                            <p className={classes.infouserbiz}>Emmanuel</p>
-
-                                            <p className={classes.labelinfo2biz}>Last name</p>
-                                            <p className={classes.infouserbiz}>Oriade</p>
-
-                                            <p className={classes.labelinfo3biz}>Other name</p>
-                                            <p className={classes.infouserbiz}>Olaoluwa</p>
-
-                                            <p className={classes.labelinfo3biz}>Date of birth</p>
-                                            <p className={classes.infouserbiz}>15th January 1990</p>
-
-                                            <p className={classes.labelinfo4biz}>Marital status</p>
-                                            <p className={classes.infouser4biz}>Married</p>
-
-                                        </div>
-
-                                    </div>
-                                </div> */}
                                 </div>
+                                <div className={classes.firstcard}>
+                                    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <div className={classes.infouser2}>Bank Details</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Account Name</div>
+                    <div className={classes.body}>Doe</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Account Number</div>
+                    <div className={classes.body}>30</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div className={classes.header}>Bank</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div className={classes.header}>BVN</div>
+                    <div className={classes.body}>john.doe@example.com</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+                                </div>
+                            </div>
+                        </div>                            
                                 </div>
                                 </div>
                     </div>
