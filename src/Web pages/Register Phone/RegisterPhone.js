@@ -17,7 +17,9 @@ const RegisterPhone = () => {
     const [phone, setPhone] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [errorMessage1, setErrorMessage1] = useState('');
     const [error, setError] = useState({});
+    const [isValidEmail, setIsValidEmail] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +30,24 @@ const RegisterPhone = () => {
 
     const location = useLocation();
 
+    const validateEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
 
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleEmailBlur = () => {
+        const isValid = validateEmail(email);
+        setIsValidEmail(isValid);
+        if (!isValid) {
+            setErrorMessage1('Invalid email');
+        } else {
+            setErrorMessage1('');
+        }
+    };
 
 
 
@@ -80,7 +99,7 @@ const RegisterPhone = () => {
         }
     };
 
-    const isButtonDisabled = !email || !password || !confirmPassword || !firstName || !lastName;
+    const isButtonDisabled = !email || !password || !confirmPassword || !firstName || !lastName ||  !isValidEmail;
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -107,6 +126,7 @@ const RegisterPhone = () => {
                 <p className={classes.headerText}>Register</p>
                 <p className={classes.subText}>Fill in your details to register</p>
                 {/* <form> */}
+                <p style={{ color: 'red', textAlign: 'center' }}>{!isValidEmail ? 'Invalid email' : null}</p>
                 {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
                     <div className={classes.rszeInput}>
                         <div className={classes.formInput}>
@@ -122,7 +142,7 @@ const RegisterPhone = () => {
                     <div className={classes.rszeInput}>
                         <div className={classes.formInput}>
                             <span className={classes.stId}>Email Address</span>
-                            <input type="email" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
                         </div>
                         <div className={classes.formInput}>
                             <span className={classes.stId}>Phone Number</span>

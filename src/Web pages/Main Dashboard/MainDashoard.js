@@ -91,11 +91,10 @@ export default function MainDashoard() {
                 } else if (typeof error.response.data.message === 'object') {
                     errorMessage = JSON.stringify(error.response.data.message);
                 }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Failed',
-                    text: errorMessage,
-                  });
+                if (errorMessage.toLowerCase().includes('unauthenticated') || errorMessage.toLowerCase().includes('unauthorized')) {
+                    navigate('/sign_in');
+                    return; 
+                }
             }
             setErrorMessage(errorMessage);
         } finally {
