@@ -109,7 +109,7 @@ export default function LoansOnboarding() {
 
 
     const handleLoanApplication = () => {
-        navigate('/loans');
+        navigate('/apply_for_loan');
     };
 
     function formatDate(dateString) {

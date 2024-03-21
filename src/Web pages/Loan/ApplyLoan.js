@@ -235,6 +235,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
         if (!businessTax) return; 
         setShowErrorMessage(false); 
         await validateTaxPayer();
+        setShowErrorMessage(true); 
     };
     
     useEffect(() => {
