@@ -744,3 +744,90 @@ td {
     /* border: 1px solid #CED4DA; */
     margin-top: 8px;
 }
+
+@media (max-width: 991px) {
+    .sideNavBody {
+      display: none;
+    }
+
+    .finishedbodyCont {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .formSecCont h3{
+        color: #343A40;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .loandgrantcards {
+        display: table-column;
+        padding: 0px;
+    }
+
+    .loancard {
+        width: 348px;
+        height: 336px;
+        padding: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .loancardblue {
+        width: 348px;
+        height: 336px;
+        padding: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 5px;
+    }
+    .loancardgreen {
+        width: 348px;
+        height: 336px;
+        padding: 30px;
+        margin-top: 20px;
+        margin-left: 5px;
+    }
+
+    .detailscards {
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        margin-top: 5px;
+        margin: 0px;
+    }
+
+    .thedetails {
+        margin-left: 5px;
+        width: 97%;
+    }
+
+    .userdetails {
+        margin-left: 5px;
+    }
+
+    .lineBottom {
+        width: 178px;
+        margin-left: 5px;
+    }
+
+    .detailscardsbiz {
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        margin-top: 5px;
+        margin: 0px;
+    }
+
+    .thedetailsbiz {
+        margin-left: 5px;
+        width: 97%;
+    }
+
+    .firstcard  {
+        max-width: 100%;
+    }
+    .firstcardbiz  {
+        width: 100%;
+    }
+  }
