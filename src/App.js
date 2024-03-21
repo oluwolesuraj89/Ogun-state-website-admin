@@ -27,6 +27,7 @@ import GrantOnboarding from './Web pages/Grant Onboarding/GrantOnboarding';
 import InvoicesBoard from './Web pages/Admin Monitor Invoice/InvoicesBoard';
 import AdministratorInvoice from './Web pages/Admin Monitor Invoice/AdministratorInvoice';
 import MainDashoard from './Web pages/Main Dashboard/MainDashoard';
+import Success from './Web pages/Success Reports/Success';
 
 
 function App() {
@@ -108,6 +109,7 @@ function App() {
         <Route path='/invoice_onboard'element={<InvoicesBoard/>}/>
         <Route path='/admin_invoice'element={<AdministratorInvoice/>}/>
         <Route path='/main_dashboard'element={<MainDashoard/>}/>
+        <Route path='/success'element={<Success/>}/>
         </Routes>
         </>
   );
