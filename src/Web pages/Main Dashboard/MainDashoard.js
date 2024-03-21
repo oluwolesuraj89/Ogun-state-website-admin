@@ -127,7 +127,7 @@ export default function MainDashoard() {
                     <img src={DashboardLogo} alt='Logo' className={`${classes.img} ${classes.mobileshow}`}/>
                 </div>
                 {/* {`${classes.mainMenu} ${isMenuOpen ? classes.menuOpen : ''}`} */}
-                <div className={`${classes.regMenu} ${isMenuOpen ? classes.menuOpen : ''}`}>
+                <div className={`${classes.regMenu} ${isMenuOpen ? '' : classes.menuOpen}`}>
                     <Link
                         to={'/dashboard'}
                         className={activeLink === 'Dashboard' ? classes.active : ''}
@@ -186,12 +186,12 @@ export default function MainDashoard() {
                 <div className={classes.harmborgers} onClick={toggleMenu}>
                 {isMenuOpen ? (
                   <span className={classes.closs}>
+                    <i className='bx bx-x'></i>
                     
-                    <i className='bx bx-menu'></i>
                   </span>
                 ) : (
                   <span className={classes.open}>
-                    <i className='bx bx-x'></i>
+                    <i className='bx bx-menu'></i>
                   </span>
                 )}
               </div>

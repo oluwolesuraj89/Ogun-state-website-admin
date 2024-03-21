@@ -28,6 +28,7 @@ import InvoicesBoard from './Web pages/Admin Monitor Invoice/InvoicesBoard';
 import AdministratorInvoice from './Web pages/Admin Monitor Invoice/AdministratorInvoice';
 import MainDashoard from './Web pages/Main Dashboard/MainDashoard';
 import Success from './Web pages/Success Reports/Success';
+import HeaderNav from './Web pages/HeaderNav/HeaderNav';
 
 
 function App() {
@@ -109,6 +110,7 @@ function App() {
         <Route path='/invoice_onboard'element={<InvoicesBoard/>}/>
         <Route path='/admin_invoice'element={<AdministratorInvoice/>}/>
         <Route path='/main_dashboard'element={<MainDashoard/>}/>
+        <Route path='/header_nav'element={<HeaderNav/>}/>
         <Route path='/success'element={<Success/>}/>
         </Routes>
         </>

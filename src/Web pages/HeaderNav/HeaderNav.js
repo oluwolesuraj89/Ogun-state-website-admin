@@ -48,7 +48,7 @@ const HeaderNav = () => {
             <div className={classes.navContainer} >
               <NavLink to={'/'} className={classes.navLogoWeb}><img src={Logo} alt='Logo' /></NavLink>
               <NavLink to={'/'} className={classes.navLogoMobile}><img src={mobileLogo} alt='Logo' /></NavLink>
-              <ul className={`${classes.mainMenu} ${isMenuOpen ? classes.menuOpen : ''}`}>
+              <ul className={`${classes.mainMenu} ${isMenuOpen ?  '' : classes.menuOpen}`}>
                 <li className={classes.linkList}>
                   <Link to={'/landing_page'}>Home</Link>
                   <Link to={'#'}>About</Link>
@@ -63,12 +63,12 @@ const HeaderNav = () => {
               <div className={classes.harmborgers} onClick={toggleMenu}>
                 {isMenuOpen ? (
                   <span className={classes.closs}>
+                    <i className='bx bx-x'></i>
                     
-                    <i className='bx bx-menu'></i>
                   </span>
                 ) : (
                   <span className={classes.open}>
-                    <i className='bx bx-x'></i>
+                    <i className='bx bx-menu'></i>
                   </span>
                 )}
               </div>

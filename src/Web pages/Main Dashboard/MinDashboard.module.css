@@ -158,7 +158,9 @@
             padding: 27px;
             gap: 30px;
             position: absolute;
-            
+            /* display: none; */
+        }
+        .menuOpen{
             display: none;
         }
     
@@ -166,10 +168,11 @@
             text-decoration: none;
             padding: 0;
         }
-        /* .regMenu .active {
-            background: linear-gradient(to right, #4b9483, #2d998050);
-            border-radius: 4px;
-        } */
+        .regMenu .active {
+            background: transparent;
+            border-radius: 0;
+            color: var(--Light-green);
+        }
         .regMenu img{
           width: 20px;
           height: 20px;
