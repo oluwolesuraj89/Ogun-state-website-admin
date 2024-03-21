@@ -16,6 +16,35 @@ body {
     height: 100vh;
     display: block;
   }
+
+   .bottom{
+    display: flex;
+    gap: 3px;
+    margin-top: 10px;
+  }
+
+  .signUp{
+    font-size: 14px;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+  }
+  .register{
+    font-size: 14px;
+    color: #2D995F;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 500;
+   cursor: pointer; 
+  }
+
+  .register:hover{
+    color: #9ed3b7;
+  }
+  
   .marketersImg img{
     width: 100%;
     height: 100%;

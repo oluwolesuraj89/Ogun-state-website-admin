@@ -14,7 +14,7 @@ export default function Loans() {
     const navigate = useNavigate();
 
     const handleLoanApplication = () => {
-        navigate('/loan_application');
+        navigate('/apply_for_loan');
     };
 
 
@@ -66,8 +66,8 @@ export default function Loans() {
                                 </div>
                             </div>
                             <div className={classes.applyLoan} onClick={handleLoanApplication}>
-                                <p className={classes.continueReg}>Apply for Loan</p>
-                            </div>
+                                            <p className={classes.continueReg}>Proceed</p>
+                                        </div>
 
                                         
                         </div>

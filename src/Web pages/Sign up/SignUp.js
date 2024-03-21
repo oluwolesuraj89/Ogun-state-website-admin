@@ -77,8 +77,8 @@ const SignUp = () => {
         navigate('/register_phone');
     };
 
-    const navigateToForgot = () => {
-        navigate('/forgot_password');
+    const handleNavigateRegister = () => {
+        navigate('/sign_in');
     };
 
     const handleKeyPress = (e) => {
@@ -103,6 +103,10 @@ const SignUp = () => {
                         <div className={classes.buttonSignup2} onClick={navigateToPhone}>
                             <p className={classes.button2}>Continue with Phone number</p>
                         </div>
+                        <div className={classes.bottom}>
+                    <p className={classes.signUp} >Already have an account? </p>
+                    <p className={classes.register} onClick={handleNavigateRegister}>Log In here!</p>
+                    </div>
                     </div>
             </div>
 

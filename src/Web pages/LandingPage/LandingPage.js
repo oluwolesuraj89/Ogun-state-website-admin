@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import classes from '../LandingPage/LandingPage.module.css'
 import HeaderNav from "../HeaderNav/HeaderNav";
 import { Accordion } from "react-bootstrap";
@@ -9,6 +9,10 @@ import { useNavigate, NavLink } from "react-router-dom";
 
 function LandingPage() {
   const navigate = useNavigate();
+
+  const handleNavigateSignup = () => {
+    navigate('/sign_up');
+  }
 
   return (
     <div className={classes.body}>
@@ -23,7 +27,7 @@ function LandingPage() {
               of its N500 million naira SME empowerment funds. The program will
               empower over 500 small and medium scale businesses in Ogun state.
             </p>
-            <button className={classes.greenBtn}>Get an Account</button>
+            <button onClick={handleNavigateSignup} className={classes.greenBtn}>Get started</button>
           </div>
         </div>
       </div>
@@ -61,7 +65,7 @@ function LandingPage() {
                 • be owned by someone between the ages of 18-60 years;<br />
                 • Not have benefitted from OG-Cares operational grant.<br />
               </p>
-              <button className={classes.greenBtn1}>Register now</button>
+              {/* <button className={classes.greenBtn1}>Register now</button> */}
             </div>
           </div>
 
