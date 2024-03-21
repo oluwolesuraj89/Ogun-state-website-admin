@@ -59,12 +59,16 @@ const SignIn = () => {
      const phones = response.data?.data?.user?.phone_number;
      const emails = response.data?.data?.user?.email;
      const token = response.data?.data?.token;
-
+     const isLoan = response.data?.data?.user?.is_loan === "1";
+     const isGrant = response.data?.data?.user?.is_grant === "1";
+console.log(isLoan, "hereee");
      
      AsyncStorage.setItem('email', emails);
      AsyncStorage.setItem('phone', phones);
      AsyncStorage.setItem('userToken', token);
      AsyncStorage.setItem('fullName', result);
+     AsyncStorage.setItem('isGrant', isGrant);
+     AsyncStorage.setItem('isLoan', isLoan);
      
 
      if (location.state && location.state.from) {
@@ -91,7 +95,7 @@ const SignIn = () => {
         }
     };
 
-    const isButtonDisabled = !email || !password || !isValidEmail;
+    const isButtonDisabled = !email || !password ;
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -122,7 +126,7 @@ const SignIn = () => {
                 <p className={classes.headerText}>Log In</p>
                 <p className={classes.subText}>to access your portal</p>
                     <div style={{ marginTop: 20 }}>
-                    <p style={{ color: 'red', textAlign: 'center' }}>{!isValidEmail ? 'Invalid email' : null}</p>
+                    {/* <p style={{ color: 'red', textAlign: 'center' }}>{!isValidEmail ? 'Invalid email' : null}</p> */}
                     {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
                         <span className={classes.stId}> Email Address </span>
                             <div className={classes.inputContainer}>

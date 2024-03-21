@@ -205,6 +205,9 @@ body {
     margin-bottom: 66px;
     margin-left: 20px;
     margin-top: 57px;
+    font-size: 16px;
+    font-weight: 700;
+  text-align: center;
   }
   
   .continueReg{
@@ -213,6 +216,12 @@ body {
     font-weight: 700;
   text-align: center;
 
+  }
+
+  .errorMess{
+    font-size: 15px;
+    color: #000;
+    font-weight: 500;
   }
 
   /* .shadow {

@@ -34,10 +34,11 @@ const handleLoanApplication = () => {
                     <div className={classes.lineBottom} />
                     <div className={classes.eligibilityCriteria}>
                         <div className={classes.bulletList}>
-                            <p>1. Generate Invoice for Administrative fee and make payment.</p>
-                            <p>2. Generate Invoice for Monitor fee and make payment.</p>
-                            <p>3. Click on the Submit application button to apply for the loan.</p>
-                            <p>4. Once your application has been approved, the loan will be paid to your bank account number provided during registration.</p>
+                            <p>1. Complete the registration form.</p>
+                            <p>2. Click on the Submit application button to apply for the loan.</p>
+                            <p>3. An Invoice for Admin. and Monitor fee will be generated automatically at the Invoice menu.</p>
+                            <p>4. Print the invoice and proceed to the bank to make your payment.</p>
+                            <p>5. Once your application has been approved, the loan will be paid to your bank account number provided during registration.</p>
                         </div>
                     </div>
                 </div>

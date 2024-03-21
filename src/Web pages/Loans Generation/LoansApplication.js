@@ -13,6 +13,9 @@ import MainDashoard from '../Main Dashboard/MainDashoard';
 export default function LoansApplication() {
 const navigate = useNavigate();
 
+const handleLoanApplication = () => {
+    navigate('/loan_application');
+};
 
     return (
         <div>
@@ -46,8 +49,8 @@ const navigate = useNavigate();
                                     </div>
                                 </div>
                             </div>
-                            <div className={classes.applyLoan}>
-                                            <p className={classes.continueReg}>Submit Application Now</p>
+                            <div className={classes.applyLoan} onClick={handleLoanApplication}>
+                                            <p className={classes.continueReg}>Start Application</p>
                                         </div>
                         </div>
                     </div>
