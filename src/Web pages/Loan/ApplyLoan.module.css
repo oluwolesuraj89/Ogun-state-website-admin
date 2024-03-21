@@ -215,9 +215,93 @@ body {
 
   }
 
-  /* .shadow {
-    box-shadow: 0 0 5px rgb(238, 236, 236);
-} */
+  @media(max-width:800px){
+    .finishedbodyCont{
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+      overflow: hidden;
+    
+    }
+    .formSecCont{
+      padding: 21px 25px;
+      background-color: var(--White);
+      border-radius: 0;
+      margin-bottom: 20px;
+     
+    }
+    .formSecCont h3{
+      color: #343A40;
+      font-size: 20px;
+      font-weight: lighter;
+    }
+
+    .mainform{
+      border-radius: 0;
+      margin-top: 0;
+      padding: 5rem 0 0 0;
+  }
+  .rszeInput {
+    flex-direction: column;
+    gap: 24px;
+    margin:0;
+    padding:0 0 0 10px;
+    width: 100%;
+    max-width: 90%;
+  }
+  .formInput{
+    margin-top: 10px;
+    background-color: #fff !important;
+    display: flex;
+    flex-direction: column;
+  }
+  .snInput {
+      width: 100%;
+    margin-bottom: 0;
+    outline: none;
+  }
+  .snInput2 {
+    height: 75px;
+      width: 100%;
+      max-width:380px;
+    margin-bottom: 0;
+    padding: 10px;
+  }
+  .snInput23 {
+    border: 1px solid #ADB5BD;
+    border-radius: 4px;
+    height: 148px;
+      width: 100%;
+    
+  }
+  .continueButton{
+    width: 100%;
+    max-width: 87%;
+    height: 43px;
+    margin: 50px 15px 50px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .continueReg{
+    color: white;
+    font-size: 16px;
+    font-weight: lighter;
+  text-align: center;
+  }
+  .nextKin{
+    margin-top: 50px;
+    color: var(--Black);
+    font-weight: lighter;
+    font-size: 14px;
+    margin-left: 10px;
+    border-bottom: 2px solid var(--Light-green);
+    width: 35%;
+    padding-bottom: 3px;
+  }
+}
   
   
   

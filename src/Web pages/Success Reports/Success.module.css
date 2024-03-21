@@ -244,134 +244,51 @@ text-align: center;
     
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-  }
-  
-  
-  .stId{
-  
-    font-size: 14px;
-    padding-bottom: 12px;
-    color: #6C757D;
+  @media(max-width:800px){
+    .finishedbodyCont{
+      padding-left: 0;
+      padding-right: 0;
     
     }
-
-    .signin{
-        margin-bottom: 20px !important;
-    }
-  
-  .rszeInput {
-    display: flex;
-    gap: 70px;
-    margin-left: 20px;
-    /* justify-content: space-between; */
-  }
-  
-  .formInput{
-    margin-top: 30px;
-    background-color: #fff !important;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .snInput {
-    border: 1px solid #ADB5BD;
-    border-radius: 4px;
-    height: 55px;
-      width: 400px;
-    margin-bottom: 5px;
-    /* padding-left: 10px; */
-    outline: none;
-    background-color: #f7f8fa !important;
-    padding: 10px;
-  }
-  .snInput2 {
-    border: 1px solid #ADB5BD;
-    border-radius: 4px;
-    height: 148px;
-      width: 400px;
-    margin-bottom: 5px;
-    /* padding-left: 10px; */
-    outline: none;
-    background-color: #f7f8fa !important;
-    padding: 10px;
-  }
-  .snInput23 {
-    border: 1px solid #ADB5BD;
-    border-radius: 4px;
-    height: 148px;
-      width: 400px;
-    margin-bottom: 5px;
-    /* padding-left: 10px; */
-    outline: none;
-    background-color: #f7f8fa !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  
-  .formInput1 {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .fileContainer {
-    display: flex;
-    align-items: center;
-    cursor: pointer !important;
-  }
-  
-  .fileInputLabel {
-    position: relative;
-    display: inline-block;
-    cursor: pointer !important;
-  }
-  
-  .fileInput {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    cursor: pointer !important;
     
-  }
-  
-  .fileIcon {
-    width: 24px; /* Adjust as needed */
-    height: 24px; /* Adjust as needed */
-    margin-right: 8px; /* Adjust as needed */
-    cursor: pointer !important;
-  }
-  
-  .placeholder {
-    margin-top: 10px;
+    .formSecCont{
+      padding: 21px 25px;
+      background-color: var(--White);
+      border-radius: 0;
+      margin-bottom: 20px;
+     
+    }
+    .formSecCont h3{
+      color: #343A40;
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    .applygrnttxt {
+      font-size: 18px;
+      margin-top: 17px;
+      margin-bottom: 4px;
+    }
+    
+    .grntapplytxt {
+      padding: 0 34px;
+      font-size: 14px;
+    }
+    .applyLoan{
+      width: 236px;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin-bottom: 0;
+    }
+    
+    .continueReg{
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
     text-align: center;
-    font-size: 14px;
-  padding-bottom: 12px;
-  color: #6C757D;
-  }
-  
-  
-  .nextKin{
-    margin-top: 50px;
-    color: #2D995F;
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 20px;
-  }
-  
-  
-  
-  .continueReg{
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-  text-align: center;
-  
-  
+    }
   }
   
   

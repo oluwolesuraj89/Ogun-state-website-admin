@@ -361,14 +361,97 @@ body {
     margin-left: 80px;
     margin-top: 57px;
   }
+  .applyLoan:hover{
+    background-color: #46a874;
+  }
   
   .continueReg{
     color: white;
     font-size: 16px;
     font-weight: 700;
   text-align: center;
-  
-  
+  }
+  .mobileshow{
+    display: none;
+  }
+  @media(max-width:800px){
+    .mobileshow{
+      display: block;
+    }
+    .webshow{
+      display: none;
+    }
+    .finishedbodyCont{
+      /* width: 100%; */
+      padding-left: 0;
+      padding-right: 0;
+    }    
+    .formSecCont{
+      padding: 21px 25px;
+      background-color: var(--White);
+      border-radius: 0;
+      margin-bottom: 20px;
+     
+    }
+    .formSecCont h3{
+      color: #343A40;
+      font-size: 20px;
+      font-weight: lighter;
+    }
+
+    .mainform{
+      /* width: 100%; */
+      /* background-color: var(--White); */
+      border-radius:0;
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;   
+    }
+    .loanBg{
+      max-width: 379px;
+      height: 165px;
+      margin-left: 30px;
+    }
+    .eligibilityText{
+      /* margin-top: 47px; */
+      margin-left:30px;
+    }
+    
+    .userdetails {
+      font-size: 14px !important;
+      font-weight: lighter !important;
+      /* color: #343A40 !important; */
+    }
+    .lineBottom {
+      width: 141px;
+      border: 1px solid #2D995F; 
+      margin-top: 0;
+    }
+    .bulletList p{
+      /* font-family: 'Inter' !important; */
+      /* font-weight: 400; */
+      font-size: 14px !important;
+      /* color: #343A40 !important; */
+      margin: 0;
+      padding-right: 16px;
+      
+    }
+    .applyLoan{
+      width: 236px;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin:58px 0 58px 25px;
+    }
+    .continueReg{
+      /* color: white; */
+      /* font-size: 16px; */
+      font-weight: 400;
+    /* text-align: center; */
+    }
+      
   }
   
   

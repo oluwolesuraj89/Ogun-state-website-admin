@@ -117,7 +117,9 @@ export default function ApplyLoan() {
     return (
 
         <div>
-            <MainDashoard />
+            <div style={{zIndex:'999'}}>
+                <MainDashoard />
+            </div>
 
             <div className={classes.finishedbodyCont}>
                 <div className={`${classes.formSecCont} ${classes.shadow}`}>
@@ -125,7 +127,7 @@ export default function ApplyLoan() {
                 </div>
                 <div className={classes.mainform} >
                     <div className={classes.signin}>
-                        <Tabs
+                    <Tabs
                             defaultActiveKey="personal-details"
                             id="justify-tab-example"
                             className="mb-3 complete-tabs"
@@ -135,7 +137,7 @@ export default function ApplyLoan() {
                             ref={tabRef}
                         >
                             <Tab eventKey="personal-details" title="Personal Details">
-                                <form>
+                                <form className={classes.fromMain}>
                                     <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>First Name</span>
@@ -211,6 +213,7 @@ export default function ApplyLoan() {
                                         </div>
                                     </div>
                                     <p className={classes.nextKin}>Next of Kin details</p>
+                                    {/* <div class></div> */}
                                     <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Full Name</span>

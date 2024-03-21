@@ -38,8 +38,8 @@ export default function LoansOnboarding() {
                                 <p className={classes.grntapplytxt}>Apply for a loan from your dashboard to see the status of your loan here </p>
                             </div>
                             <div className={classes.applyLoan} onClick={handleLoanApplication}>
-                                        <p className={classes.continueReg}>Apply for Loan</p>
-                                    </div>
+                                <p className={classes.continueReg}>Apply for Loan</p>
+                            </div>
                         </div>
                             
                     </div>

@@ -14,30 +14,7 @@
     --White: #ffffff;
     --Black: #343A40;
 }
-.regBody{
-    width: 100%;
-    /* height: 100vh; */
-    background-color: var(--Gray);
-}
-.logoCont{
-    width: 100%;
-    max-width: 228px;
-    height: 77px;
-    overflow: hidden;
-    margin-bottom: 48px;
-}
-.img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
 
-.arrowLoan{
-  display: flex;
-  gap: 17px;
-  padding: 24px 32px;
-  
-}
 
 .finishedbodyCont{
   width: 100%;
@@ -59,57 +36,8 @@
   font-weight: 700;
 }
 
-.loanBackground{
-  /* margin-top: -40px; */
-}
-
-.eligibilityCriteria{
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-}
-
-.bulletList p{
-font-family: 'Inter' !important;
-font-weight: 400;
-font-size: 14px !important;
-color: #343A40 !important;
-margin: 0;
-  padding: 0;
-
-}
-
-.loanBg{
-  width: 100%;
-  height: 280px;
-/* margin-left: 20px; */
-}
-
-.eligibilityText{
-  margin-top: 47px;
-  margin-left: 80px;
-}
-
-.userdetails {
-  font-size: 20px !important;
-  font-weight: 700 !important;
-  color: #343A40 !important;
-}
-
-/* .shadow {
+.shadow {
   box-shadow: 0 0 5px rgb(238, 236, 236);
-} */
-
-.lineBottom {
-  width: 187px;
-  border: 2px solid #2D995F; 
-  margin-top: 5px;
-}
-
-.applyLoanText{
-  font-weight: 500;
-  color: #343A40;
-  font-size: 20px;
 }
 
 .applycntnt {
@@ -153,6 +81,9 @@ margin: 0;
   margin-bottom: 66px;
   margin-top: 57px;
 }
+.applyLoan:hover{
+  background-color: #46a874;
+}
 
 .continueReg{
   color: white;
@@ -161,12 +92,6 @@ margin: 0;
 text-align: center;
 
 
-}
-
-
-.arrow{
-  width: 24px;
-  height: 24px;
 }
 
 .regContainer{
@@ -196,20 +121,12 @@ text-align: center;
     font-size: 18px;
     font-weight: 400;
     margin:0;
-    /* padding: 12px 20px; */
 }
 .regMenu .active{
     background: linear-gradient9(#2D997F) (#2D997F)0;
-    /* color: yellow !important; */
-    /* background-color: white; */
-    /* padding: 30px; */
 }
 .formSection{
     padding: 35px 30px;
-}
-.formSecCont h3{
-    /* padding: 35px 30px; */
-    /* background-color: gray; */
 }
 .formSection p{
     font-size: 14px;
@@ -237,139 +154,51 @@ text-align: center;
     margin-top: 26px;
     display: flex;
     flex-direction: column;
-    
-    
 }
-
-body {
-    font-family: 'Inter', sans-serif;
+@media(max-width:800px){
+  .finishedbodyCont{
+    padding-left: 0;
+    padding-right: 0;
+  
+  }
+  .formSecCont{
+    padding: 21px 25px;
+    background-color: var(--White);
+    border-radius: 0;
+    margin-bottom: 20px;
+   
+  }
+  .formSecCont h3{
+    color: #343A40;
+    font-size: 20px;
+    font-weight: lighter;
+  }
+  .applygrnttxt {
+    font-size: 18px;
+    margin-top: 17px;
+    margin-bottom: 4px;
   }
   
-  
-  .stId{
-  
+  .grntapplytxt {
+    padding: 0 34px;
     font-size: 14px;
-    padding-bottom: 12px;
-    color: #6C757D;
-    
-    }
-
-    .signin{
-        margin-bottom: 20px !important;
-    }
-  
-  .rszeInput {
+  }
+  .applyLoan{
+    width: 236px;
+    height: 43px;
     display: flex;
-    gap: 70px;
-    margin-left: 20px;
-    /* justify-content: space-between; */
-  }
-  
-  .formInput{
-    margin-top: 30px;
-    background-color: #fff !important;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .snInput {
-    border: 1px solid #ADB5BD;
-    border-radius: 4px;
-    height: 55px;
-      width: 400px;
-    margin-bottom: 5px;
-    /* padding-left: 10px; */
-    outline: none;
-    background-color: #f7f8fa !important;
-    padding: 10px;
-  }
-  .snInput2 {
-    border: 1px solid #ADB5BD;
-    border-radius: 4px;
-    height: 148px;
-      width: 400px;
-    margin-bottom: 5px;
-    /* padding-left: 10px; */
-    outline: none;
-    background-color: #f7f8fa !important;
-    padding: 10px;
-  }
-  .snInput23 {
-    border: 1px solid #ADB5BD;
-    border-radius: 4px;
-    height: 148px;
-      width: 400px;
-    margin-bottom: 5px;
-    /* padding-left: 10px; */
-    outline: none;
-    background-color: #f7f8fa !important;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-  
+    padding: 0;
+    margin-bottom: 0;
   }
-  
-  .formInput1 {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .fileContainer {
-    display: flex;
-    align-items: center;
-    cursor: pointer !important;
-  }
-  
-  .fileInputLabel {
-    position: relative;
-    display: inline-block;
-    cursor: pointer !important;
-  }
-  
-  .fileInput {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    cursor: pointer !important;
-    
-  }
-  
-  .fileIcon {
-    width: 24px; /* Adjust as needed */
-    height: 24px; /* Adjust as needed */
-    margin-right: 8px; /* Adjust as needed */
-    cursor: pointer !important;
-  }
-  
-  .placeholder {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 14px;
-  padding-bottom: 12px;
-  color: #6C757D;
-  }
-  
-  
-  .nextKin{
-    margin-top: 50px;
-    color: #2D995F;
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 20px;
-  }
-  
-  
   
   .continueReg{
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-  text-align: center;
-  
-  
+    /* color: white; */
+    /* font-size: 16px; */
+    font-weight: 400;
+  /* text-align: center; */
   }
-  
+}
   
   

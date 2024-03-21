@@ -154,7 +154,8 @@
             background-color: var(--White);
             /* justify-content: space-between; */
             align-items: left;
-            top: 120px;
+            top: 80px;
+            box-shadow: 0 -1px 1px rgb(226, 224, 224);
             padding: 27px;
             gap: 30px;
             position: absolute;
