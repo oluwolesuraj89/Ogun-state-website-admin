@@ -126,7 +126,7 @@ console.log(isLoan, "hereee");
                 <p className={classes.headerText}>Log In</p>
                 <p className={classes.subText}>to access your portal</p>
                     <div style={{ marginTop: 20 }}>
-                    {/* <p style={{ color: 'red', textAlign: 'center' }}>{!isValidEmail ? 'Invalid email' : null}</p> */}
+                   
                     {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
                         <span className={classes.stId}> Email Address </span>
                             <div className={classes.inputContainer}>

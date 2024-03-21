@@ -467,24 +467,24 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                      <div className={classes.formInput}>
                                             <span className={classes.stId}>Ogun state Tax ID number</span>
                                             <input type="text" className={classes.snInput} placeholder="" value={businessTax} onChange={(e) => setBusinessTax(e.target.value)} onBlur={handleBlur}/>
-                                           
                                             {taxLoading && (
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
         <Spinner size='sm' />
-        <span style={{marginLeft: 5}}>Verifying... please wait</span>
+        <span style={{ marginLeft: 5 }}>Verifying... please wait</span>
     </div>
 )}
+
 {showErrorMessage && (
     <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-        {responseMessage.includes('Invalid TIN') && (
-            <img src={Invalid} alt="Invalid Tin" style={{ width: '20px', height: '20px' }}/>
-        )}
-        {responseMessage.includes('Valid Tax') && (
+        {responseMessage.includes('Invalid TIN') || responseMessage.includes('No Valid Tax Clearance') ? (
+            <img src={Invalid} alt="Invalid Tin" style={{ width: '20px', height: '20px' }} />
+        ) : responseMessage.includes('Valid Tax') && (
             <img src={Valid} alt="Valid Tax" style={{ width: '20px', height: '20px' }} />
         )}
         <ErrorMessage message={responseMessage} />
     </div>
 )}
+
 
         
                                         </div>
