@@ -45,7 +45,8 @@ export default function LoansOnboarding() {
         const retrieveLoanStatus = async () => {
           try {
             const loanStatus = await AsyncStorage.getItem('isLoan');
-              setIsLoan(loanStatus === 'true');
+              setIsLoan(loanStatus === "1");
+              console.log(loanStatus);
             
       
             
@@ -63,7 +64,7 @@ export default function LoansOnboarding() {
             const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/application/get-loans', { headers });
             const results = response.data?.data;
             setLoanDetail(results);
-            // console.log(results, "here");
+            console.log(results, "invoice payment");
         } catch (error) {
             if (error.response && error.response.status === 401) {
 
@@ -82,9 +83,9 @@ export default function LoansOnboarding() {
         setPaymentLoading(true);
         try {
             const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/get-invoices', { headers });
-            const results = response.data?.data;
-            setInvoicePayment(results);
-            console.log(results, "invoice payment");
+            const resultsss = response.data?.data;
+            setInvoicePayment(resultsss);
+            // console.log(resultsss, "invoice payment");
         } catch (error) {
             if (error.response && error.response.status === 401) {
 
@@ -108,8 +109,19 @@ export default function LoansOnboarding() {
     }, [bearer]);
 
 
-    const handleLoanApplication = () => {
-        navigate('/loan_application');
+    const handleLoanApplication = async () => {
+        try {
+            const isComplete = await AsyncStorage.getItem('isCompleted');
+            console.log(isComplete, "LOAN APPLICATION");
+            if (isComplete === "null") {
+                navigate('/loan_ineligible');
+            } else {
+                navigate('/loan_application');
+            }
+        } catch (error) {
+            console.error('Error checking isComplete status:', error);
+            // Handle error
+        }
     };
 
     function formatDate(dateString) {
@@ -134,69 +146,71 @@ export default function LoansOnboarding() {
                 </div>
 
                 <div className={classes.mainform}>
-    {isLoan ? (
-        <div className={classes.loandgrantcards}>
-            <div className={classes.loandethead}>
-                <p className={classes.loanText}>Loan Amount: <span className={classes.theamount}> ₦500,000</span></p>
-                <p className={classes.loanText}>Duration: <span className={classes.monthText}>10 months</span></p>
-                <p className={classes.loanText}>Loan start date: <span className={classes.loanText}>1st March 2024</span></p>
-                <p className={classes.loanText}>Loan repayment end date: <span className={classes.loanText}>1st January 2025</span></p>
-            </div>
-
-            <div className={classes.loanContainer}>
-                <div className={classes.loanResponsive}>
-                    <table>
-                        <thead className={classes.loanTable}>
-                            <tr >
-                                <th className={classes.tableText}>S/N</th>
-                                <th className={classes.tableText}>Invoice Number</th>
-                                <th className={classes.tableText}>Description</th>
-                                <th className={classes.tableText}>Amount Paid</th>
-                                <th className={classes.tableText}>Date</th>
-                                <th className={classes.tableText}>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {invoicePayment.map((item, index) => (
-        <tr key={index}>
-            <td>{index + 1}</td>
-            <td>{item.invoice_number}</td>
-            <td>{item.description}</td>
-            <td style={{textAlign: "right"}}>{parseFloat(item.amount).toLocaleString('en-US', {
-                                      minimumIntegerDigits: 1,
-                                      minimumFractionDigits: 2,
-                                      maximumFractionDigits: 2
-                                    })}</td>
-            <td>{formatDate(item.created_at)}</td>
-            <td> <Badge bg={item.status === "Pending" ? 'warning' : 'success'}>
-                    {item.status}
-                </Badge></td>
-            <td>
-               
-            </td>
-        </tr>
-    ))}
-</tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    ) : (
+    {loanDetail.length === 0  ? (
         <div className={classes.signin}>
-            <div className={classes.applycntnt}>
-                <div className={classes.imgapply}>
-                    <img src={Ready} alt='img' />
-                </div>
+        <div className={classes.applycntnt}>
+            <div className={classes.imgapply}>
+                <img src={Ready} alt='img' />
+            </div>
 
-                <div>
-                    <p className={classes.applygrnttxt}>No ongoing loan payment to display </p>
-                    <p className={classes.grntapplytxt}>Click on the proceed button below to continue. </p>
-                </div>
-                <div className={classes.applyLoan} onClick={handleLoanApplication}>
-                    <p className={classes.continueReg}>Proceed</p>
-                </div>
+            <div>
+                <p className={classes.applygrnttxt}>No ongoing loan payment to display </p>
+                <p className={classes.grntapplytxt}>Click on the proceed button below to continue. </p>
+            </div>
+            <div className={classes.applyLoan} onClick={handleLoanApplication}>
+                <p className={classes.continueReg}>Proceed</p>
             </div>
         </div>
+    </div>
+
+        
+    ) : (
+        <div className={classes.loandgrantcards}>
+        <div className={classes.loandethead}>
+            <p className={classes.loanText}>Loan Amount: <span className={classes.theamount}> ₦500,000</span></p>
+            <p className={classes.loanText}>Duration: <span className={classes.monthText}>10 months</span></p>
+            <p className={classes.loanText}>Loan start date: <span className={classes.loanText}>1st March 2024</span></p>
+            <p className={classes.loanText}>Loan repayment end date: <span className={classes.loanText}>1st January 2025</span></p>
+        </div>
+
+        <div className={classes.loanContainer}>
+            <div className={classes.loanResponsive}>
+                <table>
+                    <thead className={classes.loanTable}>
+                        <tr >
+                            <th className={classes.tableText}>S/N</th>
+                            <th className={classes.tableText}>Invoice Number</th>
+                            <th className={classes.tableText}>Description</th>
+                            <th className={classes.tableText}>Amount Paid</th>
+                            <th className={classes.tableText}>Date</th>
+                            <th className={classes.tableText}>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {invoicePayment.map((item, index) => (
+    <tr key={index}>
+        <td>{index + 1}</td>
+        <td>{item.invoice_number}</td>
+        <td>{item.description}</td>
+        <td style={{textAlign: "right"}}>{parseFloat(item.amount).toLocaleString('en-US', {
+                                  minimumIntegerDigits: 1,
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2
+                                })}</td>
+        <td>{formatDate(item.created_at)}</td>
+        <td> <Badge bg={item.status === "Pending" ? 'warning' : 'success'}>
+                {item.status}
+            </Badge></td>
+        <td>
+           
+        </td>
+    </tr>
+))}
+</tbody>
+                </table>
+            </div>
+        </div>
+    </div> 
     )}
 </div>
 

@@ -19,13 +19,6 @@ export default function InvoicesBoard() {
                         <button className={classes.invoiceOpen}>Open</button>
                     </Link>
                 </div>
-                <div className={classes.invoiceCards}>
-                    <span>Invoice #001</span>
-                    <h4>Invoice for Administrative fee</h4>
-                    <Link to={'/admin_invoice'}>
-                        <button className={classes.invoiceOpen}>Open</button>
-                    </Link>
-                </div>
             </div>
         </div>
     </div>

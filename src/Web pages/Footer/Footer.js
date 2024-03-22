@@ -10,16 +10,13 @@ export default function Footer() {
             <img src={FooterLogo} alt='footerLogo' className={classes.img}/>
         </div>
         <div className={classes.footerlist}>
-            <h4>Quick Links</h4>
-            <p >News</p>
-            <p>Blog</p>
-            <p>About</p>
+            <h4>Links</h4>
             <p>Register</p>
         </div>
         <div className={classes.footerlist}>
             <h4>Contact Us</h4>
-            <p>Call: 123 456 7890</p>
-            <p>Email: smeogunstate@gov.ng</p>
+            <p>Call:   123 456 7890</p>
+            <p>Email: <span className={classes.emailText}>  smesupport@ogunstate.gov.ng</span></p>
             <p>Office: No 15, Oke Mosan road</p>
         </div>
       </div>

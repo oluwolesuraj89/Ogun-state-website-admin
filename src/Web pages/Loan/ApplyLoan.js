@@ -14,6 +14,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import DashboardFinal from '../Dashboard/Dashboard';
 import Valid from '../../Images/valid.png';
 import Invalid from '../../Images/invalid.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Spinner } from 'react-bootstrap';
 
@@ -168,10 +170,14 @@ export default function ApplyLoan() {
         try {
             const formData = new FormData();
             formData.append('business_premise_id', businessPermit);
+            formData.append('guarantor_name', guarantorName);
+            formData.append('guarantor_address', guarantorAddress);
+            formData.append('guarantor_email', guarantorEmail);
+            formData.append('guarantor_phone_number', guarantorPhone);
             formData.append('rc_number', businessRc);
             formData.append('stin', businessTax);
             formData.append('type', 1);
-            formData.append('file', selectedFile[0]);
+            formData.append('statement', selectedFile[0]);
 
             const response = await axios.post(
                 'https://api-smesupport.ogunstate.gov.ng/api/application/create',
@@ -185,7 +191,7 @@ export default function ApplyLoan() {
             );
 
             console.log(response.data.message);
-            navigate('/dashboard');
+            navigate('/success');
 
             console.log(response.data);
         } catch (error) {
@@ -200,7 +206,7 @@ export default function ApplyLoan() {
                 }
             }
             setErrorMessage1(errorMessage1);
-
+            toast.error(errorMessage1);
             console.log(error);
         } finally {
             setLoad(false);
@@ -266,6 +272,7 @@ export default function ApplyLoan() {
                     <h3>Loan Application</h3>
                 </div>
                 <div className={classes.mainform} >
+                <ToastContainer />
                     <div className={classes.signin}>
 
                         <form className={classes.fromMain}>
@@ -374,9 +381,19 @@ export default function ApplyLoan() {
                                 </div>
                                 
                             </div>
-                            <button disabled={buttonDisable}  className={classes.continueButton} onClick={handleSubmit} style={{backgroundColor: buttonDisable ? "#acebc9" : "#2D995F", cursor: buttonDisable ? "default" : "pointer"}}>
-                                        <p className={classes.continueReg}>Submit</p>
-                                    </button>
+                            <div   className={classes.continueButton} onClick={handleSubmit} >
+                            {load ? (
+                        <>
+                            <Spinner size='sm' />
+                            <span style={{ marginLeft: '5px' }}>Processing, Please wait...</span>
+                        </>
+                    ) : (
+                        "Submit Application"
+                    )}
+                    <div style={{marginTop: 20}} />
+                    {/* {errorMessage1 && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage1}</p>} */}
+                                        {/* <p className={classes.continueReg}>Submit</p> */}
+                                    </div>
                         </form>
                     </div>
                 </div>

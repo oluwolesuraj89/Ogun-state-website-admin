@@ -164,7 +164,12 @@ export default function MainDashoard() {
                                 <img src={DashImg} alt='icon' className={classes.mobileshow} />
                                 Dashboard</p>
                         </Link>
-                 
+                        <Link
+            to={'/my_profile'}
+            className={activeLink === 'My Profile' ? classes.active : ''}
+        >
+            <p> <img src={UserLogo} alt='icon' /> Profile</p>
+        </Link>
 
 
 
@@ -187,12 +192,7 @@ export default function MainDashoard() {
         >
             <p> <img src={Invoice} alt='icon' /> Invoices</p>
         </Link>
-        <Link
-            to={'/my_profile'}
-            className={activeLink === 'My Profile' ? classes.active : ''}
-        >
-            <p> <img src={UserLogo} alt='icon' /> Profile</p>
-        </Link>
+        
   
 <Link
         onClick={handleLogout}

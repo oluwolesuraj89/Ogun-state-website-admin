@@ -224,6 +224,12 @@ body {
     font-weight: 500;
   }
 
+  .errorMess1{
+    font-size: 15px;
+    color: #c21212;
+    font-weight: 500;
+  }
+
   /* .shadow {
     box-shadow: 0 0 5px rgb(238, 236, 236);
 } */

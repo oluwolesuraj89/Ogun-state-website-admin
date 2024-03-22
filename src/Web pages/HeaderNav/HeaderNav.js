@@ -50,10 +50,10 @@ const HeaderNav = () => {
               <NavLink to={'/'} className={classes.navLogoMobile}><img src={mobileLogo} alt='Logo' /></NavLink>
               <ul className={`${classes.mainMenu} ${isMenuOpen ?  '' : classes.menuOpen}`}>
                 <li className={classes.linkList}>
-                  <Link to={'/landing_page'}>Home</Link>
-                  <Link to={'#'}>About</Link>
+                  {/* <Link to={'/landing_page'}>Home</Link> */}
+                  {/* <Link to={'#'}>About</Link>
                   <Link to={'#'}>Blog</Link>
-                  <Link to={'#'}>News</Link>
+                  <Link to={'#'}>News</Link> */}
                 </li>
                 <li className={classes.navItem}>
                   <NavLink to={'/sign_in'}><button className={classes.whiteBtn}>Log In</button></NavLink>

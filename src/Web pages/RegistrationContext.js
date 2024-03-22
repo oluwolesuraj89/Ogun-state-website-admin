@@ -10,16 +10,15 @@ export const RegistrationProvider = ({ children }) => {
   const retrieveRegStatus = async () => {
     try {
       const regStatus = await AsyncStorage.getItem('isComplete');
-      setIsReg(regStatus === 'true'); 
-      console.log(isReg, "CONTEXTT");
+      setIsReg(regStatus === 'true');
     } catch (error) {
       console.error('Error retrieving registration status:', error);
     }
-};
+  };
 
-useEffect(() => {
+  useEffect(() => {
     retrieveRegStatus();
-}, []);
+  }, []);
 
   return (
     <RegistrationContext.Provider value={{ isReg, setIsReg, retrieveRegStatus }}>

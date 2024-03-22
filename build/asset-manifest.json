@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d470ca98.css",
-    "main.js": "/static/js/main.9d5a8b4e.js",
+    "main.css": "/static/css/main.be7642d9.css",
+    "main.js": "/static/js/main.7fabd7d8.js",
     "static/js/453.f6f611f0.chunk.js": "/static/js/453.f6f611f0.chunk.js",
     "static/media/image bg.png": "/static/media/image bg.33b7137d1a77fd01cf79.png",
     "static/media/LandingPageMobileBg.svg": "/static/media/LandingPageMobileBg.5a30c403eefce120b2be.svg",
@@ -25,8 +25,10 @@
     "static/media/loan continue.svg": "/static/media/loan continue.221ee5aa9b69132f90a391a5e9068e43.svg",
     "static/media/monitor fee.svg": "/static/media/monitor fee.fb0e98b7c4c88d23cc828938062b3f60.svg",
     "static/media/LoanAmontImg.svg": "/static/media/LoanAmontImg.2763c621bfb0d8a15b89c67e2fe29d9a.svg",
+    "static/media/no profile.svg": "/static/media/no profile.8e6627697c01933cf1c5bbd8793ee0bc.svg",
     "static/media/QR-Code.svg": "/static/media/QR-Code.4a80641deb02fc8cc13910ed52166f4c.svg",
     "static/media/loanSuccessImg.svg": "/static/media/loanSuccessImg.a5684ae0640a6112b52fb91bd7dfbc91.svg",
+    "static/media/review.svg": "/static/media/review.5564afb6f6b9da942dd62194a6f611af.svg",
     "static/media/completed.svg": "/static/media/completed.ddda85eb29452b19b70926a3c3231290.svg",
     "static/media/mail.svg": "/static/media/mail.3ac6a6d12a697823e3224c4236a0b0b0.svg",
     "static/media/nothing.svg": "/static/media/nothing.246cf6698cfb0e64aeff23e96f52749f.svg",
@@ -42,12 +44,12 @@
     "static/media/folder-2.svg": "/static/media/folder-2.f63f037762f21a031b27f1dd2542f398.svg",
     "static/media/arrow-left.svg": "/static/media/arrow-left.7dfc91e7737f699b9e4d619167a48071.svg",
     "static/media/Invoic-Ellipse.svg": "/static/media/Invoic-Ellipse.0b0f642c41e409da3d5b1a09a9cb7d52.svg",
-    "main.d470ca98.css.map": "/static/css/main.d470ca98.css.map",
-    "main.9d5a8b4e.js.map": "/static/js/main.9d5a8b4e.js.map",
+    "main.be7642d9.css.map": "/static/css/main.be7642d9.css.map",
+    "main.7fabd7d8.js.map": "/static/js/main.7fabd7d8.js.map",
     "453.f6f611f0.chunk.js.map": "/static/js/453.f6f611f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d470ca98.css",
-    "static/js/main.9d5a8b4e.js"
+    "static/css/main.be7642d9.css",
+    "static/js/main.7fabd7d8.js"
   ]
 }
