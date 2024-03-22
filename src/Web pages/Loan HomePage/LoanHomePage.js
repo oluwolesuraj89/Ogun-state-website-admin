@@ -14,7 +14,7 @@ export default function LoanHomePage() {
 const navigate = useNavigate();
 
 const handleLoanApplication = () => {
-    navigate('/submit_loan_application');
+    navigate('/loan_application');
 };
 
 

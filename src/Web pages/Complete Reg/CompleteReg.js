@@ -9,7 +9,7 @@ import SuccessImg from '../../Images/completed.svg';
 import messageIcon from '../../Images/Dashbord-menu-icons/message-text.svg';
 import Invoice from '../../Images/Dashbord-menu-icons/invoice.svg';
 import LogOutIcon from '../../Images/Dashbord-menu-icons/logout.svg';
-import MainDashoard from '../Main Dashboard/MainDashoard';
+import MiniDashboard from '../Mini Dashboard/MiniDashboard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DashboardFinal from '../Dashboard/Dashboard';
 import Valid from '../../Images/valid.png';
@@ -498,8 +498,8 @@ const [errorMessage1, setErrorMessage1] = useState('');
           const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/profile', { headers });
           const results = response.data?.data;
           const fName = response.data?.data?.name;
-          const result = fName.split(' ')[0];
-          const lName = response.data?.data?.name.split(' ')[1];
+          const result = fName.split(' ')[1];
+          const lName = response.data?.data?.name.split(' ')[0];
           const em = response.data?.data?.email;
           const ph = response.data?.data?.phone_number;
           
@@ -536,7 +536,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
     return (
 
         <div>
-            <MainDashoard />
+            <MiniDashboard />
 
             <div className={classes.finishedbodyCont}>
                 <div className={`${classes.formSecCont} ${classes.shadow}`}>

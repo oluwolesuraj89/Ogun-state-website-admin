@@ -31,6 +31,7 @@ import MainDashoard from './Web pages/Main Dashboard/MainDashoard';
 import Success from './Web pages/Success Reports/Success';
 import HeaderNav from './Web pages/HeaderNav/HeaderNav';
 import { RegistrationProvider } from './Web pages/RegistrationContext';
+import Profile from './Web pages/My Profile/Profile';
 
 
 function App() {
@@ -106,6 +107,7 @@ function App() {
         <Route path='/complete_registration'element={<CompleteReg/>}/>
         <Route path='/grant_application'element={<ApplyGrant/>}/>
         <Route path='/submit_grant_application'element={<SubmitGrantApplication/>}/>
+        <Route path='/my_profile'element={<Profile/>}/>
         <Route path='/verify_phone'element={<VerifyPhone/>}/>
         <Route path='/verify_email'element={<VerifyEmail/>}/>
         <Route path='/forgot_password'element={<ForgotPassword/>}/>

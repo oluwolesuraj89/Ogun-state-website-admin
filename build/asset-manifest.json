@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.da4ff08a.css",
-    "main.js": "/static/js/main.bdfec409.js",
+    "main.css": "/static/css/main.d470ca98.css",
+    "main.js": "/static/js/main.9d5a8b4e.js",
     "static/js/453.f6f611f0.chunk.js": "/static/js/453.f6f611f0.chunk.js",
     "static/media/image bg.png": "/static/media/image bg.33b7137d1a77fd01cf79.png",
     "static/media/LandingPageMobileBg.svg": "/static/media/LandingPageMobileBg.5a30c403eefce120b2be.svg",
@@ -19,17 +19,21 @@
     "static/media/loan bg.svg": "/static/media/loan bg.8e224b0a4211f21f0ebbc67b60fc4e19.svg",
     "static/media/grant bg.svg": "/static/media/grant bg.205b9d081a2a17f21f7a574f7bb72c69.svg",
     "static/media/AgMobileimg.svg": "/static/media/AgMobileimg.051c2f098177e50be98a63f04f977e4a.svg",
+    "static/media/ApplyGrandMobile.svg": "/static/media/ApplyGrandMobile.051c2f098177e50be98a63f04f977e4a.svg",
     "static/media/admin fee.svg": "/static/media/admin fee.fafac1dd18efe7268d78d793f1d5df38.svg",
     "static/media/grant proceed.svg": "/static/media/grant proceed.0e5c4c6d88594051770a11529f039847.svg",
     "static/media/loan continue.svg": "/static/media/loan continue.221ee5aa9b69132f90a391a5e9068e43.svg",
     "static/media/monitor fee.svg": "/static/media/monitor fee.fb0e98b7c4c88d23cc828938062b3f60.svg",
+    "static/media/LoanAmontImg.svg": "/static/media/LoanAmontImg.2763c621bfb0d8a15b89c67e2fe29d9a.svg",
     "static/media/QR-Code.svg": "/static/media/QR-Code.4a80641deb02fc8cc13910ed52166f4c.svg",
     "static/media/loanSuccessImg.svg": "/static/media/loanSuccessImg.a5684ae0640a6112b52fb91bd7dfbc91.svg",
     "static/media/completed.svg": "/static/media/completed.ddda85eb29452b19b70926a3c3231290.svg",
     "static/media/mail.svg": "/static/media/mail.3ac6a6d12a697823e3224c4236a0b0b0.svg",
+    "static/media/nothing.svg": "/static/media/nothing.246cf6698cfb0e64aeff23e96f52749f.svg",
     "static/media/DI-mobile3.svg": "/static/media/DI-mobile3.22dc64f8f6120270b6a69a4771a946bd.svg",
     "index.html": "/index.html",
     "static/media/invoice.svg": "/static/media/invoice.cf16b1e8f96cf87688e54d1fa8bc031e.svg",
+    "static/media/user-edit.svg": "/static/media/user-edit.4b82a8231ed990e3b6c97d92890ca575.svg",
     "static/media/DI-mobile2.svg": "/static/media/DI-mobile2.320843992b4278fbf8b33bc597723403.svg",
     "static/media/DI-mobile4.svg": "/static/media/DI-mobile4.a674ead4c8c0cb2444975c5729d2e4c4.svg",
     "static/media/DI-mobile1.svg": "/static/media/DI-mobile1.7f310cc0fabe44b9f056c05014fe293d.svg",
@@ -38,12 +42,12 @@
     "static/media/folder-2.svg": "/static/media/folder-2.f63f037762f21a031b27f1dd2542f398.svg",
     "static/media/arrow-left.svg": "/static/media/arrow-left.7dfc91e7737f699b9e4d619167a48071.svg",
     "static/media/Invoic-Ellipse.svg": "/static/media/Invoic-Ellipse.0b0f642c41e409da3d5b1a09a9cb7d52.svg",
-    "main.da4ff08a.css.map": "/static/css/main.da4ff08a.css.map",
-    "main.bdfec409.js.map": "/static/js/main.bdfec409.js.map",
+    "main.d470ca98.css.map": "/static/css/main.d470ca98.css.map",
+    "main.9d5a8b4e.js.map": "/static/js/main.9d5a8b4e.js.map",
     "453.f6f611f0.chunk.js.map": "/static/js/453.f6f611f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.da4ff08a.css",
-    "static/js/main.bdfec409.js"
+    "static/css/main.d470ca98.css",
+    "static/js/main.9d5a8b4e.js"
   ]
 }

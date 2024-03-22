@@ -15,6 +15,7 @@ import Msg1 from '../../Images/DI-mobile2.svg';
 import Inv from '../../Images/DI-mobile3.svg';
 import LgOut from '../../Images/DI-mobile4.svg';
 import DashboardLogo from '../../Images/dashboardLogo.svg';
+import UserLogo from '../../Images/user-edit.svg';
 import Swal from 'sweetalert2';
 import { useRegistration } from '../RegistrationContext';
 
@@ -49,6 +50,8 @@ export default function MainDashoard() {
             setActiveLink('Loan');
         } else if (pathname.includes('complete_registration')) {
             setActiveLink('Update Profile');
+        } else if (pathname.includes('my_profile')) {
+            setActiveLink('My Profile');
         } else if (pathname.includes('grant')) {
             setActiveLink('Grants');
         } else if (pathname.includes('invoice')) {
@@ -151,14 +154,7 @@ export default function MainDashoard() {
                 {/* {`${classes.mainMenu} ${isMenuOpen ? classes.menuOpen : ''}`} */}
 
                 <div className={`${classes.regMenu} ${isMenuOpen ? '' : classes.menuOpen}`}>
-                {!isReg ? (
-                        <Link
-                            to={'/complete_registration'}
-                            className={activeLink === 'Update Profile' ? classes.active : ''}
-                        >
-                            <p><img src={messageIcon} alt='icon' />Update Profile</p>
-                        </Link>
-                    ) : (
+               
                         <Link
                             to={'/dashboard'}
                             className={activeLink === 'Dashboard' ? classes.active : ''}
@@ -168,11 +164,11 @@ export default function MainDashoard() {
                                 <img src={DashImg} alt='icon' className={classes.mobileshow} />
                                 Dashboard</p>
                         </Link>
-                    )}
+                 
 
 
-{isReg ? (
-    <>
+
+
         <Link
             to={'/loan_onboarding'}
             className={activeLink === 'Loan' ? classes.active : ''}
@@ -191,10 +187,13 @@ export default function MainDashoard() {
         >
             <p> <img src={Invoice} alt='icon' /> Invoices</p>
         </Link>
-    </>
-) : (
-    null
-)}
+        <Link
+            to={'/my_profile'}
+            className={activeLink === 'My Profile' ? classes.active : ''}
+        >
+            <p> <img src={UserLogo} alt='icon' /> Profile</p>
+        </Link>
+  
 <Link
         onClick={handleLogout}
         // to={'/sign_in'}
