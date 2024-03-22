@@ -7,6 +7,7 @@ import Folder from '../../Images/folder-2.svg';
 import axios from 'axios';
 import ArrowLogo from '../../Images/arrow-left.svg';
 import GrantImage from '../../Images/grant bg.svg';
+import GrantImage2 from '../../Images/ApplyGrandMobile.svg';
 import MainDashoard from '../Main Dashboard/MainDashoard';
 
 export default function Grant() {
@@ -30,7 +31,8 @@ const handleNext = () => {
                                 <p className={classes.applyLoanText}>Apply for Grant</p>
                             </div>
                             <div className={classes.loanBackground}>
-                                <img src={GrantImage} className={classes.loanBg} alt='loan-image' />
+                                <img src={GrantImage} className={`${classes.loanBg} ${classes.webShow}`} alt='loan-image' />
+                                <img src={GrantImage2} className={`${classes.loanBg} ${classes.mobileShow}`} alt='loan-image' />
                             </div>
                             <div className={classes.eligibilityText}>
                                 <p className={classes.userdetails}>Eligibility Criteria</p>
@@ -60,8 +62,8 @@ const handleNext = () => {
                                 </div>
                             </div>
                             <div className={classes.applyLoan} onClick={handleNext}>
-                                            <p className={classes.continueReg}>Apply for Grant</p>
-                                        </div>
+                                <p className={classes.continueReg}>Apply for Grant</p>
+                            </div>
                         </div>
                     </div>
                 {/* </div> */}

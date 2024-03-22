@@ -326,9 +326,52 @@ body {
     color: white;
     font-size: 16px;
     font-weight: 700;
-  text-align: center;
-  
-  
+    text-align: center;
+  }
+  .mobileShow{
+    display: none;
+  }
+  @media(max-width:800px){
+    .mobileShow{
+      display: block;
+    }
+    .webShow{
+      display: none;
+    }
+    .mobileShow{
+      display: block;
+    }
+    
+    .finishedbodyCont{
+      padding-left: 0;
+      padding-right: 0;
+    
+    }
+    .formSecCont{
+      padding: 21px 25px;
+      background-color: var(--White);
+      border-radius: 0;
+      margin-bottom: 20px;
+     
+    }
+    .formSecCont h3{
+      color: #343A40;
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    .loanBg{
+      width: 90%;
+      max-width: 379px;
+      height: 165px;
+      margin:0 20px;
+    }
+    .eligibilityText{
+      margin-top: 47px;
+      margin-left: 0;
+      padding: 0 30px;
+    }
+    
+    
   }
   
   

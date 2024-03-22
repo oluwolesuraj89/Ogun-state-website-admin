@@ -7,6 +7,7 @@ import Folder from '../../Images/folder-2.svg';
 import axios from 'axios';
 import ArrowLogo from '../../Images/arrow-left.svg';
 import LoanImage from '../../Images/loan continue.svg';
+import LoanAmont from '../../Images/LoanAmontImg.svg';
 import MainDashoard from '../Main Dashboard/MainDashoard';
 
 export default function LoanHomePage() {
@@ -27,7 +28,8 @@ const handleLoanApplication = () => {
                 </div>
                 <div className={`${classes.mainform} ${classes.shadow}`}>
                 <div className={classes.loanBackground}>
-                    <img src={LoanImage} className={classes.loanBg} alt='loan-image' />
+                    <img src={LoanImage} className={`${classes.loanBg} ${classes.webShow}`} alt='loan-image' />
+                    <img src={LoanAmont} className={`${classes.loanBg} ${classes.mobileShow}`} alt='loan-image' />
                 </div>
                 <div className={classes.eligibilityText}>
                     <p className={classes.userdetails}>How to Apply</p>
