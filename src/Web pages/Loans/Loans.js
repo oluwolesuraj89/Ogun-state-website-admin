@@ -6,6 +6,7 @@ import Folder from '../../Images/folder-2.svg';
 import axios from 'axios';
 import ArrowLogo from '../../Images/arrow-left.svg';
 import LoanImage from '../../Images/loan bg.svg';
+import Grant from '../../Images/AgMobileimg.svg';
 import MainDashoard from '../Main Dashboard/MainDashoard';
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -32,7 +33,8 @@ export default function Loans() {
                                 <p className={classes.applyLoanText}>Apply for Loan</p>
                             </div>
                             <div className={classes.loanBackground}>
-                                <img src={LoanImage} className={classes.loanBg} alt='loan-image' />
+                                <img src={LoanImage} className={`${classes.loanBg} ${classes.webshow}`} alt='loan-image' />
+                                <img src={Grant} className={`${classes.loanBg} ${classes.mobileshow}`} alt='loan-image' />
                             </div>
                             <div className={classes.eligibilityText}>
                                 <p className={classes.userdetails}>Eligibility Criteria</p>

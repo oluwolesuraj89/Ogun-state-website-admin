@@ -15,11 +15,7 @@
     --Black: #343A40;
     /* --Background:rgba(172, 231, 199, 0.05); */
 }
-/* .regBody{
-    width: 100%;
-    
-    background-color: var(--Gray);
-} */
+
 .logoCont{
     width: 100%;
     max-width: 228px;
@@ -45,9 +41,7 @@
     background-color: var(--Deep-green);
     padding: 37px 27px 0 24px;
     height: 1800px;
-    /* max-width: 339px; */
     position: fixed;
-    /* visibility: hidden; */
 }
 .regMenu{
     display: flex;
@@ -72,11 +66,9 @@
     font-size: 18px;
     font-weight: 400;
     margin:0;
-    /* padding: 12px 20px; */
 }
 
 .formSection{
-    /* margin-left: 10rem; */
     width: 100%;
     padding-left: 20rem;
 }
@@ -107,14 +99,129 @@
     color: #343A40;
     font-size: 20px;
     font-weight: 700;
-    
 }
 
-
-@media (max-width: 991px) {
-    .sideNavBody {
-      display: none;
+.mobileshow{
+    display: none;
+}
+.harmborgers i{
+    font-size: 24px;
+}
+    @media(max-width:800px){
+        .mobileshow{
+            display: block;
+        }
+        .webshow{
+            display: none;
+        }
+        .harmborgers{
+            margin-right: 20px;
+        }
+        /* .menuOpen{
+            display: none;
+        } */
+        .logoCont{
+            width: 100%;
+            max-width: 122px;
+            height: 45px;
+            padding-left: 20px;
+            /* overflow: hidden; */
+            margin-bottom: 0;
+        }
+        .img{
+            /* width: 100%; */
+            /* height: 100%; */
+            object-fit: contain;
+        }
+        
+        .sideNavBody{
+            /* width: 100%; */
+        }
+        .sideNav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--White);
+            padding:0;
+            height: 74px;
+            width: 100%;
+            /* position: fixed; */
+        }
+        .regMenu{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: var(--White);
+            /* justify-content: space-between; */
+            align-items: left;
+            top: 80px;
+            box-shadow: 0 -1px 1px rgb(226, 224, 224);
+            padding: 27px;
+            gap: 30px;
+            position: absolute;
+            /* display: none; */
+        }
+        .menuOpen{
+            display: none;
+        }
+    
+        .regMenu a{
+            text-decoration: none;
+            padding: 0;
+        }
+        .regMenu .active {
+            background: transparent;
+            border-radius: 0;
+            color: var(--Light-green);
+        }
+        .regMenu img{
+          width: 20px;
+          height: 20px;
+          margin-right: 20px;
+        }
+        .regMenu p{
+            color: var(--Black);
+            font-size: 16px;
+            font-weight: 400;
+            margin:0;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        
+        .formSection{
+            width: 100%;
+            padding: 50px 0 0 25px;
+        }
+        .formSectionHeader{
+          width: 100%;
+          padding-top: 40px;
+          margin-bottom: 10px;
+        }
+        .formSection p{
+            font-size: 12px;
+        }
+        .formSection h1{
+            /* color: var(--Light-green); */
+            font-size: 18px;
+            /* font-weight: 700; */
+        }
+        .formSecCont{
+            padding: 24px 32px;
+            background-color: var(--White);
+            border-radius: 12px;
+            
+            width: 100%;
+        }
+        .shadow{
+          box-shadow: 5px 5px 10px var(--Gray) ;
+        }
+        .formSecCont h3{
+            color: #343A40;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        
     }
 
-   
-  }

@@ -1,0 +1,295 @@
+*,
+::after,
+::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* colors */
+:root{
+    --Deep-green: #164B2E;
+    --Light-green: #2D995F; 
+    --Gray:#f2f3f3;
+    --White: #ffffff;
+    --Black: #343A40;
+}
+.regBody{
+    width: 100%;
+    /* height: 100vh; */
+    background-color: var(--Gray);
+}
+.logoCont{
+    width: 100%;
+    max-width: 228px;
+    height: 77px;
+    overflow: hidden;
+    margin-bottom: 48px;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.arrowLoan{
+  display: flex;
+  gap: 17px;
+  padding: 24px 32px;
+  
+}
+
+.finishedbodyCont{
+  width: 100%;
+  padding-left: 20rem;
+  padding-right: 4rem;
+
+}
+
+.formSecCont{
+  padding: 24px 32px;
+  background-color: var(--White);
+  border-radius: 12px;
+  margin-bottom: 20px;
+ 
+}
+.formSecCont h3{
+  color: #343A40;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.loanBackground{
+  /* margin-top: -40px; */
+}
+
+.eligibilityCriteria{
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bulletList p{
+font-family: 'Inter' !important;
+font-weight: 400;
+font-size: 14px !important;
+color: #343A40 !important;
+margin: 0;
+  padding: 0;
+
+}
+
+.loanBg{
+  width: 100%;
+  height: 280px;
+/* margin-left: 20px; */
+}
+
+.eligibilityText{
+  margin-top: 47px;
+  margin-left: 80px;
+}
+
+.userdetails {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #343A40 !important;
+}
+
+/* .shadow {
+  box-shadow: 0 0 5px rgb(238, 236, 236);
+} */
+
+.lineBottom {
+  width: 187px;
+  border: 2px solid #2D995F; 
+  margin-top: 5px;
+}
+
+.applyLoanText{
+  font-weight: 500;
+  color: #343A40;
+  font-size: 20px;
+}
+
+.applycntnt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.imgapply img {
+  width: 138px;
+  height: 189px;
+}
+
+.applygrnttxt {
+  font-family: 'inter';
+  color: #2D995F;
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.grntapplytxt {
+  color: #6C757D;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.applyLoan{
+  width: 300px;
+  height: 55px;
+  background-color: #2D995F;
+  color: white;
+  margin-top: 30px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 66px;
+  margin-top: 57px;
+}
+.applyLoan:hover{
+    background-color: #46a874;
+}
+
+.continueReg{
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+text-align: center;
+
+
+}
+
+
+.arrow{
+  width: 24px;
+  height: 24px;
+}
+
+.regContainer{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    /* gap: 30px; */
+}
+.sideNav{
+    background-color: var(--Deep-green);
+    padding: 37px 0 0 21px;
+    height: 1800px;
+    max-width: 339px;
+}
+.regMenu{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.regMenu a{
+    text-decoration: none;
+}
+/* .regMenu a:active{
+    background: linear-gradientrgba((#2D997F) 100%, (#2D997F) 31%);
+} */
+.regMenu p{
+    color: var(--White);
+    font-size: 18px;
+    font-weight: 400;
+    margin:0;
+    /* padding: 12px 20px; */
+}
+.regMenu .active{
+    background: linear-gradient9(#2D997F) (#2D997F)0;
+    /* color: yellow !important; */
+    /* background-color: white; */
+    /* padding: 30px; */
+}
+.formSection{
+    padding: 35px 30px;
+}
+.formSecCont h3{
+    /* padding: 35px 30px; */
+    /* background-color: gray; */
+}
+.formSection p{
+    font-size: 14px;
+}
+.formSection h1{
+    color: var(--Light-green);
+    font-size: 28px;
+    font-weight: 700;
+}
+.formSecCont{
+    padding: 24px 32px;
+    background-color: var(--White);
+    border-radius: 12px;
+   
+}
+.formSecCont h3{
+    color: #343A40;
+    font-size: 20px;
+    font-weight: 700;
+}
+.mainform{
+    width: 100%;
+    background-color: var(--White);
+    border-radius: 12px;
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+  @media(max-width:800px){
+    .finishedbodyCont{
+      padding-left: 0;
+      padding-right: 0;
+    
+    }
+    
+    .formSecCont{
+      padding: 21px 25px;
+      background-color: var(--White);
+      border-radius: 0;
+      margin-bottom: 20px;
+     
+    }
+    .formSecCont h3{
+      color: #343A40;
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    .applygrnttxt {
+      font-size: 18px;
+      margin-top: 17px;
+      margin-bottom: 4px;
+    }
+    
+    .grntapplytxt {
+      padding: 0 34px;
+      font-size: 14px;
+    }
+    .applyLoan{
+      width: 236px;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin-bottom: 0;
+    }
+    
+    .continueReg{
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+    text-align: center;
+    }
+  }
+  
+  
+  

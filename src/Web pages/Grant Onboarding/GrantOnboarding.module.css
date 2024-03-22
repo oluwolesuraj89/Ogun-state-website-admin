@@ -367,8 +367,52 @@ body {
     font-size: 16px;
     font-weight: 700;
   text-align: center;
-  
-  
+  }
+
+  @media(max-width:800px){
+    .finishedbodyCont{
+      padding-left: 0;
+      padding-right: 0;
+    
+    }
+    .formSecCont{
+      padding: 21px 25px;
+      background-color: var(--White);
+      border-radius: 0;
+      margin-bottom: 20px;
+     
+    }
+    .formSecCont h3{
+      color: #343A40;
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    .applygrnttxt {
+      font-size: 18px;
+      margin-top: 17px;
+      margin-bottom: 4px;
+    }
+    
+    .grntapplytxt {
+      padding: 0 34px;
+      font-size: 14px;
+    }
+    .applyLoan{
+      width: 236px;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin-bottom: 0;
+    }
+    
+    .continueReg{
+      /* color: white; */
+      /* font-size: 16px; */
+      font-weight: 400;
+    /* text-align: center; */
+    }
   }
   
   

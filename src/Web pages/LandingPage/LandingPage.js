@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import classes from '../LandingPage/LandingPage.module.css'
 import HeaderNav from "../HeaderNav/HeaderNav";
 import { Accordion } from "react-bootstrap";
@@ -32,7 +32,7 @@ function LandingPage() {
         </div>
       </div>
       <div className={classes.container}>
-        <div className={classes.contentContainer}>
+      <div className={`${classes.contentContainer} ${classes.dapoSection}`}>
           <div className={classes.section2}>
             {/* <h1>Hello world </h1> */}
           </div>

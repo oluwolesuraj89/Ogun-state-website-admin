@@ -372,7 +372,9 @@ const [errorMessage1, setErrorMessage1] = useState('');
     return (
 
         <div>
-            <MainDashoard />
+            <div style={{zIndex:'999'}}>
+                <MainDashoard />
+            </div>
 
             <div className={classes.finishedbodyCont}>
                 <div className={`${classes.formSecCont} ${classes.shadow}`}>
@@ -380,7 +382,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                 </div>
                 <div className={classes.mainform} >
                     <div className={classes.signin}>
-                        <Tabs
+                    <Tabs
                             defaultActiveKey="personal-details"
                             id="justify-tab-example"
                             className="mb-3 complete-tabs"
@@ -390,7 +392,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                             
                         >
                             <Tab eventKey="personal-details" title="Personal Details">
-                                <form>
+                                <form className={classes.fromMain}>
                                     <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>First Name</span>

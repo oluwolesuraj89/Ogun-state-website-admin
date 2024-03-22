@@ -27,6 +27,10 @@ import GrantOnboarding from './Web pages/Grant Onboarding/GrantOnboarding';
 import InvoicesBoard from './Web pages/Admin Monitor Invoice/InvoicesBoard';
 import AdministratorInvoice from './Web pages/Admin Monitor Invoice/AdministratorInvoice';
 import CompleteReg from './Web pages/Complete Reg/CompleteReg';
+import MainDashoard from './Web pages/Main Dashboard/MainDashoard';
+import Success from './Web pages/Success Reports/Success';
+import HeaderNav from './Web pages/HeaderNav/HeaderNav';
+
 
 function App() {
   const [userIsInactive, setUserIsInactive] = useState(false);
@@ -107,6 +111,9 @@ function App() {
         <Route path='/forgot_password_reset'element={<ForgotPasswordReset/>}/>
         <Route path='/invoice_onboard'element={<InvoicesBoard/>}/>
         <Route path='/admin_invoice'element={<AdministratorInvoice/>}/>
+        <Route path='/main_dashboard'element={<MainDashoard/>}/>
+        <Route path='/header_nav'element={<HeaderNav/>}/>
+        <Route path='/success'element={<Success/>}/>
         </Routes>
         </>
   );

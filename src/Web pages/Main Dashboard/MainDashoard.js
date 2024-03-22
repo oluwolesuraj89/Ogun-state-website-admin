@@ -10,6 +10,11 @@ import SuccessImg from '../../Images/completed.svg';
 import messageIcon from '../../Images/Dashbord-menu-icons/message-text.svg';
 import Invoice from '../../Images/Dashbord-menu-icons/invoice.svg';
 import LogOutIcon from '../../Images/Dashbord-menu-icons/logout.svg';
+import DashImg from '../../Images/DI-mobile1.svg';
+import Msg1 from '../../Images/DI-mobile2.svg';
+import Inv from '../../Images/DI-mobile3.svg';
+import LgOut from '../../Images/DI-mobile4.svg';
+import DashboardLogo from '../../Images/dashboardLogo.svg';
 import Swal from 'sweetalert2';
 
 
@@ -21,6 +26,16 @@ export default function MainDashoard() {
     const [activeLink, setActiveLink] = useState(null);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [isMenuOpen, setIsMenuOpen] = useState(false); 
+
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen); // Toggle the menu open/close state
+      };
+    
+      const closeMenu = () => {
+        setIsMenuOpen(false); // Close the menu
+      };
     const [isReg, setIsReg] = useState(false);
 
 
@@ -128,10 +143,12 @@ export default function MainDashoard() {
     <div className={classes.sideNavBody}>
             <div className={classes.sideNav}>
                 <div className={classes.logoCont}>
-                    <img src={RegLogo} alt='Logo' />
+                    <img src={RegLogo} alt='Logo' className={`${classes.img} ${classes.webshow}`}/>
+                    <img src={DashboardLogo} alt='Logo' className={`${classes.img} ${classes.mobileshow}`}/>
                 </div>
+                {/* {`${classes.mainMenu} ${isMenuOpen ? classes.menuOpen : ''}`} */}
               
-                <div className={classes.regMenu}>
+                <div className={`${classes.regMenu} ${isMenuOpen ? '' : classes.menuOpen}`}>
                 {isReg ? (
                     <Link
                         to={'/complete_registration'}
@@ -144,7 +161,10 @@ export default function MainDashoard() {
                         to={'/dashboard'}
                         className={activeLink === 'Dashboard' ? classes.active : ''}
                     >
-                        <p><img src={messageIcon} alt='icon' />Dashboard</p>
+                        <p>
+                            <img src={messageIcon} alt='icon' className={classes.webshow} />
+                            <img src={DashImg} alt='icon' className={classes.mobileshow} />
+                            Dashboard</p>
                     </Link>
                     )}
 
