@@ -62,6 +62,7 @@ const SignIn = () => {
      const isLoan = response.data?.data?.user?.is_loan === "1";
      const isGrant = response.data?.data?.user?.is_grant === "1";
      const isComplete = response.data?.data?.user?.home_address === null;
+     console.log(isComplete, "signin")
      const isCompleted = response.data?.data?.user?.home_address;
 
      
@@ -132,7 +133,7 @@ const SignIn = () => {
                     {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
                         <span className={classes.stId}> Email Address </span>
                             <div className={classes.inputContainer}>
-                                <input type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
+                                <input autoComplete='off' type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
                             </div>
                             
                     </div>
@@ -141,7 +142,7 @@ const SignIn = () => {
                         <span className={classes.stId}> Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
-                                <input type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
+                                <input autoComplete='off' type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
                             </div>
                             <button
                                 type="button"

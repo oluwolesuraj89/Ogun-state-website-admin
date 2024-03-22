@@ -23,6 +23,7 @@ export default function CompleteReg() {
     const [phone, setPhone] = useState('');
     const [taxLoading, setTaxLoading] = useState(false);
     const [bpLoading, setBpLoading] = useState(false);
+    const [bankLoading, setBankLoading] = useState(false);
     const [firstName, setFirstName] = useState('');
     const [accountNumber, setAccountNumber] = useState('');
     const [accountName, setAccountName] = useState('');
@@ -62,9 +63,14 @@ export default function CompleteReg() {
     const [sectors, setSectors] = useState([]);
     const [banks, setBanks] = useState([]);
     const [permitStatus, setPermitStatus] = useState(false);
+    const [rcStatus, setRcStatus] = useState(false);
+    const [bankStatus, setBankStatus] = useState(false);
+    const [rcLoading, setRcLoading] = useState(false);
     const [bearer, setBearer] = useState('');
     const [responseMessage, setResponseMessage] = useState('');
     const [responseMessage1, setResponseMessage1] = useState('');
+    const [responseMessage2, setResponseMessage2] = useState('');
+    const [responseMessage3, setResponseMessage3] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [profileLoading, setProfileLoading] = useState(false);
     const [load, setLoad] = useState(false);
@@ -211,6 +217,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
         } catch (error) {
             if (error.response && error.response.data.responseCode === 400) {
                 setResponseMessage(error.response.data.message);
+                setBusinessTax('');
                 // console.log(error.response.data);
                 // setIsButtonDisabled(true);
             } else if (error.message === 'Network Error' || error.code === 'ECONNABORTED') {
@@ -228,12 +235,16 @@ const [errorMessage1, setErrorMessage1] = useState('');
         try {
             const response = await axios.get(`https://api.businesspermit.ogunstate.gov.ng/api/verify-permit-number?permit_id=${businessPermit}`);
             const responseData = response.data.data;
+            // console.log(responseData);
             if (response.data.status === true) {
-               setResponseMessage1("Valid Premise Permit")
+               setResponseMessage1("Valid Premise Permit");
+               setBusinessAddress(responseData.address);
             }
         } catch (error) {
             if (error.response && error.response.data.status === false) {
-                setResponseMessage1("Invalid Premise Permit")
+                setResponseMessage1("Invalid Premise Permit");
+                setBusinessPermit('');
+                setBusinessAddress('');
             } else if (error.message === 'Network Error' || error.code === 'ECONNABORTED') {
                 setResponseMessage1('Network error or connection timed out');
             } else {
@@ -243,6 +254,79 @@ const [errorMessage1, setErrorMessage1] = useState('');
             setBpLoading(false);
         }
     };
+
+    const validateRc = async () => {
+        setRcLoading(true);
+        try {
+            const response = await axios.post(
+                `https://api-smesupport.ogunstate.gov.ng/api/rc-number-validation?rc_number=${businessRc}`,
+                {},
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${bearer}`,
+                    },
+                }
+            );
+            const responseData = response.data.data;
+            if (response.data.status === true) {
+                setResponseMessage2(response.data.message);
+            }
+        } catch (error) {
+            if (error.response && error.response.data.status === false) {
+                setResponseMessage2("Invalid RC Number");
+                setBusinessRc('');
+            } else if (error.message === 'Network Error' || error.code === 'ECONNABORTED') {
+                setResponseMessage2('Network error or connection timed out');
+            } else {
+                console.log(error);
+            }
+        } finally {
+            setRcLoading(false);
+        }
+    };
+
+    const validateBank = async () => {
+        setBankLoading(true);
+        try {
+            const response = await axios.post(
+                `https://api-smesupport.ogunstate.gov.ng/api/kyc`,
+                {
+                    first_name: firstName,
+                    last_name: lastName,
+                    account_number: accountNumber,
+                    bank_id: selectedBank
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${bearer}`,
+                    },
+                }
+            );
+            const responseData = response.data.data;
+            if (response.data.status === true) {
+                setAccountName(responseData.accountName);
+                setAccountBVN(responseData.bvn);
+                setResponseMessage3(response.data.message);
+            }
+        } catch (error) {
+            if (error.response && error.response.data.status === false) {
+                setResponseMessage3("Invalid Account");
+                setAccountNumber('');
+                setSelectedBank([]);
+                setAccountName('');
+                setAccountBVN('');
+            } else if (error.message === 'Network Error' || error.code === 'ECONNABORTED') {
+                setResponseMessage3('Network error or connection timed out');
+            } else {
+                console.log(error);
+            }
+        } finally {
+            setBankLoading(false);
+        }
+    };
+    
 
     const handleBlur = async () => {
         if (!businessTax) {
@@ -270,6 +354,26 @@ const [errorMessage1, setErrorMessage1] = useState('');
         await validateBPP();
         setPermitStatus(true); 
     };
+
+    const handleBlur2 = async () => {
+        if (!businessRc) {
+            setRcStatus(false); 
+            return; 
+        }
+        setRcStatus(false); 
+        await validateRc();
+        setRcStatus(true); 
+    };
+
+    const handleBlur3 = async () => {
+        if (!accountNumber || !selectedBank) {
+            setBankStatus(false); 
+            return; 
+        }
+        setBankStatus(false); 
+        await validateBank();
+        setBankStatus(true); 
+    };
     
     
     useEffect(() => {
@@ -288,6 +392,14 @@ const [errorMessage1, setErrorMessage1] = useState('');
     useEffect(() => {
         
       }, [responseMessage1, permitStatus]);
+
+    useEffect(() => {
+        
+      }, [responseMessage2, rcStatus]);
+
+    useEffect(() => {
+        
+      }, [responseMessage3, bankStatus]);
     
     
     
@@ -352,7 +464,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
             );
     
             console.log(response.data.message);
-            navigate('/sign_in');
+            navigate('/dashboard');
     
             console.log(response.data);
         } catch (error) {
@@ -446,11 +558,11 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                     <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>First Name</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                                            <input disabled type="text" className={classes.snInput} placeholder="" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                                         </div>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Last Name</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                            <input disabled type="text" className={classes.snInput} placeholder="" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                                         </div>
                                     </div>
                                     <div className={classes.rszeInput}>
@@ -619,7 +731,24 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                         </div>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>RC Number</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={businessRc} onChange={(e) => setBusinessRc(e.target.value)} />
+                                            <input type="text" className={classes.snInput} placeholder="" value={businessRc} onChange={(e) => setBusinessRc(e.target.value)} onBlur={handleBlur2}/>
+                                            {rcLoading && (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        <Spinner size='sm' />
+        <span style={{ marginLeft: 5 }}>Verifying... please wait</span>
+    </div>
+)}
+
+{rcStatus && (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        {responseMessage2.includes('Invalid RC Number')  ? (
+            <img src={Invalid} alt="Invalid Tin" style={{ width: '20px', height: '20px' }} />
+        ) : responseMessage2.includes('Verification Succesful!') && (
+            <img src={Valid} alt="Valid Tax" style={{ width: '20px', height: '20px' }} />
+        )}
+        <ErrorMessage message={responseMessage2} />
+    </div>
+)}
                                         </div>
                                     </div>
                                     <div className={classes.rszeInput}>
@@ -676,9 +805,19 @@ const [errorMessage1, setErrorMessage1] = useState('');
 
                                     <div className={classes.rszeInput}>
                                     <div className={classes.formInput}>
+                                            <span className={classes.stId}>Business Address</span>
+                                            <textarea
+                                                className={classes.snInput2}
+                                                typeof='text'
+                                                value={businessAddress}
+                                                onChange={(e) => setBusinessAddress(e.target.value)}
+                                                disabled
+                                            />
+                                        </div>
+                                    {/* <div className={classes.formInput}>
                                             <span className={classes.stId}>C.A.C Certificate No</span>
                                             <input type="text" className={classes.snInput} placeholder="" value={cacNo} onChange={(e) => setCacNo(e.target.value)} />
-                                        </div>
+                                        </div> */}
                                         <div className={classes.formInput}>
                                        
                                             <span className={classes.stId}>Annual turnover for 2 years</span>
@@ -687,21 +826,13 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                        
                                     </div>
 
-                                    <div className={classes.rszeInput}>
+                                    {/* <div className={classes.rszeInput}>
                                        
                                         
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Business Address</span>
-                                            <textarea
-                                                className={classes.snInput2}
-                                                typeof='text'
-                                                value={businessAddress}
-                                                onChange={(e) => setBusinessAddress(e.target.value)}
-                                            />
-                                        </div>
+                                        
                                        
                                    
-                                    </div>
+                                    </div> */}
 
                                     
 
@@ -719,7 +850,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                         </div>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Bank</span>
-                                            <Form.Select className={classes.snInput} value={selectedBank} onChange={handleBankChange} >
+                                            <Form.Select className={classes.snInput} value={selectedBank} onChange={handleBankChange} onBlur={handleBlur3}>
                                             <option value="">Select Bank</option>
                                                                                   {banks.map((item) => (
                                                                                 <option key={item.id} value={item.id}>
@@ -727,16 +858,33 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                                                                 </option>
                                                                               ))}
                                             </Form.Select>
+                                            {bankLoading && (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        <Spinner size='sm' />
+        <span style={{ marginLeft: 5 }}>Verifying... please wait</span>
+    </div>
+)}
+
+{bankStatus && (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        {responseMessage3.includes('Invalid Account') || responseMessage3.includes('No Valid Tax Clearance') ? (
+            <img src={Invalid} alt="Invalid Tin" style={{ width: '20px', height: '20px' }} />
+        ) : responseMessage3.includes('Verified Succesfully!') && (
+            <img src={Valid} alt="Verified Succesfully!" style={{ width: '20px', height: '20px' }} />
+        )}
+        <ErrorMessage message={responseMessage3} />
+    </div>
+)}
                                         </div>
                                     </div>
                                     <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Account Name</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={accountName} onChange={(e) => setAccountName(e.target.value)} />
+                                            <input disabled type="text" className={classes.snInput} placeholder="" value={accountName} onChange={(e) => setAccountName(e.target.value)} />
                                         </div>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>BVN</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={accountBVN} onChange={(e) => setAccountBVN(e.target.value)} />
+                                            <input disabled type="text" className={classes.snInput} placeholder="" value={accountBVN} onChange={(e) => setAccountBVN(e.target.value)} />
                                         </div>
                                     </div>
                                     <div className={classes.continueButton} onClick={handleSubmit}>
