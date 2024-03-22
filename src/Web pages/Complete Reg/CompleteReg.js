@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import classes from './ApplyLoan.module.css';
+import classes from './CompleteReg.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { Tab, Tabs, Form } from 'react-bootstrap';
@@ -17,10 +17,12 @@ import Invalid from '../../Images/invalid.png';
 
 import { Spinner } from 'react-bootstrap';
 
-export default function ApplyLoan() {
+export default function CompleteReg() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
-    const [taxLoading, setTaxLoading] = useState('');
+    const [phone, setPhone] = useState('');
+    const [taxLoading, setTaxLoading] = useState(false);
+    const [bpLoading, setBpLoading] = useState(false);
     const [firstName, setFirstName] = useState('');
     const [accountNumber, setAccountNumber] = useState('');
     const [accountName, setAccountName] = useState('');
@@ -44,6 +46,7 @@ export default function ApplyLoan() {
     const [turnover, setTurnover] = useState('');
     const [dateOfBirth, setDateofBirth] = useState(null);
     const [homeAddress, setHomeAddress] = useState('');
+    const [userProfile, setUserProfile] = useState([]);
     const [permanentAddress, setPermanentAddress] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const [selectedBank, setSelectedBank] = useState(null);
@@ -58,10 +61,12 @@ export default function ApplyLoan() {
     const [localGovt, setLocalGovt] = useState([]);
     const [sectors, setSectors] = useState([]);
     const [banks, setBanks] = useState([]);
+    const [permitStatus, setPermitStatus] = useState(false);
     const [bearer, setBearer] = useState('');
     const [responseMessage, setResponseMessage] = useState('');
+    const [responseMessage1, setResponseMessage1] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-    const [bpLoading, setBpLoading] = useState(false);
+    const [profileLoading, setProfileLoading] = useState(false);
     const [load, setLoad] = useState(false);
 const [showErrorMessage, setShowErrorMessage] = useState(false);
 const [errorMessage1, setErrorMessage1] = useState('');
@@ -90,7 +95,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
       const handleContinue = (e) => {
         e.preventDefault(); // Prevent the default form submission behavior
     
-        if (!isButtonDisabled) {
+        
             switch (activeTab) {
                 case 'personal-details':
                     setActiveTab('business-details');
@@ -101,24 +106,11 @@ const [errorMessage1, setErrorMessage1] = useState('');
                 default:
                     break;
             }
-        }
+        
     };
     
 
-    const handleApply = () => {
-        navigate('/apply_for_loan');
-    }
-
-
-
-    
-    
-
-    const handleFileChange = (event) => {
-        const files = event.target.files;
-        const fileList = Array.from(files);
-        setSelectedFile(fileList);
-      };
+   
 
     
 
@@ -214,13 +206,13 @@ const [errorMessage1, setErrorMessage1] = useState('');
             if (responseData.responseCode === 200) {
                 setResponseMessage(responseData.message);
                 // console.log(responseMessage, "true");
-                setIsButtonDisabled(false);
+                // setIsButtonDisabled(false);
             }
         } catch (error) {
             if (error.response && error.response.data.responseCode === 400) {
                 setResponseMessage(error.response.data.message);
                 // console.log(error.response.data);
-                setIsButtonDisabled(true);
+                // setIsButtonDisabled(true);
             } else if (error.message === 'Network Error' || error.code === 'ECONNABORTED') {
                 setResponseMessage('Network error or connection timed out');
             } else {
@@ -231,11 +223,35 @@ const [errorMessage1, setErrorMessage1] = useState('');
         }
     };
 
+    const validateBPP = async () => {
+        setBpLoading(true);
+        try {
+            const response = await axios.get(`https://api.businesspermit.ogunstate.gov.ng/api/verify-permit-number?permit_id=${businessPermit}`);
+            const responseData = response.data.data;
+            if (response.data.status === true) {
+               setResponseMessage1("Valid Premise Permit")
+            }
+        } catch (error) {
+            if (error.response && error.response.data.status === false) {
+                setResponseMessage1("Invalid Premise Permit")
+            } else if (error.message === 'Network Error' || error.code === 'ECONNABORTED') {
+                setResponseMessage1('Network error or connection timed out');
+            } else {
+                console.log(error);
+            }
+        } finally {
+            setBpLoading(false);
+        }
+    };
+
     const handleBlur = async () => {
-        if (!businessTax) return; 
+        if (!businessTax) {
+            setShowErrorMessage(false);  
+            return; 
+        }
         setShowErrorMessage(false); 
         await validateTaxPayer();
-        setShowErrorMessage(true); 
+        setShowErrorMessage(true)
     };
     
     useEffect(() => {
@@ -243,41 +259,35 @@ const [errorMessage1, setErrorMessage1] = useState('');
             setShowErrorMessage(true);
         }
     }, [responseMessage]);
+
+
+    const handleBlur1 = async () => {
+        if (!businessPermit) {
+            setPermitStatus(false); 
+            return; 
+        }
+        setPermitStatus(false); 
+        await validateBPP();
+        setPermitStatus(true); 
+    };
+    
+    
+    useEffect(() => {
+        if (responseMessage1) {
+            setPermitStatus(true);
+        }
+    }, [responseMessage1]);
     
     
     
 
     useEffect(() => {
-        console.log(responseMessage);
+        
       }, [responseMessage, showErrorMessage]);
-    
 
-
-    const validateBp = async () => {
-        setBpLoading(true);
-        try {
-            const response = await axios.get(`https://api.businesspermit.ogunstate.gov.ng/api/verify-permit-number?permit_id=${businessPermit}`);
-            const responseData = response.data.data;
-            console.log(responseData, "here");
-            // if (responseData.responseCode === 201) {
-            //     setResponseMessage(responseData.data[0].name);
-            //     setIsButtonDisabled(false); // Assuming data is an array
-            // } else {
-            //     setResponseMessage(responseData.message);
-            // }
-        } catch (error) {
-            if (error.response && error.response.data.responseCode === 401) {
-                setResponseMessage(error.response.data.message);
-                setIsButtonDisabled(true);
-            } else {
-                console.log(error);
-            }
-
-        } finally {
-            setBpLoading(false);
-        }
-    };
-    
+    useEffect(() => {
+        
+      }, [responseMessage1, permitStatus]);
     
     
     
@@ -286,6 +296,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
           fetchLocalGovt();
           fetchSector();
           fetchBank();
+         
     
         }
       }, [bearer]);
@@ -298,6 +309,10 @@ const [errorMessage1, setErrorMessage1] = useState('');
             const formData = new FormData();
             formData.append('business_premise_id', businessPermit);
             formData.append('company_name', businessName);
+            formData.append('email', email);
+            formData.append('first_name', firstName);
+            formData.append('last_name', lastName);
+            formData.append('phone_number', phone);
             formData.append('business_address', businessAddress);
             formData.append('bvn', accountBVN);
             formData.append('rc_number', businessRc);
@@ -317,18 +332,16 @@ const [errorMessage1, setErrorMessage1] = useState('');
             formData.append('stin', businessTax);
             formData.append('home_address', homeAddress);
             formData.append('permanent_address', permanentAddress);
-            formData.append('type', 1);
-            formData.append('file', selectedFile[0]);
+            
+           
 
-            console.log(formData);
-            console.log(selectedFile);
     
     
 
             
     
             const response = await axios.post(
-                'https://api-smesupport.ogunstate.gov.ng/api/application/create',
+                'https://api-smesupport.ogunstate.gov.ng/api/update-profile',
                 formData,
                 {
                     headers: {
@@ -339,7 +352,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
             );
     
             console.log(response.data.message);
-            navigate('/dashboard');
+            navigate('/sign_in');
     
             console.log(response.data);
         } catch (error) {
@@ -367,7 +380,46 @@ const [errorMessage1, setErrorMessage1] = useState('');
         
     };
 
-    const isTaxDisable = !businessTax;
+    const fetchProfile = async () => {
+        setProfileLoading(true);
+        try {
+          const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/profile', { headers });
+          const results = response.data?.data;
+          const fName = response.data?.data?.name;
+          const result = fName.split(' ')[0];
+          const lName = response.data?.data?.name.split(' ')[1];
+          const em = response.data?.data?.email;
+          const ph = response.data?.data?.phone_number;
+          
+          setFirstName(result);
+          setLastName(lName);
+          setPhone(ph);
+          setEmail(em);
+         
+    
+    
+    
+          // console.log(results);
+        } catch (error) {
+          if (error.response && error.response.status === 401) {
+            
+            navigate('/sign_in');
+          } else {
+          const errorStatus = error.response?.data?.message;
+          console.log(errorStatus);
+          setUserProfile([]);
+        }
+        } finally {
+          setProfileLoading(false);
+        }
+      };
+    
+      useEffect(() => {
+        if (bearer) {
+            fetchProfile();
+    
+        }
+      }, [bearer]);
 
     return (
 
@@ -376,7 +428,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
 
             <div className={classes.finishedbodyCont}>
                 <div className={`${classes.formSecCont} ${classes.shadow}`}>
-                    <h3>Loan</h3>
+                    <h3>Complete Registration</h3>
                 </div>
                 <div className={classes.mainform} >
                     <div className={classes.signin}>
@@ -386,7 +438,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                             className="mb-3 complete-tabs"
                             justify
                             activeKey={activeTab}
-                            onSelect={isButtonDisabled || isTaxDisable ? null : (k) => setActiveTab(k)}
+                            onSelect={ (k) => setActiveTab(k)}
                             
                         >
                             <Tab eventKey="personal-details" title="Personal Details">
@@ -434,6 +486,18 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                         </div>
                                     </div>
                                     <div className={classes.rszeInput}>
+                                    <div className={classes.formInput}>
+                                            <span className={classes.stId}>Phone Number</span>
+                                            <input type="text" className={classes.snInput} placeholder="" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                        </div>
+                                        
+                                        <div className={classes.formInput}>
+                                            <span className={classes.stId}>Email Address</span>
+                                            <input type="text" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        </div>
+                                    </div>
+
+                                    <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Marital Status</span>
                                             <Form.Select className={classes.snInput} value={selectedStatus} onChange={handleMaritalChange} >
@@ -466,7 +530,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                     <div className={classes.rszeInput}>
                                      <div className={classes.formInput}>
                                             <span className={classes.stId}>Ogun state Tax ID number</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={businessTax} onChange={(e) => setBusinessTax(e.target.value)} onBlur={handleBlur}/>
+                                            <input autoComplete="off" type="text" className={classes.snInput} placeholder="" value={businessTax} onChange={(e) => setBusinessTax(e.target.value)} onBlur={handleBlur}/>
                                             {taxLoading && (
     <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
         <Spinner size='sm' />
@@ -489,12 +553,9 @@ const [errorMessage1, setErrorMessage1] = useState('');
         
                                         </div>
                                        
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Enter your N.I.N</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={nin} onChange={(e) => setNin(e.target.value)} />
-                                        </div>
+                                        
                                     </div>
-                                    <p className={classes.nextKin}>Guarantor's details</p>
+                                    {/* <p className={classes.nextKin}>Next of Kin details</p>
                                     <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Full Name</span>
@@ -533,8 +594,8 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                                 onChange={(e) => setNokAddress(e.target.value)}
                                             />
                                         </div>
-                                    </div>
-                                    <button disabled={isTaxDisable} className={classes.continueButton} onClick={handleContinue} style={{backgroundColor: isButtonDisabled || isTaxDisable ? "#acebc9" : "#2D995F", cursor: isButtonDisabled || isTaxDisable ? "default" : "pointer"}}>
+                                    </div> */}
+                                    <button  className={classes.continueButton} onClick={handleContinue} >
                                         <p className={classes.continueReg}>Continue</p>
                                     </button>
                                 </form>
@@ -591,7 +652,24 @@ const [errorMessage1, setErrorMessage1] = useState('');
 
  <div className={classes.formInput}>
                                             <span className={classes.stId}>Business Premise Permit ID</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={businessPermit} onChange={(e) => setBusinessPermit(e.target.value)} />
+                                            <input type="text" className={classes.snInput} placeholder="" value={businessPermit} onChange={(e) => setBusinessPermit(e.target.value)} onBlur={handleBlur1} />
+                                            {bpLoading && (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        <Spinner size='sm' />
+        <span style={{ marginLeft: 5 }}>Verifying... please wait</span>
+    </div>
+)}
+
+{permitStatus && (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        {responseMessage1.includes('Invalid Premise Permit')  ? (
+            <img src={Invalid} alt="Invalid Tin" style={{ width: '20px', height: '20px' }} />
+        ) : responseMessage1.includes('Valid Premise Permit') && (
+            <img src={Valid} alt="Valid Tax" style={{ width: '20px', height: '20px' }} />
+        )}
+        <ErrorMessage message={responseMessage1} />
+    </div>
+)}
                                         </div>
                                     </div>
 
@@ -610,21 +688,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                     </div>
 
                                     <div className={classes.rszeInput}>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>2 years bank statement</span>
-                                            <div className={classes.snInput23}>
-                                                <label htmlFor="fileInput" className={classes.fileInputLabel}>
-                                                    {/* Your file icon element goes here */}
-                                                    <img src={Folder} alt="File Icon" className={classes.fileIcon} />
-                                                    {/* Input element hidden, but clickable */}
-                                                    <input type="file" accept='.pdf' id="fileInput" className={classes.fileInput}  onChange={handleFileChange} />
-                                                </label>
-                                                <span className={classes.placeholder}>
-                                                    {selectedFile ? selectedFile[0].name : 'No file is chosen'}
-                                                </span>
-                                            </div>
-                                        </div>
-
+                                       
                                         
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Business Address</span>

@@ -48,6 +48,7 @@ const Dashboard = () => {
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedSector, setSelectedSector] = useState('');
     const [user, setUser] = useState('');
+    const [isReg, setIsReg] = useState(false);
     const [userProfile, setUserProfile] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -60,6 +61,23 @@ const handleLoan = () => {
 const handleGrant = () => {
     navigate('/grant_onboarding');
 }
+
+
+useEffect(() => {
+    const retrieveRegStatus = async () => {
+      try {
+        const regStatus = await AsyncStorage.getItem('isComplete');
+          setIsReg(regStatus === 'true');
+        
+  
+        
+      } catch (error) {
+        console.error('Error retrieving admin status:', error);
+      }
+    };
+
+    retrieveRegStatus();
+  }, []);
 
 const readData = async () => {
     try {
@@ -93,7 +111,7 @@ const readData = async () => {
   const fetchProfile = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('https://api-silas.ogunstate.gov.ng/api/profile', { headers });
+      const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/profile', { headers });
       const results = response.data?.data;
       const fName = response.data?.data?.name;
       const dob = response.data?.data?.dob;

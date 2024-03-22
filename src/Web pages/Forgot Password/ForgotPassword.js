@@ -49,7 +49,7 @@ const ForgotPassword = () => {
         setLoad(true);
         try {
             const responses = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/forgot-password`,
+                `https://api-smesupport.ogunstate.gov.ng/api/forgot-password`,
                 {
                     email: email,
                 },

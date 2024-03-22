@@ -43,7 +43,7 @@ const VerifyPhone = () => {
         setLoad(true);
         try {
             const responses = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/register`,
+                `https://api-smesupport.ogunstate.gov.ng/api/register`,
                 {
                     email: email,
                     password: password,

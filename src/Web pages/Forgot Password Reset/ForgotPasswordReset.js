@@ -44,7 +44,7 @@ const ForgotPasswordReset = () => {
         setIsLoading(true);
         try {
             const responses = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/reset-password`,
+                `https://api-smesupport.ogunstate.gov.ng/api/reset-password`,
                 {
                     password: password,
                     password_confirmation: confirmPassword,

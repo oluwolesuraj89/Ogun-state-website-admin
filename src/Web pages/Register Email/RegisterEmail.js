@@ -55,7 +55,7 @@ const RegisterEmail = () => {
         setLoad(true);
         try {
             const responses = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/send-otp`,
+                `https://api-smesupport.ogunstate.gov.ng/api/send-otp`,
                 {
                     email: email,
                     password: password,

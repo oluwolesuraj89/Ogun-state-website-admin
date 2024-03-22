@@ -27,48 +27,6 @@ const ForgotPasswordRedirect = () => {
 
 
 
-    const handleLogin = async () => {
-        setIsLoading(true);
-        try {
-            const responses = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/login`,
-                {
-                    email: email,
-                    password: password,
-                },
-            );
-    
-            
-            if (location.state && location.state.from) {
-                navigate(location.state.from);
-            } else {
-                // If there's no previous page, navigate to a default route
-                navigate('/dashboard');
-            }
-            console.log(responses.data.message);
-            
-            setEmail('');
-            setPassword('');
-
-        } catch (error) {
-            let errorMessage = 'An error occurred. Please try again.';
-            if (error.response && error.response.data && error.response.data.message) {
-                if (typeof error.response.data.message === 'string') {
-                    errorMessage = error.response.data.message;
-                } else if (Array.isArray(error.response.data.message)) {
-                    errorMessage = error.response.data.message.join('; ');
-                } else if (typeof error.response.data.message === 'object') {
-                    errorMessage = JSON.stringify(error.response.data.message);
-                }
-            }
-            setErrorMessage(errorMessage);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    const isButtonDisabled = !email ;
-
    
 
 

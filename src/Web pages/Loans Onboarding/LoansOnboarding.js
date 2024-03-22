@@ -60,7 +60,7 @@ export default function LoansOnboarding() {
     const fetchLoans = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('https://api-silas.ogunstate.gov.ng/api/application/get-loans', { headers });
+            const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/application/get-loans', { headers });
             const results = response.data?.data;
             setLoanDetail(results);
             // console.log(results, "here");
@@ -81,7 +81,7 @@ export default function LoansOnboarding() {
     const fetchPayments = async () => {
         setPaymentLoading(true);
         try {
-            const response = await axios.get('https://api-silas.ogunstate.gov.ng/api/get-invoices', { headers });
+            const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/get-invoices', { headers });
             const results = response.data?.data;
             setInvoicePayment(results);
             console.log(results, "invoice payment");

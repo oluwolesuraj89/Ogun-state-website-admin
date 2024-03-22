@@ -21,6 +21,7 @@ export default function MainDashoard() {
     const [activeLink, setActiveLink] = useState(null);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [isReg, setIsReg] = useState(false);
 
 
     useEffect(() => {
@@ -29,6 +30,8 @@ export default function MainDashoard() {
             setActiveLink('Dashboard');
         } else if (pathname.includes('loan')) {
             setActiveLink('Loan');
+        } else if (pathname.includes('complete_registration')) {
+            setActiveLink('Update Profile');
         } else if (pathname.includes('grant')) {
             setActiveLink('Grants');
         } else if (pathname.includes('invoice')) {
@@ -64,12 +67,29 @@ export default function MainDashoard() {
         readData();
       }, []);
 
+      
+    useEffect(() => {
+        const retrieveRegStatus = async () => {
+          try {
+            const regStatus = await AsyncStorage.getItem('isComplete');
+              setIsReg(regStatus === 'true');
+            
+      
+            
+          } catch (error) {
+            console.error('Error retrieving admin status:', error);
+          }
+        };
+    
+        retrieveRegStatus();
+      }, []);
+
 
       const handleLogout = async () => {
         setLoading(true);
         try {
           const response = await axios.post(
-            'https://api-silas.ogunstate.gov.ng/api/logout',
+            'https://api-smesupport.ogunstate.gov.ng/api/logout',
             {},
             {
               headers: {
@@ -110,47 +130,63 @@ export default function MainDashoard() {
                 <div className={classes.logoCont}>
                     <img src={RegLogo} alt='Logo' />
                 </div>
+              
                 <div className={classes.regMenu}>
+                {isReg ? (
+                    <Link
+                        to={'/complete_registration'}
+                        className={activeLink === 'Update Profile' ? classes.active : ''}
+                    >
+                        <p><img src={messageIcon} alt='icon' />Update Profile</p>
+                    </Link>
+                    ) : (
                     <Link
                         to={'/dashboard'}
                         className={activeLink === 'Dashboard' ? classes.active : ''}
                     >
                         <p><img src={messageIcon} alt='icon' />Dashboard</p>
                     </Link>
-                    <Link
-                        to={'/loan_onboarding'}
-                        className={activeLink === 'Loan' ? classes.active : ''}
-                    >
-                        <p><img src={messageIcon} alt='icon' /> Loans</p>
-                    </Link>
-                    <Link
-                        to={'/grant_onboarding'}
-                        className={activeLink === 'Grants' ? classes.active : ''}
-                    >
-                        <p> <img src={messageIcon} alt='icon' /> Grants</p>
-                    </Link>
-                    <Link
-                        to={'/invoice_onboard'}
-                        className={activeLink === 'Invoices' ? classes.active : ''}
-                    >
-                        <p> <img src={Invoice} alt='icon' /> Invoices</p>
-                    </Link>
-                    <Link
-                    onClick={handleLogout}
-                        // to={'/sign_in'}
-                        className={activeLink === 'Logout' ? classes.active : ''}
-                    >
-                        <p>
-    <img src={LogOutIcon} alt='icon' />{' '}
-    {loading ? (
-        <>
-            <Spinner size='sm' style={{marginRight: 5}}/> Signing out...
-        </>
-    ) : (
-        'Log out'
-    )}
-</p>
-                    </Link>
+                    )}
+
+                    {!isReg && (
+    <>
+        <Link
+            to={'/loan_onboarding'}
+            className={activeLink === 'Loan' ? classes.active : ''}
+        >
+            <p><img src={messageIcon} alt='icon' /> Loans</p>
+        </Link>
+        <Link
+            to={'/grant_onboarding'}
+            className={activeLink === 'Grants' ? classes.active : ''}
+        >
+            <p> <img src={messageIcon} alt='icon' /> Grants</p>
+        </Link>
+        <Link
+            to={'/invoice_onboard'}
+            className={activeLink === 'Invoices' ? classes.active : ''}
+        >
+            <p> <img src={Invoice} alt='icon' /> Invoices</p>
+        </Link>
+    </>
+)}
+<Link
+    onClick={handleLogout}
+    // to={'/sign_in'}
+    className={activeLink === 'Logout' ? classes.active : ''}
+>
+    <p>
+        <img src={LogOutIcon} alt='icon' />{' '}
+        {loading ? (
+            <>
+                <Spinner size='sm' style={{ marginRight: 5 }} /> Signing out...
+            </>
+        ) : (
+            'Log out'
+        )}
+    </p>
+</Link>
+
                 </div>
             </div>
             <div className={classes.formSection}>

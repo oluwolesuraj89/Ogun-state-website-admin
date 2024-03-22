@@ -26,6 +26,7 @@ import LoansOnboarding from './Web pages/Loans Onboarding/LoansOnboarding';
 import GrantOnboarding from './Web pages/Grant Onboarding/GrantOnboarding';
 import InvoicesBoard from './Web pages/Admin Monitor Invoice/InvoicesBoard';
 import AdministratorInvoice from './Web pages/Admin Monitor Invoice/AdministratorInvoice';
+import CompleteReg from './Web pages/Complete Reg/CompleteReg';
 
 function App() {
   const [userIsInactive, setUserIsInactive] = useState(false);
@@ -96,6 +97,7 @@ function App() {
         <Route path='/apply_for_loan'element={<LoanHomePage/>}/>
         <Route path='/submit_loan_application'element={<LoansApplication/>}/>
         <Route path='/grant'element={<Grant/>}/>
+        <Route path='/complete_registration'element={<CompleteReg/>}/>
         <Route path='/grant_application'element={<ApplyGrant/>}/>
         <Route path='/submit_grant_application'element={<SubmitGrantApplication/>}/>
         <Route path='/verify_phone'element={<VerifyPhone/>}/>

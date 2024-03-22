@@ -47,7 +47,7 @@ const SignIn = () => {
         setIsLoading(true);
         try {
             const response = await axios.post(
-                `https://api-silas.ogunstate.gov.ng/api/login`,
+                `https://api-smesupport.ogunstate.gov.ng/api/login`,
                 {
                     email: email,
                     password: password,
@@ -61,7 +61,9 @@ const SignIn = () => {
      const token = response.data?.data?.token;
      const isLoan = response.data?.data?.user?.is_loan === "1";
      const isGrant = response.data?.data?.user?.is_grant === "1";
-console.log(isLoan, "hereee");
+     const isComplete = response.data?.data?.user?.home_address === null;
+     const isCompleted = response.data?.data?.user?.home_address;
+
      
      AsyncStorage.setItem('email', emails);
      AsyncStorage.setItem('phone', phones);
@@ -69,13 +71,13 @@ console.log(isLoan, "hereee");
      AsyncStorage.setItem('fullName', result);
      AsyncStorage.setItem('isGrant', isGrant);
      AsyncStorage.setItem('isLoan', isLoan);
+     AsyncStorage.setItem('isComplete', isComplete);
      
 
-     if (location.state && location.state.from) {
-      navigate(location.state.from);
+     if (isCompleted === null) {
+        navigate('/complete_registration');
     } else {
-      // If there's no previous page, navigate to a default route
-      navigate('/dashboard');
+        navigate('/dashboard');
     }
 
         } catch (error) {
