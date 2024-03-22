@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import ArrowLogo from '../../Images/arrow-left.svg';
 import LoanImage from '../../Images/loan bg.svg';
 import MainDashoard from '../Main Dashboard/MainDashoard';
-import Ready from '../../Images/undraw_no_data_re_kwbl 1.png'
+import Ready from '../../Images/nothing.svg'
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function LoansOnboarding() {
@@ -109,7 +109,7 @@ export default function LoansOnboarding() {
 
 
     const handleLoanApplication = () => {
-        navigate('/apply_for_loan');
+        navigate('/loan_application');
     };
 
     function formatDate(dateString) {
@@ -129,7 +129,7 @@ export default function LoansOnboarding() {
             <MainDashoard />
 
             <div className={classes.finishedbodyCont}>
-                <div className={`${classes.formSecCont} ${classes.shadow}`}>
+                <div className={`${classes.formSecCont}`}>
                     <h3>Loan</h3>
                 </div>
 
@@ -189,8 +189,8 @@ export default function LoansOnboarding() {
                 </div>
 
                 <div>
-                    <p className={classes.applygrnttxt}>You are yet to apply for a Loan </p>
-                    <p className={classes.grntapplytxt}>Apply for a loan from your dashboard to see the status of your loan here </p>
+                    <p className={classes.applygrnttxt}>No ongoing loan payment to display </p>
+                    <p className={classes.grntapplytxt}>Click on the proceed button below to continue. </p>
                 </div>
                 <div className={classes.applyLoan} onClick={handleLoanApplication}>
                     <p className={classes.continueReg}>Proceed</p>

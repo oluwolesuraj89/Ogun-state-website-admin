@@ -289,12 +289,12 @@ const readData = async () => {
                     <div className={classes.body}>{regType ? (regType.length > 25 ? `${regType.substring(0, 25)}...` : regType) : ''}</div>
                 </td>
             </tr>
-            <tr>
+            {/* <tr>
             <td className={classes.last}>
                     <div className={classes.header}>Local Government</div>
                     <div className={classes.body}>{selectedLocalGovt ? (selectedLocalGovt.length > 25 ? `${selectedLocalGovt.substring(0, 25)}...` : selectedLocalGovt) : ''}</div>
                 </td>
-            </tr>
+            </tr> */}
 
             
         </tbody>
@@ -306,7 +306,7 @@ const readData = async () => {
         <tbody>
             <tr>
                 <td>
-                    <div className={classes.infouser2}>Next of Kin details</div>
+                    <div className={classes.infouser2}>Guarantor's details</div>
                 </td>
             </tr>
             <tr>
@@ -323,7 +323,7 @@ const readData = async () => {
             </tr>
             <tr>
                 <td>
-                    <div className={classes.header}>Address of Next of Kin</div>
+                    <div className={classes.header}>Address</div>
                     <div className={classes.body}>{nokAddress ? (nokAddress.length > 25 ? `${nokAddress.substring(0, 25)}...` : nokAddress) : ''}</div>
                 </td>
             </tr>

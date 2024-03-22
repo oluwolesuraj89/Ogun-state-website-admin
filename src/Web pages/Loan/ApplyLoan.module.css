@@ -84,7 +84,7 @@ body {
     }
 
     .signin{
-        margin-top: 39px;
+        /* margin-top: 10px; */
         margin-left: 19px;
         width: 100%;
     }
@@ -216,6 +216,12 @@ body {
     font-weight: 700;
   text-align: center;
 
+  }
+
+  .errorMess{
+    font-size: 15px;
+    color: #000;
+    font-weight: 500;
   }
 
   @media(max-width:800px){

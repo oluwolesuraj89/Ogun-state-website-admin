@@ -30,6 +30,8 @@ import CompleteReg from './Web pages/Complete Reg/CompleteReg';
 import MainDashoard from './Web pages/Main Dashboard/MainDashoard';
 import Success from './Web pages/Success Reports/Success';
 import HeaderNav from './Web pages/HeaderNav/HeaderNav';
+import { RegistrationProvider } from './Web pages/RegistrationContext';
+import Profile from './Web pages/My Profile/Profile';
 
 
 function App() {
@@ -86,6 +88,7 @@ function App() {
 
   return (
     <>
+    <RegistrationProvider>
       <Routes>
         <Route path='/'element={<LandingPage/>}/>
         <Route path='/landing_page'element={<LandingPage/>}/>
@@ -104,6 +107,7 @@ function App() {
         <Route path='/complete_registration'element={<CompleteReg/>}/>
         <Route path='/grant_application'element={<ApplyGrant/>}/>
         <Route path='/submit_grant_application'element={<SubmitGrantApplication/>}/>
+        <Route path='/my_profile'element={<Profile/>}/>
         <Route path='/verify_phone'element={<VerifyPhone/>}/>
         <Route path='/verify_email'element={<VerifyEmail/>}/>
         <Route path='/forgot_password'element={<ForgotPassword/>}/>
@@ -115,6 +119,7 @@ function App() {
         <Route path='/header_nav'element={<HeaderNav/>}/>
         <Route path='/success'element={<Success/>}/>
         </Routes>
+        </RegistrationProvider>
         </>
   );
 }

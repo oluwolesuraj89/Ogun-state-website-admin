@@ -131,19 +131,19 @@ const RegisterEmail = () => {
                 <div style={{ marginTop: 10 }}>
                 <span className={classes.stId}>Email Address</span>
                         <div className={classes.passwordInputContainer}>
-                        <input type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
+                        <input autoComplete='off' type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
                         </div>
                     </div>
                 <div style={{ marginTop: 10 }}>
                 <span className={classes.stId}>First Name</span>
                         <div className={classes.passwordInputContainer}>
-                        <input type="text" className={classes.snInput} placeholder="" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                        <input autoComplete='off' type="text" className={classes.snInput} placeholder="" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         </div>
                     </div>
                 <div style={{ marginTop: 10 }}>
                 <span className={classes.stId}>Last Name</span>
                         <div className={classes.passwordInputContainer}>
-                        <input type="text" className={classes.snInput} placeholder="" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                        <input autoComplete='off' name='lastName' type="text" className={classes.snInput} placeholder="" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         </div>
                     </div>
 
@@ -151,7 +151,7 @@ const RegisterEmail = () => {
                         <span className={classes.stId}> Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
-                                <input type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
+                                <input autoComplete='off' type={showPassword ? 'text' : 'password'} className={classes.snInput} placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} onKeyPress={handleKeyPress} />
                             </div>
                             <button
                                 type="button"
@@ -173,7 +173,7 @@ const RegisterEmail = () => {
                         <span className={classes.stId}>Confirm Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
-                                <input type={showConfirmPassword  ? 'text' : 'password'} className={classes.snInput} placeholder="" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} onKeyPress={handleKeyPress} />
+                                <input autoComplete='off' name='completePassword' type={showConfirmPassword  ? 'text' : 'password'} className={classes.snInput} placeholder="" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} onKeyPress={handleKeyPress} />
                             </div>
                             <button
                                 type="button"
