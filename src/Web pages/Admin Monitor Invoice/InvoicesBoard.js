@@ -94,7 +94,7 @@ export default function InvoicesBoard() {
                 </div>
     
                 <div>
-                    <p className={classes.applygrnttxt}>No ongoing invoice to display </p>
+                    <p className={classes.applygrnttxt}>No Invoice to display </p>
                 </div>
             </div>
         </div>
