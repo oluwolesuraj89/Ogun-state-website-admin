@@ -1004,7 +1004,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                             <span style={{ marginLeft: '5px' }}>Processing, Please wait...</span>
                         </>
                     ) : (
-                        "Submit Application"
+                        "Save Changes"
                     )}
                     <div style={{marginTop: 20}} />
                     {/* {errorMessage1 && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage1}</p>} */}

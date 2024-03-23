@@ -27,6 +27,13 @@
     overflow: hidden;
     margin-bottom: 48px;
 }
+
+.errorMess1{
+  font-size: 15px;
+  color: #bb2929;
+  font-weight: 500;
+}
+
 .img{
     width: 100%;
     height: 100%;

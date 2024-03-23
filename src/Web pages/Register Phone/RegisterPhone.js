@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Spinner } from 'react-bootstrap';
 import crossedEyeIcon from '../../Images/eye-slash.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -93,6 +95,7 @@ const RegisterPhone = () => {
                     errorMessage = JSON.stringify(error.response.data.message);
                 }
             }
+            toast.error(errorMessage);
             setErrorMessage(errorMessage);
         } finally {
             setLoad(false);
@@ -131,8 +134,8 @@ const RegisterPhone = () => {
                 <p className={classes.headerText}>Register</p>
                 <p className={classes.subText}>Fill in your details to register</p>
                
-                
-                {errorMessage && <p style={{ color: 'red', textAlign: 'center', fontSize: 14 }}>{errorMessage}</p>}
+                <ToastContainer />
+                {/* {errorMessage && <p style={{ color: 'red', textAlign: 'center', fontSize: 14 }}>{errorMessage}</p>} */}
                 <div style={{ marginTop: 10 }}>
                 <span className={classes.stId}>Phone Number</span>
                         <div className={classes.passwordInputContainer}>

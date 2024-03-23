@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classes from './GrantOnboarding.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
-import { Tab, Tabs, Form, Badge } from 'react-bootstrap';
+import { Spinner, Badge } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -9,7 +9,8 @@ import ArrowLogo from '../../Images/arrow-left.svg';
 import LoanImage from '../../Images/loan bg.svg';
 import MainDashoard from '../Main Dashboard/MainDashoard';
 import Ready from '../../Images/nothing.svg'
-import Ready1 from '../../Images/review.svg'
+import Ready1 from '../../Images/review.svg';
+import { useRegistration } from '../RegistrationContext';
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function GrantOnboarding() {
@@ -20,6 +21,9 @@ export default function GrantOnboarding() {
     const [isLoading, setIsLoading] = useState(false);
     const [paymentLoading, setPaymentLoading] = useState(false);
     const [isLoan, setIsLoan] = useState(false);
+    const { isGrant } = useRegistration();
+
+  
 
     const readData = async () => {
         try {
@@ -42,21 +46,6 @@ export default function GrantOnboarding() {
     };
 
 
-    useEffect(() => {
-        const retrieveLoanStatus = async () => {
-          try {
-            const loanStatus = await AsyncStorage.getItem('isLoan');
-              setIsLoan(loanStatus === 'true');
-            
-      
-            
-          } catch (error) {
-            console.error('Error retrieving admin status:', error);
-          }
-        };
-    
-        retrieveLoanStatus();
-      }, []);
 
    
 
@@ -111,7 +100,7 @@ export default function GrantOnboarding() {
 
     function formatDate(dateString) {
         const date = new Date(dateString);
-        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} ${padZero(date.getHours())}:${padZero(date.getMinutes())} ${date.getHours() >= 12 ? 'PM' : 'AM'}`;
+        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} `;
         return formattedDate;
       }
     
@@ -122,10 +111,10 @@ export default function GrantOnboarding() {
  const fetchGrant = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/get-grant', { headers });
+            const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/application/get-grants', { headers });
             const resultxxx = response.data?.data;
             setGrantDetail(resultxxx);
-            console.log(resultxxx, "men payment");
+            // console.log(resultxxx, "men payment");
         } catch (error) {
             if (error.response && error.response.status === 401) {
 
@@ -142,57 +131,90 @@ export default function GrantOnboarding() {
 
     return (
         <div>
-            <MainDashoard />
+        <MainDashoard />
 
-            <div className={classes.finishedbodyCont}>
-                <div className={`${classes.formSecCont}`}>
-                    <h3>Grant</h3>
-                </div>
-
-                <div className={classes.mainform}>
-    {isLoan ? (
-        <div className={classes.loandgrantcards}>
-            <div className={classes.signin}>
-            <div className={classes.applycntnt}>
-                <div className={classes.imgapply}>
-                    <img src={Ready1} alt='img' />
-                </div>
-
-                <div>
-                    <p className={classes.applygrnttxt}>Your application is being reviewed  </p>
-                    <p className={classes.grntapplytxt}>You will be notified via mail once your application has been approved. </p>
-                </div>
-                <div className={classes.applyLoan} onClick={handleLoanApplication1}>
-                    <p className={classes.continueReg}>Back to Dashboard</p>
-                </div>
+        <div className={classes.finishedbodyCont}>
+            <div className={`${classes.formSecCont}`}>
+                <h3>Loan</h3>
             </div>
+
+            <div className={classes.mainform}>
+{!isGrant  ? (
+    <div className={classes.signin}>
+    <div className={classes.applycntnt}>
+        <div className={classes.imgapply}>
+            <img src={Ready} alt='img' />
         </div>
 
-           
+        <div>
+            <p className={classes.applygrnttxt}>No ongoing grant application to display </p>
+            <p className={classes.grntapplytxt}>Click on the proceed button below to continue. </p>
         </div>
-    ) : (
-        <div className={classes.signin}>
-            <div className={classes.applycntnt}>
-                <div className={classes.imgapply}>
-                    <img src={Ready} alt='img' />
-                </div>
-
-                <div>
-                    <p className={classes.applygrnttxt}>You are yet to apply for a Grant  </p>
-                    <p className={classes.grntapplytxt}>Click on the proceed button below to continue. </p>
-                </div>
-                <div className={classes.applyLoan} onClick={handleLoanApplication}>
-                    <p className={classes.continueReg}>Proceed</p>
-                </div>
-            </div>
+        <div className={classes.applyLoan} onClick={handleLoanApplication}>
+            <p className={classes.continueReg}>Proceed</p>
         </div>
-    )}
+    </div>
 </div>
 
-            </div>
+    
+) : (
+    <div className={classes.loandgrantcards}>
+    <div className={classes.loandethead}>
+        <p className={classes.loanText}>Grant Amount: <span className={classes.theamount}> ₦100,000.00</span></p>
+        {/* <p className={classes.loanText}>Duration: <span className={classes.monthText}>10 months</span></p> */}
+        <p className={classes.loanText}>Date Approved: <span className={classes.loanText1}></span></p>
+        {/* <p className={classes.loanText}>Loan end date: <span className={classes.loanText2}>1st January 2025</span></p> */}
+    </div>
 
-
+    <div className={classes.loanContainer}>
+        <div className={classes.loanResponsive}>
+            <table>
+                <thead className={classes.loanTable}>
+                    <tr >
+                        <th className={classes.tableText}>S/N</th>
+                        <th className={classes.tableText}>Application Number</th>
+                        <th className={classes.tableText}>Description</th>
+                        <th className={classes.tableText}>Amount</th>
+                        <th className={classes.tableText}>Date</th>
+                        <th className={classes.tableText}>Status</th>
+                    </tr>
+                </thead>
+                    
+                {isLoading ? (
+                        <p className={classes.fetchText}> <Spinner size='sm' style={{marginRight: 5}} />Fetching grant application...</p>
+                      ) : (                    <tbody>
+                {grantDetail.map((item, index) => (
+<tr key={index}>
+    <td>{index + 1}</td>
+    <td>{item.application_number}</td>
+    <td>{item.type === 2 ? "Grant Application" : "Loan Application"}</td>
+    <td style={{textAlign: "right"}}>₦{parseFloat(item.amount).toLocaleString('en-US', {
+                              minimumIntegerDigits: 1,
+                              minimumFractionDigits: 2,
+                              maximumFractionDigits: 2
+                            })}</td>
+    <td>{formatDate(item.created_at)}</td>
+    <td> <Badge bg={item.status === "Pending" ? 'warning' : item.status === "Approved" ? 'success' : 'danger'}>
+            {item.status}
+        </Badge></td>
+    <td>
+       
+    </td>
+</tr>
+))}
+</tbody>
+                      )}
+            </table>
+        </div>
+    </div>
+</div> 
+)}
+</div>
 
         </div>
-    )
+
+
+
+    </div>
+)
 }

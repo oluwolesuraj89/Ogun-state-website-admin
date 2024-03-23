@@ -41,6 +41,14 @@ export default function ApplyLoan() {
     const [profileLoading, setProfileLoading] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const [errorMessage1, setErrorMessage1] = useState('');
+    const [businessPermitError, setBusinessPermitError] = useState('');
+    const [guarantorNameError, setGuarantorNameError] = useState('');
+    const [guarantorAddressError, setGuarantorAddressError] = useState('');
+    const [guarantorEmailError, setGuarantorEmailError] = useState('');
+    const [guarantorPhoneError, setGuarantorPhoneError] = useState('');
+    const [businessRcError, setBusinessRcError] = useState('');
+    const [businessTaxError, setBusinessTaxError] = useState('');
+    const [selectedStatementError, setSelectedStatementError] = useState('');
 
     const readData = async () => {
         try {
@@ -165,8 +173,22 @@ export default function ApplyLoan() {
 
 
     const handleSubmit = async () => {
+        // Check if any of the required fields are empty
+        if (!businessPermit || !guarantorName || !guarantorAddress || !guarantorEmail || !guarantorPhone || !businessRc || !businessTax || selectedFile) {
+            // Display error messages for empty fields
+            if (!businessPermit) setBusinessPermitError('Business Permit is required');
+            if (!guarantorName) setGuarantorNameError('Guarantor Name is required');
+            if (!guarantorAddress) setGuarantorAddressError('Guarantor Address is required');
+            if (!guarantorEmail) setGuarantorEmailError('Guarantor Email is required');
+            if (!guarantorPhone) setGuarantorPhoneError('Guarantor Phone Number is required');
+            if (!businessRc) setBusinessRcError('RC Number is required');
+            if (!businessTax) setBusinessTaxError('STIN is required');
+            if (!selectedFile) setSelectedStatementError('2 years bank statement is required');
+            return;
+        }
+    
         setLoad(true);
-
+    
         try {
             const formData = new FormData();
             formData.append('business_premise_id', businessPermit);
@@ -178,7 +200,7 @@ export default function ApplyLoan() {
             formData.append('stin', businessTax);
             formData.append('type', 1);
             formData.append('statement', selectedFile[0]);
-
+    
             const response = await axios.post(
                 'https://api-smesupport.ogunstate.gov.ng/api/application/create',
                 formData,
@@ -189,10 +211,10 @@ export default function ApplyLoan() {
                     },
                 }
             );
-
+    
             console.log(response.data.message);
             navigate('/success');
-
+    
             console.log(response.data);
         } catch (error) {
             let errorMessage1 = 'An error occurred. Please try again.';
@@ -212,6 +234,7 @@ export default function ApplyLoan() {
             setLoad(false);
         }
     };
+    
 
     const ErrorMessage = ({ message }) => {
 
@@ -281,6 +304,7 @@ export default function ApplyLoan() {
                                 <div className={classes.formInput}>
                                     <span className={classes.stId}>Ogun state Tax ID number</span>
                                     <input type="text" className={classes.snInput} placeholder="" value={businessTax} onChange={(e) => setBusinessTax(e.target.value)} onBlur={handleBlur} />
+                                    {businessTaxError && <span className={classes.errorMess1}>{businessTaxError}</span>}
                                     {taxLoading && (
                                         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                                             <Spinner size='sm' />
@@ -304,6 +328,7 @@ export default function ApplyLoan() {
                                 <div className={classes.formInput}>
                                         <span className={classes.stId}>RC Number</span>
                                         <input type="text" className={classes.snInput} placeholder="" value={businessRc} onChange={(e) => setBusinessRc(e.target.value)} />
+                                        {businessRcError && <span className={classes.errorMess1}>{businessRcError}</span>}
                                     </div>
 
                             </div>
@@ -312,6 +337,7 @@ export default function ApplyLoan() {
                             <div className={classes.formInput}>
                                     <span className={classes.stId}>Business Premise Permit ID</span>
                                     <input type="text" className={classes.snInput} placeholder="" value={businessPermit} onChange={(e) => setBusinessPermit(e.target.value)} onBlur={handleBlur1}/>
+                                    {businessPermitError && <span className={classes.errorMess1}>{businessPermitError}</span>}
                                     {bpLoading && (
     <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
         <Spinner size='sm' />
@@ -347,6 +373,7 @@ export default function ApplyLoan() {
                                             {selectedFile ? selectedFile[0].name : 'No file is chosen'}
                                         </span>
                                     </div>
+                                        {selectedStatementError && <span className={classes.errorMess1}>{selectedStatementError}</span>}
                                 </div>
                                 </div>
 
@@ -355,10 +382,12 @@ export default function ApplyLoan() {
                                 <div className={classes.formInput}>
                                     <span className={classes.stId}>Full Name</span>
                                     <input type="text" className={classes.snInput} placeholder="" value={guarantorName} onChange={(e) => setGuarantorName(e.target.value)} />
+                                    {guarantorNameError && <span className={classes.errorMess1}>{guarantorNameError}</span>}
                                 </div>
                                 <div className={classes.formInput}>
                                     <span className={classes.stId}>Phone Number</span>
                                     <input type="text" className={classes.snInput} placeholder="" value={guarantorPhone} onChange={(e) => setGuarantorPhone(e.target.value)} />
+                                    {guarantorPhoneError && <span className={classes.errorMess1}>{guarantorPhoneError}</span>}
                                 </div>
                             </div>
                             <div className={classes.rszeInput}>
@@ -371,17 +400,18 @@ export default function ApplyLoan() {
                                                 value={guarantorAddress}
                                                 onChange={(e) => setGuarantorAddress(e.target.value)}
 />
-                                  
+{guarantorAddressError && <span className={classes.errorMess1}>{guarantorAddressError}</span>}                               
                                     
                                 </div>
 
                                 <div className={classes.formInput}>
                                     <span className={classes.stId}>Email Address</span>
                                     <input type="text" className={classes.snInput} placeholder="" value={guarantorEmail} onChange={(e) => setGuarantorEmail(e.target.value)} />
+                                    {guarantorEmailError && <span className={classes.errorMess1}>{guarantorEmailError}</span>}
                                 </div>
                                 
                             </div>
-                            <div   className={classes.continueButton} onClick={handleSubmit} >
+                            <div disabled={taxLoading}  className={classes.continueButton} onClick={handleSubmit} >
                             {load ? (
                         <>
                             <Spinner size='sm' />

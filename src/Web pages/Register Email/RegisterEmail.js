@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Spinner } from 'react-bootstrap';
 import crossedEyeIcon from '../../Images/eye-slash.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -89,6 +91,7 @@ const RegisterEmail = () => {
                     errorMessage = JSON.stringify(error.response.data.message);
                 }
             }
+            toast.error(errorMessage);
             setErrorMessage(errorMessage);
         } finally {
             setLoad(false);
@@ -125,9 +128,9 @@ const RegisterEmail = () => {
             <div className={classes.signContainer}>
                 <p className={classes.headerText}>Register</p>
                 <p className={classes.subText}>Fill in your details to register</p>
-               
+                <ToastContainer />
                 <p style={{ color: 'red', textAlign: 'center', fontSize: 14 }}>{!isValidEmail ? 'Invalid email' : null}</p>
-                {errorMessage && <p style={{ color: 'red', textAlign: 'center', fontSize: 14 }}>{errorMessage}</p>}
+                {/* {errorMessage && <p style={{ color: 'red', textAlign: 'center', fontSize: 14 }}>{errorMessage}</p>} */}
                 <div style={{ marginTop: 10 }}>
                 <span className={classes.stId}>Email Address</span>
                         <div className={classes.passwordInputContainer}>

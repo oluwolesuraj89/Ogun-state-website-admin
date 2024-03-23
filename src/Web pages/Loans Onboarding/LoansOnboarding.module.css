@@ -54,24 +54,40 @@
 } */
 
 .loanText {
-  font-size: 18px;
+  font-size: 15px;
+}
+.loanText1 {
+  font-size: 15px;
+  margin-left: 20px;
+}
+.loanText2 {
+  font-size: 15px;
+  margin-left: 25px;
+}
+
+.fetchText{
+  font-size: 15px;
+  color: rgba(45, 153, 95, 1);
+  font-weight: 500;
 }
 
 .theamount{
   font-size: 20px;
   font-weight: 700;
   color: rgba(45, 153, 95, 1);
+  margin-left: 30px;
 }
 
 .monthText{
   font-size: 18px;
   font-weight: 700;
   color:rgba(108, 117, 125, 1);
+  margin-left: 65px;
 }
 
 .loandgrantcards{
   margin-bottom: 30px;
-  margin-left: 59px;
+  margin-left: 30px;
   padding-right: 30px;
   justify-content: center;
   align-items: center;

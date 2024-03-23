@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classes from './LoansOnboarding.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
-import { Tab, Tabs, Form, Badge } from 'react-bootstrap';
+import { Spinner,Badge } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -10,6 +10,7 @@ import LoanImage from '../../Images/loan bg.svg';
 import MainDashoard from '../Main Dashboard/MainDashoard';
 import Ready from '../../Images/nothing.svg'
 import { Link, useNavigate } from 'react-router-dom'
+import { useRegistration } from '../RegistrationContext';
 
 export default function LoansOnboarding() {
     const navigate = useNavigate();
@@ -19,8 +20,9 @@ export default function LoansOnboarding() {
     const [isLoading, setIsLoading] = useState(false);
     const [paymentLoading, setPaymentLoading] = useState(false);
     const [isLoan, setIsLoan] = useState(false);
+    const { isReg } = useRegistration();
 
-    const readData = async () => {
+      const readData = async () => {
         try {
             const details = await AsyncStorage.getItem('userToken');
             if (details !== null) {
@@ -41,22 +43,7 @@ export default function LoansOnboarding() {
     };
 
 
-    useEffect(() => {
-        const retrieveLoanStatus = async () => {
-          try {
-            const loanStatus = await AsyncStorage.getItem('isLoan');
-              setIsLoan(loanStatus === "1");
-              console.log(loanStatus);
-            
-      
-            
-          } catch (error) {
-            console.error('Error retrieving admin status:', error);
-          }
-        };
     
-        retrieveLoanStatus();
-      }, []);
 
     const fetchLoans = async () => {
         setIsLoading(true);
@@ -64,7 +51,7 @@ export default function LoansOnboarding() {
             const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/application/get-loans', { headers });
             const results = response.data?.data;
             setLoanDetail(results);
-            console.log(results, "invoice payment");
+        //    console.log(results, "loan detail");
         } catch (error) {
             if (error.response && error.response.status === 401) {
 
@@ -96,7 +83,7 @@ export default function LoansOnboarding() {
                 setInvoicePayment([]);
             }
         } finally {
-            setIsLoading(false);
+            setPaymentLoading(false);
         }
     };
 
@@ -126,7 +113,7 @@ export default function LoansOnboarding() {
 
     function formatDate(dateString) {
         const date = new Date(dateString);
-        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} ${padZero(date.getHours())}:${padZero(date.getMinutes())} ${date.getHours() >= 12 ? 'PM' : 'AM'}`;
+        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} `;
         return formattedDate;
       }
     
@@ -146,7 +133,7 @@ export default function LoansOnboarding() {
                 </div>
 
                 <div className={classes.mainform}>
-    {loanDetail.length === 0  ? (
+    {!isReg  ? (
         <div className={classes.signin}>
         <div className={classes.applycntnt}>
             <div className={classes.imgapply}>
@@ -167,10 +154,10 @@ export default function LoansOnboarding() {
     ) : (
         <div className={classes.loandgrantcards}>
         <div className={classes.loandethead}>
-            <p className={classes.loanText}>Loan Amount: <span className={classes.theamount}> ₦500,000</span></p>
+            <p className={classes.loanText}>Loan Amount: <span className={classes.theamount}> ₦500,000.00</span></p>
             <p className={classes.loanText}>Duration: <span className={classes.monthText}>10 months</span></p>
-            <p className={classes.loanText}>Loan start date: <span className={classes.loanText}>1st March 2024</span></p>
-            <p className={classes.loanText}>Loan repayment end date: <span className={classes.loanText}>1st January 2025</span></p>
+            {/* <p className={classes.loanText}>Loan start date: <span className={classes.loanText1}>{formatDate(loanDetail[0].updated_at)}</span></p>
+            <p className={classes.loanText}>Loan end date: <span className={classes.loanText2}>1st January 2025</span></p> */}
         </div>
 
         <div className={classes.loanContainer}>
@@ -179,26 +166,29 @@ export default function LoansOnboarding() {
                     <thead className={classes.loanTable}>
                         <tr >
                             <th className={classes.tableText}>S/N</th>
-                            <th className={classes.tableText}>Invoice Number</th>
+                            <th className={classes.tableText}>Application Number</th>
                             <th className={classes.tableText}>Description</th>
-                            <th className={classes.tableText}>Amount Paid</th>
+                            <th className={classes.tableText}>Amount</th>
                             <th className={classes.tableText}>Date</th>
                             <th className={classes.tableText}>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    {invoicePayment.map((item, index) => (
+                        
+                    {isLoading ? (
+                            <p className={classes.fetchText}> <Spinner size='sm' style={{marginRight: 5}} />Fetching loan application...</p>
+                          ) : (                    <tbody>
+                    {loanDetail.map((item, index) => (
     <tr key={index}>
         <td>{index + 1}</td>
-        <td>{item.invoice_number}</td>
-        <td>{item.description}</td>
-        <td style={{textAlign: "right"}}>{parseFloat(item.amount).toLocaleString('en-US', {
+        <td>{item.application_number}</td>
+        <td>{item.type === 1 ? "Loan Application" : "Grant Application"}</td>
+        <td style={{textAlign: "right"}}>₦{parseFloat(item.amount).toLocaleString('en-US', {
                                   minimumIntegerDigits: 1,
                                   minimumFractionDigits: 2,
                                   maximumFractionDigits: 2
                                 })}</td>
         <td>{formatDate(item.created_at)}</td>
-        <td> <Badge bg={item.status === "Pending" ? 'warning' : 'success'}>
+        <td> <Badge bg={item.status === "Pending" ? 'warning' : item.status === "Approved" ? 'success' : 'danger'}>
                 {item.status}
             </Badge></td>
         <td>
@@ -207,6 +197,7 @@ export default function LoansOnboarding() {
     </tr>
 ))}
 </tbody>
+                          )}
                 </table>
             </div>
         </div>
