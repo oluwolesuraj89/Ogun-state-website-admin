@@ -175,13 +175,13 @@ export default function MainDashoard() {
 
 
         <Link
-            to={'/loan_onboarding'}
+            to={'/loan'}
             className={activeLink === 'Loan' ? classes.active : ''}
         >
             <p><img src={messageIcon} alt='icon' /> Loans</p>
         </Link>
         <Link
-            to={'/grant_onboarding'}
+            to={'/grants'}
             className={activeLink === 'Grants' ? classes.active : ''}
         >
             <p> <img src={messageIcon} alt='icon' /> Grants</p>

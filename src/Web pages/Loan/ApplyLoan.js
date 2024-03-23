@@ -173,8 +173,20 @@ export default function ApplyLoan() {
 
 
     const handleSubmit = async () => {
+        console.log("Form data:", {
+            businessPermit,
+            guarantorName,
+            guarantorAddress,
+            guarantorEmail,
+            guarantorPhone,
+            businessRc,
+            businessTax,
+            selectedFile
+        });
+    
         // Check if any of the required fields are empty
-        if (!businessPermit || !guarantorName || !guarantorAddress || !guarantorEmail || !guarantorPhone || !businessRc || !businessTax || selectedFile) {
+        if (!businessPermit || !guarantorName || !guarantorAddress || !guarantorEmail || !guarantorPhone || !businessRc || !businessTax || !selectedFile) {
+            console.log("One or more fields are empty");
             // Display error messages for empty fields
             if (!businessPermit) setBusinessPermitError('Business Permit is required');
             if (!guarantorName) setGuarantorNameError('Guarantor Name is required');
@@ -411,7 +423,7 @@ export default function ApplyLoan() {
                                 </div>
                                 
                             </div>
-                            <div disabled={taxLoading}  className={classes.continueButton} onClick={handleSubmit} >
+                            <div  className={classes.continueButton} onClick={handleSubmit} >
                             {load ? (
                         <>
                             <Spinner size='sm' />

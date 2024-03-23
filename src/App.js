@@ -34,6 +34,8 @@ import Profile from './Web pages/My Profile/Profile';
 import LoanIneligible from './Web pages/Loan Ineligible/LoanIneligible';
 import GrantIneligible from './Web pages/Grant Ineligible/GrantIneligible';
 import ApplyGrant from './Web pages/Grants Apply/ApplyGrant';
+import LoanTable from './Web pages/Loan Table/LoanTable';
+import GrantTable from './Web pages/Grant Table/GrantTable';
 
 
 function App() {
@@ -101,6 +103,8 @@ function App() {
         <Route path='/dashboard'element={<Dashboard/>}/>
         <Route path='/loans'element={<Loans/>}/>
         <Route path='/loan_onboarding'element={<LoansOnboarding/>}/>
+        <Route path='/loan'element={<LoanTable/>}/>
+        <Route path='/grants'element={<GrantTable/>}/>
         <Route path='/grant_onboarding'element={<GrantOnboarding/>}/>
         <Route path='/loan_ineligible'element={<LoanIneligible/>}/>
         <Route path='/grant_ineligible'element={<GrantIneligible/>}/>

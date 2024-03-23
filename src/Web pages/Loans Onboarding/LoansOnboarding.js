@@ -20,7 +20,8 @@ export default function LoansOnboarding() {
     const [isLoading, setIsLoading] = useState(false);
     const [paymentLoading, setPaymentLoading] = useState(false);
     const [isLoan, setIsLoan] = useState(false);
-    const { isReg } = useRegistration();
+    const { isReg, isHome } = useRegistration();
+    console.log(isHome, "loann");
 
       const readData = async () => {
         try {
@@ -96,20 +97,22 @@ export default function LoansOnboarding() {
     }, [bearer]);
 
 
+    // const handleLoanApplication = async () => {
+    //     try {
+    //         if (isHome === true) {
+    //             navigate('/loan_application');
+    //         } else {
+    //             navigate('/loan_ineligible');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error checking isComplete status:', error);
+    //         // Handle error
+    //     }
+    // };
+
     const handleLoanApplication = async () => {
-        try {
-            const isComplete = await AsyncStorage.getItem('isCompleted');
-            console.log(isComplete, "LOAN APPLICATION");
-            if (isComplete === "null") {
-                navigate('/loan_ineligible');
-            } else {
-                navigate('/loan_application');
-            }
-        } catch (error) {
-            console.error('Error checking isComplete status:', error);
-            // Handle error
-        }
-    };
+        navigate('/loan_application');
+    }
 
     function formatDate(dateString) {
         const date = new Date(dateString);
@@ -133,7 +136,7 @@ export default function LoansOnboarding() {
                 </div>
 
                 <div className={classes.mainform}>
-    {!isReg  ? (
+  
         <div className={classes.signin}>
         <div className={classes.applycntnt}>
             <div className={classes.imgapply}>
@@ -151,58 +154,7 @@ export default function LoansOnboarding() {
     </div>
 
         
-    ) : (
-        <div className={classes.loandgrantcards}>
-        <div className={classes.loandethead}>
-            <p className={classes.loanText}>Loan Amount: <span className={classes.theamount}> ₦500,000.00</span></p>
-            <p className={classes.loanText}>Duration: <span className={classes.monthText}>10 months</span></p>
-            {/* <p className={classes.loanText}>Loan start date: <span className={classes.loanText1}>{formatDate(loanDetail[0].updated_at)}</span></p>
-            <p className={classes.loanText}>Loan end date: <span className={classes.loanText2}>1st January 2025</span></p> */}
-        </div>
-
-        <div className={classes.loanContainer}>
-            <div className={classes.loanResponsive}>
-                <table>
-                    <thead className={classes.loanTable}>
-                        <tr >
-                            <th className={classes.tableText}>S/N</th>
-                            <th className={classes.tableText}>Application Number</th>
-                            <th className={classes.tableText}>Description</th>
-                            <th className={classes.tableText}>Amount</th>
-                            <th className={classes.tableText}>Date</th>
-                            <th className={classes.tableText}>Status</th>
-                        </tr>
-                    </thead>
-                        
-                    {isLoading ? (
-                            <p className={classes.fetchText}> <Spinner size='sm' style={{marginRight: 5}} />Fetching loan application...</p>
-                          ) : (                    <tbody>
-                    {loanDetail.map((item, index) => (
-    <tr key={index}>
-        <td>{index + 1}</td>
-        <td>{item.application_number}</td>
-        <td>{item.type === 1 ? "Loan Application" : "Grant Application"}</td>
-        <td style={{textAlign: "right"}}>₦{parseFloat(item.amount).toLocaleString('en-US', {
-                                  minimumIntegerDigits: 1,
-                                  minimumFractionDigits: 2,
-                                  maximumFractionDigits: 2
-                                })}</td>
-        <td>{formatDate(item.created_at)}</td>
-        <td> <Badge bg={item.status === "Pending" ? 'warning' : item.status === "Approved" ? 'success' : 'danger'}>
-                {item.status}
-            </Badge></td>
-        <td>
-           
-        </td>
-    </tr>
-))}
-</tbody>
-                          )}
-                </table>
-            </div>
-        </div>
-    </div> 
-    )}
+        
 </div>
 
             </div>

@@ -21,8 +21,8 @@ export default function GrantOnboarding() {
     const [isLoading, setIsLoading] = useState(false);
     const [paymentLoading, setPaymentLoading] = useState(false);
     const [isLoan, setIsLoan] = useState(false);
-    const { isGrant } = useRegistration();
-
+    const { isGrant, isHome } = useRegistration();
+console.log(isHome, "grant");
   
 
     const readData = async () => {
@@ -47,87 +47,22 @@ export default function GrantOnboarding() {
 
 
 
-   
-
-    const fetchPayments = async () => {
-        setPaymentLoading(true);
-        try {
-            const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/get-invoices', { headers });
-            const results = response.data?.data;
-            setInvoicePayment(results);
-            // console.log(results, "invoice payment");
-        } catch (error) {
-            if (error.response && error.response.status === 401) {
-
-                navigate('/sign_in');
-            } else {
-                const errorStatus = error.response?.data?.message;
-                console.log(errorStatus);
-                setInvoicePayment([]);
-            }
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        if (bearer) {
-            fetchGrant();
-            fetchPayments();
-
-        }
-    }, [bearer]);
-
-
-
-
-    const handleLoanApplication = async () => {
-        try {
-            const isComplete = await AsyncStorage.getItem('isCompleted');
-            if (isComplete === "null") {
-                navigate('/grant_ineligible');
-            } else {
-                navigate('/apply_grant');
-            }
-        } catch (error) {
-            console.error('Error checking isComplete status:', error);
-            // Handle error
-        }
-    };
-    const handleLoanApplication1 = () => {
-        navigate('/dashboard');
-    };
-
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} `;
-        return formattedDate;
-      }
-    
-      function padZero(num) {
-        return num < 10 ? `0${num}` : num;
-      }
+    // const handleLoanApplication = async () => {
+    //     try {
+    //         if (isHome === false) {
+    //             navigate('/apply_grant');
+    //         } else {
+    //             navigate('/grant_ineligible');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error checking isComplete status:', error);
+    //         // Handle error
+    //     }
+    // };
   
- const fetchGrant = async () => {
-        setIsLoading(true);
-        try {
-            const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/application/get-grants', { headers });
-            const resultxxx = response.data?.data;
-            setGrantDetail(resultxxx);
-            // console.log(resultxxx, "men payment");
-        } catch (error) {
-            if (error.response && error.response.status === 401) {
-
-                navigate('/sign_in');
-            } else {
-                const errorStatus = error.response?.data?.message;
-                console.log(errorStatus);
-                setGrantDetail([]);
-            }
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    const handleLoanApplication = async () => {
+        navigate('/apply_grant');
+    }
 
     return (
         <div>
@@ -135,11 +70,11 @@ export default function GrantOnboarding() {
 
         <div className={classes.finishedbodyCont}>
             <div className={`${classes.formSecCont}`}>
-                <h3>Loan</h3>
+                <h3>Grant</h3>
             </div>
 
             <div className={classes.mainform}>
-{!isGrant  ? (
+
     <div className={classes.signin}>
     <div className={classes.applycntnt}>
         <div className={classes.imgapply}>
@@ -154,67 +89,9 @@ export default function GrantOnboarding() {
             <p className={classes.continueReg}>Proceed</p>
         </div>
     </div>
-</div>
-
-    
-) : (
-    <div className={classes.loandgrantcards}>
-    <div className={classes.loandethead}>
-        <p className={classes.loanText}>Grant Amount: <span className={classes.theamount}> ₦100,000.00</span></p>
-        {/* <p className={classes.loanText}>Duration: <span className={classes.monthText}>10 months</span></p> */}
-        <p className={classes.loanText}>Date Approved: <span className={classes.loanText1}></span></p>
-        {/* <p className={classes.loanText}>Loan end date: <span className={classes.loanText2}>1st January 2025</span></p> */}
-    </div>
-
-    <div className={classes.loanContainer}>
-        <div className={classes.loanResponsive}>
-            <table>
-                <thead className={classes.loanTable}>
-                    <tr >
-                        <th className={classes.tableText}>S/N</th>
-                        <th className={classes.tableText}>Application Number</th>
-                        <th className={classes.tableText}>Description</th>
-                        <th className={classes.tableText}>Amount</th>
-                        <th className={classes.tableText}>Date</th>
-                        <th className={classes.tableText}>Status</th>
-                    </tr>
-                </thead>
-                    
-                {isLoading ? (
-                        <p className={classes.fetchText}> <Spinner size='sm' style={{marginRight: 5}} />Fetching grant application...</p>
-                      ) : (                    <tbody>
-                {grantDetail.map((item, index) => (
-<tr key={index}>
-    <td>{index + 1}</td>
-    <td>{item.application_number}</td>
-    <td>{item.type === 2 ? "Grant Application" : "Loan Application"}</td>
-    <td style={{textAlign: "right"}}>₦{parseFloat(item.amount).toLocaleString('en-US', {
-                              minimumIntegerDigits: 1,
-                              minimumFractionDigits: 2,
-                              maximumFractionDigits: 2
-                            })}</td>
-    <td>{formatDate(item.created_at)}</td>
-    <td> <Badge bg={item.status === "Pending" ? 'warning' : item.status === "Approved" ? 'success' : 'danger'}>
-            {item.status}
-        </Badge></td>
-    <td>
-       
-    </td>
-</tr>
-))}
-</tbody>
-                      )}
-            </table>
         </div>
-    </div>
-</div> 
-)}
-</div>
-
         </div>
-
-
-
+        </div>
     </div>
 )
 }

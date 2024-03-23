@@ -169,14 +169,14 @@ export default function ApplyGrant() {
 
 
     const handleSubmit = async () => {
-        if (!businessPermit ||  !businessRc || !businessTax || selectedFile) {
-            // Display error messages for empty fields
-            if (!businessPermit) setBusinessPermitError('Business Permit is required');
-            if (!businessRc) setBusinessRcError('RC Number is required');
-            if (!businessTax) setBusinessTaxError('STIN is required');
-            if (!selectedFile) setSelectedStatementError('2 years bank statement is required');
-            return;
-        }
+        // if (!businessPermit ||  !businessRc || !businessTax || selectedFile) {
+        //     // Display error messages for empty fields
+        //     if (!businessPermit) setBusinessPermitError('Business Permit is required');
+        //     if (!businessRc) setBusinessRcError('RC Number is required');
+        //     if (!businessTax) setBusinessTaxError('STIN is required');
+        //     if (!selectedFile) setSelectedStatementError('2 years bank statement is required');
+        //     return;
+        // }
     
         setLoad(true);
 

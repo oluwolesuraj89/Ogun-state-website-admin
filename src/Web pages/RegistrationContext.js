@@ -7,11 +7,13 @@ const RegistrationContext = createContext();
 export const RegistrationProvider = ({ children }) => {
   const [isReg, setIsReg] = useState(false);
   const [isGrant, setIsGrant] = useState(false);
+  const [isHome, setIsHome] = useState(false);
 
   const retrieveRegStatus = async () => {
     try {
       const regStatus = await AsyncStorage.getItem('isLoan');
       setIsReg(regStatus === "1");
+    //   console.log(isReg, "cont");
     } catch (error) {
       console.error('Error retrieving registration status:', error);
     }
@@ -20,11 +22,22 @@ export const RegistrationProvider = ({ children }) => {
   const retrieveGrantStatus = async () => {
     try {
       const grantStatus = await AsyncStorage.getItem('isGrant');
-      setIsGrant(grantStatus == "1");
+      setIsGrant(grantStatus === "1");
     } catch (error) {
       console.error('Error retrieving grant status:', error);
     }
   };
+
+  const retrieveHomeStatus = async () => {
+    try {
+      const homeApp = await AsyncStorage.getItem('isComplete');
+      setIsHome(true);
+      console.log(isHome, "hereeeeeeee1");
+    } catch (error) {
+      console.error('Error retrieving grant status:', error);
+    }
+  };
+  
 
   useEffect(() => {
     retrieveRegStatus();
@@ -34,8 +47,12 @@ export const RegistrationProvider = ({ children }) => {
     retrieveGrantStatus();
   }, []);
 
+  useEffect(() => {
+    retrieveHomeStatus();
+  }, []);
+
   return (
-    <RegistrationContext.Provider value={{ isReg, setIsReg, isGrant, setIsGrant, retrieveRegStatus }}>
+    <RegistrationContext.Provider value={{ isReg, setIsReg, isGrant, isHome, setIsHome, setIsGrant, retrieveRegStatus, retrieveGrantStatus, retrieveHomeStatus }}>
       {children}
     </RegistrationContext.Provider>
   );
