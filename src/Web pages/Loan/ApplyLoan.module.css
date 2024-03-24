@@ -224,6 +224,12 @@ body {
     font-weight: 500;
   }
 
+  .errorMess1{
+    font-size: 15px;
+    color: #bb2929;
+    font-weight: 500;
+  }
+
   @media(max-width:800px){
     .finishedbodyCont{
       padding-left: 0;

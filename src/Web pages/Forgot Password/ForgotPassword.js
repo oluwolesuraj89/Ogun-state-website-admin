@@ -7,6 +7,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Spinner } from 'react-bootstrap';
 import crossedEyeIcon from '../../Images/eye-slash.png'
 import Swal from 'sweetalert2';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ForgotPassword = () => {
@@ -70,6 +72,7 @@ const ForgotPassword = () => {
                     errorMessage = JSON.stringify(error.response.data.message);
                 }
             }
+            toast.error(errorMessage);
             setErrorMessage(errorMessage);
         } finally {
             setLoad(false);
@@ -89,7 +92,8 @@ const ForgotPassword = () => {
                 <p className={classes.headerText}>Forgot Password</p>
                 <p className={classes.subText}>Reset your password here</p>
                 <p style={{ color: 'red', textAlign: 'center' }}>{!isValidEmail ? 'Invalid email' : null}</p>
-                    {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
+                <ToastContainer />
+                    {/* {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>} */}
                     <div style={{ marginTop: 20 }}>
                         <span className={classes.stId}> Enter your email address </span>
                             <div className={classes.inputContainer}>

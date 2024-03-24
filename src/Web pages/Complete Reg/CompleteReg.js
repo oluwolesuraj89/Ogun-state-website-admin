@@ -9,11 +9,13 @@ import SuccessImg from '../../Images/completed.svg';
 import messageIcon from '../../Images/Dashbord-menu-icons/message-text.svg';
 import Invoice from '../../Images/Dashbord-menu-icons/invoice.svg';
 import LogOutIcon from '../../Images/Dashbord-menu-icons/logout.svg';
-import MiniDashboard from '../Mini Dashboard/MiniDashboard';
+import MainDashoard from '../Main Dashboard/MainDashoard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DashboardFinal from '../Dashboard/Dashboard';
 import Valid from '../../Images/valid.png';
 import Invalid from '../../Images/invalid.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Spinner } from 'react-bootstrap';
 
@@ -71,10 +73,12 @@ export default function CompleteReg() {
     const [responseMessage1, setResponseMessage1] = useState('');
     const [responseMessage2, setResponseMessage2] = useState('');
     const [responseMessage3, setResponseMessage3] = useState('');
+    const [companyType, setCompanyType] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [profileLoading, setProfileLoading] = useState(false);
     const [load, setLoad] = useState(false);
 const [showErrorMessage, setShowErrorMessage] = useState(false);
+const [errors, setErrors] = useState(false);
 const [errorMessage1, setErrorMessage1] = useState('');
 
     const readData = async () => {
@@ -98,10 +102,58 @@ const [errorMessage1, setErrorMessage1] = useState('');
         'Authorization': `Bearer ${bearer}`
       };
 
-      const handleContinue = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+      const isValidEmail = (email) => {
+        // Regular expression for validating email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
     
-        
+
+    const handleContinue = (e) => {
+        e.preventDefault();
+    
+        let errors = {};
+    
+        // Validate First Name
+        if (!(firstName ?? '').trim()) {
+            errors.firstName = 'First Name is required';
+        }
+    
+        // Validate Last Name
+        if (!(lastName ?? '').trim()) {
+            errors.lastName = 'Last Name is required';
+        }
+    
+        // Validate Home Address
+        if (!(homeAddress ?? '').trim()) {
+            errors.homeAddress = 'Home Address is required';
+        }
+    
+        // Validate Date of Birth
+        if (!(dateOfBirth ?? '').trim()) {
+            errors.dateOfBirth = 'Date of Birth is required';
+        }
+    
+        // Validate Email
+        if (!(email ?? '').trim()) {
+            errors.email = 'Email is required';
+        } else if (!isValidEmail(email)) {
+            errors.email = 'Invalid Email format';
+        }
+    
+        // Validate Phone Number
+        if (!(phone ?? '').trim()) {
+            errors.phone = 'Phone Number is required';
+        }
+
+        // if (!(selectedLocalGovt ?? '').trim()) {
+        //     errors.selectedLocalGovt = 'Local Government is required';
+        // }
+    
+        setErrors(errors);
+    
+        // If there are no errors, proceed to the next tab
+        if (Object.keys(errors).length === 0) {
             switch (activeTab) {
                 case 'personal-details':
                     setActiveTab('business-details');
@@ -112,8 +164,9 @@ const [errorMessage1, setErrorMessage1] = useState('');
                 default:
                     break;
             }
-        
+        }
     };
+    
     
 
    
@@ -268,14 +321,24 @@ const [errorMessage1, setErrorMessage1] = useState('');
                     },
                 }
             );
-            const responseData = response.data.data;
+            const responseData = response.data.data?.cac;
             if (response.data.status === true) {
+                setBusinessName(responseData.companyName);
+                setBusinessEmail(responseData.companyEmail);
+                const date = new Date(responseData.registrationDate);
+                const formattedDate = date.toISOString().split('T')[0];
+                setSelectedDate(formattedDate);
+                setCompanyType(responseData.classification);
                 setResponseMessage2(response.data.message);
             }
         } catch (error) {
             if (error.response && error.response.data.status === false) {
                 setResponseMessage2("Invalid RC Number");
                 setBusinessRc('');
+                setBusinessName('');
+                setBusinessEmail('');
+                setSelectedDate('');
+                setCompanyType('');
             } else if (error.message === 'Network Error' || error.code === 'ECONNABORTED') {
                 setResponseMessage2('Network error or connection timed out');
             } else {
@@ -481,6 +544,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
             setErrorMessage1(errorMessage1);
     
             console.log(error);
+            toast.error(errorMessage1);
         } finally {
             setLoad(false);
         }
@@ -502,11 +566,39 @@ const [errorMessage1, setErrorMessage1] = useState('');
           const lName = response.data?.data?.name.split(' ')[0];
           const em = response.data?.data?.email;
           const ph = response.data?.data?.phone_number;
+          const st = response.data?.data?.marital_status;
+      const ad = response.data?.data?.home_address;
+      const pd = response.data?.data?.permanent_address;
+      const rg = response.data?.data?.reg_type;
+      const lg = response.data?.data?.local_govt;
+      const bsnName = response.data?.data?.company_name;
+      const bsnAdd = response.data?.data?.business_address;
+      const se = response.data?.data?.sector;
+      const stin = response.data?.data?.stin;
+      const ac = response.data?.data?.account_name;
+      const acn = response.data?.data?.account_number;
+      const bn = response.data?.data?.bank_name;
+      const bv = response.data?.data?.bvn;
+      const dob = response.data?.data?.dob;
           
           setFirstName(result);
           setLastName(lName);
           setPhone(ph);
           setEmail(em);
+          setDateofBirth(dob);
+          setAccountName(ac);
+      setAccountNumber(acn);
+      setSelectedBank(bn);
+      setAccountBVN(bv);
+      setSelectedStatus(st);
+      setHomeAddress(ad);
+      setPermanentAddress(pd);
+      setSelectedLocalGovt(lg);
+      setBusinessName(bsnName);
+      businessAddress(bsnAdd);
+      setSelectedSector(se);
+      setBusinessTax(stin);
+
          
     
     
@@ -536,13 +628,14 @@ const [errorMessage1, setErrorMessage1] = useState('');
     return (
 
         <div>
-            <MiniDashboard />
+            <MainDashoard />
 
             <div className={classes.finishedbodyCont}>
                 <div className={`${classes.formSecCont} ${classes.shadow}`}>
-                    <h3>Complete Registration</h3>
+                    <h3>Profile</h3>
                 </div>
                 <div className={classes.mainform} >
+                <ToastContainer />
                     <div className={classes.signin}>
                         <Tabs
                             defaultActiveKey="personal-details"
@@ -559,10 +652,12 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>First Name</span>
                                             <input disabled type="text" className={classes.snInput} placeholder="" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                                            {errors.firstName && <div className={classes.errorMess1}>{errors.firstName}</div>}
                                         </div>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Last Name</span>
                                             <input disabled type="text" className={classes.snInput} placeholder="" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                            {errors.lastName && <div className={classes.errorMess1}>{errors.lastName}</div>}
                                         </div>
                                     </div>
                                     <div className={classes.rszeInput}>
@@ -573,6 +668,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Date of Birth</span>
                                             <input type="date" className={classes.snInput} placeholder="" value={dateOfBirth} onChange={handleDateChange} />
+                                            {errors.dateOfBirth && <div className={classes.errorMess1}>{errors.dateOfBirth}</div>}
                                         </div>
                                     </div>
                                     <div className={classes.rszeInput}>
@@ -584,6 +680,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                                 value={homeAddress}
                                                 onChange={(e) => setHomeAddress(e.target.value)}
                                             />
+                                            {errors.homeAddress && <div className={classes.errorMess1}>{errors.homeAddress}</div>}
                                         </div>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Permanent Address</span>
@@ -601,11 +698,13 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                     <div className={classes.formInput}>
                                             <span className={classes.stId}>Phone Number</span>
                                             <input type="text" className={classes.snInput} placeholder="" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                            {errors.phone && <div className={classes.errorMess1}>{errors.phone}</div>}
                                         </div>
                                         
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Email Address</span>
                                             <input type="text" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                            {errors.email && <div className={classes.errorMess1}>{errors.email}</div>}
                                         </div>
                                     </div>
 
@@ -631,6 +730,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                                                                 </option>
                                                                               ))}
                                             </Form.Select>
+                                            {/* {errors.selectedLocalGovt && <div className={classes.errorMess1}>{errors.selectedLocalGovt}</div>} */}
                                         </div>
                                         {/* <div className={classes.formInput}>
                                             <span className={classes.stId}>State of Origin</span>
@@ -715,21 +815,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
                             <Tab eventKey="business-details" title="Business Details">
                                 <form>
                                     <div className={classes.rszeInput}>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Business Name</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={businessName} onChange={(e) => setBusinessName(e.target.value)} />
-                                        </div>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Business Phone Number</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={businessPhone} onChange={(e) => setBusinessPhone(e.target.value)} />
-                                        </div>
-                                    </div>
-                                    <div className={classes.rszeInput}>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Business Email Address</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={businessEmail} onChange={(e) => setBusinessEmail(e.target.value)} />
-                                        </div>
-                                        <div className={classes.formInput}>
+                                    <div className={classes.formInput}>
                                             <span className={classes.stId}>RC Number</span>
                                             <input type="text" className={classes.snInput} placeholder="" value={businessRc} onChange={(e) => setBusinessRc(e.target.value)} onBlur={handleBlur2}/>
                                             {rcLoading && (
@@ -750,11 +836,29 @@ const [errorMessage1, setErrorMessage1] = useState('');
     </div>
 )}
                                         </div>
+                                        <div className={classes.formInput}>
+                                            <span className={classes.stId}>Business Name</span>
+                                            <input disabled type="text" className={classes.snInput} placeholder="" value={businessName} onChange={(e) => setBusinessName(e.target.value)} />
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div className={classes.rszeInput}>
+                                    <div className={classes.formInput}>
+                                            <span className={classes.stId}>Business Phone Number</span>
+                                            <input disabled type="text" className={classes.snInput} placeholder="" value={businessPhone} onChange={(e) => setBusinessPhone(e.target.value)} />
+                                        </div>
+
+                                        <div className={classes.formInput}>
+                                            <span className={classes.stId}>Business Email Address</span>
+                                            <input disabled type="text" className={classes.snInput} placeholder="" value={businessEmail} onChange={(e) => setBusinessEmail(e.target.value)} />
+                                        </div>
+                                       
                                     </div>
                                     <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Date of commencement of business</span>
-                                            <input type="date" className={classes.snInput} placeholder="" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} />
+                                            <input disabled type="date" className={classes.snInput} placeholder="" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} />
                                         </div>
 
                                         <div className={classes.formInput}>
@@ -825,6 +929,12 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                         </div>
                                        
                                     </div>
+                                    <div className={classes.rszeInput}>
+                                        <div className={classes.formInput}>
+                                            <span className={classes.stId}>Company Type</span>
+                                            <input disabled type="text" className={classes.snInput} placeholder="" value={companyType} onChange={(e) => setCompanyType(e.target.value)} />
+                                        </div>
+                                        </div>
 
                                     {/* <div className={classes.rszeInput}>
                                        
@@ -894,10 +1004,10 @@ const [errorMessage1, setErrorMessage1] = useState('');
                             <span style={{ marginLeft: '5px' }}>Processing, Please wait...</span>
                         </>
                     ) : (
-                        "Submit Application"
+                        "Save Changes"
                     )}
                     <div style={{marginTop: 20}} />
-                    {errorMessage1 && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage1}</p>}
+                    {/* {errorMessage1 && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage1}</p>} */}
                                         {/* <p className={classes.continueReg}>Submit</p> */}
                                     </div>
                                     

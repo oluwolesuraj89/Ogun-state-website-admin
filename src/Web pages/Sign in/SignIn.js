@@ -7,6 +7,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Spinner } from 'react-bootstrap';
 import crossedEyeIcon from '../../Images/eye-slash.png'
 import Swal from 'sweetalert2';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignIn = () => {
@@ -58,25 +60,27 @@ const SignIn = () => {
             const result = response.data?.data?.user?.name;
      const phones = response.data?.data?.user?.phone_number;
      const emails = response.data?.data?.user?.email;
+     const stins = response.data?.data?.user?.stin;
      const token = response.data?.data?.token;
-     const isLoan = response.data?.data?.user?.is_loan === "1";
-     const isGrant = response.data?.data?.user?.is_grant === "1";
+     const isLoan = response.data?.data?.user?.is_loan;
+     const isGrant = response.data?.data?.user?.is_grant ;
      const isComplete = response.data?.data?.user?.home_address === null;
-     console.log(isComplete, "signin")
      const isCompleted = response.data?.data?.user?.home_address;
 
      
      AsyncStorage.setItem('email', emails);
+     AsyncStorage.setItem('stin', stins);
      AsyncStorage.setItem('phone', phones);
      AsyncStorage.setItem('userToken', token);
      AsyncStorage.setItem('fullName', result);
      AsyncStorage.setItem('isGrant', isGrant);
      AsyncStorage.setItem('isLoan', isLoan);
      AsyncStorage.setItem('isComplete', isComplete);
+     AsyncStorage.setItem('isCompleted', isCompleted);
      
 
      if (isCompleted === null) {
-        navigate('/complete_registration');
+        navigate('/my_profile');
     } else {
         navigate('/dashboard');
     }
@@ -93,6 +97,7 @@ const SignIn = () => {
                 }
             }
             setErrorMessage(errorMessage);
+            toast.error(errorMessage);
         } finally {
             setIsLoading(false);
         }
@@ -129,8 +134,8 @@ const SignIn = () => {
                 <p className={classes.headerText}>Log In</p>
                 <p className={classes.subText}>to access your portal</p>
                     <div style={{ marginTop: 20 }}>
-                   
-                    {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>}
+                    <ToastContainer />
+                    {/* {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>} */}
                         <span className={classes.stId}> Email Address </span>
                             <div className={classes.inputContainer}>
                                 <input autoComplete='off' type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />

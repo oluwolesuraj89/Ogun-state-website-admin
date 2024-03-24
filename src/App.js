@@ -13,7 +13,6 @@ import Grant from './Web pages/Grant/Grant';
 import Dashboard from './Web pages/Dashboard/Dashboard';
 import ApplyLoan from './Web pages/Loan/ApplyLoan';
 import LoanHomePage from './Web pages/Loan HomePage/LoanHomePage';
-import ApplyGrant from './Web pages/Grant Application/ApplyGrant';
 import SubmitGrantApplication from './Web pages/Grant continue/GrantContinue';
 import RegisterPhone from './Web pages/Register Phone/RegisterPhone';
 import RegisterEmail from './Web pages/Register Email/RegisterEmail';
@@ -32,6 +31,11 @@ import Success from './Web pages/Success Reports/Success';
 import HeaderNav from './Web pages/HeaderNav/HeaderNav';
 import { RegistrationProvider } from './Web pages/RegistrationContext';
 import Profile from './Web pages/My Profile/Profile';
+import LoanIneligible from './Web pages/Loan Ineligible/LoanIneligible';
+import GrantIneligible from './Web pages/Grant Ineligible/GrantIneligible';
+import ApplyGrant from './Web pages/Grants Apply/ApplyGrant';
+import LoanTable from './Web pages/Loan Table/LoanTable';
+import GrantTable from './Web pages/Grant Table/GrantTable';
 
 
 function App() {
@@ -99,15 +103,18 @@ function App() {
         <Route path='/dashboard'element={<Dashboard/>}/>
         <Route path='/loans'element={<Loans/>}/>
         <Route path='/loan_onboarding'element={<LoansOnboarding/>}/>
+        <Route path='/loan'element={<LoanTable/>}/>
+        <Route path='/grants'element={<GrantTable/>}/>
         <Route path='/grant_onboarding'element={<GrantOnboarding/>}/>
+        <Route path='/loan_ineligible'element={<LoanIneligible/>}/>
+        <Route path='/grant_ineligible'element={<GrantIneligible/>}/>
         <Route path='/loan_application'element={<ApplyLoan/>}/>
         <Route path='/apply_for_loan'element={<LoanHomePage/>}/>
         <Route path='/submit_loan_application'element={<LoansApplication/>}/>
         <Route path='/grant'element={<Grant/>}/>
-        <Route path='/complete_registration'element={<CompleteReg/>}/>
-        <Route path='/grant_application'element={<ApplyGrant/>}/>
+        <Route path='/my_profile'element={<CompleteReg/>}/>
         <Route path='/submit_grant_application'element={<SubmitGrantApplication/>}/>
-        <Route path='/my_profile'element={<Profile/>}/>
+        {/* <Route path='/my_profile'element={<Profile/>}/> */}
         <Route path='/verify_phone'element={<VerifyPhone/>}/>
         <Route path='/verify_email'element={<VerifyEmail/>}/>
         <Route path='/forgot_password'element={<ForgotPassword/>}/>
@@ -118,6 +125,7 @@ function App() {
         <Route path='/main_dashboard'element={<MainDashoard/>}/>
         <Route path='/header_nav'element={<HeaderNav/>}/>
         <Route path='/success'element={<Success/>}/>
+        <Route path='/apply_grant'element={<ApplyGrant/>}/>
         </Routes>
         </RegistrationProvider>
         </>

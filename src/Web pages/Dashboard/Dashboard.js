@@ -169,7 +169,7 @@ const readData = async () => {
         navigate('/sign_in');
       } else {
       const errorStatus = error.response?.data?.message;
-      console.log(errorStatus);
+     
       setUserProfile([]);
     }
     } finally {
@@ -190,7 +190,7 @@ const readData = async () => {
                     <MainDashoard/>
                     
                     <div className={classes.finishedbodyCont}>
-                        <div className={`${classes.formSecCont} ${classes.shadow}`}>
+                        <div className={`${classes.formSecCont}`}>
                             <h3>Dashboard</h3>
                         </div>
                         <div className={`${classes.mainform} ${classes.shadow}`}>

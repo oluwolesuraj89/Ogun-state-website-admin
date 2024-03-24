@@ -164,19 +164,24 @@ export default function MainDashoard() {
                                 <img src={DashImg} alt='icon' className={classes.mobileshow} />
                                 Dashboard</p>
                         </Link>
-                 
+                        <Link
+            to={'/my_profile'}
+            className={activeLink === 'My Profile' ? classes.active : ''}
+        >
+            <p> <img src={UserLogo} alt='icon' /> Profile</p>
+        </Link>
 
 
 
 
         <Link
-            to={'/loan_onboarding'}
+            to={'/loan'}
             className={activeLink === 'Loan' ? classes.active : ''}
         >
             <p><img src={messageIcon} alt='icon' /> Loans</p>
         </Link>
         <Link
-            to={'/grant_onboarding'}
+            to={'/grants'}
             className={activeLink === 'Grants' ? classes.active : ''}
         >
             <p> <img src={messageIcon} alt='icon' /> Grants</p>
@@ -187,12 +192,7 @@ export default function MainDashoard() {
         >
             <p> <img src={Invoice} alt='icon' /> Invoices</p>
         </Link>
-        <Link
-            to={'/my_profile'}
-            className={activeLink === 'My Profile' ? classes.active : ''}
-        >
-            <p> <img src={UserLogo} alt='icon' /> Profile</p>
-        </Link>
+        
   
 <Link
         onClick={handleLogout}

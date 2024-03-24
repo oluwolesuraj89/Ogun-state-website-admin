@@ -1,10 +1,57 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { useLocation } from 'react-router-dom'
 import OgunLogo from '../../Images/logo ogun 1.svg'
 import classes from './AdministratorInvoice.module.css'
 import QRImg from '../../Images/QR-Code.svg'
 import Ellipse from '../../Images/Invoic-Ellipse.svg'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function AdministratorInvoice() {
+   const [user, setUser] = useState('');
+   const [bearer, setBearer] = useState('');
+   const [stins, setStins] = useState('');
+    const location = useLocation();
+    const { invoice } = location.state || {};
+
+    const readData = async () => {
+        try {
+            const detail = await AsyncStorage.getItem('fullName');
+            const details = await AsyncStorage.getItem('userToken');
+            const value = await AsyncStorage.getItem('stin');
+
+
+            if (detail !== null) {
+                setUser(detail);
+            }
+
+
+            if (details !== null) {
+                setBearer(details);
+            }
+            if (value !== null) {
+                setStins(value);
+            }
+        } catch (e) {
+            alert('Failed to fetch the input from storage');
+        }
+    };
+
+    useEffect(() => {
+        readData();
+    }, []);
+    
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} `;
+        return formattedDate;
+      }
+    
+      function padZero(num) {
+        return num < 10 ? `0${num}` : num;
+      }
+
+
   return (
     <div className={classes.adminBody}>
         <button className={classes.printBtn}>Print</button>
@@ -23,18 +70,18 @@ export default function AdministratorInvoice() {
         <div className={`${classes.flexCont} ${classes.section1}`}>
             <div className={classes.bearerDetails}>
                 <small>INVOICE TO:</small>
-                <p style={{color:'black'}}>MR EMMANUEL OLAOLUWA ORIADE</p>
-                <h6><b>S-TIN: 37170954507</b></h6>
+                <p style={{color:'black'}}>{user}</p>
+                <h6><b>S-TIN: {stins}</b></h6>
             </div>
             <div className={classes.bearerRight}>
                 <h2>INVOICE</h2>
-                <p>Date of Invoice: 2024-03-14 11:23:32</p>
+                <p>Date of Invoice: {formatDate(invoice[0]?.created_at)}</p>
             </div>
         </div>
 
         <div className={classes.section2}>
             <div className={classes.paymentCode}>
-                <h4>Payment Code: 0171000000060</h4>
+                <h4>INVOICE NUMBER: {invoice[0]?.invoice_number}</h4>
             </div>
             <div className={classes.qrCodeImg}>
                 <img src={QRImg} alt='QR Code' className={classes.img}/>
@@ -51,20 +98,40 @@ export default function AdministratorInvoice() {
                 </tr>
                 <tr>
                     <td className={classes.color1} style={{color:'white'}}>1</td>
-                    <td className={classes.color2} style={{color:'#2D995F'}}>Administrator Fee</td>
-                    <td className={classes.color3}>N5,000</td>
-                    <td className={classes.color1} style={{color:'white'}}>N5,000</td>
+                    <td className={classes.color2} style={{color:'#2D995F'}}>{invoice[0]?.description}</td>
+                    <td className={classes.color3}>
+                    ₦{parseFloat(invoice[0]?.amount).toLocaleString('en-US', {
+                                  minimumIntegerDigits: 1,
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2
+                                })}
+                    </td>
+                    <td className={classes.color1} style={{color:'white'}}>
+                    ₦{parseFloat(invoice[0]?.amount).toLocaleString('en-US', {
+                                  minimumIntegerDigits: 1,
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2
+                                })}
+                    </td>
                 </tr>
             </table>
             <div className={classes.totalSec}>
                 <div className={classes.totalSecCont}>
                     <div className={classes.subTotal}>
                         <span>SUBTOTAL</span>
-                        <span>N5,000.00</span>
+                        <span> ₦{parseFloat(invoice[0]?.amount).toLocaleString('en-US', {
+                                  minimumIntegerDigits: 1,
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2
+                                })}</span>
                     </div>
                     <div className={classes.grandTotal}>
                         <span>SUBTOTAL</span>
-                        <span>N5,000.00</span>
+                        <span> ₦{parseFloat(invoice[0]?.amount).toLocaleString('en-US', {
+                                  minimumIntegerDigits: 1,
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2
+                                })}</span>
                     </div>
                 </div>
             </div>
