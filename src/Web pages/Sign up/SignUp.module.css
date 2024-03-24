@@ -102,6 +102,9 @@ body {
     border: 1px solid #2D995F;
     margin-top: 52px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .buttonContainer{
