@@ -212,7 +212,6 @@ export default function MainDashoard() {
                 {isMenuOpen ? (
                   <span className={classes.closs}>
                     <i className='bx bx-x'></i>
-                    
                   </span>
                 ) : (
                   <span className={classes.open}>
