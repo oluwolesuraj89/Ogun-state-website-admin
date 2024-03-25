@@ -66,7 +66,7 @@ const SignIn = () => {
      const isGrant = response.data?.data?.user?.is_grant ;
      const isComplete = response.data?.data?.user?.home_address === null;
      const isCompleted = response.data?.data?.user?.home_address;
-
+  
      
      AsyncStorage.setItem('email', emails);
      AsyncStorage.setItem('stin', stins);

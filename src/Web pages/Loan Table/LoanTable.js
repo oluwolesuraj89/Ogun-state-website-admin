@@ -22,7 +22,7 @@ export default function LoanTable() {
     const [isLoan, setIsLoan] = useState(false);
     const { isReg, isHome } = useRegistration();
 
-    console.log(isReg, "loan");
+ 
 
       const readData = async () => {
         try {

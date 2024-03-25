@@ -168,7 +168,11 @@ const [errorMessage1, setErrorMessage1] = useState('');
     };
     
     
-
+    const handleTaxChange = (e) => {
+        const value = e.target.value;
+        setBusinessTax(value);
+    };
+    
    
 
     
@@ -180,9 +184,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
     const handleSectorChange = (event) => {
         setSelectedSector(event.target.value);
     }
-    const handleStatusChange = (event) => {
-        setSelectedNokRelationship(event.target.value);
-    }
+   
     const handleDateChange = (event) => {
         setDateofBirth(event.target.value);
     }
@@ -353,7 +355,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
         setBankLoading(true);
         try {
             const response = await axios.post(
-                `https://api-smesupport.ogunstate.gov.ng/api/kyc`,
+                `https://api-smesupport.ogunstate.gov.ng/api/kyc-paystack`,
                 {
                     first_name: firstName,
                     last_name: lastName,
@@ -447,7 +449,6 @@ const [errorMessage1, setErrorMessage1] = useState('');
     
     
     
-
     useEffect(() => {
         
       }, [responseMessage, showErrorMessage]);
@@ -560,7 +561,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
         setProfileLoading(true);
         try {
           const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/profile', { headers });
-          const results = response.data?.data;
+          const fetchedProfile = response.data?.data;
           const fName = response.data?.data?.name;
           const result = fName.split(' ')[1];
           const lName = response.data?.data?.name.split(' ')[0];
@@ -580,7 +581,9 @@ const [errorMessage1, setErrorMessage1] = useState('');
       const bn = response.data?.data?.bank_name;
       const bv = response.data?.data?.bvn;
       const dob = response.data?.data?.dob;
-          
+     
+          setUserProfile(fetchedProfile);
+          console.log(fetchedProfile);
           setFirstName(result);
           setLastName(lName);
           setPhone(ph);
@@ -599,7 +602,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
       setSelectedSector(se);
       setBusinessTax(stin);
 
-         
+      
     
     
     
@@ -621,9 +624,11 @@ const [errorMessage1, setErrorMessage1] = useState('');
       useEffect(() => {
         if (bearer) {
             fetchProfile();
-    
+            
         }
       }, [bearer]);
+
+    
 
     return (
 
@@ -672,77 +677,9 @@ const [errorMessage1, setErrorMessage1] = useState('');
                                         </div>
                                     </div>
                                     <div className={classes.rszeInput}>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Home Address</span>
-                                            <textarea
-                                                className={classes.snInput2}
-                                                typeof='text'
-                                                value={homeAddress}
-                                                onChange={(e) => setHomeAddress(e.target.value)}
-                                            />
-                                            {errors.homeAddress && <div className={classes.errorMess1}>{errors.homeAddress}</div>}
-                                        </div>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Permanent Address</span>
-                                            <textarea
-                                                className={classes.snInput2}
-                                                typeof='text'
-                                                value={permanentAddress}
-                                                onChange={(e) => setPermanentAddress(e.target.value)}
-
-                                            />
-                                            
-                                        </div>
-                                    </div>
-                                    <div className={classes.rszeInput}>
                                     <div className={classes.formInput}>
-                                            <span className={classes.stId}>Phone Number</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                                            {errors.phone && <div className={classes.errorMess1}>{errors.phone}</div>}
-                                        </div>
-                                        
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Email Address</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                            {errors.email && <div className={classes.errorMess1}>{errors.email}</div>}
-                                        </div>
-                                    </div>
-
-                                    <div className={classes.rszeInput}>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Marital Status</span>
-                                            <Form.Select className={classes.snInput} value={selectedStatus} onChange={handleMaritalChange} >
-                                                <option value="">Select Marital Status</option>
-                                                <option value="single">Single</option>
-                                                <option value="married">Married</option>
-                                                <option value="divorced">Divorced</option>
-                                            </Form.Select>
-                                            
-                                        </div>
-
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Local Government</span>
-                                            <Form.Select className={classes.snInput} value={selectedLocalGovt} onChange={handleLgChange} >
-                                            <option value="">Select L.G.A</option>
-                                                                                  {localGovt.map((item) => (
-                                                                                <option key={item.id} value={item.id}>
-                                                                                  {item.name}
-                                                                                </option>
-                                                                              ))}
-                                            </Form.Select>
-                                            {/* {errors.selectedLocalGovt && <div className={classes.errorMess1}>{errors.selectedLocalGovt}</div>} */}
-                                        </div>
-                                        {/* <div className={classes.formInput}>
-                                            <span className={classes.stId}>State of Origin</span>
-                                            <Form.Select className={classes.snInput} value={selectedState} onChange={handleStateChange}>
-                                                <option>Select State of Origin</option>
-                                            </Form.Select>
-                                        </div> */}
-                                    </div>
-                                    <div className={classes.rszeInput}>
-                                     <div className={classes.formInput}>
                                             <span className={classes.stId}>Ogun state Tax ID number</span>
-                                            <input autoComplete="off" type="text" className={classes.snInput} placeholder="" value={businessTax} onChange={(e) => setBusinessTax(e.target.value)} onBlur={handleBlur}/>
+                                            <input type="text" className={classes.snInput} placeholder="" value={userProfile.stin} onChange={handleTaxChange} onBlur={handleBlur}/>
                                             {taxLoading && (
     <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
         <Spinner size='sm' />
@@ -764,49 +701,77 @@ const [errorMessage1, setErrorMessage1] = useState('');
 
         
                                         </div>
-                                       
-                                        
-                                    </div>
-                                    {/* <p className={classes.nextKin}>Next of Kin details</p>
-                                    <div className={classes.rszeInput}>
-                                        <div className={classes.formInput}>
-                                            <span className={classes.stId}>Full Name</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={nokName} onChange={(e) => setNokName(e.target.value)} />
-                                        </div>
+
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Phone Number</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={nokPhone} onChange={(e) => setNokPhone(e.target.value)} />
+                                            <input type="text" className={classes.snInput} placeholder="" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                            {errors.phone && <div className={classes.errorMess1}>{errors.phone}</div>}
                                         </div>
+                                        
+                                        
                                     </div>
                                     <div className={classes.rszeInput}>
                                         <div className={classes.formInput}>
                                             <span className={classes.stId}>Email Address</span>
-                                            <input type="text" className={classes.snInput} placeholder="" value={nokEmail} onChange={(e) => setNokEmail(e.target.value)} />
+                                            <input type="text" className={classes.snInput} placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                            {errors.email && <div className={classes.errorMess1}>{errors.email}</div>}
                                         </div>
+
                                         <div className={classes.formInput}>
-                                            <span className={classes.stId}>Relationship</span>
-                                            <Form.Select className={classes.snInput} value={selectedNokRelationship} onChange={handleStatusChange}>
-                                            <option value="">Select Relationship</option>
-                                            <option value="Spouse">Spouse</option>
-                                            <option value="Parent">Parent</option>
-                                            <option value="Sibling">Sibling</option>
-                                            <option value="Child">Child</option>
-                                            <option value="Other">Other</option>
+                                            <span className={classes.stId}>Marital Status</span>
+                                            <Form.Select className={classes.snInput} value={selectedStatus} onChange={handleMaritalChange} >
+                                                <option value="">Select Marital Status</option>
+                                                <option value="single">Single</option>
+                                                <option value="married">Married</option>
+                                                <option value="divorced">Divorced</option>
                                             </Form.Select>
+                                            
                                         </div>
                                     </div>
 
                                     <div className={classes.rszeInput}>
+                                    <div className={classes.formInput}>
+                                            <span className={classes.stId}>Permanent Address</span>
+                                            <textarea
+                                                className={classes.snInput2}
+                                                typeof='text'
+                                                value={permanentAddress}
+                                                onChange={(e) => setPermanentAddress(e.target.value)}
+
+                                            />
+                                            
+                                        </div>
+                                        
+
                                         <div className={classes.formInput}>
+                                            <span className={classes.stId}>Local Government</span>
+                                            <Form.Select className={classes.snInput} value={selectedLocalGovt} onChange={handleLgChange} >
+                                            <option value="">Select L.G.A</option>
+                                                                                  {localGovt.map((item) => (
+                                                                                <option key={item.id} value={item.id}>
+                                                                                  {item.name}
+                                                                                </option>
+                                                                              ))}
+                                            </Form.Select>
+                                            {/* {errors.selectedLocalGovt && <div className={classes.errorMess1}>{errors.selectedLocalGovt}</div>} */}
+                                        </div>
+                                       
+                                    </div>
+                                    <div className={classes.rszeInput}>
+                                    <div className={classes.formInput}>
                                             <span className={classes.stId}>Home Address</span>
                                             <textarea
                                                 className={classes.snInput2}
                                                 typeof='text'
-                                                value={nokAddress}
-                                                onChange={(e) => setNokAddress(e.target.value)}
+                                                value={homeAddress}
+                                                onChange={(e) => setHomeAddress(e.target.value)}
                                             />
+                                            {errors.homeAddress && <div className={classes.errorMess1}>{errors.homeAddress}</div>}
                                         </div>
-                                    </div> */}
+                                       
+                                        
+                                    </div>
+                                    
                                     <button  className={classes.continueButton} onClick={handleContinue} >
                                         <p className={classes.continueReg}>Continue</p>
                                     </button>
@@ -979,7 +944,7 @@ const [errorMessage1, setErrorMessage1] = useState('');
     <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
         {responseMessage3.includes('Invalid Account') || responseMessage3.includes('No Valid Tax Clearance') ? (
             <img src={Invalid} alt="Invalid Tin" style={{ width: '20px', height: '20px' }} />
-        ) : responseMessage3.includes('Verified Succesfully!') && (
+        ) : responseMessage3.includes('Bank details retrieved successfully') && (
             <img src={Valid} alt="Verified Succesfully!" style={{ width: '20px', height: '20px' }} />
         )}
         <ErrorMessage message={responseMessage3} />

@@ -18,10 +18,12 @@ export default function LoansOnboarding() {
     const [loanDetail, setLoanDetail] = useState([]);
     const [invoicePayment, setInvoicePayment] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [paymentLoading, setPaymentLoading] = useState(false);
+    const [loanStatus, setLoanStatus] = useState(false);
     const [isLoan, setIsLoan] = useState(false);
     const { isReg, isHome } = useRegistration();
-    console.log(isHome, "loann");
+
+
+
 
       const readData = async () => {
         try {
@@ -43,86 +45,50 @@ export default function LoansOnboarding() {
         'Authorization': `Bearer ${bearer}`
     };
 
-
-    
-
-    const fetchLoans = async () => {
-        setIsLoading(true);
+    const fetchLoanStatus = async () => {
+        setLoanStatus(true);
         try {
-            const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/application/get-loans', { headers });
-            const results = response.data?.data;
-            setLoanDetail(results);
-        //    console.log(results, "loan detail");
+            let shouldNavigateToProfile = false;
+            let addressResponse = null;
+    
+            // Fetch the address
+            try {
+                addressResponse = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/profile', { headers });
+                shouldNavigateToProfile = addressResponse.data?.data?.home_address === null;
+            } catch (addressError) {
+                console.error('Error fetching address:', addressError);
+            }
+    
+            if (shouldNavigateToProfile) {
+                navigate('/my_profile');
+                return; // Exit the function to prevent further execution
+            }
+    
+            // Fetch loan status
+            const loanResponse = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/verify-applicant-loan-status', { headers });
+            const loanADD = loanResponse.data?.data;
+    
+            if (loanResponse.data.status === true) {
+                navigate('/loan_ineligible');
+            } else {
+                navigate('/loan_application');
+            }
         } catch (error) {
             if (error.response && error.response.status === 401) {
-
                 navigate('/sign_in');
             } else {
                 const errorStatus = error.response?.data?.message;
                 console.log(errorStatus);
-                setLoanDetail([]);
             }
         } finally {
-            setIsLoading(false);
+            setLoanStatus(false);
         }
     };
-
-    const fetchPayments = async () => {
-        setPaymentLoading(true);
-        try {
-            const response = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/get-invoices', { headers });
-            const resultsss = response.data?.data;
-            setInvoicePayment(resultsss);
-            // console.log(resultsss, "invoice payment");
-        } catch (error) {
-            if (error.response && error.response.status === 401) {
-
-                navigate('/sign_in');
-            } else {
-                const errorStatus = error.response?.data?.message;
-                console.log(errorStatus);
-                setInvoicePayment([]);
-            }
-        } finally {
-            setPaymentLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        if (bearer) {
-            fetchLoans();
-            fetchPayments();
-
-        }
-    }, [bearer]);
-
-
-    // const handleLoanApplication = async () => {
-    //     try {
-    //         if (isHome === true) {
-    //             navigate('/loan_application');
-    //         } else {
-    //             navigate('/loan_ineligible');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error checking isComplete status:', error);
-    //         // Handle error
-    //     }
-    // };
-
-    const handleLoanApplication = async () => {
-        navigate('/loan_application');
-    }
-
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} `;
-        return formattedDate;
-      }
     
-      function padZero(num) {
-        return num < 10 ? `0${num}` : num;
-      }
+    
+
+
+   
   
 
 
@@ -144,11 +110,18 @@ export default function LoansOnboarding() {
             </div>
 
             <div>
-                <p className={classes.applygrnttxt}>No ongoing loan payment to display </p>
+                <p className={classes.applygrnttxt}>No ongoing loan application </p>
                 <p className={classes.grntapplytxt}>Click on the proceed button below to continue. </p>
             </div>
-            <div className={classes.applyLoan} onClick={handleLoanApplication}>
-                <p className={classes.continueReg}>Proceed</p>
+            <div className={classes.applyLoan} onClick={fetchLoanStatus}>
+            {loanStatus ? (
+                        <>
+                            <Spinner size='sm' />
+                            <span style={{ marginLeft: '5px' }}>Processing, Please wait...</span>
+                        </>
+                    ) : (
+                        "Proceed"
+                    )}
             </div>
         </div>
     </div>

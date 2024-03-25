@@ -109,7 +109,7 @@ export default function LoanIneligible() {
 
 
     const handleLoanApplication = () => {
-        navigate('/my_profile');
+        navigate('/loan');
     };
    
 
@@ -146,12 +146,12 @@ export default function LoanIneligible() {
                                     </div>
 
                                     <div>
-                                        <p className={classes.applygrnttxt}>You are not eligible for a loan </p>
-                                        <p className={classes.grntapplytxt}>Sadly you do not meet up with the requirements to access this loan, <br />
-Kindly go to your profile and complete your registration to access this loan. </p>
+                                        <p className={classes.applygrnttxt}>You are not eligible for a loan  </p>
+                                        <p className={classes.grntapplytxt}>Sadly you already have an application which us currently under review, <br />
+you can click on the button below to check your application status. </p>
                                     </div>
                                     <div className={classes.applyLoan} onClick={handleLoanApplication}>
-                                        <p className={classes.continueReg}>Edit your Profile</p>
+                                        <p className={classes.continueReg}>Go to Loan Application</p>
                                     </div>
                                 </div>
                             </div>

@@ -254,7 +254,7 @@ export default function ApplyLoan() {
 
     };
 
-    const buttonDisable = !businessTax || !guarantorName || !guarantorAddress || !guarantorEmail || !guarantorPhone || !selectedFile;
+   
 
     const fetchProfile = async () => {
         setProfileLoading(true);

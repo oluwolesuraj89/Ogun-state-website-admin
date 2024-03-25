@@ -30,13 +30,14 @@ export const RegistrationProvider = ({ children }) => {
 
   const retrieveHomeStatus = async () => {
     try {
-      const homeApp = await AsyncStorage.getItem('isComplete');
-      setIsHome(true);
-      console.log(isHome, "hereeeeeeee1");
+        const homeApp = await AsyncStorage.getItem('isCompleted');
+        setIsHome(homeApp === null);
+        console.log(isHome, "he1");
     } catch (error) {
-      console.error('Error retrieving grant status:', error);
+        console.error('Error retrieving grant status:', error);
     }
-  };
+};
+
   
 
   useEffect(() => {

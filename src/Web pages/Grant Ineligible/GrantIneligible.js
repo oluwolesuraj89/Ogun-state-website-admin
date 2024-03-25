@@ -109,19 +109,11 @@ export default function GrantIneligible() {
 
 
     const handleLoanApplication = () => {
-        navigate('/my_profile');
+        navigate('/grants');
     };
    
 
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} ${padZero(date.getHours())}:${padZero(date.getMinutes())} ${date.getHours() >= 12 ? 'PM' : 'AM'}`;
-        return formattedDate;
-    }
-
-    function padZero(num) {
-        return num < 10 ? `0${num}` : num;
-    }
+    
 
 
 
@@ -147,11 +139,11 @@ export default function GrantIneligible() {
 
                                     <div>
                                         <p className={classes.applygrnttxt}>You are not eligible for a grant </p>
-                                        <p className={classes.grntapplytxt}>Sadly you do not meet up with the requirements to access this grant, <br />
-Kindly go to your profile and complete your registration to access this grant. </p>
+                                        <p className={classes.grntapplytxt}>Sadly you already have an application which us currently under review, <br />
+                                        you can click on the button below to check your application status. </p>
                                     </div>
                                     <div className={classes.applyLoan} onClick={handleLoanApplication}>
-                                        <p className={classes.continueReg}>Edit your Profile</p>
+                                        <p className={classes.continueReg}>Go to Grant Application</p>
                                     </div>
                                 </div>
                             </div>

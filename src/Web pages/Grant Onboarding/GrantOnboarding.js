@@ -19,7 +19,7 @@ export default function GrantOnboarding() {
     const [grantDetail, setGrantDetail] = useState([]);
     const [invoicePayment, setInvoicePayment] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [paymentLoading, setPaymentLoading] = useState(false);
+    const [grantLoading, setGrantLoading] = useState(false);
     const [isLoan, setIsLoan] = useState(false);
     const { isGrant, isHome } = useRegistration();
 console.log(isHome, "grant");
@@ -47,22 +47,45 @@ console.log(isHome, "grant");
 
 
 
-    // const handleLoanApplication = async () => {
-    //     try {
-    //         if (isHome === false) {
-    //             navigate('/apply_grant');
-    //         } else {
-    //             navigate('/grant_ineligible');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error checking isComplete status:', error);
-    //         // Handle error
-    //     }
-    // };
-  
-    const handleLoanApplication = async () => {
-        navigate('/apply_grant');
-    }
+    const fetchGrantStatus = async () => {
+        setGrantLoading(true);
+        try {
+            let shouldNavigateToProfile = false;
+            let addressResponse = null;
+    
+            // Fetch the address
+            try {
+                addressResponse = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/profile', { headers });
+                shouldNavigateToProfile = addressResponse.data?.data?.home_address === null;
+            } catch (addressError) {
+                console.error('Error fetching address:', addressError);
+            }
+    
+            if (shouldNavigateToProfile) {
+                navigate('/my_profile');
+                return; // Exit the function to prevent further execution
+            }
+    
+            // Fetch loan status
+            const loanResponse = await axios.get('https://api-smesupport.ogunstate.gov.ng/api/verify-applicant-grant-status', { headers });
+            const loanADD = loanResponse.data?.data;
+    
+            if (loanResponse.data.status === true) {
+                navigate('/grant_ineligible');
+            } else {
+                navigate('/apply_grant');
+            }
+        } catch (error) {
+            if (error.response && error.response.status === 401) {
+                navigate('/sign_in');
+            } else {
+                const errorStatus = error.response?.data?.message;
+                console.log(errorStatus);
+            }
+        } finally {
+            setGrantLoading(false);
+        }
+    };
 
     return (
         <div>
@@ -85,8 +108,15 @@ console.log(isHome, "grant");
             <p className={classes.applygrnttxt}>No ongoing grant application to display </p>
             <p className={classes.grntapplytxt}>Click on the proceed button below to continue. </p>
         </div>
-        <div className={classes.applyLoan} onClick={handleLoanApplication}>
-            <p className={classes.continueReg}>Proceed</p>
+        <div className={classes.applyLoan} onClick={fetchGrantStatus}>
+        {grantLoading ? (
+                        <>
+                            <Spinner size='sm' />
+                            <span style={{ marginLeft: '5px' }}>Processing, Please wait...</span>
+                        </>
+                    ) : (
+                        "Proceed"
+                    )}
         </div>
     </div>
         </div>

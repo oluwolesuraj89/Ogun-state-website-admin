@@ -60,10 +60,12 @@ export default function AdministratorInvoice() {
                 <img src={OgunLogo} alt='Ogun Logo' className={classes.img}/>
             </div>
             <div className={classes.headerDetails}>
-                <p style={{color:'black'}}>Ogun State Internal Revenue Service</p>
-                <small>Parastatal building, Oke Mosan, Abeokuta, Ogun State</small>
-                <p style={{color:'black'}}><small>080-705-806-51</small></p>
-                <p style={{color:'#38ACFF'}}><small>ogirs@ogunstate.gov.ng</small></p>
+                <p style={{color:'black'}}>Ogun Invest</p>
+                <small>Block D, Room 115, Governor’s 
+Office, Oke-Mosan, Abeokuta, 
+Ogun State</small>
+                <p style={{color:'black'}}><small>+234 909 166 1337, +234 816 921 3747</small></p>
+                <p style={{color:'#38ACFF'}}><small>ogunsme@ogunstate.gov.ng</small></p>
             </div>
         </header>
 
@@ -71,7 +73,7 @@ export default function AdministratorInvoice() {
             <div className={classes.bearerDetails}>
                 <small>INVOICE TO:</small>
                 <p style={{color:'black'}}>{user}</p>
-                <h6><b>S-TIN: {stins}</b></h6>
+                <h6><b>S-TIN: {invoice[0].user?.stin}</b></h6>
             </div>
             <div className={classes.bearerRight}>
                 <h2>INVOICE</h2>
