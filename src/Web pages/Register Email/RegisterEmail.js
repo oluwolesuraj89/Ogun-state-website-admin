@@ -131,26 +131,26 @@ const RegisterEmail = () => {
                 <ToastContainer />
                 <p style={{ color: 'red', textAlign: 'center', fontSize: 14 }}>{!isValidEmail ? 'Invalid email' : null}</p>
                 {/* {errorMessage && <p style={{ color: 'red', textAlign: 'center', fontSize: 14 }}>{errorMessage}</p>} */}
-                <div style={{ marginTop: 10 }}>
+                <div style={{ marginTop: 10 }} className={classes.mobilePadding}>
                 <span className={classes.stId}>Email Address</span>
                         <div className={classes.passwordInputContainer}>
-                        <input autoComplete='off' type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
+                            <input autoComplete='off' type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
                         </div>
                     </div>
-                <div style={{ marginTop: 10 }}>
+                <div style={{ marginTop: 10 }} className={classes.mobilePadding}>
                 <span className={classes.stId}>First Name</span>
                         <div className={classes.passwordInputContainer}>
                         <input autoComplete='off' type="text" className={classes.snInput} placeholder="" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         </div>
                     </div>
-                <div style={{ marginTop: 10 }}>
+                <div style={{ marginTop: 10 }} className={classes.mobilePadding}>
                 <span className={classes.stId}>Last Name</span>
                         <div className={classes.passwordInputContainer}>
                         <input autoComplete='off' name='lastName' type="text" className={classes.snInput} placeholder="" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         </div>
                     </div>
 
-                <div style={{ marginTop: 10 }}>
+                <div style={{ marginTop: 10 }} className={classes.mobilePadding}>
                         <span className={classes.stId}> Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>
@@ -172,7 +172,7 @@ const RegisterEmail = () => {
                         
                     </div>
 
-                <div style={{ marginTop: 10 }}>
+                <div style={{ marginTop: 10 }} className={classes.mobilePadding}>
                         <span className={classes.stId}>Confirm Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>

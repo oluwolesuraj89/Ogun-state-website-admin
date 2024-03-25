@@ -103,7 +103,7 @@ const ForgotPasswordReset = () => {
                 <p className={classes.subText}>Reset your password here</p>
                 <ToastContainer />
                 {/* {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>} */}
-                    <div style={{ marginTop: 20 }}>
+                    <div style={{ marginTop: 90 }}>
                         <span className={classes.stId}> Enter your new Password </span>
                         <div className={classes.passwordInputContainer}>
                             <div className={classes.inputContainer}>

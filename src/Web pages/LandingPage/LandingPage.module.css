@@ -323,6 +323,7 @@ margin-top: 30px;
     .accordionContainer{
         margin-top: 44px;
         max-width: 100%;
+        padding: 0 15px;
     }
     
     .faqsContainer{
