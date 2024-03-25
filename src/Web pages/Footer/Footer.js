@@ -1,8 +1,22 @@
 import React from 'react'
 import FooterLogo from '../../Images/logo white.png'
 import classes from '../Footer/Footer.module.css'
+import { useNavigate } from 'react-router-dom'
+// inport useNavigate
 
 export default function Footer() {
+
+  const navigate = useNavigate()
+
+  const navigateSignin = () =>{
+    navigate('/sign_up')
+  }
+  const navigateLogin = () =>{
+    navigate('/sign_in')
+  }
+  
+
+
   return (
     <div className={classes.footerBody}>
       <div className={classes.footerCont}>
@@ -11,7 +25,8 @@ export default function Footer() {
         </div>
         <div className={classes.footerlist}>
             <h4>Links</h4>
-            <p>Register</p>
+            <p onClick={navigateSignin} className={classes.footerNav}>Register</p>
+            <p onClick={navigateLogin} className={classes.footerNav} style={{paddingTop:'10px'}}>Login</p>
         </div>
         <div className={classes.footerlist}>
             <h4>Contact Us</h4>

@@ -17,7 +17,7 @@
 }
 .footerBody{
     width: 100%;
-    padding: 34px 0 10px 90px;
+    padding: 34px 0 34px 90px;
     /* height: 491px; */
     background-color: var(--black);
 }
@@ -44,11 +44,18 @@
     font-size: 16px !important;
     font-weight: 400 !important;
     color: var(--white) !important;
+    
 }
 .footerLogo{
     width: 458px;
     height: 204px;
     overflow: hidden;
+}
+.footerNav{
+    cursor: pointer;
+}
+.footerNav:hover{
+    color: var(--green) !important;
 }
 @media(max-width:800px){
     
