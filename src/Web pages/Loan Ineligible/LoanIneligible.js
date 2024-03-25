@@ -113,15 +113,7 @@ export default function LoanIneligible() {
     };
    
 
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} ${padZero(date.getHours())}:${padZero(date.getMinutes())} ${date.getHours() >= 12 ? 'PM' : 'AM'}`;
-        return formattedDate;
-    }
-
-    function padZero(num) {
-        return num < 10 ? `0${num}` : num;
-    }
+  
 
 
 
@@ -147,7 +139,7 @@ export default function LoanIneligible() {
 
                                     <div>
                                         <p className={classes.applygrnttxt}>You are not eligible for a loan  </p>
-                                        <p className={classes.grntapplytxt}>Sadly you already have an application which us currently under review, <br />
+                                        <p className={classes.grntapplytxt}>Sadly, you already have an application which is currently under review, <br />
 you can click on the button below to check your application status. </p>
                                     </div>
                                     <div className={classes.applyLoan} onClick={handleLoanApplication}>

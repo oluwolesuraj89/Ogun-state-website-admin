@@ -139,7 +139,7 @@ export default function GrantIneligible() {
 
                                     <div>
                                         <p className={classes.applygrnttxt}>You are not eligible for a grant </p>
-                                        <p className={classes.grntapplytxt}>Sadly you already have an application which us currently under review, <br />
+                                        <p className={classes.grntapplytxt}>Sadly, you already have an application which is currently under review, <br />
                                         you can click on the button below to check your application status. </p>
                                     </div>
                                     <div className={classes.applyLoan} onClick={handleLoanApplication}>

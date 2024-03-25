@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.4fc23ad5.css",
-    "main.js": "/static/js/main.782b0532.js",
+    "main.css": "/static/css/main.f52b99ca.css",
+    "main.js": "/static/js/main.d344ddf4.js",
     "static/js/453.f6f611f0.chunk.js": "/static/js/453.f6f611f0.chunk.js",
     "static/media/image bg.png": "/static/media/image bg.33b7137d1a77fd01cf79.png",
     "static/media/LandingPageMobileBg.svg": "/static/media/LandingPageMobileBg.5a30c403eefce120b2be.svg",
@@ -44,12 +44,12 @@
     "static/media/folder-2.svg": "/static/media/folder-2.f63f037762f21a031b27f1dd2542f398.svg",
     "static/media/arrow-left.svg": "/static/media/arrow-left.7dfc91e7737f699b9e4d619167a48071.svg",
     "static/media/Invoic-Ellipse.svg": "/static/media/Invoic-Ellipse.0b0f642c41e409da3d5b1a09a9cb7d52.svg",
-    "main.4fc23ad5.css.map": "/static/css/main.4fc23ad5.css.map",
-    "main.782b0532.js.map": "/static/js/main.782b0532.js.map",
+    "main.f52b99ca.css.map": "/static/css/main.f52b99ca.css.map",
+    "main.d344ddf4.js.map": "/static/js/main.d344ddf4.js.map",
     "453.f6f611f0.chunk.js.map": "/static/js/453.f6f611f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fc23ad5.css",
-    "static/js/main.782b0532.js"
+    "static/css/main.f52b99ca.css",
+    "static/js/main.d344ddf4.js"
   ]
 }
