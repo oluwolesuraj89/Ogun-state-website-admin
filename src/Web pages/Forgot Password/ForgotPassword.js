@@ -94,7 +94,7 @@ const ForgotPassword = () => {
                 <p style={{ color: 'red', textAlign: 'center' }}>{!isValidEmail ? 'Invalid email' : null}</p>
                 <ToastContainer />
                     {/* {errorMessage && <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>} */}
-                    <div style={{ marginTop: 20 }}>
+                    <div style={{ marginTop: 90 }}>
                         <span className={classes.stId}> Enter your email address </span>
                             <div className={classes.inputContainer}>
                                 <input type="text" className={classes.snInput} placeholder="" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
