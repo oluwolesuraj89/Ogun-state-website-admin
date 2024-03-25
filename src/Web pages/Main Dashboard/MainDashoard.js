@@ -155,63 +155,71 @@ export default function MainDashoard() {
 
                 <div className={`${classes.regMenu} ${isMenuOpen ? '' : classes.menuOpen}`}>
                
-                        <Link
-                            to={'/dashboard'}
-                            className={activeLink === 'Dashboard' ? classes.active : ''}
-                        >
-                            <p>
-                                <img src={messageIcon} alt='icon' className={classes.webshow} />
-                                <img src={DashImg} alt='icon' className={classes.mobileshow} />
-                                Dashboard</p>
-                        </Link>
-                        <Link
-            to={'/my_profile'}
-            className={activeLink === 'My Profile' ? classes.active : ''}
-        >
-            <p> <img src={UserLogo} alt='icon' /> Profile</p>
-        </Link>
+                    <Link
+                        to={'/dashboard'}
+                        className={activeLink === 'Dashboard' ? classes.active : ''}
+                    >
+                        <p>
+                            <img src={messageIcon} alt='icon' className={classes.webshow} />
+                            <img src={DashImg} alt='icon' className={classes.mobileshow} />
+                            Dashboard</p>
+                    </Link>
+                    <Link
+                        to={'/my_profile'}
+                        className={activeLink === 'My Profile' ? classes.active : ''}
+                    >
+                        <p> <img src={UserLogo} alt='icon' /> Profile</p>
+                    </Link>
+
+                    <Link
+                        to={'/loan'}
+                        className={activeLink === 'Loan' ? classes.active : ''}
+                    >
+                        <p><img src={messageIcon} alt='icon' /> Loans</p>
+                    </Link>
+                    <Link
+                        to={'/grants'}
+                        className={activeLink === 'Grants' ? classes.active : ''}
+                    >
+                        <p> <img src={messageIcon} alt='icon' /> Grants</p>
+                    </Link>
+                    <Link
+                        to={'/invoice_onboard'}
+                        className={activeLink === 'Invoices' ? classes.active : ''}
+                    >
+                        <p> <img src={Invoice} alt='icon' /> Invoices</p>
+                    </Link>
 
 
-
-
-        <Link
-            to={'/loan'}
-            className={activeLink === 'Loan' ? classes.active : ''}
-        >
-            <p><img src={messageIcon} alt='icon' /> Loans</p>
-        </Link>
-        <Link
-            to={'/grants'}
-            className={activeLink === 'Grants' ? classes.active : ''}
-        >
-            <p> <img src={messageIcon} alt='icon' /> Grants</p>
-        </Link>
-        <Link
-            to={'/invoice_onboard'}
-            className={activeLink === 'Invoices' ? classes.active : ''}
-        >
-            <p> <img src={Invoice} alt='icon' /> Invoices</p>
-        </Link>
-        
-  
-<Link
-        onClick={handleLogout}
-        // to={'/sign_in'}
-        className={activeLink === 'Logout' ? classes.active : ''}
-    >
-        <p>
-            <img src={LogOutIcon} alt='icon' />{' '}
-            {loading ? (
-                <>
-                    <Spinner size='sm' style={{ marginRight: 5 }} /> Signing out...
-                </>
-            ) : (
-                'Log out'
-            )}
-        </p>
-    </Link>
-
+                    <Link
+                        onClick={handleLogout}
+                        // to={'/sign_in'}
+                        className={activeLink === 'Logout' ? classes.active : ''}
+                    >
+                        <p>
+                            <img src={LogOutIcon} alt='icon' />{' '}
+                            {loading ? (
+                                <>
+                                    <Spinner size='sm' style={{ marginRight: 5 }} /> Signing out...
+                                </>
+                            ) : (
+                                'Log out'
+                            )}
+                        </p>
+                    </Link>
                 </div>
+                <div className={classes.harmborgers} onClick={toggleMenu}>
+                {isMenuOpen ? (
+                  <span className={classes.closs}>
+                    <i className='bx bx-x'></i>
+                    
+                  </span>
+                ) : (
+                  <span className={classes.open}>
+                    <i className='bx bx-menu'></i>
+                  </span>
+                )}
+              </div>
             </div>
             <div className={classes.formSection}>
                 <div className={classes.formSectionHeader}>
