@@ -175,7 +175,12 @@ p{
 }
 @media print {
     .adminBody{
-        padding:50px;
-        
+        padding:50px;        
     }    
+    .section4{
+        display: none;
+    }
+    .printBtn{
+        display: none;
+    }
 }

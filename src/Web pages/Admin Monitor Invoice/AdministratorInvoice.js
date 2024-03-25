@@ -51,10 +51,13 @@ export default function AdministratorInvoice() {
         return num < 10 ? `0${num}` : num;
       }
 
+      const handlePrint = () =>{
+        window.print();
+      }
 
   return (
     <div className={classes.adminBody}>
-        <button className={classes.printBtn}>Print</button>
+        <button className={classes.printBtn} onClick={handlePrint}>Print</button>
         <header className={`${classes.flexCont} ${classes.headerBottomBorder}`}>
             <div className={classes.Logo}>
                 <img src={OgunLogo} alt='Ogun Logo' className={classes.img}/>
