@@ -228,12 +228,12 @@ export default function MainDashoard() {
             </div>
             <div className={classes.formSection}>
                 <div className={classes.formSectionHeader}>
-                    <h1>News Editor</h1>
+                    <h3>News Editor</h3>
                     {/* <p>Apply for grants or loans from the Ogun State Government</p> */}
                 </div>
                 <div className={classes.formSectionHeader}>
                     <p>Welcome </p>
-                    <h1>{user}</h1>
+                    <h3 style={{color:'#2D995F'}}>{user}</h3>
                 </div>
             </div>
         </div>

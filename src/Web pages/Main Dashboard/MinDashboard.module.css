@@ -70,7 +70,7 @@
 
 .formSection{
     width: 100%;
-    padding-left: 20rem;
+    padding: 0 5rem 0 20rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,10 +83,10 @@
 .formSection p{
     font-size: 14px;
 }
-.formSection h1{
-    color: var(--Light-green);
-    font-size: 28px;
-    font-weight: 700;
+.formSection h3{
+    color: var(--Black);
+    font-size: 18px;
+    font-weight: 600;
 }
 .formSecCont{
     padding: 24px 32px;
