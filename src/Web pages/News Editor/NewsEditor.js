@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classes from './NewsEditor.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
-import { Spinner, Badge } from 'react-bootstrap';
+import { Spinner, Badge, Button } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -135,20 +135,31 @@ export default function NewsEditor() {
 
         <div className={classes.finishedbodyCont}>
             <div className={`${classes.formSecCont}`}>
-                <h3>Grants</h3>
+                <div className={classes.formSectionHeader}>
+                    <h3>News Editor</h3>
+                </div>
+                <div className={classes.formSectionHeader}>
+                    <p>Welcome </p>
+                    <h3 style={{color:'#2D995F'}}>user</h3>
+                </div>
             </div>
+            {/* <div className={classes.formSection}>
+                <div className={classes.formSectionHeader}>
+                    <h3>News Editor</h3>
+                    
+                </div>
+                <div className={classes.formSectionHeader}>
+                    <p>Welcome </p>
+                    <h3 style={{color:'#2D995F'}}>{user}</h3>
+                </div>
+            </div> */}
 
-            <div className={classes.mainform}>
-
-
-    
+        <div className={classes.mainform}>
 
     <div className={classes.loandgrantcards}>
     <div className={classes.loandethead}>
-        <p className={classes.loanText}>Grant Amount: <span className={classes.theamount}> ₦100,000.00</span></p>
-       
-        <p className={classes.loanText}>Date Approved: <span className={classes.loanText1}></span></p>
-       
+        <p className={classes.loanText}>Post news on the website from the editor</p>
+        <Button variant="light"><i class='bx bx-plus-circle'></i> Add New</Button>
     </div>
 
     <div className={classes.loanContainer}>
@@ -169,92 +180,97 @@ export default function NewsEditor() {
           <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
           <td>12th Apr, 2024</td>
           <td>Abiodun Moyo</td>
-          <td>Edit</td>
+          <td className={classes.edit}>Edit</td>
         </tr>
         <tr>
           <td>1</td>
           <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
           <td>12th Apr, 2024</td>
           <td>Abiodun Moyo</td>
-          <td>Edit</td>
+          <td className={classes.edit}>Edit</td>
         </tr>
         <tr>
           <td>1</td>
           <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
           <td>12th Apr, 2024</td>
           <td>Abiodun Moyo</td>
-          <td>Edit</td>
+          <td className={classes.edit}>Edit</td>
         </tr>
         
       </tbody>
     </Table>
-            {/* <table>
-                <thead className={classes.loanTable}>
-                    <tr >
-                        <th className={classes.tableText}>S/N</th>
-                        <th className={classes.tableText}>TITLE</th>
-                        <th className={classes.tableText}>DATE POSTED</th>
-                        <th className={classes.tableText}>AUTHOR</th>
-                        <th className={classes.tableText}>ACTION</th>
-                        
+    <div className={classes.accrodBtns}>
+        <Button variant='light' className={classes.prev}>Previous</Button>
+            <p style={{ color:'#2D995F'}}>1 of 5</p>
+        <Button variant="success" className={classes.next}>Next</Button>
+    </div>
+        {/* <table>
+            <thead className={classes.loanTable}>
+                <tr >
+                    <th className={classes.tableText}>S/N</th>
+                    <th className={classes.tableText}>TITLE</th>
+                    <th className={classes.tableText}>DATE POSTED</th>
+                    <th className={classes.tableText}>AUTHOR</th>
+                    <th className={classes.tableText}>ACTION</th>
+                    
+                </tr>
+            </thead> */}
+            {/*                     
+                            {isLoading ? (
+                <p className={classes.fetchText}><Spinner size='sm' style={{ marginRight: 5 }} />Fetching grant application...</p>
+            ) : grantDetail.length > 0 ? (
+                <tbody>
+                    <tr>
+                        <td>S/N</td>
+                        <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
+                        <td>12th Apr, 2024</td>
+                        <td>Abiodun Moyo</td>
+                        <td>Edit</td>
                     </tr>
-                </thead> */}
-{/*                     
-                {isLoading ? (
-    <p className={classes.fetchText}><Spinner size='sm' style={{ marginRight: 5 }} />Fetching grant application...</p>
-) : grantDetail.length > 0 ? (
-    <tbody>
-        <tr>
-            <td>S/N</td>
-            <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-            <td>12th Apr, 2024</td>
-            <td>Abiodun Moyo</td>
-            <td>Edit</td>
-        </tr>
-        <tr>
-            <td>S/N</td>
-            <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-            <td>12th Apr, 2024</td>
-            <td>Abiodun Moyo</td>
-            <td>Edit</td>
-        </tr>
-        <tr>
-            <td>S/N</td>
-            <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-            <td>12th Apr, 2024</td>
-            <td>Abiodun Moyo</td>
-            <td>Edit</td>
-        </tr>
-        
-        {grantDetail.map((item, index) => (
-            <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{item.application_number}</td>
-                <td>{item.type === 2 ? "Grant Application" : "Loan Application"}</td>
-                <td style={{ textAlign: "right" }}>₦{parseFloat(item.amount).toLocaleString('en-US', {
-                    minimumIntegerDigits: 1,
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                })}</td>
-                <td>{formatDate(item.created_at)}</td>
-                <td>
-                    <Badge bg={item.status === "Pending" ? 'warning' : item.status === "Approved" ? 'success' : 'danger'}>
-                        {item.status}
-                    </Badge>
-                </td>
-                <td>
-                   
-                </td>
-            </tr> 
-         ))} 
-    </tbody>
-) : (
-    <tbody>
-        <tr>
-            <td colSpan="7">No grant applications</td>
-        </tr>
-    </tbody>
-)}
+                    <tr>
+                        <td>S/N</td>
+                        <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
+                        <td>12th Apr, 2024</td>
+                        <td>Abiodun Moyo</td>
+                        <td>Edit</td>
+                    </tr>
+                    <tr>
+                        <td>S/N</td>
+                        <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
+                        <td>12th Apr, 2024</td>
+                        <td>Abiodun Moyo</td>
+                        <td>Edit</td>
+                    </tr>
+                    
+                    {grantDetail.map((item, index) => (
+                        <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{item.application_number}</td>
+                            <td>{item.type === 2 ? "Grant Application" : "Loan Application"}</td>
+                            <td style={{ textAlign: "right" }}>₦{parseFloat(item.amount).toLocaleString('en-US', {
+                                minimumIntegerDigits: 1,
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            })}</td>
+                            <td>{formatDate(item.created_at)}</td>
+                            <td>
+                                <Badge bg={item.status === "Pending" ? 'warning' : item.status === "Approved" ? 'success' : 'danger'}>
+                                    {item.status}
+                                </Badge>
+                            </td>
+                            <td>
+                            
+                            </td>
+                        </tr> 
+                    ))} 
+                </tbody>
+            ) : (
+                <tbody>
+                    <tr>
+                        <td colSpan="7">No grant applications</td>
+                    </tr>
+                </tbody>
+            )}
 
             </table> */}
 

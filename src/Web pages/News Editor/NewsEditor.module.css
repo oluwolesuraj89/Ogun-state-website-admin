@@ -49,9 +49,25 @@
   margin-bottom: 100px;
 }
 
-/* .loandethead{
-  margin-left: 30px;
-} */
+.loandethead{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-left: 30px; */
+}
+.loandethead button{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  color: var(--Light-green);
+  font-size: 16px;
+  gap: 5px;
+}
+.loandethead button:hover{
+  background-color: var(--Light-green);
+  color: var(--White);
+}
 
 .loanText {
   font-size: 15px;
@@ -91,11 +107,11 @@
   padding-right: 30px;
   justify-content: center;
   align-items: center;
-  margin-top: 52px;
+  margin-top: 22px;
 }
 
 .loanContainer{
-  margin-top: 45px;
+  margin-top: 15px;
   overflow-x: auto;
 }
 
@@ -117,6 +133,38 @@ overflow-y: hidden;
 font-size: 15px;
 font-weight: normal;
 
+} */
+.loanResponsive table th{
+  background-color: var(--Light-green);
+  color: white;
+}
+.loanResponsive table > td, th{
+  border: none;
+}
+ .loanResponsive .edit{
+    color: var(--Light-green);
+ }
+ .loanResponsive .accrodBtns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--Light-green);
+ }
+ .loanResponsive .accrodBtns .prev{
+  border: 1px solid #2D995F;
+  color: var(--Light-green);
+  background-color: transparent;
+  padding: 5px 20px;
+ }
+ .loanResponsive .accrodBtns .next{
+    padding: 5px 20px;
+ }
+/* .loanResponsive .edit:hover{
+  border: 1px solid var(--Light-green);
+  background-color: var(--Light-green);
+  color: var(--White);
+  border: 10px;
 } */
 
 .imgapply img {
