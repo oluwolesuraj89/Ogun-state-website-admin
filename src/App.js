@@ -94,28 +94,28 @@ function App() {
     <>
     <RegistrationProvider>
       <Routes>
-        <Route path='/'element={<LandingPage/>}/>
-        <Route path='/landing_page'element={<LandingPage/>}/>
-        <Route path='/sign_up'element={<SignUp/>}/>
-        <Route path='/sign_in'element={<SignIn/>}/>
-        <Route path='/register_phone'element={<RegisterPhone/>}/>
-        <Route path='/register_email'element={<RegisterEmail/>}/>
+        {/* <Route path='/'element={<LandingPage/>}/> */}
         <Route path='/dashboard'element={<Dashboard/>}/>
+        <Route path='/grants'element={<GrantTable/>}/>
+        <Route path='/my_profile'element={<CompleteReg/>}/>
+        <Route path='/sign_in'element={<SignIn/>}/>
+        {/* <Route path='/landing_page'element={<LandingPage/>}/> */}
+        {/* <Route path='/sign_up'element={<SignUp/>}/> */}
+        {/* <Route path='/register_phone'element={<RegisterPhone/>}/>
+        <Route path='/register_email'element={<RegisterEmail/>}/>
         <Route path='/loans'element={<Loans/>}/>
         <Route path='/loan_onboarding'element={<LoansOnboarding/>}/>
         <Route path='/loan'element={<LoanTable/>}/>
-        <Route path='/grants'element={<GrantTable/>}/>
         <Route path='/grant_onboarding'element={<GrantOnboarding/>}/>
         <Route path='/loan_ineligible'element={<LoanIneligible/>}/>
         <Route path='/grant_ineligible'element={<GrantIneligible/>}/>
         <Route path='/loan_application'element={<ApplyLoan/>}/>
         <Route path='/apply_for_loan'element={<LoanHomePage/>}/>
         <Route path='/submit_loan_application'element={<LoansApplication/>}/>
-        <Route path='/grant'element={<Grant/>}/>
-        <Route path='/my_profile'element={<CompleteReg/>}/>
-        <Route path='/submit_grant_application'element={<SubmitGrantApplication/>}/>
+        <Route path='/grant'element={<Grant/>}/> */}
+        {/* <Route path='/submit_grant_application'element={<SubmitGrantApplication/>}/> */}
         {/* <Route path='/my_profile'element={<Profile/>}/> */}
-        <Route path='/verify_phone'element={<VerifyPhone/>}/>
+        {/* <Route path='/verify_phone'element={<VerifyPhone/>}/>
         <Route path='/verify_email'element={<VerifyEmail/>}/>
         <Route path='/forgot_password'element={<ForgotPassword/>}/>
         <Route path='/forgot_password_redirect'element={<ForgotPasswordRedirect/>}/>
@@ -125,7 +125,7 @@ function App() {
         <Route path='/main_dashboard'element={<MainDashoard/>}/>
         <Route path='/header_nav'element={<HeaderNav/>}/>
         <Route path='/success'element={<Success/>}/>
-        <Route path='/apply_grant'element={<ApplyGrant/>}/>
+        <Route path='/apply_grant'element={<ApplyGrant/>}/> */}
         </Routes>
         </RegistrationProvider>
         </>
