@@ -165,8 +165,8 @@ export default function MainDashoard() {
                             Dashboard</p>
                     </Link>
                     <Link
-                        to={'/grants'}
-                        className={activeLink === 'Grants' ? classes.active : ''}
+                        to={'/news_editor'}
+                        className={activeLink === 'NewsEditor' ? classes.active : ''}
                     >
                         <p> <img src={messageIcon} alt='icon' /> News Editor </p>
                     </Link>
@@ -228,8 +228,12 @@ export default function MainDashoard() {
             </div>
             <div className={classes.formSection}>
                 <div className={classes.formSectionHeader}>
-                    <h1>Welcome {user}</h1>
-                    <p>Apply for grants or loans from the Ogun State Government</p>
+                    <h1>News Editor</h1>
+                    {/* <p>Apply for grants or loans from the Ogun State Government</p> */}
+                </div>
+                <div className={classes.formSectionHeader}>
+                    <p>Welcome </p>
+                    <h1>{user}</h1>
                 </div>
             </div>
         </div>

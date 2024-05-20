@@ -160,9 +160,6 @@ const readData = async () => {
       setSelectedSector(se);
       setBusinessTax(stin);
 
-
-
-      // console.log(results);
     } catch (error) {
     //   if (error.response && error.response.status === 401) {
         
@@ -190,7 +187,7 @@ const readData = async () => {
         <div>
                     <MainDashoard/>
                     
-                    <div className={classes.finishedbodyCont}>
+                    {/* <div className={classes.finishedbodyCont}>
                         <div className={`${classes.formSecCont}`}>
                             <h3>Dashboard</h3>
                         </div>
@@ -291,14 +288,6 @@ const readData = async () => {
                 </td>
             </tr>
             
-            {/* <tr>
-            <td className={classes.last}>
-                    <div className={classes.header}>Local Government</div>
-                    <div className={classes.body}>{selectedLocalGovt ? (selectedLocalGovt.length > 25 ? `${selectedLocalGovt.substring(0, 25)}...` : selectedLocalGovt) : ''}</div>
-                </td>
-            </tr> */}
-
-            
         </tbody>
     </table>
 
@@ -336,12 +325,6 @@ const readData = async () => {
                 </td>
             </tr>
 
-            {/* <tr>
-                <td>
-                    <div className={classes.header}>Relationship</div>
-                    <div className={classes.body}>{selectedNokRelationship ? (selectedNokRelationship.length > 25 ? `${selectedNokRelationship.substring(0, 25)}...` : selectedNokRelationship) : ''}</div>
-                </td>
-            </tr> */}
         </tbody>
     </table>
 
@@ -349,7 +332,7 @@ const readData = async () => {
                                 </div>
                             </div>
                         </div>
-                        {/* Business details comes after this div */}
+            
 
                         <div className={classes.wholebizdetails}>
                             <div className={classes.headfordetails}>
@@ -373,19 +356,19 @@ const readData = async () => {
             <tr>
                 <td>
                     <div className={classes.header}>Business Email Address</div>
-                    {/* <div className={classes.body}>Doe</div> */}
+                    
                 </td>
             </tr>
             <tr>
                 <td>
                     <div className={classes.header}>Business Phone Number</div>
-                    {/* <div className={classes.body}>30</div> */}
+                    
                 </td>
             </tr>
             <tr>
                 <td>
                     <div className={classes.header}>Date of Commencement</div>
-                    {/* <div className={classes.body}>john.doe@example.com</div> */}
+                    
                 </td>
             </tr>
 
@@ -412,7 +395,7 @@ const readData = async () => {
             <tr>
                 <td>
                     <div className={classes.header}>No of Employees</div>
-                    {/* <div className={classes.body}>Doe</div> */}
+                    
                 </td>
             </tr>
             <tr>
@@ -469,9 +452,8 @@ const readData = async () => {
                         </div>                            
                                 </div>
                                 </div>
-                    </div>
-                {/* </div> */}
-            {/* </div> */}
+                    </div> */}
+                
         </div>
 
     );

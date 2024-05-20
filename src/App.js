@@ -35,7 +35,8 @@ import LoanIneligible from './Web pages/Loan Ineligible/LoanIneligible';
 import GrantIneligible from './Web pages/Grant Ineligible/GrantIneligible';
 import ApplyGrant from './Web pages/Grants Apply/ApplyGrant';
 import LoanTable from './Web pages/Loan Table/LoanTable';
-import GrantTable from './Web pages/Grant Table/GrantTable';
+// import GrantTable from './Web pages/News Editor/NewsEditor';
+import NewsEditor from './Web pages/News Editor/NewsEditor';
 
 
 function App() {
@@ -94,9 +95,9 @@ function App() {
     <>
     <RegistrationProvider>
       <Routes>
-        {/* <Route path='/'element={<LandingPage/>}/> */}
+        <Route path='/'element={<LandingPage/>}/>
         <Route path='/dashboard'element={<Dashboard/>}/>
-        <Route path='/grants'element={<GrantTable/>}/>
+        <Route path='/news_editor'element={<NewsEditor/>}/>
         <Route path='/my_profile'element={<CompleteReg/>}/>
         <Route path='/sign_in'element={<SignIn/>}/>
         {/* <Route path='/landing_page'element={<LandingPage/>}/> */}
