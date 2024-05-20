@@ -289,6 +289,7 @@ const readData = async () => {
                     <div className={classes.body}>{regType ? (regType.length > 25 ? `${regType.substring(0, 25)}...` : regType) : ''}</div>
                 </td>
             </tr>
+            
             {/* <tr>
             <td className={classes.last}>
                     <div className={classes.header}>Local Government</div>
