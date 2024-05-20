@@ -151,10 +151,11 @@ const [errorMessage1, setErrorMessage1] = useState('');
           setLocalGovt(lg);
          
         } catch (error) {
-          if (error.response && error.response.status === 401) {
+        //   if (error.response && error.response.status === 401) {
             
-            navigate('/sign_in');
-          } else {
+        //     navigate('/sign_in');
+        //   } else 
+          {
           const errorStatus = error.response?.data?.message;
           console.log(errorStatus);
           setLocalGovt([]);
@@ -170,10 +171,11 @@ const [errorMessage1, setErrorMessage1] = useState('');
           setSectors(sc);
          
         } catch (error) {
-          if (error.response && error.response.status === 401) {
+        //   if (error.response && error.response.status === 401) {
             
-            navigate('/sign_in');
-          } else {
+        //     navigate('/sign_in');
+        //   } else 
+          {
           const errorStatus = error.response?.data?.message;
           console.log(errorStatus);
           setSectors([]);
@@ -189,10 +191,11 @@ const [errorMessage1, setErrorMessage1] = useState('');
           setBanks(bks);
          
         } catch (error) {
-          if (error.response && error.response.status === 401) {
+        //   if (error.response && error.response.status === 401) {
             
-            navigate('/sign_in');
-          } else {
+        //     navigate('/sign_in');
+        //   } else 
+          {
           const errorStatus = error.response?.data?.message;
           console.log(errorStatus);
           setSectors([]);
@@ -513,10 +516,11 @@ const [errorMessage1, setErrorMessage1] = useState('');
     
           // console.log(results);
         } catch (error) {
-          if (error.response && error.response.status === 401) {
+        //   if (error.response && error.response.status === 401) {
             
-            navigate('/sign_in');
-          } else {
+        //     navigate('/sign_in');
+        //   } else 
+          {
           const errorStatus = error.response?.data?.message;
           console.log(errorStatus);
           setUserProfile([]);

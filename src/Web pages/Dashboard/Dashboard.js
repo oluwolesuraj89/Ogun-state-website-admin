@@ -164,10 +164,11 @@ const readData = async () => {
 
       // console.log(results);
     } catch (error) {
-      if (error.response && error.response.status === 401) {
+    //   if (error.response && error.response.status === 401) {
         
-        navigate('/sign_in');
-      } else {
+    //     navigate('/sign_in');
+    //   } else { 
+        {
       const errorStatus = error.response?.data?.message;
      
       setUserProfile([]);

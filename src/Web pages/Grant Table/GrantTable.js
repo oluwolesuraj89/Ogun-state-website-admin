@@ -57,10 +57,11 @@ export default function GrantTable() {
             setInvoicePayment(results);
             // console.log(results, "invoice payment");
         } catch (error) {
-            if (error.response && error.response.status === 401) {
+            // if (error.response && error.response.status === 401) {
 
-                navigate('/sign_in');
-            } else {
+            //     navigate('/sign_in');
+            // } else 
+            {
                 const errorStatus = error.response?.data?.message;
                 console.log(errorStatus);
                 setInvoicePayment([]);
@@ -113,10 +114,11 @@ export default function GrantTable() {
             setGrantDetail(resultxxx);
             // console.log(resultxxx, "men payment");
         } catch (error) {
-            if (error.response && error.response.status === 401) {
+            // if (error.response && error.response.status === 401) {
 
-                navigate('/sign_in');
-            } else {
+            //     navigate('/sign_in');
+            // } else 
+            {
                 const errorStatus = error.response?.data?.message;
                 console.log(errorStatus);
                 setGrantDetail([]);

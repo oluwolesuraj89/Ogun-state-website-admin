@@ -165,13 +165,19 @@ export default function MainDashoard() {
                             Dashboard</p>
                     </Link>
                     <Link
+                        to={'/grants'}
+                        className={activeLink === 'Grants' ? classes.active : ''}
+                    >
+                        <p> <img src={messageIcon} alt='icon' /> News Editor </p>
+                    </Link>
+                    <Link
                         to={'/my_profile'}
                         className={activeLink === 'My Profile' ? classes.active : ''}
                     >
                         <p> <img src={UserLogo} alt='icon' /> Profile</p>
                     </Link>
 
-                    <Link
+                    {/* <Link
                         to={'/loan'}
                         className={activeLink === 'Loan' ? classes.active : ''}
                     >
@@ -189,9 +195,9 @@ export default function MainDashoard() {
                     >
                         <p> <img src={Invoice} alt='icon' /> Invoices</p>
                     </Link>
+ */}
 
-
-                    <Link
+                    {/* <Link
                         onClick={handleLogout}
                         // to={'/sign_in'}
                         className={activeLink === 'Logout' ? classes.active : ''}
@@ -206,7 +212,7 @@ export default function MainDashoard() {
                                 'Log out'
                             )}
                         </p>
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className={classes.harmborgers} onClick={toggleMenu}>
                 {isMenuOpen ? (
