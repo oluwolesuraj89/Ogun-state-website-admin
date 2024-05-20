@@ -153,7 +153,42 @@ export default function NewsEditor() {
 
     <div className={classes.loanContainer}>
         <div className={classes.loanResponsive}>
-            <table>
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>S/N</th>
+          <th>TITLE</th>
+          <th>DATE POSTED</th>
+          <th>AUTHOR</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
+          <td>12th Apr, 2024</td>
+          <td>Abiodun Moyo</td>
+          <td>Edit</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
+          <td>12th Apr, 2024</td>
+          <td>Abiodun Moyo</td>
+          <td>Edit</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
+          <td>12th Apr, 2024</td>
+          <td>Abiodun Moyo</td>
+          <td>Edit</td>
+        </tr>
+        
+      </tbody>
+    </Table>
+            {/* <table>
                 <thead className={classes.loanTable}>
                     <tr >
                         <th className={classes.tableText}>S/N</th>
@@ -161,13 +196,13 @@ export default function NewsEditor() {
                         <th className={classes.tableText}>DATE POSTED</th>
                         <th className={classes.tableText}>AUTHOR</th>
                         <th className={classes.tableText}>ACTION</th>
-                        {/* <th className={classes.tableText}>Status</th> */}
+                        
                     </tr>
-                </thead>
+                </thead> */}
 {/*                     
                 {isLoading ? (
     <p className={classes.fetchText}><Spinner size='sm' style={{ marginRight: 5 }} />Fetching grant application...</p>
-) : grantDetail.length > 0 ? ( */}
+) : grantDetail.length > 0 ? (
     <tbody>
         <tr>
             <td>S/N</td>
@@ -191,8 +226,8 @@ export default function NewsEditor() {
             <td>Edit</td>
         </tr>
         
-        {/* {grantDetail.map((item, index) => ( */}
-            {/* <tr key={index}>
+        {grantDetail.map((item, index) => (
+            <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{item.application_number}</td>
                 <td>{item.type === 2 ? "Grant Application" : "Loan Application"}</td>
@@ -210,48 +245,20 @@ export default function NewsEditor() {
                 <td>
                    
                 </td>
-            </tr> */}
-        {/* ))} */}
+            </tr> 
+         ))} 
     </tbody>
-{/* ) : ( */}
+) : (
     <tbody>
         <tr>
-            {/* <td colSpan="7">No grant applications</td> */}
+            <td colSpan="7">No grant applications</td>
         </tr>
     </tbody>
-{/* )} */}
+)}
 
-            </table>
+            </table> */}
 
-            <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </Table>
+            
         </div>
     </div>
 </div> 
@@ -259,8 +266,6 @@ export default function NewsEditor() {
 </div>
 
         </div>
-
-
 
     </div>
 )

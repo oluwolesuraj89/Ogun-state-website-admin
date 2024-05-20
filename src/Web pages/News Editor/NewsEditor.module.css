@@ -108,16 +108,16 @@
  /* padding: 30px; */
  text-align: center;
 }
-.loanResponsive {
+/* .loanResponsive {
 overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-}
+} */
 
-.tableText{
+/* .tableText{
 font-size: 15px;
 font-weight: normal;
 
-}
+} */
 
 .imgapply img {
   width: 170px;
