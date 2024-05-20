@@ -148,6 +148,8 @@ font-weight: normal;
 }
  .loanResponsive .edit{
     color: var(--Light-green);
+    cursor: pointer;
+    text-align: center;
  }
  .loanResponsive .accrodBtns{
     display: flex;

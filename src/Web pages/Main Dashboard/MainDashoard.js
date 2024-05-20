@@ -148,71 +148,74 @@ export default function MainDashoard() {
         <div className={classes.sideNavBody}>
             <div className={classes.sideNav}>
                 <div className={classes.logoCont}>
-                    <img src={RegLogo} alt='Logo' className={`${classes.img} ${classes.webshow}`} />
-                    <img src={DashboardLogo} alt='Logo' className={`${classes.img} ${classes.mobileshow}`} />
+                    <p style={{color:'white'}}>Ogun State Website Admin Panel</p>
+                    {/* <img src={RegLogo} alt='Logo' className={`${classes.img} ${classes.webshow}`} />
+                    <img src={DashboardLogo} alt='Logo' className={`${classes.img} ${classes.mobileshow}`} /> */}
                 </div>
                 {/* {`${classes.mainMenu} ${isMenuOpen ? classes.menuOpen : ''}`} */}
+                <div className={classes.menuCont}>
+                    <div className={`${classes.regMenu} ${isMenuOpen ? '' : classes.menuOpen}`}>
+                
+                        <Link
+                            to={'/dashboard'}
+                            className={activeLink === 'Dashboard' ? classes.active : ''}
+                        >
+                            <p>
+                                <img src={messageIcon} alt='icon' className={classes.webshow} />
+                                <img src={DashImg} alt='icon' className={classes.mobileshow} />
+                                Dashboard</p>
+                        </Link>
+                        <Link
+                            to={'/news_editor'}
+                            className={activeLink === 'NewsEditor' ? classes.active : ''}
+                        >
+                            <p> <img src={messageIcon} alt='icon' /> News Editor </p>
+                        </Link>
+                        <Link
+                            to={'/my_profile'}
+                            className={activeLink === 'My Profile' ? classes.active : ''}
+                        >
+                            <p> <img src={UserLogo} alt='icon' /> Profile</p>
+                        </Link>
 
-                <div className={`${classes.regMenu} ${isMenuOpen ? '' : classes.menuOpen}`}>
-               
-                    <Link
-                        to={'/dashboard'}
-                        className={activeLink === 'Dashboard' ? classes.active : ''}
-                    >
-                        <p>
-                            <img src={messageIcon} alt='icon' className={classes.webshow} />
-                            <img src={DashImg} alt='icon' className={classes.mobileshow} />
-                            Dashboard</p>
-                    </Link>
-                    <Link
-                        to={'/news_editor'}
-                        className={activeLink === 'NewsEditor' ? classes.active : ''}
-                    >
-                        <p> <img src={messageIcon} alt='icon' /> News Editor </p>
-                    </Link>
-                    <Link
-                        to={'/my_profile'}
-                        className={activeLink === 'My Profile' ? classes.active : ''}
-                    >
-                        <p> <img src={UserLogo} alt='icon' /> Profile</p>
-                    </Link>
+                        {/* <Link
+                            to={'/loan'}
+                            className={activeLink === 'Loan' ? classes.active : ''}
+                        >
+                            <p><img src={messageIcon} alt='icon' /> Loans</p>
+                        </Link>
+                        <Link
+                            to={'/grants'}
+                            className={activeLink === 'Grants' ? classes.active : ''}
+                        >
+                            <p> <img src={messageIcon} alt='icon' /> Grants</p>
+                        </Link>
+                        <Link
+                            to={'/invoice_onboard'}
+                            className={activeLink === 'Invoices' ? classes.active : ''}
+                        >
+                            <p> <img src={Invoice} alt='icon' /> Invoices</p>
+                        </Link>
+    */}
 
-                    {/* <Link
-                        to={'/loan'}
-                        className={activeLink === 'Loan' ? classes.active : ''}
-                    >
-                        <p><img src={messageIcon} alt='icon' /> Loans</p>
-                    </Link>
-                    <Link
-                        to={'/grants'}
-                        className={activeLink === 'Grants' ? classes.active : ''}
-                    >
-                        <p> <img src={messageIcon} alt='icon' /> Grants</p>
-                    </Link>
-                    <Link
-                        to={'/invoice_onboard'}
-                        className={activeLink === 'Invoices' ? classes.active : ''}
-                    >
-                        <p> <img src={Invoice} alt='icon' /> Invoices</p>
-                    </Link>
- */}
+                        {/* <Link
+                            onClick={handleLogout}
+                            // to={'/sign_in'}
+                            className={activeLink === 'Logout' ? classes.active : ''}
+                        >
+                            <p>
+                                <img src={LogOutIcon} alt='icon' />{' '}
+                                {loading ? (
+                                    <>
+                                        <Spinner size='sm' style={{ marginRight: 5 }} /> Signing out...
+                                    </>
+                                ) : (
+                                    'Log out'
+                                )}
+                            </p>
+                        </Link> */}
+                    </div>
 
-                    {/* <Link
-                        onClick={handleLogout}
-                        // to={'/sign_in'}
-                        className={activeLink === 'Logout' ? classes.active : ''}
-                    >
-                        <p>
-                            <img src={LogOutIcon} alt='icon' />{' '}
-                            {loading ? (
-                                <>
-                                    <Spinner size='sm' style={{ marginRight: 5 }} /> Signing out...
-                                </>
-                            ) : (
-                                'Log out'
-                            )}
-                        </p>
-                    </Link> */}
                 </div>
                 <div className={classes.harmborgers} onClick={toggleMenu}>
                 {isMenuOpen ? (

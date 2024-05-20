@@ -1,0 +1,236 @@
+*,
+::after,
+::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* colors */
+:root{
+    --Deep-green: #164B2E;
+    --Light-green: #2D995F; 
+    --Gray:#f2f3f3;
+    --White: #ffffff;
+    --Black: #343A40;
+}
+
+
+.finishedbodyCont{
+  width: 100%;
+  padding-left: 20rem;
+  padding-right: 4rem;
+
+}
+.topPadding{
+  width: 100%;
+  padding-top: 1rem;
+}
+.formSecCont{
+  padding: 24px 32px;
+  background-color: var(--White);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.formSecCont h3{
+  color: #343A40;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+.loandethead{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-left: 30px; */
+}
+.loandethead .formLabel h4{
+  font-size: 20 px;
+  font-weight: 700;
+}
+.loandethead .formIntBtn{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  gap: 10px;
+}
+.formIntBtn .btn1{
+  background-color: var(--White);
+  border: 1px solid rgb(187, 183, 183);
+  color: var(--Black);
+  font-size: 14px;
+}
+.formIntBtn .btn2{
+    /* background-color: var(--White); */
+    /* border: 1px solid rgb(187, 183, 183); */
+  font-size: 14px;
+}
+
+.loanText {
+  font-size: 15px;
+}
+/* .loanText1 {
+  font-size: 15px;
+  margin-left: 20px;
+} */
+
+
+
+
+.formSection{
+    padding: 35px 30px;
+}
+.formSection p{
+    font-size: 14px;
+}
+.formSection h1{
+    color: var(--Light-green);
+    font-size: 28px;
+    font-weight: 700;
+}
+.formSecCont{
+    padding: 24px 32px;
+    background-color: var(--White);
+    border-radius: 12px;
+   
+}
+.formSecCont h3{
+  color: #343A40;
+  font-size: 20px;
+  font-weight: 700;
+}
+.mainform{
+    width: 100%;
+    /* background-color: var(--White); */
+    border-radius: 12px;
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 0;
+}
+.loanResponsive{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  /* align-items: c; */
+}
+.loanResponsive .banner{
+  background-color: var(--White);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 35%;
+  height: 300px;
+  box-shadow: 1px -1px  3px rgb(218, 215, 215);
+}
+.loanResponsive .banner .imgSec{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.loanResponsive .banner .imgSec img{
+  box-shadow:3px 3px 10px  rgb(218, 215, 215) ;
+  border-radius: 10px;
+}
+.loanResponsive .banner p{
+  font-size: 14px;
+  text-align: center;
+}
+
+.loanResponsive .mainForm{
+  background-color: var(--White);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 1px -1px  3px rgb(218, 215, 215);
+}
+.mainform .form{
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mainform .form span{
+  color: #f95f7a;
+}
+.mainform .form ::placeholder{
+  color: #b0a1bc;
+}
+.span{
+  border: 1px solid rgb(218, 215, 215);
+  height: 250px;
+  border-radius: 10px;
+}
+.formActionArea{
+  border-bottom: 1px solid rgb(218, 215, 215);
+}
+.span button, 
+.span textarea{
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.span textarea{
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+}
+.span button:hover{
+  background-color: transparent;
+  color: #17c653;
+} 
+
+@media(max-width:800px){
+  .finishedbodyCont{
+    padding-left: 0;
+    padding-right: 0;
+  
+  }
+  .formSecCont{
+    padding: 21px 25px;
+    background-color: var(--White);
+    border-radius: 0;
+    margin-bottom: 20px;
+   
+  }
+  .formSecCont h3{
+    color: #343A40;
+    font-size: 20px;
+    font-weight: lighter;
+  }
+  .applygrnttxt {
+    font-size: 18px;
+    margin-top: 17px;
+    margin-bottom: 4px;
+  }
+  
+  .grntapplytxt {
+    padding: 0 34px;
+    font-size: 14px;
+  }
+  .applyLoan{
+    width: 236px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+  .continueReg{
+    /* color: white; */
+    /* font-size: 16px; */
+    font-weight: 400;
+  /* text-align: center; */
+  }
+}
+  
+  

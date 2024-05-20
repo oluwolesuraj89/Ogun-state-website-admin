@@ -17,11 +17,11 @@
 }
 
 .logoCont{
-    width: 100%;
-    max-width: 228px;
-    height: 77px;
-    overflow: hidden;
-    margin-bottom: 48px;
+    border-bottom: 2px solid #E9ECEF;
+}
+.logoCont p{
+    font-size: 14px;
+    padding: 45px 32px 37px 32px;
 }
 .img{
     width: 100%;
@@ -39,9 +39,11 @@
 }
 .sideNav{
     background-color: var(--Deep-green);
-    padding: 37px 27px 0 24px;
     height: 1800px;
     position: fixed;
+}
+.menuCont{
+    padding: 37px 27px 0 24px;
 }
 .regMenu{
     display: flex;
@@ -57,13 +59,13 @@
     border-radius: 4px;
 }
 .regMenu img{
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   margin-right: 20px;
 }
 .regMenu p{
     color: var(--White);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     margin:0;
 }

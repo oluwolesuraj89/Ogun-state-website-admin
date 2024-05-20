@@ -17,7 +17,7 @@ import rectangle from '../../Images/Rectangle 9.png';
 import arrow from '../../Images/arrow.svg';
 
 export default function SubNews() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     // const [bearer, setBearer] = useState('');
     // const [grantDetail, setGrantDetail] = useState([]);
     // const [invoicePayment, setInvoicePayment] = useState([]);
@@ -26,7 +26,9 @@ export default function SubNews() {
     // const [isLoan, setIsLoan] = useState(false);
     // const { isGrant, isHome } = useRegistration();
 
-  
+    const goBack = () =>{
+        navigate('/news_editor')
+    }
 
     // const readData = async () => {
     //     try {
@@ -159,7 +161,7 @@ export default function SubNews() {
         <div className={classes.mainform}>
 
     <div className={classes.loandgrantcards}>
-    <div className={classes.loandethead}>
+    <div className={classes.loandethead} onClick={goBack}>
         <img src={arrow} />
         <p className={classes.loanText}>Back to News</p>
     </div>
