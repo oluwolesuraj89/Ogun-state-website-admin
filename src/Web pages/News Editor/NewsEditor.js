@@ -134,13 +134,15 @@ export default function NewsEditor() {
         <MainDashoard />
 
         <div className={classes.finishedbodyCont}>
-            <div className={`${classes.formSecCont}`}>
-                <div className={classes.formSectionHeader}>
-                    <h3>News Editor</h3>
-                </div>
-                <div className={classes.formSectionHeader}>
-                    <p>Welcome </p>
-                    <h3 style={{color:'#2D995F'}}>user</h3>
+            <div className={classes.topPadding}>
+                <div className={`${classes.formSecCont}`}>
+                    <div className={classes.formSectionHeader}>
+                        <h3>News Editor</h3>
+                    </div>
+                    <div className={classes.formSectionHeader}>
+                        <small>Welcome </small>
+                        <h3 style={{color:'#2D995F'}}>user</h3>
+                    </div>
                 </div>
             </div>
             {/* <div className={classes.formSection}>
