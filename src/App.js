@@ -37,6 +37,7 @@ import ApplyGrant from './Web pages/Grants Apply/ApplyGrant';
 import LoanTable from './Web pages/Loan Table/LoanTable';
 // import GrantTable from './Web pages/News Editor/NewsEditor';
 import NewsEditor from './Web pages/News Editor/NewsEditor';
+import SubNews from './Web pages/Sub News/SubNews';
 
 
 function App() {
@@ -100,6 +101,7 @@ function App() {
         <Route path='/news_editor'element={<NewsEditor/>}/>
         <Route path='/my_profile'element={<CompleteReg/>}/>
         <Route path='/sign_in'element={<SignIn/>}/>
+        <Route path='/subnew' element={<SubNews />} />
         {/* <Route path='/landing_page'element={<LandingPage/>}/> */}
         {/* <Route path='/sign_up'element={<SignUp/>}/> */}
         {/* <Route path='/register_phone'element={<RegisterPhone/>}/>
