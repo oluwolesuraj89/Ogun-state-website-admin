@@ -1,0 +1,44 @@
+/* Change the color of the toolbar buttons */
+.ql-toolbar .ql-formats button {
+    color: #2c3e50; 
+  }
+  .ql-editor{
+    max-width: 100%;
+  }
+  
+  /* Add a hover effect to the toolbar buttons */
+  .ql-toolbar .ql-formats button:hover {
+    color: green; /* Red */
+    /* background-color: #ecf0f1; Light Gray */
+  }
+  /* .ql-toolbar.ql-snow .ql-formats button{
+    color: red !important;
+  } */
+  
+  /* Change the background of the toolbar */
+  .ql-toolbar {
+    /* background-color: #f1c40f; Yellow */
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    /* border-top: none; */
+  }
+  .ql-container.ql-snow {
+    /* background-color: #f1c40f; Yellow */
+    border: none !important ;
+
+  }
+  
+  /* Style dropdowns */
+  .ql-toolbar .ql-formats .ql-picker {
+    color: #2c3e50; /* Dark Blue */
+  }
+  
+  .ql-toolbar .ql-formats .ql-picker-options .ql-picker-item {
+    color: #2c3e50; /* Dark Blue */
+  }
+  
+  .ql-toolbar .ql-formats .ql-picker-options .ql-picker-item:hover {
+    color: #e74c3c; /* Red */
+    background-color: #ecf0f1; /* Light Gray */
+  }

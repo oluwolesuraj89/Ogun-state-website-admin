@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button } from 'react-bootstrap';
 
 
+
 const SignUp = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');

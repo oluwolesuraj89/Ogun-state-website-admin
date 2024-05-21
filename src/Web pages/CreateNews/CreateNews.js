@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import classes from './CreateNews.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
 import { Spinner, Badge, Button } from 'react-bootstrap';
@@ -19,10 +19,18 @@ import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import InputGroup from 'react-bootstrap/InputGroup';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // import styles
+import './CustomQuillToolbar.css';
 
 export default function CreateNews() {
     const navigate = useNavigate();
-    // const [bearer, setBearer] = useState('');
+    const [editorHtml, setEditorHtml] = useState('');
+    const [inputText, setInputText] = useState('');
+    const [imageSrc, setImageSrc] = useState(placeHolder);
+    const fileInputRef = useRef(null);
+
+  // const [bearer, setBearer] = useState('');
     // const [grantDetail, setGrantDetail] = useState([]);
     // const [invoicePayment, setInvoicePayment] = useState([]);
     // const [isLoading, setIsLoading] = useState(false);
@@ -30,9 +38,53 @@ export default function CreateNews() {
     // const [isLoan, setIsLoan] = useState(false);
     // const { isGrant, isHome } = useRegistration();
 
+  const handleEditorChange = (content, delta, source, editor) => {
+    setEditorHtml(content);
+  };
+
+  const handleInputChange = (event) => {
+    setInputText(event.target.value);
+  };
+    
+  const applyInputText = () => {
+    // You can add logic to format the text input as needed
+    setEditorHtml(editorHtml + inputText);
+    setInputText('');
+  };
+
+  const modules = {
+    toolbar: [
+    //   [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+      [{size: []}],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    //   [{'list': 'ordered'}, {'list': 'bullet'}, 
+    //    {'indent': '-1'}, {'indent': '+1'}],
+      [ 'image'],
+    //   ['clean']                                        
+    ],
+  };
+
     const openNews = () =>{
         navigate('/subnew')
     }
+
+    const handleEditClick = () => {
+        fileInputRef.current.click();
+      };
+
+      const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file && (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg')) {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            setImageSrc(reader.result);
+          };
+          reader.readAsDataURL(file);
+        } else {
+          alert('Only *.png, *.jpg and *.jpeg image files are accepted.');
+          setImageSrc(placeHolder)
+        }
+      };
 
     // const readData = async () => {
     //     try {
@@ -160,7 +212,7 @@ export default function CreateNews() {
     <div className={classes.loandethead}>
         <div className={classes.formLabel}>
             <h4>New</h4>
-            <p className={classes.loanText}>Home-Apps-eCommerce-Catalog</p>
+            <p className={classes.loanText}>Home - Apps - eCommerce - Catalog</p>
         </div>
         <div className={classes.formIntBtn}>
             <Button variant="light" className={classes.btn1}> Add Member</Button>
@@ -173,10 +225,20 @@ export default function CreateNews() {
             <div className={classes.banner}>
                 <h5>Banner</h5>
                 <div className={classes.imgSec}>
-                    {/* <div> */}
-                        <img src={placeHolder} alt='img' width={150} />
-                    {/* </div> */}
+                    <div className={classes.imgCont}>
+                        <span onClick={handleEditClick}><i class='bx bx-edit'></i></span>
+                        <div className={classes.mainImgCont}>
+                            <img src={imageSrc} alt='img' />
+                        </div>
+                    </div>
                     <p>Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</p>
+                    <input
+                        type="file"
+                        ref={fileInputRef}
+                        style={{ display: 'none' }}
+                        onChange={handleImageChange}
+                        accept="image/png, image/jpeg, image/jpg"
+                    />
                 </div>
             </div>    
             <div className={classes.mainForm}>
@@ -184,73 +246,74 @@ export default function CreateNews() {
                 <Form className={classes.form}>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Code<span>*</span></Form.Label>
+                        <Form.Label>Code<span className={classes.span}>*</span></Form.Label>
                         <Form.Control type="text" placeholder="New code"/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Category<span>*</span></Form.Label>
+                        <Form.Label>Category<span className={classes.span}>*</span></Form.Label>
                         <Form.Control type="text" placeholder="News Category"/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Status<span>*</span></Form.Label>
+                        <Form.Label>Status<span className={classes.span}>*</span></Form.Label>
                         <Form.Control type="text" placeholder="News Status"/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Registration name<span>*</span></Form.Label>
+                        <Form.Label>Registration name<span className={classes.span}>*</span></Form.Label>
                         <Form.Control type="text" placeholder="Registration Name"/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Short description<span>*</span></Form.Label>
+                        <Form.Label>Short description<span className={classes.span}>*</span></Form.Label>
                         <Form.Control type="text" placeholder="News description"/>
                     </Form.Group>
                     
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Long description</Form.Label>
-                        <div className={classes.span}>
-                            <span >
-                                <InputGroup  className={classes.formActionArea}>
-                                    <DropdownButton
-                                    variant="outline-secondary"
-                                    title="Normal"
-                                    id="input-group-dropdown-1"
-                                    >
-                                        <Dropdown.Item href="#">Action</Dropdown.Item>
-                                        <Dropdown.Item href="#">Another action</Dropdown.Item>
-                                        <Dropdown.Item href="#">Something else here</Dropdown.Item>
-                                        {/* <Dropdown.Divider />
-                                        <Dropdown.Item href="#">Separated link</Dropdown.Item> */}
-                                    </DropdownButton>
-                                    <span>
-                                        <i>icons</i>
-                                        <i>icons</i>
-                                        <i>icons</i>
-                                        <i>icons</i>
-                                    </span>
-                                    {/* <Form.Control aria-label="Text input with dropdown button" /> */}
-                                </InputGroup>
-                                <textarea cols={50} placeholder='Type your text here..'></textarea>
-                            </span>
-                        </div>
+                        <ReactQuill 
+                            value={editorHtml}
+                            onChange={handleEditorChange}
+                            modules={modules}
+                            className={classes.editor}
+                            placeholder='Start writing your text here '
+                        />
                     </Form.Group>
-
-                    
-
-                    
-                    {/* <Button variant="primary" type="submit">
-                        Submit
-                    </Button> */}
                 </Form>
+
+                <div>
+                    {/* <ReactQuill 
+                        value={editorHtml}
+                        onChange={handleEditorChange}
+                        modules={modules}
+                    /> */}
+                    {/* <input 
+                        type="text"
+                        value={inputText}
+                        onChange={handleInputChange}
+                        placeholder="Enter text to format"
+                    /> */}
+                    {/* <button onClick={applyInputText}>Apply Text</button> */}
+                </div>
             </div>
         </div>
-        {/* <div className={classes.accrodBtns}>
-            <Button variant='light' className={classes.prev}>Previous</Button>
-                
-            <Button variant="success" className={classes.next}>Next</Button>
-        </div> */}
+        <div className={`${classes.formIntBtn} ${classes.formIntBtn2}`}>
+            <Button variant="light" className={classes.btn1}> Cancel</Button>
+            <Button variant="success" className={classes.btn2}>Save Change</Button>
+        </div>
+        <div className={classes.footerCont}>
+            <div>
+                <small>2024© <Link to={'#'}> Ogun State</Link></small>
+            </div>
+            <div>
+                <small className={classes.small}>
+                    <Link to={'#'}>About</Link>
+                    <Link to={'#'}>Support</Link>
+                    <Link to={'#'}>Purchase</Link>
+                </small>
+            </div>
+        </div>
     </div>
 </div> 
 

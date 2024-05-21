@@ -20,6 +20,7 @@
   width: 100%;
   padding-left: 20rem;
   padding-right: 4rem;
+  overflow: hidden;
 
 }
 .topPadding{
@@ -46,6 +47,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* margin-bottom: 4rem; */
   /* margin-left: 30px; */
 }
 .loandethead .formLabel h4{
@@ -64,11 +66,22 @@
   border: 1px solid rgb(187, 183, 183);
   color: var(--Black);
   font-size: 14px;
+  font-weight: 600;
+}
+.formIntBtn .btn1:hover{
+  border: 2px solid var(--Light-green);
+  color: var(--Light-green);
 }
 .formIntBtn .btn2{
-    /* background-color: var(--White); */
-    /* border: 1px solid rgb(187, 183, 183); */
   font-size: 14px;
+}
+.formIntBtn2{
+  width: 100%;
+  text-align: right;
+  display: flex;
+  justify-content: right;
+  gap: 25px;
+  margin-top: 2rem;
 }
 
 .loanText {
@@ -125,7 +138,7 @@
   border-radius: 10px;
   padding: 20px;
   max-width: 35%;
-  height: 300px;
+  height: 50%;
   box-shadow: 1px -1px  3px rgb(218, 215, 215);
 }
 .loanResponsive .banner .imgSec{
@@ -135,9 +148,40 @@
   align-items: center;
   gap: 10px;
 }
-.loanResponsive .banner .imgSec img{
-  box-shadow:3px 3px 10px  rgb(218, 215, 215) ;
+.mainImgCont{
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
   border-radius: 10px;
+  box-shadow:3px 3px 10px  rgb(218, 215, 215) ;
+}
+.loanResponsive .banner .imgSec img{
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.loanResponsive .banner .imgSec .imgCont{
+  position: relative;
+}
+.loanResponsive .banner .imgSec .imgCont span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  text-align: center;
+  background-color: var(--White);
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  font-size: 12px;
+  box-shadow: 1px -1px  20px rgb(196, 193, 193);
+  cursor: pointer;
+}
+.loanResponsive .banner .imgSec .imgCont span i:hover{
+  color: green;
 }
 .loanResponsive .banner p{
   font-size: 14px;
@@ -149,6 +193,7 @@
   border-radius: 10px;
   padding: 20px;
   width: 100%;
+  max-width: 95%;
   box-shadow: 1px -1px  3px rgb(218, 215, 215);
 }
 .mainform .form{
@@ -157,8 +202,10 @@
   flex-direction: column;
   gap: 20px;
 }
-.mainform .form span{
+.mainform .form .span{
   color: #f95f7a;
+  background-color:transparent;
+  border: none;
 }
 .mainform .form ::placeholder{
   color: #b0a1bc;
@@ -186,7 +233,37 @@
   background-color: transparent;
   color: #17c653;
 } 
-
+.form .editor{
+  border: 1px solid rgb(218, 215, 215);
+  height: 250px;  
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 550px;
+}
+.footerCont{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+.footerCont a{
+  text-decoration: none;
+  color: #6C757D; 
+}
+.footerCont a:hover{
+  color: green;
+}
+.footerCont small{
+  color: #6C757D;
+  font-weight: 600;
+}
+.footerCont .small{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
 @media(max-width:800px){
   .finishedbodyCont{
     padding-left: 0;

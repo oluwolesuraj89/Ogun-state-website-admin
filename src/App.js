@@ -7,34 +7,13 @@ import SignUp from './Web pages/Sign up/SignUp';
 import SignIn from './Web pages/Sign in/SignIn';
 import LandingPage from './Web pages/LandingPage/LandingPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Loans from './Web pages/Loans/Loans';
-import LoansApplication from './Web pages/Loans Generation/LoansApplication';
-import Grant from './Web pages/Grant/Grant';
+
 import Dashboard from './Web pages/Dashboard/Dashboard';
-import ApplyLoan from './Web pages/Loan/ApplyLoan';
-import LoanHomePage from './Web pages/Loan HomePage/LoanHomePage';
-import SubmitGrantApplication from './Web pages/Grant continue/GrantContinue';
-import RegisterPhone from './Web pages/Register Phone/RegisterPhone';
-import RegisterEmail from './Web pages/Register Email/RegisterEmail';
-import VerifyPhone from './Web pages/Verify Phone/VerifyPhone';
-import VerifyEmail from './Web pages/Verify Email/VerifyEmail';
-import ForgotPassword from './Web pages/Forgot Password/ForgotPassword';
-import ForgotPasswordRedirect from './Web pages/Forgot Password Redirect/ForgotPasswordRedirect';
-import ForgotPasswordReset from './Web pages/Forgot Password Reset/ForgotPasswordReset';
-import LoansOnboarding from './Web pages/Loans Onboarding/LoansOnboarding';
-import GrantOnboarding from './Web pages/Grant Onboarding/GrantOnboarding';
-import InvoicesBoard from './Web pages/Admin Monitor Invoice/InvoicesBoard';
-import AdministratorInvoice from './Web pages/Admin Monitor Invoice/AdministratorInvoice';
+
 import CompleteReg from './Web pages/Complete Reg/CompleteReg';
-import MainDashoard from './Web pages/Main Dashboard/MainDashoard';
-import Success from './Web pages/Success Reports/Success';
-import HeaderNav from './Web pages/HeaderNav/HeaderNav';
+
 import { RegistrationProvider } from './Web pages/RegistrationContext';
-import Profile from './Web pages/My Profile/Profile';
-import LoanIneligible from './Web pages/Loan Ineligible/LoanIneligible';
-import GrantIneligible from './Web pages/Grant Ineligible/GrantIneligible';
-import ApplyGrant from './Web pages/Grants Apply/ApplyGrant';
-import LoanTable from './Web pages/Loan Table/LoanTable';
+
 // import GrantTable from './Web pages/News Editor/NewsEditor';
 import NewsEditor from './Web pages/News Editor/NewsEditor';
 import SubNews from './Web pages/Sub News/SubNews';
@@ -97,7 +76,7 @@ function App() {
     <>
     <RegistrationProvider>
       <Routes>
-        <Route path='/'element={<LandingPage/>}/>
+        <Route path='/'element={<SignIn/>}/>
         <Route path='/dashboard'element={<Dashboard/>}/>
         <Route path='/news_editor'element={<NewsEditor/>}/>
         <Route path='/my_profile'element={<CompleteReg/>}/>
@@ -105,7 +84,7 @@ function App() {
         <Route path='/subnew' element={<SubNews />} />
         <Route path='/create_news' element={<CreateNews/>}/>
         {/* <Route path='/landing_page'element={<LandingPage/>}/> */}
-        {/* <Route path='/sign_up'element={<SignUp/>}/> */}
+        <Route path='/sign_up'element={<SignUp/>}/>
         {/* <Route path='/register_phone'element={<RegisterPhone/>}/>
         <Route path='/register_email'element={<RegisterEmail/>}/>
         <Route path='/loans'element={<Loans/>}/>
