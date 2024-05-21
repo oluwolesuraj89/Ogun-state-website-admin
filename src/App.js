@@ -38,6 +38,7 @@ import LoanTable from './Web pages/Loan Table/LoanTable';
 // import GrantTable from './Web pages/News Editor/NewsEditor';
 import NewsEditor from './Web pages/News Editor/NewsEditor';
 import SubNews from './Web pages/Sub News/SubNews';
+import PubNews from './Web pages/Pub News/PubNews';
 
 
 function App() {
@@ -102,6 +103,7 @@ function App() {
         <Route path='/my_profile'element={<CompleteReg/>}/>
         <Route path='/sign_in'element={<SignIn/>}/>
         <Route path='/subnew' element={<SubNews />} />
+        <Route path='pubnew' element={<PubNews />} />
         {/* <Route path='/landing_page'element={<LandingPage/>}/> */}
         {/* <Route path='/sign_up'element={<SignUp/>}/> */}
         {/* <Route path='/register_phone'element={<RegisterPhone/>}/>

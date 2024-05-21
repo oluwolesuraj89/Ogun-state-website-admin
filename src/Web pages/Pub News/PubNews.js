@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import classes from './SubNews.module.css';
+import classes from './PubNews.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
 import { Spinner, Badge, Button } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
@@ -15,8 +15,22 @@ import { Link, useNavigate } from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 import rectangle from '../../Images/Rectangle 9.png';
 import arrow from '../../Images/arrow.svg';
+import stroke from '../../Images/stroke.svg';
+import bold from '../../Images/bold.svg';
+import italic from '../../Images/italic.svg';
+import underline from '../../Images/underline.svg';
+import tbarrow from '../../Images/t-b arrow.svg';
+import align from '../../Images/align.svg';
+import ealign from '../../Images/ealign.svg';
+import num from '../../Images/num.svg';
+import list from '../../Images/list.svg';
+import join from '../../Images/join.svg';
+import quotes from '../../Images/quotes.svg';
+import pics from '../../Images/pics.svg';
+import dot from '../../Images/dot.svg';
 
-export default function SubNews() {
+
+export default function PubNews() {
     // const navigate = useNavigate();
     // const [bearer, setBearer] = useState('');
     // const [grantDetail, setGrantDetail] = useState([]);
@@ -165,26 +179,68 @@ export default function SubNews() {
     </div>
 
     <div className={classes.loanContainer}>
-        <h4>Ogun State Receives 30 CNG Gas Powered Buses</h4>
-        <p className={classes.firstP}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse </p>
-<img src ={rectangle} width={970} height={288} />
-<p className={classes.secondP}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
-veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
-consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, 
-quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in 
-ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+       <div className={classes.topIcons}>
+        <div>
+            <select name="heading" id="heading">
+                <option value="Heading1">Heading 1</option>
+            </select>
+        </div>
+        <img src={stroke} />
+        <img src={bold} />
+        <img src={italic} />
+        <div>
+            U
+            <img src={underline} />
+        </div>
+        <div>X<sub>2</sub></div>
+        <div>X<sup>2</sup></div>
+        <img src={stroke} />
+        <div>A
+            <img src={tbarrow} />
+        </div>
+        <div>A
+           <img src={align} />
+        </div>
+        <div>A
+        </div>
+        <img src={stroke} />
+        <img src={ealign} />
+        <img src={stroke} />
+        <img src={num} />
+        <img src={list} />
+        <img src={stroke} />
+        <img src={join} />
+        <img src={quotes} />
+        <img src={pics} />
+        </div>
+        <div className={classes.bodyText}>
+            <div className={classes.title}> 
+                <img src={dot} />
+                <div >Enter Title here</div>
+            </div>
 
-<p className={classes.thirdP}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
-veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
-consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, 
-quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in 
-ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+            <div className={classes.intro}>
+                <img src={dot} />
+                <div >Enter short introduction here</div>
+            </div>
 
+            <div className={classes.image}>
+                <img src={dot} />
+                <div className={classes.newsimg}>
+                    <div>Insert news image here</div>
+                        <div className={classes.upload}>
+                            <button>Upload</button>
+                        </div>
+                </div>
+            </div>
+            <div className={classes.news}>
+                <img src={dot} />
+                <div >Enter the rest of the news here</div>
+            </div>
+            
+        </div>
 <div className={classes.btnEdit}>
-    <button>Edit news in news editor</button>
+    <button>Publish News</button>
 </div>
     </div>
 </div> 
