@@ -41,6 +41,9 @@ export default function PubNews() {
     // const { isGrant, isHome } = useRegistration();
 
   
+    const goBack = () =>{
+        navigate('/news_editor')
+    }
 
     // const readData = async () => {
     //     try {
@@ -175,7 +178,7 @@ export default function PubNews() {
     <div className={classes.loandgrantcards}>
     <div className={classes.loandethead}>
         <img src={arrow} />
-        <p className={classes.loanText}>Back to News</p>
+        <p className={classes.loanText} onClick={goBack}>Back to News</p>
     </div>
 
     <div className={classes.loanContainer}>

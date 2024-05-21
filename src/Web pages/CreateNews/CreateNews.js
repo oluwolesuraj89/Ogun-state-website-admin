@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import classes from './NewsEditor.module.css';
+import classes from './CreateNews.module.css';
 import RegLogo from '../../Images/RegistrationLogo.svg'
 import { Spinner, Badge, Button } from 'react-bootstrap';
 import Folder from '../../Images/folder-2.svg';
@@ -13,8 +13,14 @@ import Ready1 from '../../Images/review.svg';
 import { useRegistration } from '../RegistrationContext';
 import { Link, useNavigate } from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
+import placeHolder from "../../assets/imagePlaceHolder.jpg"
+// import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import InputGroup from 'react-bootstrap/InputGroup';
 
-export default function NewsEditor() {
+export default function CreateNews() {
     const navigate = useNavigate();
     // const [bearer, setBearer] = useState('');
     // const [grantDetail, setGrantDetail] = useState([]);
@@ -26,9 +32,6 @@ export default function NewsEditor() {
 
     const openNews = () =>{
         navigate('/subnew')
-    }
-    const addNews = () =>{
-        navigate('/create_news  ')
     }
 
     // const readData = async () => {
@@ -150,139 +153,104 @@ export default function NewsEditor() {
                     </div>
                 </div>
             </div>
-            {/* <div className={classes.formSection}>
-                <div className={classes.formSectionHeader}>
-                    <h3>News Editor</h3>
-                    
-                </div>
-                <div className={classes.formSectionHeader}>
-                    <p>Welcome </p>
-                    <h3 style={{color:'#2D995F'}}>{user}</h3>
-                </div>
-            </div> */}
-
+            
         <div className={classes.mainform}>
 
     <div className={classes.loandgrantcards}>
     <div className={classes.loandethead}>
-        <p className={classes.loanText}>Post news on the website from the editor</p>
-        <Button variant="light" onClick={addNews}><i class='bx bx-plus-circle'></i> Add New</Button>
+        <div className={classes.formLabel}>
+            <h4>New</h4>
+            <p className={classes.loanText}>Home-Apps-eCommerce-Catalog</p>
+        </div>
+        <div className={classes.formIntBtn}>
+            <Button variant="light" className={classes.btn1}> Add Member</Button>
+            <Button variant="success" className={classes.btn2}>New Campaign</Button>
+        </div>
     </div>
 
     <div className={classes.loanContainer}>
         <div className={classes.loanResponsive}>
-        <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>S/N</th>
-          <th>TITLE</th>
-          <th>DATE POSTED</th>
-          <th>AUTHOR</th>
-          <th>ACTION</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-          <td>12th Apr, 2024</td>
-          <td>Abiodun Moyo</td>
-          <td className={classes.edit} onClick={openNews}>Edit</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-          <td>12th Apr, 2024</td>
-          <td>Abiodun Moyo</td>
-          <td className={classes.edit}>Edit</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-          <td>12th Apr, 2024</td>
-          <td>Abiodun Moyo</td>
-          <td className={classes.edit}>Edit</td>
-        </tr>
-        
-      </tbody>
-    </Table>
-    <div className={classes.accrodBtns}>
-        <Button variant='light' className={classes.prev}>Previous</Button>
-            <p style={{ color:'#2D995F'}}>1 of 5</p>
-        <Button variant="success" className={classes.next}>Next</Button>
-    </div>
-        {/* <table>
-            <thead className={classes.loanTable}>
-                <tr >
-                    <th className={classes.tableText}>S/N</th>
-                    <th className={classes.tableText}>TITLE</th>
-                    <th className={classes.tableText}>DATE POSTED</th>
-                    <th className={classes.tableText}>AUTHOR</th>
-                    <th className={classes.tableText}>ACTION</th>
-                    
-                </tr>
-            </thead> */}
-            {/*                     
-                            {isLoading ? (
-                <p className={classes.fetchText}><Spinner size='sm' style={{ marginRight: 5 }} />Fetching grant application...</p>
-            ) : grantDetail.length > 0 ? (
-                <tbody>
-                    <tr>
-                        <td>S/N</td>
-                        <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-                        <td>12th Apr, 2024</td>
-                        <td>Abiodun Moyo</td>
-                        <td>Edit</td>
-                    </tr>
-                    <tr>
-                        <td>S/N</td>
-                        <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-                        <td>12th Apr, 2024</td>
-                        <td>Abiodun Moyo</td>
-                        <td>Edit</td>
-                    </tr>
-                    <tr>
-                        <td>S/N</td>
-                        <td>Ogun state commence SME and Grants Scheme to empower 1000 SMEs in Ogun state.</td>
-                        <td>12th Apr, 2024</td>
-                        <td>Abiodun Moyo</td>
-                        <td>Edit</td>
-                    </tr>
-                    
-                    {grantDetail.map((item, index) => (
-                        <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{item.application_number}</td>
-                            <td>{item.type === 2 ? "Grant Application" : "Loan Application"}</td>
-                            <td style={{ textAlign: "right" }}>₦{parseFloat(item.amount).toLocaleString('en-US', {
-                                minimumIntegerDigits: 1,
-                                minimumFractionDigits: 2,
-                                maximumFractionDigits: 2
-                            })}</td>
-                            <td>{formatDate(item.created_at)}</td>
-                            <td>
-                                <Badge bg={item.status === "Pending" ? 'warning' : item.status === "Approved" ? 'success' : 'danger'}>
-                                    {item.status}
-                                </Badge>
-                            </td>
-                            <td>
-                            
-                            </td>
-                        </tr> 
-                    ))} 
-                </tbody>
-            ) : (
-                <tbody>
-                    <tr>
-                        <td colSpan="7">No grant applications</td>
-                    </tr>
-                </tbody>
-            )}
+            <div className={classes.banner}>
+                <h5>Banner</h5>
+                <div className={classes.imgSec}>
+                    {/* <div> */}
+                        <img src={placeHolder} alt='img' width={150} />
+                    {/* </div> */}
+                    <p>Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</p>
+                </div>
+            </div>    
+            <div className={classes.mainForm}>
+                <h5>General</h5>
+                <Form className={classes.form}>
 
-            </table> */}
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Code<span>*</span></Form.Label>
+                        <Form.Control type="text" placeholder="New code"/>
+                    </Form.Group>
 
-            
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Category<span>*</span></Form.Label>
+                        <Form.Control type="text" placeholder="News Category"/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Status<span>*</span></Form.Label>
+                        <Form.Control type="text" placeholder="News Status"/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Registration name<span>*</span></Form.Label>
+                        <Form.Control type="text" placeholder="Registration Name"/>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Short description<span>*</span></Form.Label>
+                        <Form.Control type="text" placeholder="News description"/>
+                    </Form.Group>
+                    
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Long description</Form.Label>
+                        <div className={classes.span}>
+                            <span >
+                                <InputGroup  className={classes.formActionArea}>
+                                    <DropdownButton
+                                    variant="outline-secondary"
+                                    title="Normal"
+                                    id="input-group-dropdown-1"
+                                    >
+                                        <Dropdown.Item href="#">Action</Dropdown.Item>
+                                        <Dropdown.Item href="#">Another action</Dropdown.Item>
+                                        <Dropdown.Item href="#">Something else here</Dropdown.Item>
+                                        {/* <Dropdown.Divider />
+                                        <Dropdown.Item href="#">Separated link</Dropdown.Item> */}
+                                    </DropdownButton>
+                                    <span>
+                                        <i>icons</i>
+                                        <i>icons</i>
+                                        <i>icons</i>
+                                        <i>icons</i>
+                                    </span>
+                                    {/* <Form.Control aria-label="Text input with dropdown button" /> */}
+                                </InputGroup>
+                                <textarea cols={50} placeholder='Type your text here..'></textarea>
+                            </span>
+                        </div>
+                    </Form.Group>
+
+                    
+
+                    
+                    {/* <Button variant="primary" type="submit">
+                        Submit
+                    </Button> */}
+                </Form>
+            </div>
         </div>
+        {/* <div className={classes.accrodBtns}>
+            <Button variant='light' className={classes.prev}>Previous</Button>
+                
+            <Button variant="success" className={classes.next}>Next</Button>
+        </div> */}
     </div>
 </div> 
 

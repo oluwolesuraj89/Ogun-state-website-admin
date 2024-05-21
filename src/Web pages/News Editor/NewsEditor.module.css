@@ -22,13 +22,18 @@
   padding-right: 4rem;
 
 }
-
+.topPadding{
+  width: 100%;
+  padding-top: 1rem;
+}
 .formSecCont{
   padding: 24px 32px;
   background-color: var(--White);
   border-radius: 12px;
   margin-bottom: 20px;
- 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .formSecCont h3{
   color: #343A40;
@@ -143,6 +148,8 @@ font-weight: normal;
 }
  .loanResponsive .edit{
     color: var(--Light-green);
+    cursor: pointer;
+    text-align: center;
  }
  .loanResponsive .accrodBtns{
     display: flex;
